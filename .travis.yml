@@ -17,4 +17,5 @@ notifications:
      - enzoponf3@gmail.com
      - sebapenna19@gmail.com
     on_failure: always
+    on_success: always
 

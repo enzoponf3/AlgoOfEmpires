@@ -8,7 +8,16 @@ public abstract class Unidad {
         posicion = new Posicion(x,y);
     }
 
+    public int getVida(){
+        return vida;
+    }
+
+    public int getCosto(){
+        return costo;
+    }
+
     public void moverHaciaArriba(){
+
         posicion.moverHaciaArriba();
     }
     public void moverHaciaAbajo(){
@@ -16,8 +25,11 @@ public abstract class Unidad {
     }
     public void moverHaciaIzquierda(){
         posicion.moverHaciaIzquierda();
+        estado = "Ocupado";
     }
     public void moverHaciaDerecha(){
+        if(estado.equals("Ocupado"))
+            throw new UnidadYaMovioException();
         posicion.moverHaciaDerecha();
     }
     public void moverHaciaAbajoIzquierda(){

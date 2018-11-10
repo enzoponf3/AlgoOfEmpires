@@ -8,6 +8,19 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano(5,7);
         Assert.assertEquals(true,aldeano.estaEnPos(5,7));
     }
+
+    @Test
+    public void crearAldeanoYVerificarVidaCorrespondiente(){
+        Aldeano aldeano = new Aldeano(13,21);
+        Assert.assertEquals(50,aldeano.getVida());
+    }
+
+    @Test
+    public void crearAldeanoYVerificarCostoCorrespondiente(){
+        Aldeano aldeano = new Aldeano(13,21);
+        Assert.assertEquals(50,aldeano.getCosto());
+    }
+
     //Pruebas Mov normales
 
     @Test
@@ -152,14 +165,12 @@ public class AldeanoTest {
 
     //Mover mas de 1 vez falla en cada posicion
 
-    @Test
+    @Test (expected = UnidadYaMovioException.class)
     public void moverAldeanoADerechaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(1,1);
         Assert.assertEquals(true,aldeano.estaEnPos(1,1));
-        aldeano.moverHaciaAbajo();
-        try{
-            aldeano.moverHaciaDerecha();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaIzquierda();
+        aldeano.moverHaciaDerecha();
     }
 
     @Test
@@ -203,7 +214,7 @@ public class AldeanoTest {
     }
 
     @Test
-    public void moverAldeanoAbajoLuegoDeHaberMovidoLanzaExcepcion(){
+    public void moverAldeanoAbajoLuegoDeHaberMovidoExcepcion(){
         Aldeano aldeano = new Aldeano(17,48);
         Assert.assertEquals(true,aldeano.estaEnPos(17,48));
         aldeano.moverHaciaArribaDerecha();
@@ -213,7 +224,7 @@ public class AldeanoTest {
     }
 
     @Test
-    public void moverAldeanoAbajoIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
+    public void moverAldeanoAbajoIzquierdaLuegoDeHaberMovidoExcepcion(){
         Aldeano aldeano = new Aldeano(34,41);
         Assert.assertEquals(true,aldeano.estaEnPos(34,41));
         aldeano.moverHaciaAbajo();
@@ -222,34 +233,46 @@ public class AldeanoTest {
         }catch(Exception unidadYaMovio){}
     }
 
-    @Test
-    public void moverAldeanoAbajoDerechaLuegoDeHaberMovidoLanzaExcepcion(){
+    @Test (expected = UnidadYaMovioException.class)
+    public void moverAldeanoAbajoDerechaLuegoDeHaberMovidoException(){
         Aldeano aldeano = new Aldeano(10,3);
         Assert.assertEquals(true,aldeano.estaEnPos(10,3));
         aldeano.moverHaciaIzquierda();
-        try{
-            aldeano.moverHaciaAbajoDerecha();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaAbajoDerecha();
     }
 
-    //Pruebas construccion
-    /*
+    /*Pruebas construccion
+
    @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueExiste(){
         Aldeano aldeano = new Aldeano(2,3);
-        aldeano.construirCuartel();
-        //Assert.assertEquals(); npi
+        Cuartel cuartel = aldeano.construirCuartel();
+        Assert.assertNotNull(cuartel);
+    }
 
+    @Test
+    public void AldeanoConstruyeCuartelYSeVerificaQueTieneVidaCorrespondiente(){
+        Aldeano aldeano = new Aldeano(2,3);
+        Cuartel cuartel = aldeano.construirCuartel();
+        Assert.assertEquals(250, cuartel.getVida());
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueExiste(){
         Aldeano aldeano = new Aldeano(10,9);
-
+        Cuartel cuartel = aldeano.construirCuartel();
+        Assert.assertNotNull(cuartel);
     }
 
     @Test
-    public void AldeanoConstruyeCuartelYSeVerificaQueEsDuranteTurnoJugador(){
+    public void AldeanoConstruyePlazaCentralYSeVerificaQueTieneVidaCorrespondiente(){
+        Aldeano aldeano = new Aldeano(2,3);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Assert.assertEquals(450, plaza.getVida());
+    }
+
+    @Test
+    public void AldeanoConstruyeCuartelYSeVerificaQueEsDuranteTurnoJugador(){      // Estos test serian de la clase Jugador porque oro es stat
         Aldeano aldeano = new Aldeano(6,20);
 
     }
@@ -272,44 +295,74 @@ public class AldeanoTest {
 
     }
 
-    //Pruebas de reparacion
+    Pruebas de reparacion
+
+    @Test
+    public void AldeanoReparaCuartelConVidaCompletaException(){
+        Aldeano aldeano = new Aldeano;
+        Cuartel cuartel = new Cuartel;
+        try{
+            aldeano.repararCuartel(cuartel);
+        }catch(Exception CuartelVidaCompleta){}
+    }
+
+    @Test
+    public void AldeanoReparaPlazaCentralConVidaCompletaException(){
+        Aldeano aldeano = new Aldeano;
+        PlazaCentral plaza = new PlazaCentral;
+        try{
+            aldeano.repararPlazaCentral(plaza);
+        }catch(Exception PlazaCentralVidaCompleta){}
+    }
 
     @Test
     public void AldeanoReparaCuartelYSeVerificaSuEstado(){
         Aldeano aldeano = new Aldeano;
+        aldeano.construirCuartel();
+        cuartel.reducirVida(50);
         aldeano.repararCuartel(cuartel);
         Assert.assertEquals(Aldeano.estado(),'Ocupado');
-
     }
 
     @Test
-    public void AldeanoReparaCuartelYSeVerificaAumentoVidaCuartel(){
+    public void AldeanoReparaCuartelYSeVerificaAumentoVida(){
+        Aldeano aldeano = new Aldeano;
+        Cuartel cuartel = new Cuartel();
+        Assert.assertEquals(250,cuartel.getVida());
+        cuartel.reducirVida(50);
+        Assert.assertEquals(200,cuartel.getVida());
+        aldeano.repararCuartel(cuartel);
+        Assert.assertEquals(250,cuartel.getVida());
+    }
+
+    @Test
+    public void AldeanoFinalizaReparacionCuartelYGeneraOro(){ // Estos test serian de la clase Jugador porque oro es stat
+        Aldeano aldeano = new Aldeano;
+
+    }
+        @Test
+    public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
         Aldeano aldeano = new Aldeano;
 
     }
 
-    @Test
-    public void AldeanoFinalizaReparacionCuartelYGeneraOro(){
-        Aldeano aldeano = new Aldeano;
-
-    }
 
     @Test
     public void AldeanoReparaPlazaCentralYSeVerificaSuEstado(){
         Aldeano aldeano = new Aldeano;
-
+        aldeano.construirPlazaCentral();
+        Assert.assertEquals(Aldeano.estado(),'Ocupado');
     }
 
     @Test
-    public void AldeanoReparaPlazaCentralYSeVerificaAumentoVidaPlazaCentral(){
+    public void AldeanoReparaPlazaCentralYSeVerificaAumentoVida(){
         Aldeano aldeano = new Aldeano;
-
+        PlazaCentral plaza = new PlazaCentral();
+        Assert.assertEquals(250,plaza.getVida());
+        plaza.reducirVida(50);
+        Assert.assertEquals(200,plaza.getVida());
+        aldeano.repararPlazaCentral(plaza);
+        Assert.assertEquals(250,plaza.getVida());
     }
-
-    @Test
-    public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
-        Aldeano aldeano = new Aldeano;
-
-    }*/
-
+    */
 }

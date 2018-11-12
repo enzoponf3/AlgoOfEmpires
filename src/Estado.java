@@ -6,5 +6,6 @@ public interface Estado {
     void continuarConstruccionPlazaCentral(PlazaCentral plaza, Aldeano aldeano);
     void continuarConstruccionCuartel(Cuartel cuartel, Aldeano aldeano);
     void atacar(Unidad unidad,Unidad atacante);
-    String getEstado();
+    boolean comprobarEstado();
+    boolean estaOcupado();
 }

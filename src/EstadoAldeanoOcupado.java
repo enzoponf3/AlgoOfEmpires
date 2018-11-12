@@ -2,6 +2,7 @@
 public class EstadoAldeanoOcupado implements Estado{
     private static int TURNO = 3;
     private int turno = TURNO;
+    private boolean OCUPADO = false;
 
     public PlazaCentral construirPlazaCentral(Aldeano aldeano){
         this.reducirTurno(aldeano);
@@ -15,7 +16,6 @@ public class EstadoAldeanoOcupado implements Estado{
 
     @Override
     public void repararEdificio(Edificio edificio,Aldeano aldeano) {
-        turno = 1;
         this.reducirTurno(aldeano);
 
     }
@@ -43,9 +43,11 @@ public class EstadoAldeanoOcupado implements Estado{
         throw new ElAldeanoNoPuedeAtacarException();
     }
 
-    public String getEstado(){
-        return "Ocupado";
+    public boolean comprobarEstado(){
+        return OCUPADO;
     }
+
+    public boolean estaOcupado(){throw new AldeanoOcupadoException(); }
 
 }
 

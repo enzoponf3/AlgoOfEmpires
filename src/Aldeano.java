@@ -30,39 +30,47 @@ public class Aldeano extends Unidad{
     }
 
     public void moverHaciaArriba(){
+        this.estado.estaOcupado();
         super.moverHaciaArriba();
         this.ocuparse();
     }
     public void moverHaciaAbajo(){
+        this.estado.estaOcupado();
         super.moverHaciaAbajo();
         this.ocuparse();
     }
     public void moverHaciaIzquierda(){
+        this.estado.estaOcupado();
         super.moverHaciaIzquierda();
         this.ocuparse();
     }
 
     public void moverHaciaDerecha(){
+        this.estado.estaOcupado();
         super.moverHaciaDerecha();
         this.ocuparse();
     }
 
     public void moverHaciaAbajoIzquierda(){
+        this.estado.estaOcupado();
         super.moverHaciaAbajoIzquierda();
         this.ocuparse();
     }
 
     public void moverHaciaAbajoDerecha(){
+        this.estado.estaOcupado();
         super.moverHaciaAbajoDerecha();
         this.ocuparse();
     }
 
     public void moverHaciaArribaIzquierda(){
+        this.estado.estaOcupado();
         super.moverHaciaArribaIzquierda();
         this.ocuparse();
     }
 
     public void moverHaciaArribaDerecha(){
+        this.estado.estaOcupado();
         super.moverHaciaArribaDerecha();
         this.ocuparse();
     }
@@ -77,7 +85,7 @@ public class Aldeano extends Unidad{
     }
 
     public boolean generaOro(){
-        return this.getEstado().equals("Libre");
+        return this.estado.comprobarEstado();
     }
 
 }

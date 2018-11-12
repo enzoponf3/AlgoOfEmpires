@@ -1,5 +1,6 @@
 
 public class EstadoAldeanoLibre implements Estado{
+    private boolean LIBRE = true;
 
     public PlazaCentral construirPlazaCentral(Aldeano aldeano){
         PlazaCentral plaza = new PlazaCentral();
@@ -32,8 +33,13 @@ public class EstadoAldeanoLibre implements Estado{
         throw new ElAldeanoNoPuedeAtacarException();
     }
 
-    public String getEstado(){
-        return "Libre";
+    @Override
+    public boolean estaOcupado(){
+        return false;
+    }
+
+    public boolean comprobarEstado(){
+        return LIBRE;
     }
 
 }

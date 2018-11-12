@@ -63,8 +63,8 @@ public abstract class Unidad{
         this.estado.atacar(unidad,this);
     }
 
-    public String getEstado(){
-        return this.estado.getEstado();
+    public boolean getEstado(){
+        return this.estado.estaOcupado();
     }
 
     public void ocuparse(){}

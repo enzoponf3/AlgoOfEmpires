@@ -153,7 +153,7 @@ public class AldeanoTest {
     }
 */
     //Mover mas de 1 vez falla en cada posicion
-    /*
+
     @Test (expected = AldeanoOcupadoException.class)
     public void moverAldeanoADerechaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(1,1);
@@ -217,7 +217,6 @@ public class AldeanoTest {
         aldeano.moverHaciaIzquierda();
         aldeano.moverHaciaAbajoDerecha();
     }
-    */
 
     //Pruebas construccion
 
@@ -311,10 +310,10 @@ public class AldeanoTest {
         Cuartel cuartel = aldeano.construirCuartel();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.continuarConstruccionCuartel(cuartel);
-        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);  //Si esta construyendo no se puede mover porque esta ocupado
         cuartel.reducirVida(60);
         aldeano.repararEdificio(cuartel);
-        Assert.assertEquals("Ocupado",aldeano.getEstado());
+        Assert.assertEquals(false,aldeano.estado.estaOcupado());
     }
 
     @Test

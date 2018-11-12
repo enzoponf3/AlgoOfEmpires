@@ -1,51 +1,41 @@
 public class Posicion {
+
     protected int horizontal;
     protected int vertical;
-    protected Movimiento movimiento;
 
-    Posicion(int x,int y) {
-        horizontal = x;
-        vertical = y;
-        movimiento = new Movimiento();
+
+    Posicion(int horizontal,int vertical) {
+        this.horizontal = horizontal;
+        this.vertical = vertical;
     }
 
-    public void moverHaciaArriba() {
-        vertical = movimiento.moverHaciaArriba(vertical);
+    public int getCoordenadaHorizontal(){
+        return this.horizontal;
     }
 
-    public void moverHaciaAbajo(){
-        vertical = movimiento.moverHaciaAbajo(vertical);
+    public int getCoordenadaVertical(){
+        return this.vertical;
     }
 
-    public void moverHaciaDerecha() {
-        horizontal = movimiento.moverHaciaDerecha(horizontal);
+
+    public boolean compararPosiciones(Posicion unaposicion){
+        return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
     }
 
-    public void moverHaciaIzquierda() {
-        horizontal = movimiento.moverHaciaIzquierda(horizontal);
+    public boolean estaDentroDelMapa(int limite1, int limite2) {
+        return ( (this.horizontal > 0 ) && (this.horizontal < limite1) && (this.vertical > 0) && (this.vertical < limite2) );
     }
 
-    public void moverHaciaAbajoIzquierda() {
-        this.moverHaciaAbajo();
-        this.moverHaciaIzquierda();
+    public void aumentarHorizontal(){
+        this.horizontal +=1;
     }
-
-    public void moverHaciaAbajoDerecha() {
-        this.moverHaciaAbajo();
-        this.moverHaciaDerecha();
+    public void aumentarVertical(){
+        this.vertical +=1;
     }
-
-    public void moverHaciaArribaIzquierda() {
-        this.moverHaciaArriba();
-        this.moverHaciaIzquierda();
+    public void disminuirHorizontal(){
+        this.horizontal-=1;
     }
-
-    public void moverHaciaArribaDerecha() {
-        this.moverHaciaArriba();
-        this.moverHaciaDerecha();
-    }
-
-    public boolean estaEnPos(int x, int y) {
-        return ((horizontal == x)&& (vertical == y));
+    public void disminuirVertical(){
+        this.vertical-=1;
     }
 }

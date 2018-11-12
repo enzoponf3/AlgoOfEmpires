@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.junit.Assert;
 
+
 public class AldeanoTest {
     //Pruebas base
     @Test
@@ -8,6 +9,9 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano(5,7);
         Assert.assertEquals(true,aldeano.estaEnPos(5,7));
     }
+
+    //public void crearAldeanoEnPosicionInexistente(){}
+    //public void crearAldeanoYVerificarQueGeneraOro(){}
 
     @Test
     public void crearAldeanoYVerificarVidaCorrespondiente(){
@@ -18,7 +22,7 @@ public class AldeanoTest {
     @Test
     public void crearAldeanoYVerificarCostoCorrespondiente(){
         Aldeano aldeano = new Aldeano(13,21);
-        Assert.assertEquals(50,aldeano.getCosto());
+        Assert.assertEquals(25,aldeano.getCosto());
     }
 
     //Pruebas Mov normales
@@ -86,86 +90,71 @@ public class AldeanoTest {
         aldeano.moverHaciaArribaDerecha();
         Assert.assertEquals(true,aldeano.estaEnPos(34,34));
     }
-
+/*
     //Pruebas mov unidad inexistente , hacer las comentadas cuando se sepa tamanio map
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadArribaInexistente(){
-        Aldeano aldeano = new Aldeano(1,1);
-        Assert.assertEquals(true,aldeano.estaEnPos(1,1));
-        try{
-            aldeano.moverHaciaArriba();
-        }catch(Exception posicionInexistente){}
+        Mapa map = new Mapa(50,25);
+        Aldeano aldeano = new Aldeano(CotaInf,CotaInf);
+        Assert.assertEquals(true,aldeano.estaEnPos(CotaInf,CotaInf));
+        aldeano.moverHaciaArriba();
+        map.comprobarPosicion(CotaInf,CotaInf);
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadAbajoInexistente(){
-        Aldeano aldeano = new Aldeano(2,50);
-        Assert.assertEquals(true,aldeano.estaEnPos(2,50));
-        try{
-            aldeano.moverHaciaArribaDerecha();
-        }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(2,24);
+        Assert.assertEquals(true,aldeano.estaEnPos(2,24));
+        aldeano.moverHaciaArribaDerecha();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadDerechaInexistente(){
-        Aldeano aldeano = new Aldeano(50,1);
-        Assert.assertEquals(true,aldeano.estaEnPos(50,1));
-        try{
-            aldeano.moverHaciaArribaDerecha();
-        }catch(Exception unidadInexistente){}
-
+        Aldeano aldeano = new Aldeano(CotaSupAncho,CotaInf);
+        Assert.assertEquals(true,aldeano.estaEnPos(CotaSupAncho,CotaInf));
+        aldeano.moverHaciaArribaDerecha();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadAbajoDerechaInexistente(){
-        Aldeano aldeano = new Aldeano(50,50);
-            Assert.assertEquals(true,aldeano.estaEnPos(50,50));
-            try{
-                aldeano.moverHaciaArribaDerecha();
-            }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(CotaSupAncho,CotaSupAlto);
+            Assert.assertEquals(true,aldeano.estaEnPos(CotaSupAncho,CotaSupAlto));
+            aldeano.moverHaciaArribaDerecha();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadAbajoIzquierdaInexistente(){
-        Aldeano aldeano = new Aldeano(1,50);
-        Assert.assertEquals(true,aldeano.estaEnPos(1,50));
-        try{
-            aldeano.moverHaciaArribaDerecha();
-        }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(CotaInf,CotaSupAlto);
+        Assert.assertEquals(true,aldeano.estaEnPos(CotaInf,CotaSupAlto));
+        aldeano.moverHaciaArribaDerecha();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadIzquierdaInexistente(){
-        Aldeano aldeano = new Aldeano(5,1);
-        Assert.assertEquals(true,aldeano.estaEnPos(5,1));
-        try{
-            aldeano.moverHaciaIzquierda();
-        }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(5,CotaInf);
+        Assert.assertEquals(true,aldeano.estaEnPos(5,CotaInf));
+        aldeano.moverHaciaIzquierda();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadArribaIzquierdaInexistente(){
-        Aldeano aldeano = new Aldeano(1,2);
-        Assert.assertEquals(true,aldeano.estaEnPos(1,2));
-        try{
-            aldeano.moverHaciaArribaIzquierda();
-        }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(CotaInf,2);
+        Assert.assertEquals(true,aldeano.estaEnPos(CotaInf,2));
+        aldeano.moverHaciaArribaIzquierda();
     }
 
-    @Test
+    @Test(expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoUnaUnidadArribaDerechaInexistente(){
-        Aldeano aldeano = new Aldeano(24,1);
-        Assert.assertEquals(true,aldeano.estaEnPos(24,1));
-        try{
-            aldeano.moverHaciaArribaDerecha();
-        }catch(Exception unidadInexistente){}
+        Aldeano aldeano = new Aldeano(24,CotaInf);
+        Assert.assertEquals(true,aldeano.estaEnPos(24,CotaInf));
+        aldeano.moverHaciaArribaDerecha();
 
     }
-
+*/
     //Mover mas de 1 vez falla en cada posicion
-
-    @Test (expected = UnidadYaMovioException.class)
+    /*
+    @Test (expected = AldeanoOcupadoException.class)
     public void moverAldeanoADerechaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(1,1);
         Assert.assertEquals(true,aldeano.estaEnPos(1,1));
@@ -173,75 +162,64 @@ public class AldeanoTest {
         aldeano.moverHaciaDerecha();
     }
 
-    @Test
+    @Test(expected = AldeanoOcupadoException.class)
     public void moverAldeanoAIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(3,3);
         Assert.assertEquals(true,aldeano.estaEnPos(3,3));
         aldeano.moverHaciaArriba();
-        try{
-            aldeano.moverHaciaIzquierda();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaIzquierda();
     }
 
-    @Test
+    @Test(expected = AldeanoOcupadoException.class)
     public void moverAldeanoArribaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(28,30);
         Assert.assertEquals(true,aldeano.estaEnPos(28,30));
         aldeano.moverHaciaDerecha();
-        try{
-            aldeano.moverHaciaArriba();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaArriba();
     }
 
-    @Test
+    @Test(expected = AldeanoOcupadoException.class)
     public void moverAldeanoArribaIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(11,19);
         Assert.assertEquals(true,aldeano.estaEnPos(11,19));
         aldeano.moverHaciaArribaDerecha();
-        try{
-            aldeano.moverHaciaArribaIzquierda();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaArribaIzquierda();
     }
 
-    @Test
+    @Test (expected = AldeanoOcupadoException.class)
     public void moverAldeanoArribaDerechaLuegoDeHaberMovidoLanzaExcepcion(){
         Aldeano aldeano = new Aldeano(3,3);
         Assert.assertEquals(true,aldeano.estaEnPos(3,3));
         aldeano.moverHaciaAbajoIzquierda();
-        try{
-            aldeano.moverHaciaArribaDerecha();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaArribaDerecha();
     }
 
-    @Test
+    @Test(expected = AldeanoOcupadoException.class)
     public void moverAldeanoAbajoLuegoDeHaberMovidoExcepcion(){
         Aldeano aldeano = new Aldeano(17,48);
         Assert.assertEquals(true,aldeano.estaEnPos(17,48));
         aldeano.moverHaciaArribaDerecha();
-        try{
-            aldeano.moverHaciaAbajo();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaAbajo();
     }
 
-    @Test
+    @Test(expected = AldeanoOcupadoException.class)
     public void moverAldeanoAbajoIzquierdaLuegoDeHaberMovidoExcepcion(){
         Aldeano aldeano = new Aldeano(34,41);
         Assert.assertEquals(true,aldeano.estaEnPos(34,41));
         aldeano.moverHaciaAbajo();
-        try{
-            aldeano.moverHaciaAbajoIzquierda();
-        }catch(Exception unidadYaMovio){}
+        aldeano.moverHaciaAbajoIzquierda();
     }
 
-    @Test (expected = UnidadYaMovioException.class)
+    @Test (expected = AldeanoOcupadoException.class)
     public void moverAldeanoAbajoDerechaLuegoDeHaberMovidoException(){
         Aldeano aldeano = new Aldeano(10,3);
         Assert.assertEquals(true,aldeano.estaEnPos(10,3));
         aldeano.moverHaciaIzquierda();
         aldeano.moverHaciaAbajoDerecha();
     }
+    */
 
-    /*Pruebas construccion
+    //Pruebas construccion
 
    @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueExiste(){
@@ -254,115 +232,199 @@ public class AldeanoTest {
     public void AldeanoConstruyeCuartelYSeVerificaQueTieneVidaCorrespondiente(){
         Aldeano aldeano = new Aldeano(2,3);
         Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
         Assert.assertEquals(250, cuartel.getVida());
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueExiste(){
         Aldeano aldeano = new Aldeano(10,9);
-        Cuartel cuartel = aldeano.construirCuartel();
-        Assert.assertNotNull(cuartel);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Assert.assertNotNull(plaza);
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueTieneVidaCorrespondiente(){
-        Aldeano aldeano = new Aldeano(2,3);
+        Aldeano aldeano = new Aldeano(10,9);
         PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
         Assert.assertEquals(450, plaza.getVida());
     }
 
-    @Test
-    public void AldeanoConstruyeCuartelYSeVerificaQueEsDuranteTurnoJugador(){      // Estos test serian de la clase Jugador porque oro es stat
-        Aldeano aldeano = new Aldeano(6,20);
-
+    @Test(expected = AldeanoOcupadoException.class)
+    public void AldeanoConstruyeCuartelYSeVerificaQueAldeanoEstaOcupado(){
+        Aldeano aldeano = new Aldeano(10,9);
+        aldeano.construirPlazaCentral();
+        aldeano.construirPlazaCentral();
     }
 
-    @Test
-    public void AldeanoConstruyePlazaCentralYSeVerificaQueEsDuranteTurnoJugador(){
-        Aldeano aldeano = new Aldeano(24,4);
-
-    }
 
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueoNoGeneraOro(){
         Aldeano aldeano = new Aldeano(35,30);
-
+        Assert.assertTrue(aldeano.generaOro());
+        Cuartel cuartel = aldeano.construirCuartel();
+        Assert.assertFalse(aldeano.generaOro());
+        aldeano.continuarConstruccionCuartel(cuartel);
+        Assert.assertFalse(aldeano.generaOro());
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueNoGeneraOro(){
         Aldeano aldeano = new Aldeano(45,11);
-
+        Assert.assertTrue(aldeano.generaOro());
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Assert.assertFalse(aldeano.generaOro());
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        Assert.assertFalse(aldeano.generaOro());
     }
 
-    Pruebas de reparacion
+    //Pruebas de reparacion
 
-    @Test
+    @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaCuartelConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano;
-        Cuartel cuartel = new Cuartel;
-        try{
-            aldeano.repararCuartel(cuartel);
-        }catch(Exception CuartelVidaCompleta){}
+        Aldeano aldeano = new Aldeano(2,2);
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.repararEdificio(cuartel);
     }
 
-    @Test
+    @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaPlazaCentralConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano;
-        PlazaCentral plaza = new PlazaCentral;
-        try{
-            aldeano.repararPlazaCentral(plaza);
-        }catch(Exception PlazaCentralVidaCompleta){}
+        Aldeano aldeano = new Aldeano(2,10);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.repararEdificio(plaza);
     }
 
     @Test
     public void AldeanoReparaCuartelYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano;
-        aldeano.construirCuartel();
-        cuartel.reducirVida(50);
-        aldeano.repararCuartel(cuartel);
-        Assert.assertEquals(Aldeano.estado(),'Ocupado');
+        Aldeano aldeano = new Aldeano(3,2);
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        cuartel.reducirVida(60);
+        aldeano.repararEdificio(cuartel);
+        Assert.assertEquals("Ocupado",aldeano.getEstado());
     }
 
     @Test
     public void AldeanoReparaCuartelYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano;
-        Cuartel cuartel = new Cuartel();
+        Aldeano aldeano = new Aldeano(4,5);
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
         Assert.assertEquals(250,cuartel.getVida());
         cuartel.reducirVida(50);
         Assert.assertEquals(200,cuartel.getVida());
-        aldeano.repararCuartel(cuartel);
+        aldeano.repararEdificio(cuartel);
         Assert.assertEquals(250,cuartel.getVida());
     }
 
     @Test
-    public void AldeanoFinalizaReparacionCuartelYGeneraOro(){ // Estos test serian de la clase Jugador porque oro es stat
-        Aldeano aldeano = new Aldeano;
-
+    public void AldeanoReparaCuartelNoGeneraOro(){
+        Aldeano aldeano = new Aldeano(6,10);
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        cuartel.reducirVida(50);
+        Assert.assertEquals(200,cuartel.getVida());
+        aldeano.repararEdificio(cuartel);
+        Assert.assertFalse(aldeano.generaOro());
     }
-        @Test
-    public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
-        Aldeano aldeano = new Aldeano;
 
+    @Test
+    public void AldeanoReparaPlazaCentralNoGeneraOro(){
+        Aldeano aldeano = new Aldeano(6,10);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        plaza.reducirVida(50);
+        Assert.assertEquals(400,plaza.getVida());
+        aldeano.repararEdificio(plaza);
+        Assert.assertFalse(aldeano.generaOro());
+    }
+
+    @Test
+    public void AldeanoFinalizaReparacionCuartelYGeneraOro(){
+        Aldeano aldeano = new Aldeano(6,10);
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.continuarConstruccionCuartel(cuartel);
+        Assert.assertEquals(250,cuartel.getVida());
+        cuartel.reducirVida(50);
+        Assert.assertEquals(200,cuartel.getVida());
+        aldeano.repararEdificio(cuartel);
+        Assert.assertEquals(250,cuartel.getVida());
+    }
+
+    @Test
+    public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
+        Aldeano aldeano = new Aldeano(10,2);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        plaza.reducirVida(50);
+        Assert.assertEquals(400,plaza.getVida());
+        aldeano.repararEdificio(plaza);
+        Assert.assertFalse(aldeano.generaOro());
+        aldeano.desocuparse();                  //Este desocuparse es general cuando pasa el turno entero del jugador
+        Assert.assertTrue(aldeano.generaOro());
     }
 
 
     @Test
     public void AldeanoReparaPlazaCentralYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano;
-        aldeano.construirPlazaCentral();
-        Assert.assertEquals(Aldeano.estado(),'Ocupado');
+        Aldeano aldeano = new Aldeano(5,12);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        plaza.reducirVida(50);
+        Assert.assertEquals(400,plaza.getVida());
+        aldeano.repararEdificio(plaza);
+        Assert.assertEquals("Ocupado",aldeano.getEstado());
     }
 
     @Test
     public void AldeanoReparaPlazaCentralYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano;
-        PlazaCentral plaza = new PlazaCentral();
-        Assert.assertEquals(250,plaza.getVida());
+        Aldeano aldeano = new Aldeano(16,16);
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        Assert.assertEquals(450,plaza.getVida());
         plaza.reducirVida(50);
-        Assert.assertEquals(200,plaza.getVida());
-        aldeano.repararPlazaCentral(plaza);
-        Assert.assertEquals(250,plaza.getVida());
+        Assert.assertEquals(400,plaza.getVida());
+        aldeano.repararEdificio(plaza);
+        Assert.assertEquals(plaza.getVida(),425);
     }
-    */
+
+    //Pruebas atacar
+    @Test
+    public void CrearAldeanoYReducirVida(){
+        Aldeano pedro = new Aldeano(0,0);
+        pedro.reducirVida(15);
+        Assert.assertEquals(35, pedro.getVida());
+    }
+    @Test (expected = ElAldeanoNoPuedeAtacarException.class)
+    public void AldeanoAtacarLanzaEcepcion(){
+        Aldeano juan = new Aldeano(0,0);
+        Aldeano pepito = new Aldeano(1,0);
+        juan.atacar(pepito);
+    }
 }

@@ -3,7 +3,7 @@ public abstract class Unidad{
     protected int costo;
     protected Posicion posicion;
     protected int danio;
-    protected Estado estado = new EstadoLibre();
+    protected Estado estado;        //Unidad no deberia tener estado entonces no ?
 
     public int getVida(){
         return vida;
@@ -13,8 +13,9 @@ public abstract class Unidad{
         return costo;
     }
 
-    public void moverHaciaArriba(){
-        this.estado.moverHaciaArriba(this);
+    /*public void moverHaciaArriba(){                                   ver como hacer
+        Movimiento movimiento = new MovimientoArriba();
+        this.estado.moverUnidad(this,movimiento);
     }
     public void moverHaciaAbajo(){
         this.estado.moverHaciaAbajo(this);
@@ -36,7 +37,9 @@ public abstract class Unidad{
     }
     public void moverHaciaArribaDerecha(){
         this.estado.moverHaciaArribaDerecha(this);
-    }
+    }*/
+
+
 
     public boolean estaEnPos(int x, int y){
         Posicion posicionNueva= new Posicion(x,y);
@@ -47,18 +50,6 @@ public abstract class Unidad{
         this.vida -= danio;
     }
 
-    public void atacar(Unidad unidad){
-        this.estado.atacar(unidad,this);
-    }
-
-    public void ocuparse(){
-        estado = new EstadoOcupado();
-    }
-
-    public void desocuparse(){
-        estado = new EstadoLibre();
-    }
-
     public void setPosicion(int x,int y){
         posicion = new Posicion (x,y);
     }
@@ -66,6 +57,10 @@ public abstract class Unidad{
     public int getDanio(){
         return this.danio;
     }
+
+    public void ocuparse(){}
+
+    public void desocuparse(){}
 
     //Luego de testear ataque y baja vida agregar codigo
 }

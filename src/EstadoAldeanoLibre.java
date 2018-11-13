@@ -1,4 +1,4 @@
-public class EstadoConstructivo extends EstadoLibre {
+public class EstadoAldeanoLibre implements EstadoAldeano {
 
     public int generaOro(){
         return 20;
@@ -24,7 +24,8 @@ public class EstadoConstructivo extends EstadoLibre {
         unidad.ocuparse();
     }
 
-    public void atacar(Unidad unidad, Unidad atacante){
-        throw new ElAldeanoNoPuedeAtacarException();
-    }
+    /*public void moverUnidad(Unidad unidad,Movimiento movimiento){             ver como hacer
+        unidad.posicion = movimiento.desplazarPosicion(unidad.posicion);
+        unidad.ocuparse();
+    }*/
 }

@@ -49,4 +49,6 @@ public abstract class Edificio {
             this.vida += this.velocidadReparacion;
     }
 
+    public void construir(){}
+
 }

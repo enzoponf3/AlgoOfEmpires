@@ -4,7 +4,7 @@ public class EstadoPlazaCentralConstruida implements EstadoPlazaCentral {
 
     @Override
     public Aldeano crearAldeano() {
-        Aldeano aldeano = new Aldeano(1,1);
+        Aldeano aldeano = new Aldeano();
         return aldeano;
     }
 

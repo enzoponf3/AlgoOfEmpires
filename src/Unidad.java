@@ -3,11 +3,7 @@ public abstract class Unidad{
     protected int costo;
     protected Posicion posicion;
     protected int danio;
-    protected Estado estado;
-
-    public Unidad(int x, int y){
-        posicion = new Posicion(x,y);
-    }
+    protected Estado estado = new EstadoLibre();
 
     public int getVida(){
         return vida;
@@ -18,36 +14,28 @@ public abstract class Unidad{
     }
 
     public void moverHaciaArriba(){
-        MovimientoArriba movimiento = new MovimientoArriba();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaArriba(this);
     }
     public void moverHaciaAbajo(){
-        MovimientoAbajo movimiento = new MovimientoAbajo();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaAbajo(this);
     }
     public void moverHaciaIzquierda(){
-        MovimientoIzquierda movimiento = new MovimientoIzquierda();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaIzquierda(this);
     }
     public void moverHaciaDerecha(){
-        MovimientoDerecha movimiento = new MovimientoDerecha();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaDerecha(this);
     }
     public void moverHaciaAbajoIzquierda(){
-        MovimientoAbajoIzquierda movimiento = new MovimientoAbajoIzquierda();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaAbajoIzquierda(this);
     }
     public void moverHaciaAbajoDerecha(){
-        MovimientoAbajoDerecha movimiento = new MovimientoAbajoDerecha();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaAbajoDerecha(this);
     }
     public void moverHaciaArribaIzquierda(){
-        MovimientoArribaIzquierda movimiento = new MovimientoArribaIzquierda();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaArribaIzquierda(this);
     }
     public void moverHaciaArribaDerecha(){
-        MovimientoArribaDerecha movimiento = new MovimientoArribaDerecha();
-        this.posicion = movimiento.desplazarPosicion(this.posicion);
+        this.estado.moverHaciaArribaDerecha(this);
     }
 
     public boolean estaEnPos(int x, int y){
@@ -59,15 +47,25 @@ public abstract class Unidad{
         this.vida -= danio;
     }
 
-    public void atacar (Unidad unidad){
+    public void atacar(Unidad unidad){
         this.estado.atacar(unidad,this);
     }
 
-    public boolean getEstado(){
-        return this.estado.estaOcupado();
+    public void ocuparse(){
+        estado = new EstadoOcupado();
     }
 
-    public void ocuparse(){}
+    public void desocuparse(){
+        estado = new EstadoLibre();
+    }
+
+    public void setPosicion(int x,int y){
+        posicion = new Posicion (x,y);
+    }
+
+    public int getDanio(){
+        return this.danio;
+    }
 
     //Luego de testear ataque y baja vida agregar codigo
 }

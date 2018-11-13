@@ -30,8 +30,7 @@ public class Aldeano extends Unidad{
     }
 
     public void moverHaciaArriba(){
-        this.estado.estaOcupado();
-        super.moverHaciaArriba();
+        this.estado.moverHaciaArriba(this);
         this.ocuparse();
     }
     public void moverHaciaAbajo(){
@@ -85,7 +84,7 @@ public class Aldeano extends Unidad{
     }
 
     public boolean generaOro(){
-        return this.estado.comprobarEstado();
+        return this.estado.generaOro();
     }
 
 }

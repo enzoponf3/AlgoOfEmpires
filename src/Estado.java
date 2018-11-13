@@ -1,11 +1,11 @@
 public interface Estado {
-
-    PlazaCentral construirPlazaCentral(Aldeano aldeano);
-    Cuartel construirCuartel(Aldeano aldeano);
-    void repararEdificio(Edificio edificio,Aldeano aldeano);
-    void continuarConstruccionPlazaCentral(PlazaCentral plaza, Aldeano aldeano);
-    void continuarConstruccionCuartel(Cuartel cuartel, Aldeano aldeano);
     void atacar(Unidad unidad,Unidad atacante);
-    boolean comprobarEstado();
-    boolean estaOcupado();
+    void moverHaciaArriba(Unidad unidad);
+    void moverHaciaAbajo(Unidad unidad);
+    void moverHaciaIzquierda(Unidad unidad);
+    void moverHaciaDerecha(Unidad unidad);
+    void moverHaciaArribaIzquierda(Unidad unidad);
+    void moverHaciaArribaDerecha(Unidad unidad);
+    void moverHaciaAbajoIzquierda(Unidad unidad);
+    void moverHaciaAbajoDerecha(Unidad unidad);
 }

@@ -6,8 +6,9 @@ public class ArmaDeAsedioTest {
     @Test
     public void crearArmaDeAsedioEnPosicionIndicada(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(5,7);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(5,7));
+        Posicion posicion = new Posicion(5,7);
+        armaAsedio.setPosicion(posicion);
+        Assert.assertEquals(true,armaAsedio.estaEnPosicion(posicion));
     }
 
     @Test

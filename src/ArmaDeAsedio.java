@@ -1,7 +1,9 @@
 public class ArmaDeAsedio extends Unidad{
+
     protected int VIDA = 150;
     protected int COSTO = 200;
     protected EstadoArmaDeAsedio estado;
+    protected Posicion posicion;
 
     public ArmaDeAsedio(){
         this.vida = VIDA;
@@ -24,4 +26,10 @@ public class ArmaDeAsedio extends Unidad{
     public void mover(Posicion destino){
 
     }
+
+    @Override
+    public void cambiarPosicion(Posicion destino){
+        this.posicion = destino;
+    }
+
 }

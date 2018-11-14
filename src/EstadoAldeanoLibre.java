@@ -4,39 +4,35 @@ public class EstadoAldeanoLibre implements EstadoAldeano {
     public int generaOro(){
         return 20;
     }
-/*
+
     @Override
-    public Cuartel construirCuartel(Unidad unidad){
-        unidad.ocuparse();
+    public Cuartel construirCuartel(Aldeano aldeano){
+        aldeano.ocupar();
         return new Cuartel();
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Unidad unidad){
-        unidad.ocuparse();
+    public PlazaCentral construirPlazaCentral(Aldeano aldeano){
+        aldeano.ocupar();
         return new PlazaCentral();
     }
 
     @Override
-    public void repararEdificio(Edificio edificio,Unidad unidad){
+    public void repararEdificio(Edificio edificio, Aldeano aldeano){
         edificio.reparar();
-        unidad.ocuparse();
+        aldeano.ocupar();
     }
 
     @Override
-    public void continuarConstruccion(Edificio edificio,Unidad unidad){
+    public void continuarConstruccion(Edificio edificio, Aldeano aldeano){
         edificio.construir();
-        unidad.ocuparse();
+        aldeano.ocupar();
     }
-*/
-    /*public void moverUnidad(Unidad unidad,Movimiento movimiento){             ver como hacer
-        unidad.posicion = movimiento.desplazarPosicion(unidad.posicion);
-        unidad.ocuparse();
-    }*/
+
 
     @Override
     public void mover(Posicion destino, Aldeano aldeano){
         aldeano.cambiarPosicion(destino);
-        aldeano.ocuparse();
+        aldeano.ocupar();
     }
 }

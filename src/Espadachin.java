@@ -1,4 +1,5 @@
 public class Espadachin extends Unidad{
+
    protected int VIDA = 100;
    protected int COSTO = 50;
    protected EstadoEspadachin estado;
@@ -16,12 +17,17 @@ public class Espadachin extends Unidad{
         return this.costo;
     }
 
-    public void desocuparse(){ this.estado = new EstadoEspadachinLibre();}
+    public void desocupar(){ this.estado = new EstadoEspadachinLibre();}
 
-    public void ocuparse(){ this.estado = new EstadoEspadachinOcupado();}
+    public void ocupar(){ this.estado = new EstadoEspadachinOcupado();}
 
     @Override
     public void mover(Posicion destino){
+        this.estado.mover(destino, this);
+    }
 
+    @Override
+    public void cambiarPosicion(Posicion destino){
+        this.posicion = destino;
     }
 }

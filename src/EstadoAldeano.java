@@ -2,13 +2,13 @@ public interface EstadoAldeano{
 
     int generaOro();
 
-//    Cuartel construirCuartel(Unidad unidad);
+    Cuartel construirCuartel(Aldeano aldeano);
 
- //   PlazaCentral construirPlazaCentral(Unidad unidad);
+    PlazaCentral construirPlazaCentral(Aldeano aldeano);
 
-   // void repararEdificio(Edificio edificio,Unidad unidad);
+    void repararEdificio(Edificio edificio, Aldeano aldeano);
 
-    //void continuarConstruccion(Edificio edificio,Unidad unidad);
+    void continuarConstruccion(Edificio edificio, Aldeano aldeano);
 
     void mover(Posicion destino, Aldeano aldeano);
 

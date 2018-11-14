@@ -9,7 +9,7 @@ public class Aldeano extends Unidad{
         this.costo = COSTO;
         this.estado = new EstadoAldeanoLibre();
     }
-/*
+
     public Cuartel construirCuartel(){
         return this.estado.construirCuartel(this);
     }
@@ -29,12 +29,12 @@ public class Aldeano extends Unidad{
     public void continuarConstruccionCuartel(Cuartel cuartel){
         this.estado.continuarConstruccion(cuartel, this);
     }
-*/
-    public void ocuparse (){
+
+    public void ocupar(){
         this.estado = new EstadoAldeanoOcupado();
     }
 
-    public void desocuparse () {
+    public void desocupar() {
         this.estado = new EstadoAldeanoLibre();
     }
 
@@ -50,6 +50,7 @@ public class Aldeano extends Unidad{
         this.estado.mover(destino, this);
     }
 
+    @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }

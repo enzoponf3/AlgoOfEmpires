@@ -7,8 +7,10 @@ public class AldeanoTest {
     @Test
     public void crearAldeanoEnPosicionIndicada() {
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(5, 7);
-        Assert.assertEquals(true, aldeano.estaEnPos(5, 7));
+        Posicion posicion = new Posicion(5,7);
+        aldeano.setPosicion(posicion);
+
+        Assert.assertEquals(true, aldeano.estaEnPosicion(posicion));
     }
 
     @Test
@@ -34,209 +36,122 @@ public class AldeanoTest {
     @Test
     public void moverAldeanoUnaUnidadArribaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(4,6);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPos(4,6));
-    }
-
-/*
-    @Test
-    public void moverAldeanoUnaUnidadArribaExitosamente(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoArriba = new MovimientoArriba();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoArriba, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(4,6));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
     }
 
     @Test
     public void moverAldeanoUnaUnidadIzquierdaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoIzquierda = new MovimientoIzquierda();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(3,5);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoIzquierda, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(3,5));
-
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
     }
+
+
 
     @Test
     public void moverAldeanoUnaUnidadDerechaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(23,15);
-        Movimiento movimientoDerecha = new MovimientoDerecha();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(5,5);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(23,15));
-        aldeano.mover(movimientoDerecha, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(24,15));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
 
     }
 
     @Test
     public void moverAldeanoUnaUnidadAbajoExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoAbajo = new MovimientoAbajo();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(4,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoAbajo, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(4,4));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
 
     }
 
     @Test
     public void moverAldeanoUnaUnidadAbajoIzquierdaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoAbajoIzquierda = new MovimientoAbajoIzquierda();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(3,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoAbajoIzquierda, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(3,4));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
 
     }
 
     @Test
     public void moverAldeanoUnaUnidadAbajoDerechaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoAbajoDerecha = new MovimientoAbajoDerecha();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(5,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoAbajoDerecha, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(5,4));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
 
     }
 
     @Test
     public void moverAldeanoUnaUnidadArribaIzquierdaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,5);
-        Movimiento movimientoArribaIzquierda = new MovimientoArribaIzquierda();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(3,6);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
-        aldeano.mover(movimientoArribaIzquierda, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(3,6));
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
 
     }
 
     @Test
     public void moverAldeanoUnaUnidadaArribaDerechaExitosamente(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(4,4);
-        Movimiento movimientoArribaDerecha = new MovimientoArribaDerecha();
+        Posicion posicion = new Posicion(4,5);
+        aldeano.setPosicion(posicion);
+        Posicion destino = new Posicion(5,5);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(4,4));
-        aldeano.mover(movimientoArribaDerecha, aldeano.getPosicion());
-        Assert.assertEquals(true,aldeano.estaEnPos(5,5));
-
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
     }
 
     //Mover mas de 1 vez falla en cada posicion
 
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoADerechaLuegoDeHaberMovidoLanzaExcepcion(){
+    public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
         Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(1,1);
-        Movimiento movimientoIzquierda = new MovimientoIzquierda();
-        Movimiento movimientoDerecha = new MovimientoDerecha();
+        Posicion posicion = new Posicion(1,1);
+        aldeano.setPosicion(posicion);
+        Posicion destino1 = new Posicion(0,1);
+        Posicion destino2 = new Posicion(1,1);
 
-        Assert.assertEquals(true,aldeano.estaEnPos(1,1));
-        aldeano.mover(movimientoIzquierda, aldeano.getPosicion());
-        aldeano.mover(movimientoDerecha, aldeano.getPosicion());
+        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        aldeano.mover(destino1);
+        aldeano.mover(destino2);
     }
 
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoAIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(3,3);
-        Movimiento movimientoArriba = new MovimientoArriba();
-        Movimiento movimientoIzquierda = new MovimientoIzquierda();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(3,3));
-        aldeano.mover(movimientoArriba, aldeano.getPosicion());
-        aldeano.mover(movimientoIzquierda, aldeano.getPosicion());
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoArribaLuegoDeHaberMovidoLanzaExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(28,30);
-        Movimiento movimientoDerecha = new MovimientoDerecha();
-        Movimiento movimientoArriba = new MovimientoArriba();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(28,30));
-        aldeano.mover(movimientoDerecha, aldeano.getPosicion());
-        aldeano.mover(movimientoArriba, aldeano.getPosicion());
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoArribaIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(11,19);
-        Movimiento movimientoArribaDerecha = new MovimientoArribaDerecha();
-        Movimiento movimientoArribaIzquierda = new MovimientoArribaIzquierda();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(11,19));
-        aldeano.mover(movimientoArribaDerecha, aldeano.getPosicion());
-        aldeano.mover(movimientoArribaIzquierda, aldeano.getPosicion());
-    }
-
-    @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoArribaDerechaLuegoDeHaberMovidoLanzaExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(3,3);
-        Movimiento movimientoAbajoIzquierda = new MovimientoAbajoIzquierda();
-        Movimiento movimientoArribaDerecha = new MovimientoArribaDerecha();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(3,3));
-        aldeano.mover(movimientoAbajoIzquierda, aldeano.getPosicion());
-        aldeano.mover(movimientoArribaDerecha, aldeano.getPosicion());
-
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoAbajoLuegoDeHaberMovidoExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(17,48);
-        Movimiento movimientoArribaDerecha = new MovimientoArribaDerecha();
-        Movimiento movimientoAbajo = new MovimientoAbajo();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(17,48));
-        aldeano.mover(movimientoArribaDerecha, aldeano.getPosicion());
-        aldeano.mover(movimientoAbajo, aldeano.getPosicion());
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoAbajoIzquierdaLuegoDeHaberMovidoExcepcion(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(34,41);
-        Movimiento movimientoAbajo = new MovimientoAbajo();
-        Movimiento movimientoArribaIzquierda = new MovimientoArribaIzquierda();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(34,41));
-        aldeano.mover(movimientoAbajo, aldeano.getPosicion());
-        aldeano.mover(movimientoArribaIzquierda, aldeano.getPosicion());
-
-    }
-
-    @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoAbajoDerechaLuegoDeHaberMovidoException(){
-        Aldeano aldeano = new Aldeano();
-        aldeano.setPosicion(10,3);
-        Movimiento movimientoIzquierda = new MovimientoIzquierda();
-        Movimiento movimientoAbajoDerecha = new MovimientoAbajoDerecha();
-
-        Assert.assertEquals(true,aldeano.estaEnPos(10,3));
-        aldeano.mover(movimientoIzquierda, aldeano.getPosicion());
-        aldeano.mover(movimientoAbajoDerecha, aldeano.getPosicion());
-    }
-*/
-
+    //Me parece que ya no es necesario probar todos los movimientos.
+    //Y tambien creo que deberiamos definir el arriba jaja, porque yo lo tomaba como los ejes cartesianod.
+    //Pero cuando veamos el mapa con los cuadraditos supongo que el de arriba a la izq va a ser el (0,0).
 }

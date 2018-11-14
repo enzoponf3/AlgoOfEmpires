@@ -1,4 +1,5 @@
 public class Posicion {
+
     protected int horizontal;
     protected int vertical;
     protected Movimiento movimiento;
@@ -8,6 +9,8 @@ public class Posicion {
         vertical = y;
         movimiento = new Movimiento();
     }
+
+
 
     public void moverHaciaArriba() {
         vertical = movimiento.moverHaciaArriba(vertical);
@@ -48,4 +51,9 @@ public class Posicion {
     public boolean estaEnPos(int x, int y) {
         return ((horizontal == x)&& (vertical == y));
     }
+
+    public boolean compararPosiciones(Posicion unaposicion){
+        return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
+    } //Aca estoy rompiendo el encapsulamiento?
+
 }

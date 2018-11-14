@@ -1,4 +1,5 @@
 public abstract class Unidad {
+
     protected int vida;
     protected int costo;
     protected Posicion posicion;

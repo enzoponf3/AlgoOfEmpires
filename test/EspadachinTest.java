@@ -23,7 +23,7 @@ public class EspadachinTest {
     }
 
     //Pruebas Mov normales
-
+/*
     @Test
     public void moverEspadachinUnaUnidadArribaExitosamente(){
         Espadachin espadachin = new Espadachin();
@@ -169,4 +169,6 @@ public class EspadachinTest {
         espadachin.moverHaciaIzquierda();
         espadachin.moverHaciaAbajoDerecha();
     }
+
+ */
 }

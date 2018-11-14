@@ -19,4 +19,9 @@ public class Espadachin extends Unidad{
     public void desocuparse(){ this.estado = new EstadoEspadachinLibre();}
 
     public void ocuparse(){ this.estado = new EstadoEspadachinOcupado();}
+
+    @Override
+    public void mover(Movimiento movimiento, Posicion posicion){
+
+    }
 }

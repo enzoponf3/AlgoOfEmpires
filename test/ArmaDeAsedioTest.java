@@ -23,7 +23,7 @@ public class ArmaDeAsedioTest {
     }
 
     //Pruebas Mov normales
-
+/*
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaExitosamente(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
@@ -169,4 +169,5 @@ public class ArmaDeAsedioTest {
         armaAsedio.moverHaciaIzquierda();
         armaAsedio.moverHaciaAbajoDerecha();
     }
+*/
 }

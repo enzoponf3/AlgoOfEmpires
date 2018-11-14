@@ -1,6 +1,7 @@
 
 public class EstadoAldeanoOcupado implements EstadoAldeano{
-    public PlazaCentral construirPlazaCentral(Unidad unidad){
+
+    /*public PlazaCentral construirPlazaCentral(Unidad unidad){
         throw new UnidadNoPuedeConstruirException();
     }
 
@@ -15,9 +16,14 @@ public class EstadoAldeanoOcupado implements EstadoAldeano{
     public void continuarConstruccion(Edificio edificio,Unidad unidad){
         throw new UnidadNoPuedeConstruirException();
     }
-
+*/
     public int generaOro(){
         return 0;
+    }
+
+    @Override
+    public void mover(Movimiento movimiento, Posicion posicion, Aldeano aldeano){
+        throw new UnidadEstaOcupadoException();
     }
 }
 

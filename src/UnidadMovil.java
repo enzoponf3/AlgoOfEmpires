@@ -1,6 +1,6 @@
 public interface UnidadMovil {
 
-    void moverHaciaArriba();
+    /*void moverHaciaArriba();
     void moverHaciaAbajo();
     void moverHaciaIzquierda();
     void moverHaciaDerecha();
@@ -8,4 +8,6 @@ public interface UnidadMovil {
     void moverHaciaAbajoDerecha();
     void moverHaciaArribaIzquierda();
     void moverHaciaArribaDerecha();
+
+    */
 }

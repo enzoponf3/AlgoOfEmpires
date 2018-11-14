@@ -19,4 +19,9 @@ public class ArmaDeAsedio extends Unidad{
     public void montar(){ this.estado = new EstadoArmaDeAsedioArmado();}
 
     public void desmontar(){ this.estado = new EstadoArmaDeAsedioDesarmado();}
+
+    @Override
+    public void mover(Movimiento movimiento, Posicion posicion){
+
+    }
 }

@@ -8,4 +8,9 @@ public class Arquero extends Unidad{
     public int getCosto() {
         return this.costo;
     }
+
+    @Override
+    public void mover(Movimiento movimiento, Posicion posicion){
+
+    }
 }

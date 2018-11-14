@@ -1,6 +1,8 @@
 public class MovimientoAbajo implements Movimiento {
+
     public Posicion desplazarPosicion(Posicion posicion){
-        posicion.disminuirVertical();
+        posicion.decrementarCoordenadaVertical();
         return posicion;
     }
+
 }

@@ -23,7 +23,7 @@ public class ArqueroTest {
     }
 
     //Pruebas Mov normales
-
+/*
     @Test
     public void moverArqueroUnaUnidadArribaExitosamente(){
         Arquero arquero = new Arquero();
@@ -169,4 +169,6 @@ public class ArqueroTest {
         arquero.moverHaciaIzquierda();
         arquero.moverHaciaAbajoDerecha();
     }
+*/
+
 }

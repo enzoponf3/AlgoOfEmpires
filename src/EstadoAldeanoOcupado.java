@@ -22,7 +22,7 @@ public class EstadoAldeanoOcupado implements EstadoAldeano{
     }
 
     @Override
-    public void mover(Movimiento movimiento, Posicion posicion, Aldeano aldeano){
+    public void mover(Posicion destino, Aldeano aldeano){
         throw new UnidadEstaOcupadoException();
     }
 }

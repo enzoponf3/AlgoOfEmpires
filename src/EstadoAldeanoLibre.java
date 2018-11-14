@@ -35,8 +35,8 @@ public class EstadoAldeanoLibre implements EstadoAldeano {
     }*/
 
     @Override
-    public void mover(Movimiento movimiento, Posicion posicion, Aldeano aldeano){
-        movimiento.desplazarPosicion(posicion);
+    public void mover(Posicion destino, Aldeano aldeano){
+        aldeano.cambiarPosicion(destino);
         aldeano.ocuparse();
     }
 }

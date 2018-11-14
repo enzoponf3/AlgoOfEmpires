@@ -10,6 +10,6 @@ public interface EstadoAldeano{
 
     //void continuarConstruccion(Edificio edificio,Unidad unidad);
 
-    void mover(Movimiento movimiento, Posicion posicion, Aldeano aldeano);
+    void mover(Posicion destino, Aldeano aldeano);
 
 }

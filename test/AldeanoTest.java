@@ -35,6 +35,18 @@ public class AldeanoTest {
     public void moverAldeanoUnaUnidadArribaExitosamente(){
         Aldeano aldeano = new Aldeano();
         aldeano.setPosicion(4,5);
+        Posicion destino = new Posicion(4,6);
+
+        Assert.assertEquals(true,aldeano.estaEnPos(4,5));
+        aldeano.mover(destino);
+        Assert.assertEquals(true,aldeano.estaEnPos(4,6));
+    }
+
+/*
+    @Test
+    public void moverAldeanoUnaUnidadArribaExitosamente(){
+        Aldeano aldeano = new Aldeano();
+        aldeano.setPosicion(4,5);
         Movimiento movimientoArriba = new MovimientoArriba();
 
         Assert.assertEquals(true,aldeano.estaEnPos(4,5));
@@ -225,6 +237,6 @@ public class AldeanoTest {
         aldeano.mover(movimientoIzquierda, aldeano.getPosicion());
         aldeano.mover(movimientoAbajoDerecha, aldeano.getPosicion());
     }
-
+*/
 
 }

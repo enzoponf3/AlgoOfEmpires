@@ -19,7 +19,7 @@ public class Posicion {
     }
 
 
-    public boolean compararPosiciones(Posicion unaposicion){
+    public boolean igualA(Posicion unaposicion){
         return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
     } //Aca estoy rompiendo el encapsulamiento? CAMBIAR NOMBRE; ES BOOL
 
@@ -45,8 +45,5 @@ public class Posicion {
         this.vertical -= 1;
     }
 
-    public String formatearAString(){
-        String posicionString = this.horizontal + "," + this.vertical;
-        return posicionString;
-    }
+
 }

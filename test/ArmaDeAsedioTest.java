@@ -13,13 +13,13 @@ public class ArmaDeAsedioTest {
     @Test
     public void crearArmaDeAsedioYVerificarVidaCorrespondiente(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        Assert.assertEquals(50,armaAsedio.getVida());
+        Assert.assertEquals(150,armaAsedio.getVida());
     }
 
     @Test
     public void crearArmaDeAsedioYVerificarCostoCorrespondiente(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        Assert.assertEquals(25,armaAsedio.getCosto());
+        Assert.assertEquals(200,armaAsedio.getCosto());
     }
 
     //Pruebas Mov normales

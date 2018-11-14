@@ -13,13 +13,13 @@ public class EspadachinTest {
     @Test
     public void crearEspadachinYVerificarVidaCorrespondiente(){
         Espadachin espadachin = new Espadachin();
-        Assert.assertEquals(50,espadachin.getVida());
+        Assert.assertEquals(100,espadachin.getVida());
     }
 
     @Test
     public void crearEspadachinYVerificarCostoCorrespondiente(){
         Espadachin espadachin = new Espadachin();
-        Assert.assertEquals(25,espadachin.getCosto());
+        Assert.assertEquals(50,espadachin.getCosto());
     }
 
     //Pruebas Mov normales

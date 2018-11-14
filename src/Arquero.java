@@ -10,7 +10,7 @@ public class Arquero extends Unidad{
     }
 
     @Override
-    public void mover(Movimiento movimiento, Posicion posicion){
+    public void mover(Posicion destino){
 
     }
 }

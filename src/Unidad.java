@@ -13,39 +13,11 @@ public abstract class Unidad implements UnidadMovil{
     public int getCosto(){
         return costo;
     }
-/*
-    public void moverHaciaArriba(){
-        Movimiento movimiento = new MovimientoArriba();
-        this.estado.moverUnidad(this,movimiento);
-    }
 
-    public void moverHaciaAbajo(){
-        this.estado.moverHaciaAbajo(this);
-    }
-    public void moverHaciaIzquierda(){
-        this.estado.moverHaciaIzquierda(this);
-    }
-    public void moverHaciaDerecha(){
-        this.estado.moverHaciaDerecha(this);
-    }
-    public void moverHaciaAbajoIzquierda(){
-        this.estado.moverHaciaAbajoIzquierda(this);
-    }
-    public void moverHaciaAbajoDerecha(){
-        this.estado.moverHaciaAbajoDerecha(this);
-    }
-    public void moverHaciaArribaIzquierda(){
-        this.estado.moverHaciaArribaIzquierda(this);
-    }
-    public void moverHaciaArribaDerecha(){
-        this.estado.moverHaciaArribaDerecha(this);
-    }*/
-
-    public abstract void mover(Movimiento movimiento, Posicion posicion);
 
     public boolean estaEnPos(int x, int y){
         Posicion posicionNueva= new Posicion(x,y);
-        return this.posicion.compararPosiciones(posicionNueva);
+        return this.posicion.igualA(posicionNueva);
     }
 
     public void reducirVida(int danio){

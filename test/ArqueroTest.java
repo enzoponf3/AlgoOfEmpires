@@ -13,13 +13,13 @@ public class ArqueroTest {
     @Test
     public void crearArqueroYVerificarVidaCorrespondiente(){
         Arquero arquero = new Arquero();
-        Assert.assertEquals(50,arquero.getVida());
+        Assert.assertEquals(75,arquero.getVida());
     }
 
     @Test
     public void crearArqueroYVerificarCostoCorrespondiente(){
         Arquero arquero = new Arquero();
-        Assert.assertEquals(25,arquero.getCosto());
+        Assert.assertEquals(75,arquero.getCosto());
     }
 
     //Pruebas Mov normales

@@ -6,6 +6,6 @@ public class EstadoArmaDeAsedioArmado implements EstadoArmaDeAsedio {
     }
 
     public void desocupar(ArmaDeAsedio armaDeAsedio){
-        throw new UnidadYaEstaLibreException();
+
     }
 }

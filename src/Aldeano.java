@@ -54,5 +54,4 @@ public class Aldeano extends Unidad{
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }
-
 }

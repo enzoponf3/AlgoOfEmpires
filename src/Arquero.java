@@ -2,7 +2,7 @@ public class Arquero extends Unidad{
 
     protected static int VIDA = 75;
     protected static int COSTO= 75;
-    protected EstadoArquero estado; //Yo aca pensaba que en realidad el del arquero y el del espadachin eran el mismo.
+    protected EstadoArquero estado;
 
     public int getVida() {
         return this.vida;

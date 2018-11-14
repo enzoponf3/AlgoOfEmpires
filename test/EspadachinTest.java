@@ -128,8 +128,6 @@ public class EspadachinTest {
         Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
     }
 
-    //Mover mas de 1 vez falla en cada posicion
-
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
         Espadachin espadachin = new Espadachin();

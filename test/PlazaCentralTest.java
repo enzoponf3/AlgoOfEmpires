@@ -164,4 +164,10 @@ public class PlazaCentralTest {
         Assert.assertEquals(aldeano.getCosto(),25);
     }
 
+    @Test
+    public void repararConMasDeUnAldeanoFalla(){
+
+    }
+
+
 }

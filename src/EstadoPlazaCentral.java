@@ -1,5 +1,3 @@
-
-
 public interface EstadoPlazaCentral {
 
     Aldeano crearAldeano();

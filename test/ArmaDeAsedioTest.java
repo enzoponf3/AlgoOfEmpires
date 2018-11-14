@@ -8,7 +8,7 @@ public class ArmaDeAsedioTest {
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(5,7);
         armaAsedio.setPosicion(posicion);
-        Assert.assertEquals(true,armaAsedio.estaEnPosicion(posicion));
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
     }
 
     @Test
@@ -23,152 +23,123 @@ public class ArmaDeAsedioTest {
         Assert.assertEquals(200,armaAsedio.getCosto());
     }
 
-    //Pruebas Mov normales
-/*
+    //Pruebas Mov
+
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaExitosamente(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(4,5);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(4,5));
-        armaAsedio.moverHaciaArriba();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(4,6));
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(4,6);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadIzquierdaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(2,4);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(2,4));
-        armaAsedio.moverHaciaIzquierda();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(1,4));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(3,5);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadDerechaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(23,15);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(23,15));
-        armaAsedio.moverHaciaDerecha();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(24,15));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(5,5);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
+
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(10,10);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(10,10));
-        armaAsedio.moverHaciaAbajo();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(10,9));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(4,4);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
+
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoIzquierdaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(15,15);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(15,15));
-        armaAsedio.moverHaciaAbajoIzquierda();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(14,14));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(3,4);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
+
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoDerechaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(10,8);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(10,8));
-        armaAsedio.moverHaciaAbajoDerecha();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(11,7));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(5,4);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
+
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaIzquierdaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(19,42);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(19,42));
-        armaAsedio.moverHaciaArribaIzquierda();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(18,43));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(3,6);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
+
     }
 
     @Test
     public void moverArmaDeAsedioUnaUnidadaArribaDerechaExitosamente(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(); //idem
-        armaAsedio.setPosicion(33,33);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(33,33));
-        armaAsedio.moverHaciaArribaDerecha();
-        Assert.assertEquals(true,armaAsedio.estaEnPos(34,34));
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(4,5);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino = new Posicion(5,6);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino);
+        Assert.assertTrue(armaAsedio.estaEnPosicion(destino));
     }
 
-    //Mover mas de 1 vez falla en cada posicion
+    //Mover mas de 1 vez falla
 
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioADerechaLuegoDeHaberMovidoLanzaExcepcion(){
+    public void moverArmaDeAsedioDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(1,1);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(1,1));
-        armaAsedio.moverHaciaIzquierda();
-        armaAsedio.moverHaciaDerecha();
+        Posicion posicion = new Posicion(1,1);
+        armaAsedio.setPosicion(posicion);
+        Posicion destino1 = new Posicion(0,1);
+        Posicion destino2 = new Posicion(1,1);
+
+        Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
+        armaAsedio.mover(destino1);
+        armaAsedio.mover(destino2);
     }
 
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioAIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(3,3);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(3,3));
-        armaAsedio.moverHaciaArriba();
-        armaAsedio.moverHaciaIzquierda();
-    }
 
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioArribaLuegoDeHaberMovidoLanzaExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(28,30);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(28,30));
-        armaAsedio.moverHaciaDerecha();
-        armaAsedio.moverHaciaArriba();
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioArribaIzquierdaLuegoDeHaberMovidoLanzaExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(11,19);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(11,19));
-        armaAsedio.moverHaciaArribaDerecha();
-        armaAsedio.moverHaciaArribaIzquierda();
-    }
-
-    @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioArribaDerechaLuegoDeHaberMovidoLanzaExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(3,3);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(3,3));
-        armaAsedio.moverHaciaAbajoIzquierda();
-        armaAsedio.moverHaciaArribaDerecha();
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioAbajoLuegoDeHaberMovidoExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(17,48);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(17,48));
-        armaAsedio.moverHaciaArribaDerecha();
-        armaAsedio.moverHaciaAbajo();
-    }
-
-    @Test(expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioAbajoIzquierdaLuegoDeHaberMovidoExcepcion(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(34,41);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(34,41));
-        armaAsedio.moverHaciaAbajo();
-        armaAsedio.moverHaciaAbajoIzquierda();
-    }
-
-    @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverArmaDeAsedioAbajoDerechaLuegoDeHaberMovidoException(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        armaAsedio.setPosicion(10,3);
-        Assert.assertEquals(true,armaAsedio.estaEnPos(10,3));
-        armaAsedio.moverHaciaIzquierda();
-        armaAsedio.moverHaciaAbajoDerecha();
-    }
-*/
 }

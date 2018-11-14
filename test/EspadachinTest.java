@@ -8,7 +8,7 @@ public class EspadachinTest {
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(5,7);
         espadachin.setPosicion(posicion);
-        Assert.assertEquals(true,espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
     }
 
     @Test
@@ -32,9 +32,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(4,6);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
     }
 
     @Test
@@ -44,9 +44,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(3,5);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
     }
 
 
@@ -58,9 +58,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(5,5);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
 
     }
 
@@ -71,9 +71,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(4,4);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
 
     }
 
@@ -84,9 +84,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(3,4);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
 
     }
 
@@ -97,9 +97,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(5,4);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
 
     }
 
@@ -110,9 +110,9 @@ public class EspadachinTest {
         espadachin.setPosicion(posicion);
         Posicion destino = new Posicion(3,6);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
 
     }
 
@@ -121,11 +121,11 @@ public class EspadachinTest {
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
-        Posicion destino = new Posicion(5,5);
+        Posicion destino = new Posicion(5,6);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino);
-        Assert.assertEquals(true, espadachin.estaEnPosicion(destino));
+        Assert.assertTrue(espadachin.estaEnPosicion(destino));
     }
 
     @Test (expected = UnidadEstaOcupadoException.class)
@@ -136,7 +136,7 @@ public class EspadachinTest {
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
-        Assert.assertEquals(true, espadachin.estaEnPosicion(posicion));
+        Assert.assertTrue(espadachin.estaEnPosicion(posicion));
         espadachin.mover(destino1);
         espadachin.mover(destino2);
     }

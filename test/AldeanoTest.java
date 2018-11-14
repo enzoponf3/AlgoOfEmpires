@@ -10,7 +10,7 @@ public class AldeanoTest {
         Posicion posicion = new Posicion(5,7);
         aldeano.setPosicion(posicion);
 
-        Assert.assertEquals(true, aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
     }
 
     @Test
@@ -40,9 +40,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(4,6);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
     }
 
     @Test
@@ -52,9 +52,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(3,5);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
     }
     
     @Test
@@ -64,9 +64,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(5,5);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
 
     }
 
@@ -77,9 +77,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(4,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
 
     }
 
@@ -90,9 +90,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(3,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
 
     }
 
@@ -103,9 +103,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(5,4);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
 
     }
 
@@ -116,9 +116,9 @@ public class AldeanoTest {
         aldeano.setPosicion(posicion);
         Posicion destino = new Posicion(3,6);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
 
     }
 
@@ -127,11 +127,11 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
         aldeano.setPosicion(posicion);
-        Posicion destino = new Posicion(5,5);
+        Posicion destino = new Posicion(5,6);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino);
-        Assert.assertEquals(true,aldeano.estaEnPosicion(destino));
+        Assert.assertTrue(aldeano.estaEnPosicion(destino));
     }
 
     //Mover mas de 1 vez falla
@@ -144,14 +144,10 @@ public class AldeanoTest {
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
-        Assert.assertEquals(true,aldeano.estaEnPosicion(posicion));
+        Assert.assertTrue(aldeano.estaEnPosicion(posicion));
         aldeano.mover(destino1);
         aldeano.mover(destino2);
     }
-
-    //Me parece que ya no es necesario probar todos los movimientos.
-    //Y tambien creo que deberiamos definir el arriba jaja, porque yo lo tomaba como los ejes cartesianod.
-    //Pero cuando veamos el mapa con los cuadraditos supongo que el de arriba a la izq va a ser el (0,0).
 
 
     @Test
@@ -334,7 +330,8 @@ public class AldeanoTest {
         cuartel.reducirVida(50);
         Assert.assertEquals(200,cuartel.getVida());
         aldeano.repararEdificio(cuartel);
-        Assert.assertEquals(250,cuartel.getVida());
+        aldeano.desocupar();
+        Assert.assertEquals(20, aldeano.generaOro());
     }
 
     @Test

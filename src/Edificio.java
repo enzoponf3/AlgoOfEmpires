@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 
-
-public abstract class Edificio {
+public abstract class Edificio implements Objeto{
 
     protected int vida;
     protected int costo;
@@ -8,7 +8,7 @@ public abstract class Edificio {
     protected int vidaMax;
     protected int ancho;
     protected int alto;
-    protected Posicion[] posiciones;
+    protected ArrayList<Posicion> posiciones;
 
     public int getVida() {
         return this.vida;
@@ -26,11 +26,11 @@ public abstract class Edificio {
         return alto;
     }
 
-    public Posicion[] getPosiciones() {
+    public ArrayList<Posicion> getPosiciones() {
         return posiciones;
     }
 
-    public void setPosiciones(Posicion[] posiciones) {
+    public void setPosiciones(ArrayList<Posicion> posiciones) {
         this.posiciones = posiciones;
     }
 

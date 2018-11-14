@@ -1,4 +1,4 @@
-public abstract class Unidad implements UnidadMovil{
+public abstract class Unidad implements UnidadMovil, Objeto{
 
     protected int vida;
     protected int costo;

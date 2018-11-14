@@ -1,19 +1,56 @@
+public class Casillero{
 
-public class Casillero {
+    private Posicion posicion;
+    protected Objeto objeto;
+    private EstadoCasillero estado;
 
-    private boolean ocupado; // Default value false
-
-    public boolean estaOcupado() {
-        return this.ocupado;
+    Casillero(Posicion posicion){
+        this.posicion = posicion;
+        this.estado = new EstadoDesocupado();
     }
 
-    public void ocupar() {
-        if (this.ocupado) throw new CasilleroOcupadoException();
-        this.ocupado = true;
+    public Posicion getPosicion(){
+        return this.posicion;
     }
 
-    public void desocupar() {
-        if (!this.ocupado) throw new CasilleroNoOcupadoException();
-        this.ocupado = false;
+
+    public void colocarObjeto(Objeto objeto) {
+
+        try{
+            this.estado.colocarObjeto(objeto, this);
+        } catch (CasilleroOcupadoException e) {
+            throw e;
+        }
     }
+
+    public Objeto removerObjeto(){
+        try {
+            Objeto objeto = this.objeto;
+            this.estado.removerObjeto(this);
+            return objeto;
+        } catch (CasilleroDesocupadoException e){
+            throw e;
+        }
+    }
+
+    public boolean estaOcupado(){
+        return this.estado.estaOcupado();
+    }//Solo para la prueba, no se usa
+
+    public void ocupar(){
+        this.estado = new EstadoOcupado();
+    }
+
+    public void desocupar(){
+        this.estado = new EstadoDesocupado();
+    }
+
+    public boolean esIgualA(Casillero casillero){
+        return this.posicion.igualA(casillero.posicion);
+    }
+
+    public boolean tienePosicion(Posicion posicion){
+        return this.posicion.igualA(posicion);
+    }
+
 }

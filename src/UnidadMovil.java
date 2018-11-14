@@ -1,4 +1,4 @@
-public interface UnidadMovil {
+public interface UnidadMovil extends Objeto{
 
     void mover(Posicion destino);
 

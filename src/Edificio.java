@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Edificio {
+public abstract class Edificio implements Objeto{
 
     protected int vida;
     protected int costo;

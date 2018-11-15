@@ -1,4 +1,3 @@
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,12 +52,28 @@ public class CastilloTest {
         Assert.assertEquals(castillo.getVida(),1000);
      }
 
-    /*@Test
+    @Test
     public void creacionDeArmaDeAsedio() {
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
         Assert.assertEquals(armaDeAsedio.getVida(), 150);
         Assert.assertEquals(armaDeAsedio.getCosto(),200);
-    }*/
+    }
+
+    @Test (expected = EdificioEnReparacionException.class)
+    public void soloSePuedeRepararUnaVezAntesDeCambiarDeEstado() {
+        castillo.reducirVida(100);
+        castillo.reparar();
+        castillo.reparar();
+    }
+
+    @Test
+    public void sePuedeRepararNuevamenteDespuesDeCambiarDeEstado() {
+        castillo.reducirVida(100);
+        castillo.reparar();
+        castillo.volverAEstadoOriginal();
+        castillo.reparar();
+        Assert.assertEquals(castillo.getVida(),930);
+    }
 
 //    @Test
 //    public void atacarUnaUnidad() {

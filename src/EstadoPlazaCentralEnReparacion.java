@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class EstadoPlazaCentralEnReparacion implements EstadoPlazaCentral {
 
     @Override

@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public interface EstadoCastillo {
 
     void reparar(Castillo castillo);

@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class EstadoCuartelEnConstruccion implements EstadoCuartel{
 
     public static final int TURNOS = 3;

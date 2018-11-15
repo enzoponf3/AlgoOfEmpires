@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class EstadoCuartelEnReparacion implements EstadoCuartel {
 
     @Override

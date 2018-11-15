@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class PlazaCentral extends Edificio {
 
     private static final int VIDA = 450;

@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public interface EstadoCuartel {
 
     Espadachin crearEspadachin();

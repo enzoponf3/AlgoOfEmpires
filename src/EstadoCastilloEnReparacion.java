@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class EstadoCastilloEnReparacion implements EstadoCastillo {
 
 

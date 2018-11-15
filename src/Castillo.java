@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public class Castillo extends Edificio {
 
     private static final int VIDA = 1000;

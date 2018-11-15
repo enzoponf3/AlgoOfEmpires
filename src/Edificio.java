@@ -1,5 +1,3 @@
-package algoEmpires;
-
 public abstract class Edificio {
 
     protected int vida;

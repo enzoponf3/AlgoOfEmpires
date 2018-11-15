@@ -1,4 +1,4 @@
-
+package algoEmpires;
 
 public interface EstadoCuartel {
 
@@ -11,4 +11,6 @@ public interface EstadoCuartel {
     void construir(Cuartel cuartel);
 
     int getTurnosConstruccion();
+
+    void volverAEstadoOriginal(Cuartel cuartel);
 }

@@ -1,6 +1,6 @@
 package algoEmpires;
 
-public class EstadoCuartelConstruido implements EstadoCuartel {
+public class EstadoCuartelEnReparacion implements EstadoCuartel {
 
     @Override
     public Espadachin crearEspadachin() {
@@ -16,13 +16,7 @@ public class EstadoCuartelConstruido implements EstadoCuartel {
 
     @Override
     public void reparar(Cuartel cuartel) {
-        if (cuartel.vida == cuartel.vidaMax)
-            throw new EdificioConVidaAlMaximoException();
-        cuartel.enReparacion();
-        if ((cuartel.vida + cuartel.velocidadReparacion) >= cuartel.vidaMax)
-            cuartel.vida = cuartel.vidaMax;
-        else
-            cuartel.vida += cuartel.velocidadReparacion;
+        throw new EdificioEnReparacionException();
     }
 
     @Override
@@ -37,6 +31,6 @@ public class EstadoCuartelConstruido implements EstadoCuartel {
 
     @Override
     public void volverAEstadoOriginal(Cuartel cuartel) {
-        // Matiene estado construido
+        cuartel.construido();
     }
 }

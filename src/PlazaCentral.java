@@ -1,3 +1,5 @@
+package algoEmpires;
+
 public class PlazaCentral extends Edificio {
 
     private static final int VIDA = 450;
@@ -42,6 +44,18 @@ public class PlazaCentral extends Edificio {
 
     public int getTurnosNecesariosConstruccion() {
         return this.estado.getTurnosConstruccion();
+    }
+
+    public void enReparacion() {
+        this.estado = new EstadoPlazaCentralEnReparacion();
+    }
+
+    public void construida() {
+        this.estado = new EstadoPlazaCentralConstruida();
+    }
+
+    public void volverAEstadoOriginal() {
+        this.estado.volverAEstadoOriginal(this);
     }
 
 }

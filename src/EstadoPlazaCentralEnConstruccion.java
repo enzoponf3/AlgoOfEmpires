@@ -1,3 +1,4 @@
+package algoEmpires;
 
 public class EstadoPlazaCentralEnConstruccion implements EstadoPlazaCentral {
 
@@ -32,5 +33,10 @@ public class EstadoPlazaCentralEnConstruccion implements EstadoPlazaCentral {
     @Override
     public int getTurnosConstruccion() {
         return this.turnos;
+    }
+
+    @Override
+    public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
+        // Mantiene estado en construccion
     }
 }

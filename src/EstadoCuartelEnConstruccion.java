@@ -1,3 +1,4 @@
+package algoEmpires;
 
 public class EstadoCuartelEnConstruccion implements EstadoCuartel{
 
@@ -39,5 +40,10 @@ public class EstadoCuartelEnConstruccion implements EstadoCuartel{
     @Override
     public int getTurnosConstruccion() {
         return this.turnos;
+    }
+
+    @Override
+    public void volverAEstadoOriginal(Cuartel cuartel) {
+        // Mantiene estado en construccion
     }
 }

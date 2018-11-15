@@ -1,8 +1,13 @@
+package algoEmpires;
+
 public class Cuartel extends Edificio {
 
-    public static final int VIDA = 250;
-    public static final int COSTO = 50;
-    public static final int VELOCIDAD_REPARACION = 50;
+    private static final int VIDA = 250;
+    private static final int COSTO = 50;
+    private static final int VELOCIDAD_REPARACION = 50;
+    private static final int ANCHO = 2;
+    private static final int ALTO = 2;
+
 
     private EstadoCuartel estado;
 
@@ -11,6 +16,8 @@ public class Cuartel extends Edificio {
         this.vida = 0;
         this.costo = COSTO;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
+        this.ancho = ANCHO;
+        this.alto = ALTO;
         this.estado = new EstadoCuartelEnConstruccion();
     }
 
@@ -42,5 +49,17 @@ public class Cuartel extends Edificio {
 
     public int getTurnosNecesariosConstruccion() {
         return this.estado.getTurnosConstruccion();
+    }
+
+    public void enReparacion() {
+        this.estado = new EstadoCuartelEnReparacion();
+    }
+
+    public void construido() {
+        this.estado = new EstadoCuartelConstruido();
+    }
+
+    public void volverAEstadoOriginal() {
+        this.estado.volverAEstadoOriginal(this);
     }
 }

@@ -1,3 +1,5 @@
+package algoEmpires;
+
 public interface EstadoPlazaCentral {
 
     Aldeano crearAldeano();
@@ -7,4 +9,6 @@ public interface EstadoPlazaCentral {
     void construir(PlazaCentral plaza);
 
     int getTurnosConstruccion();
+
+    void volverAEstadoOriginal(PlazaCentral plazaCentral);
 }

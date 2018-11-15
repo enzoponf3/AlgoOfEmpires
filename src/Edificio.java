@@ -1,6 +1,6 @@
-import java.util.ArrayList;
+package algoEmpires;
 
-public abstract class Edificio implements Objeto{
+public abstract class Edificio {
 
     protected int vida;
     protected int costo;
@@ -8,7 +8,7 @@ public abstract class Edificio implements Objeto{
     protected int vidaMax;
     protected int ancho;
     protected int alto;
-    protected ArrayList<Posicion> posiciones;
+    protected Posicion[] posiciones;
 
     public int getVida() {
         return this.vida;
@@ -26,11 +26,11 @@ public abstract class Edificio implements Objeto{
         return alto;
     }
 
-    public ArrayList<Posicion> getPosiciones() {
+    public Posicion[] getPosiciones() {
         return posiciones;
     }
 
-    public void setPosiciones(ArrayList<Posicion> posiciones) {
+    public void setPosiciones(Posicion[] posiciones) {
         this.posiciones = posiciones;
     }
 
@@ -48,7 +48,5 @@ public abstract class Edificio implements Objeto{
         else
             this.vida += this.velocidadReparacion;
     }
-
-    public void construir(){}
 
 }

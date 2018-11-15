@@ -1,6 +1,6 @@
 package algoEmpires;
 
-public class EstadoPlazaCentralConstruida implements EstadoPlazaCentral {
+public class EstadoPlazaCentralEnReparacion implements EstadoPlazaCentral {
 
     @Override
     public Aldeano crearAldeano() {
@@ -10,13 +10,7 @@ public class EstadoPlazaCentralConstruida implements EstadoPlazaCentral {
 
     @Override
     public void reparar(PlazaCentral plaza) {
-        if (plaza.vida == plaza.vidaMax)
-            throw new EdificioConVidaAlMaximoException();
-        plaza.enReparacion();
-        if ((plaza.vida + plaza.velocidadReparacion) >= plaza.vidaMax)
-            plaza.vida = plaza.vidaMax;
-        else
-            plaza.vida += plaza.velocidadReparacion;
+        throw new EdificioEnReparacionException();
     }
 
     @Override
@@ -31,6 +25,6 @@ public class EstadoPlazaCentralConstruida implements EstadoPlazaCentral {
 
     @Override
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
-        // Mantiene estado construida
+        plazaCentral.construida();
     }
 }

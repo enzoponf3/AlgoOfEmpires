@@ -1,7 +1,7 @@
 public class ArmaDeAsedio extends Unidad{
 
-    protected int VIDA = 150;
-    protected int COSTO = 200;
+    private int VIDA = 150;
+    private int COSTO = 200;
     protected EstadoArmaDeAsedio estado;
 
     public ArmaDeAsedio(){
@@ -17,9 +17,9 @@ public class ArmaDeAsedio extends Unidad{
         return this.costo;
     }
 
-    public void montar(){ this.estado = new EstadoArmaDeAsedioArmado();}
+    public void montar(){ this.estado.montar(this);}
 
-    public void desmontar(){ this.estado = new EstadoArmaDeAsedioDesarmado();}
+    public void desmontar(){ this.estado.desmontar(this);}
 
     public void desocupar(){this.estado.desocupar(this);}
 

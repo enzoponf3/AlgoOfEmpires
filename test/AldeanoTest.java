@@ -30,9 +30,9 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Assert.assertEquals(25, aldeano.getCosto());
     }
-
+    
     //Pruebas Mov normales
-
+    
     @Test
     public void moverAldeanoUnaUnidadArribaExitosamente(){
         Aldeano aldeano = new Aldeano();
@@ -133,8 +133,20 @@ public class AldeanoTest {
         aldeano.mover(destino);
         Assert.assertTrue(aldeano.estaEnPosicion(destino));
     }
-
-    //Mover mas de 1 vez falla
+    @Test
+    public void moverEnDosTurnosDistintos(){
+        Aldeano aldeano = new Aldeano();
+        Posicion origen = new Posicion(1,1);
+        aldeano.setPosicion(origen);
+        Assert.assertTrue(aldeano.estaEnPosicion(origen));
+        Posicion destino1 = new Posicion(1,2);
+        aldeano.mover(destino1);
+        Assert.assertTrue(aldeano.estaEnPosicion(destino1));
+        Posicion destino2 = new Posicion(1,3);
+        aldeano.desocupar();
+        aldeano.mover(destino2);
+        Assert.assertTrue(aldeano.estaEnPosicion(destino2));
+    }
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
@@ -212,6 +224,35 @@ public class AldeanoTest {
         Assert.assertEquals(20,aldeano.generaOro());
         aldeano.construirPlazaCentral();
         Assert.assertEquals(0,aldeano.generaOro());
+    }
+
+
+    @Test (expected = UnidadNoPuedeConstruirException.class)
+    public void aldeanoConstruirPlazaCentralDosVecesEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        aldeano.construirPlazaCentral();
+        aldeano.construirPlazaCentral();
+    }
+
+    @Test (expected = UnidadNoPuedeConstruirException.class)
+    public void aldeanoConstruirCuartellDosVecesEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        aldeano.construirCuartel();
+        aldeano.construirCuartel();
+    }
+
+    @Test (expected = UnidadNoPuedeConstruirException.class)
+    public void aldeanoContinuarConstruccionPlazaCentralEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+    }
+
+    @Test (expected = UnidadNoPuedeConstruirException.class)
+    public void aldeanoContinuarConstruccionCuartelEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.continuarConstruccionCuartel(cuartel);
     }
 
     //Pruebas de reparacion
@@ -391,4 +432,37 @@ public class AldeanoTest {
         aldeano.repararEdificio(plaza);
         Assert.assertEquals(plaza.getVida(),425);
     }
+
+    @Test (expected = UndidadNoPuedeRepararException.class)
+    public void aldeanoRepararPlazaCentralDosVecesEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        aldeano.desocupar();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.desocupar();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.desocupar();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
+        aldeano.desocupar();
+        plaza.reducirVida(100);
+        aldeano.repararEdificio(plaza);
+        aldeano.repararEdificio(plaza);
+    }
+
+    @Test (expected = UndidadNoPuedeRepararException.class)
+    public void aldeanoRepararCuartellDosVecesEnMismoTurnoFalla(){
+        Aldeano aldeano = new Aldeano();
+        Cuartel cuartel = aldeano.construirCuartel();
+        aldeano.desocupar();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.desocupar();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.desocupar();
+        aldeano.continuarConstruccionCuartel(cuartel);
+        aldeano.desocupar();
+        cuartel.reducirVida(100);
+        aldeano.repararEdificio(cuartel);
+        aldeano.repararEdificio(cuartel);
+    }
+
 }

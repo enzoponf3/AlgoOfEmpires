@@ -52,7 +52,7 @@ public class EspadachinTest {
 
 
     @Test
-    public void moverAldeanoUnaUnidadDerechaExitosamente(){
+    public void moverEspadachinUnaUnidadDerechaExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -65,7 +65,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoExitosamente(){
+    public void moverEspadachinUnaUnidadAbajoExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -78,7 +78,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoIzquierdaExitosamente(){
+    public void moverEspadachinUnaUnidadAbajoIzquierdaExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -91,7 +91,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoDerechaExitosamente(){
+    public void moverEspadachinUnaUnidadAbajoDerechaExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -104,7 +104,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadArribaIzquierdaExitosamente(){
+    public void moverEspadachinUnaUnidadArribaIzquierdaExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -117,7 +117,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadaArribaDerechaExitosamente(){
+    public void moverEspadachinUnaUnidadaArribaDerechaExitosamente(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
         espadachin.setPosicion(posicion);
@@ -127,9 +127,24 @@ public class EspadachinTest {
         espadachin.mover(destino);
         Assert.assertTrue(espadachin.estaEnPosicion(destino));
     }
-
+    
+    @Test
+    public void moverEnDosTurnosDistintos(){
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(1,1);
+        espadachin.setPosicion(origen);
+        Assert.assertTrue(espadachin.estaEnPosicion(origen));
+        Posicion destino1 = new Posicion(1,2);
+        espadachin.mover(destino1);
+        Assert.assertTrue(espadachin.estaEnPosicion(destino1));
+        Posicion destino2 = new Posicion(1,3);
+        espadachin.desocupar();
+        espadachin.mover(destino2);
+        Assert.assertTrue(espadachin.estaEnPosicion(destino2));
+    }
+    
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
+    public void moverEspadachinDosVecesConsecutivasFalla(){
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(1,1);
         espadachin.setPosicion(posicion);

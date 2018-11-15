@@ -2,9 +2,19 @@ public class EstadoArmaDeAsedioDesarmado implements EstadoArmaDeAsedio {
     @Override
     public void mover(Posicion destino, ArmaDeAsedio armaDeAsedio){
         armaDeAsedio.cambiarPosicion(destino);
-        armaDeAsedio.estado = new EstadoArmaDeAsedioMovio();
+        armaDeAsedio.estado = new EstadoArmaDeAsedioDesarmadoOcupado();
     }
 
     public void desocupar(ArmaDeAsedio armaDeAsedio){
+    }
+
+    @Override
+    public void montar(ArmaDeAsedio armaAsedio) {
+        armaAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado();
+    }
+
+    @Override
+    public void desmontar(ArmaDeAsedio armaAsedio) {
+        throw new UnidadDesarmadaException();
     }
 }

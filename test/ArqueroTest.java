@@ -26,7 +26,7 @@ public class ArqueroTest {
     //Pruebas Mov normales
 
     @Test
-    public void moverAldeanoUnaUnidadArribaExitosamente(){
+    public void moverArqueroUnaUnidadArribaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -38,7 +38,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadIzquierdaExitosamente(){
+    public void moverArqueroUnaUnidadIzquierdaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -52,7 +52,7 @@ public class ArqueroTest {
 
 
     @Test
-    public void moverAldeanoUnaUnidadDerechaExitosamente(){
+    public void moverArqueroUnaUnidadDerechaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -65,7 +65,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoExitosamente(){
+    public void moverArqueroUnaUnidadAbajoExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -78,7 +78,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoIzquierdaExitosamente(){
+    public void moverArqueroUnaUnidadAbajoIzquierdaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -91,7 +91,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadAbajoDerechaExitosamente(){
+    public void moverArqueroUnaUnidadAbajoDerechaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -104,7 +104,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadArribaIzquierdaExitosamente(){
+    public void moverArqueroUnaUnidadArribaIzquierdaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -117,7 +117,7 @@ public class ArqueroTest {
     }
 
     @Test
-    public void moverAldeanoUnaUnidadaArribaDerechaExitosamente(){
+    public void moverArqueroUnaUnidadaArribaDerechaExitosamente(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
         arquero.setPosicion(posicion);
@@ -128,10 +128,23 @@ public class ArqueroTest {
         Assert.assertTrue(arquero.estaEnPosicion(destino));
     }
 
-    //Mover mas de 1 vez falla en cada posicion
+    @Test
+    public void moverEnDosTurnosDistintos(){
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(1,1);
+        arquero.setPosicion(origen);
+        Assert.assertTrue(arquero.estaEnPosicion(origen));
+        Posicion destino1 = new Posicion(1,2);
+        arquero.mover(destino1);
+        Assert.assertTrue(arquero.estaEnPosicion(destino1));
+        Posicion destino2 = new Posicion(1,3);
+        arquero.desocupar();
+        arquero.mover(destino2);
+        Assert.assertTrue(arquero.estaEnPosicion(destino2));
+    }
 
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
+    public void moverArqueroDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(1,1);
         arquero.setPosicion(posicion);

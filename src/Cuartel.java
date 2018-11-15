@@ -36,6 +36,7 @@ public class Cuartel extends Edificio {
         return this.estado.crearArquero();
     }
 
+    @Override
     public void construir() {
         this.estado.construir(this);
     }

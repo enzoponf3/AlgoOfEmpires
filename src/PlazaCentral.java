@@ -31,6 +31,7 @@ public class PlazaCentral extends Edificio {
         return this.estado.crearAldeano();
     }
 
+    @Override
     public void construir() {
         this.estado.construir(this);
     }

@@ -10,7 +10,5 @@ public interface IEstadoPlazaCentral {
 
     void construir(PlazaCentral plaza);
 
-    int getTurnosConstruccion();
-
     void volverAEstadoOriginal(PlazaCentral plazaCentral);
 }

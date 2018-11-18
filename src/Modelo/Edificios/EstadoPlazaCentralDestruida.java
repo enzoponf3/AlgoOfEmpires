@@ -1,28 +1,28 @@
 package Modelo.Edificios;
 
-import Modelo.Exceptions.EdificioConVidaAlMaximoException;
-import Modelo.Exceptions.EdificioYaConstruidoException;
+import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Unidades.Aldeano;
 
-public class EstadoPlazaCentralConstruida implements IEstadoPlazaCentral {
+
+public class EstadoPlazaCentralDestruida implements IEstadoPlazaCentral {
 
     @Override
     public Aldeano crearAldeano() {
-        return new Aldeano();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void reparar(PlazaCentral plaza) {
-        plaza.aumentarVida();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void construir(PlazaCentral plaza) {
-        throw new EdificioYaConstruidoException();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
-        // Mantiene estado construida
+        throw new EdificioDestruidoException();
     }
 }

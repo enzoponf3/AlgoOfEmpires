@@ -1,5 +1,7 @@
 package Modelo.Edificios;
 
+import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Exceptions.EdificioSinVidaExcepcion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
@@ -10,7 +12,7 @@ public class Cuartel extends Edificio {
     private static final int VELOCIDAD_REPARACION = 50;
     private static final int ANCHO = 2;
     private static final int ALTO = 2;
-
+    private static final int TURNOS_CONSTRUCCION = 3;
 
     private IEstadoCuartel estado;
 
@@ -21,12 +23,7 @@ public class Cuartel extends Edificio {
         this.velocidadReparacion = VELOCIDAD_REPARACION;
         this.ancho = ANCHO;
         this.alto = ALTO;
-        this.estado = new EstadoCuartelEnConstruccion();
-    }
-
-    @Override
-    public void reparar() {
-        this.estado.reparar(this);
+        this.estado = new EstadoCuartelNoConstruido(TURNOS_CONSTRUCCION);
     }
 
     public int getCosto() {
@@ -42,8 +39,30 @@ public class Cuartel extends Edificio {
     }
 
     @Override
+    public void reducirVida(int cant) {
+        if (this.vida <= 0)
+            throw new EdificioDestruidoException();
+        this.vida -= cant;
+        if (this.vida <= 0)
+            this.estado = new EstadoCuartelDestruido();
+    }
+
+    @Override
+    public void reparar() {
+        this.estado.reparar(this);
+    }
+
+    @Override
     public void construir() {
         this.estado.construir(this);
+    }
+
+    void enConstruccion(int turnosRestantes) {
+        this.estado = new EstadoCuartelEnConstruccion(turnosRestantes);
+    }
+
+    void noConstruido(int turnosRestantes) {
+        this.estado = new EstadoCuartelNoConstruido(turnosRestantes);
     }
 
     public void finalizarConstruccion() {
@@ -51,19 +70,16 @@ public class Cuartel extends Edificio {
         this.estado = new EstadoCuartelConstruido();
     }
 
-    public int getTurnosNecesariosConstruccion() {
-        return this.estado.getTurnosConstruccion();
+    void construido() {
+        this.estado = new EstadoCuartelConstruido();
     }
 
     public void enReparacion() {
         this.estado = new EstadoCuartelEnReparacion();
     }
 
-    public void construido() {
-        this.estado = new EstadoCuartelConstruido();
-    }
-
     public void volverAEstadoOriginal() {
         this.estado.volverAEstadoOriginal(this);
     }
+
 }

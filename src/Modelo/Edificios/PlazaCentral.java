@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Unidades.Aldeano;
 
 public class PlazaCentral extends Edificio {
@@ -9,6 +10,8 @@ public class PlazaCentral extends Edificio {
     private static final int VELOCIDAD_REPARACION = 25;
     private static final int ANCHO = 2;
     private static final int ALTO = 2;
+    private static final int TURNOS = 3;
+
 
     private IEstadoPlazaCentral estado;
 
@@ -19,12 +22,7 @@ public class PlazaCentral extends Edificio {
         this.velocidadReparacion = VELOCIDAD_REPARACION;
         this.ancho = ANCHO;
         this.alto = ALTO;
-        this.estado = new EstadoPlazaCentralEnConstruccion();
-    }
-
-    @Override
-    public void reparar() {
-        this.estado.reparar(this);
+        this.estado = new EstadoPlazaCentralNoConstruida(TURNOS);
     }
 
     public int getCosto() {
@@ -33,6 +31,20 @@ public class PlazaCentral extends Edificio {
 
     public Aldeano crearAldeano() {
         return this.estado.crearAldeano();
+    }
+
+    @Override
+    public void reducirVida(int cant) {
+        if (this.vida <= 0)
+            throw new EdificioDestruidoException();
+        this.vida -= cant;
+        if (this.vida <= 0)
+            this.estado = new EstadoPlazaCentralDestruida();
+    }
+
+    @Override
+    public void reparar() {
+        this.estado.reparar(this);
     }
 
     @Override
@@ -45,15 +57,11 @@ public class PlazaCentral extends Edificio {
         this.estado = new EstadoPlazaCentralConstruida();
     }
 
-    public int getTurnosNecesariosConstruccion() {
-        return this.estado.getTurnosConstruccion();
-    }
-
     public void enReparacion() {
         this.estado = new EstadoPlazaCentralEnReparacion();
     }
 
-    public void construida() {
+    void construida() {
         this.estado = new EstadoPlazaCentralConstruida();
     }
 
@@ -61,4 +69,11 @@ public class PlazaCentral extends Edificio {
         this.estado.volverAEstadoOriginal(this);
     }
 
+    void noConstruida(int turnosRestantes) {
+        this.estado = new EstadoPlazaCentralNoConstruida(turnosRestantes);
+    }
+
+    void enConstruccion(int turnosRestantes) {
+        this.estado = new EstadoPlazaCentralEnConstruccion(turnosRestantes);
+    }
 }

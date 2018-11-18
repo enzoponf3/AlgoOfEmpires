@@ -28,11 +28,6 @@ public class EstadoCuartelEnReparacion implements IEstadoCuartel {
     }
 
     @Override
-    public int getTurnosConstruccion() {
-        throw new EdificioYaConstruidoException();
-    }
-
-    @Override
     public void volverAEstadoOriginal(Cuartel cuartel) {
         cuartel.construido();
     }

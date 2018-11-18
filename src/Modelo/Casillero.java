@@ -1,8 +1,5 @@
 package Modelo;
 
-import Modelo.Edificios.IEstadoCasillero;
-import Modelo.Edificios.EstadoDesocupado;
-import Modelo.Edificios.EstadoOcupado;
 import Modelo.Exceptions.CasilleroDesocupadoException;
 import Modelo.Exceptions.CasilleroOcupadoException;
 
@@ -15,7 +12,7 @@ public class Casillero<T>{
     public Casillero(Posicion posicion){
         this.posicion = posicion;
         this.entidad = null;
-        this.estado = new EstadoDesocupado();
+        this.estado = new EstadoCasilleroDesocupado();
     }
 
     public Posicion getPosicion(){
@@ -28,22 +25,13 @@ public class Casillero<T>{
 
 
     public void colocarObjeto(IEntidad iEntidad) {
-
-        try{
-            this.estado.colocarObjeto(iEntidad, this);
-        } catch (CasilleroOcupadoException e) {
-            throw e;
-        }
+        this.estado.colocarObjeto(iEntidad, this);
     }
 
     public T removerObjeto(){
-        try {
-            T objeto = this.entidad;
-            this.estado.removerObjeto(this);
-            return objeto;
-        } catch (CasilleroDesocupadoException e){
-            throw e;
-        }
+        T objeto = this.entidad;
+        this.estado.removerObjeto(this);
+        return objeto;
     }
 
     public boolean estaOcupado(){
@@ -51,11 +39,11 @@ public class Casillero<T>{
     }
 
     public void ocupar(){
-        this.estado = new EstadoOcupado();
+        this.estado = new EstadoCasilleroOcupado();
     }
 
     public void desocupar(){
-        this.estado = new EstadoDesocupado();
+        this.estado = new EstadoCasilleroDesocupado();
     }
 
     public boolean tienePosicion(Posicion posicion){

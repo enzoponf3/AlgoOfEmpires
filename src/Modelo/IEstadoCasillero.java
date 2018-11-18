@@ -1,4 +1,4 @@
-package Modelo.Edificios;
+package Modelo;
 import Modelo.*;
 public interface IEstadoCasillero {
 

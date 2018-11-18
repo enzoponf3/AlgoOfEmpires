@@ -75,24 +75,15 @@ public class Mapa {
         verificarPosicionValida(posicion);
         Casillero casillero = seleccionarCasillero(posicion);
 
-        try {
-            casillero.colocarObjeto(IEntidad);
-        } catch (CasilleroOcupadoException e) {
-            throw e;
-        }
-
+        casillero.colocarObjeto(IEntidad);
     }
 
     public IEntidad desocuparCasillero(Posicion posicion){
         verificarPosicionValida(posicion);
         Casillero casillero = seleccionarCasillero(posicion);
 
-        try {
-            IEntidad IEntidad = (IEntidad) casillero.removerObjeto();
-            return IEntidad;
-        } catch (CasilleroOcupadoException e) {
-            throw e;
-        }
+        IEntidad IEntidad = (IEntidad) casillero.removerObjeto();
+        return IEntidad;
     }
 
 
@@ -118,10 +109,6 @@ public class Mapa {
             throw new PosicionInvalidaException();
 
     }
-
-    /*public void moverUnidadMovil(IUnidadMovible unidad, Posicion destino){
-        unidadMovil.mover(destino);
-    }*/
 
 
     public void moverUnidadMovil( Posicion origen, Posicion destino ){

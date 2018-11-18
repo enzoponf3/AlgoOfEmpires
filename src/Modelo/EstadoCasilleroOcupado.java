@@ -1,8 +1,8 @@
-package Modelo.Edificios;
+package Modelo;
 import Modelo.*;
 import Modelo.Exceptions.CasilleroOcupadoException;
 
-public class EstadoOcupado implements IEstadoCasillero {
+public class EstadoCasilleroOcupado implements IEstadoCasillero {
 
     @Override
     public void colocarObjeto(IEntidad IEntidad, Casillero casillero){
@@ -11,7 +11,6 @@ public class EstadoOcupado implements IEstadoCasillero {
 
     @Override
     public void removerObjeto(Casillero casillero){
-        //¿como borro la instancia?
         casillero.setEntidad(null);
         casillero.desocupar();
     }

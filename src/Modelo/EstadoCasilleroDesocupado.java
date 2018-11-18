@@ -1,8 +1,8 @@
-package Modelo.Edificios;
+package Modelo;
 import Modelo.*;
 import Modelo.Exceptions.CasilleroDesocupadoException;
 
-public class EstadoDesocupado implements IEstadoCasillero {
+public class EstadoCasilleroDesocupado implements IEstadoCasillero {
 
     @Override
     public void colocarObjeto(IEntidad entidad, Casillero casillero){

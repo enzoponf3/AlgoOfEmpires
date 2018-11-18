@@ -2,7 +2,11 @@ public class Espadachin extends Unidad{
 
    protected int VIDA = 100;
    protected int COSTO = 50;
+   protected int DANIO_UNIDAD = 25;
+   protected int DANIO_EDIFICIO = 15;
    protected EstadoEspadachin estado;
+   protected int rango = 1;
+
 
     public Espadachin(){
         this.vida = VIDA;
@@ -29,5 +33,25 @@ public class Espadachin extends Unidad{
     @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
+        this.ocupar();
+    }
+
+    public void atacar(Unidad unidad){ this.estado.atacar(this,unidad);}
+
+    public void atacar(Edificio edificio){this.estado.atacar(this,edificio);}
+
+    public int getDanioUnidad(){
+        return DANIO_UNIDAD;
+    }
+
+    public int getDanioEdificio(){
+        return DANIO_EDIFICIO;
+    }
+
+    public void estaEnRango(Posicion posicion){         //De ultima pensar otra forma
+        Posicion posicionDif = this.posicion.diferenciaEntrePos(posicion);
+        if(posicionDif.getHorizontal() > this.rango || posicionDif.getVertical() > this.rango){
+            throw new ObjetoFueraDeRangoException();
+        }
     }
 }

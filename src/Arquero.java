@@ -35,4 +35,6 @@ public class Arquero extends Unidad{
         this.estado = new EstadoArqueroLibre();
     }
 
+    public void atacar(Unidad unidad){}
+
 }

@@ -3,6 +3,8 @@ public abstract class Unidad implements UnidadMovil, Objeto{
     protected int vida;
     protected int costo;
     protected Posicion posicion;
+    protected int DANIO_UNIDAD = 0;
+    protected int DANIO_EDIFICIO = 0;
 
     public int getVida(){
         return vida;
@@ -22,5 +24,16 @@ public abstract class Unidad implements UnidadMovil, Objeto{
 
     public Posicion getPosicion(){
         return this.posicion;
+    }
+
+    public void reducirVida(int danio){
+        this.vida -= danio;
+    }
+
+    public int getDanioUnidad(){
+        return DANIO_UNIDAD;
+    }
+    public int getDanioEdificio(){
+        return DANIO_EDIFICIO;
     }
 }

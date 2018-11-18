@@ -1,9 +1,7 @@
 package Modelo;
 
-import Modelo.Exceptions.CasilleroOcupadoException;
-import Modelo.Exceptions.MapaConDimensionesIncorrectasException;
-import Modelo.Exceptions.PosicionFueraDelMapaException;
-import Modelo.Unidades.UnidadMovil;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.IUnidadMovible;
 
 import java.util.ArrayList;
 
@@ -73,25 +71,25 @@ public class Mapa2 {
         return null;
     }
 
-    public void ocuparCasillero(Posicion posicion, Objeto objeto){
+    public void ocuparCasillero(Posicion posicion, IEntidad IEntidad){
         verificarPosicionValida(posicion);
         Casillero casillero = seleccionarCasillero(posicion);
 
         try {
-            casillero.colocarObjeto(objeto);
+            casillero.colocarObjeto(IEntidad);
         } catch (CasilleroOcupadoException e) {
             throw e;
         }
 
     }
 
-    public Objeto desocuparCasillero(Posicion posicion){
+    public IEntidad desocuparCasillero(Posicion posicion){
         verificarPosicionValida(posicion);
         Casillero casillero = seleccionarCasillero(posicion);
 
         try {
-            Objeto objeto = casillero.removerObjeto();
-            return objeto;
+            IEntidad IEntidad = (IEntidad) casillero.removerObjeto();
+            return IEntidad;
         } catch (CasilleroOcupadoException e) {
             throw e;
         }
@@ -107,26 +105,33 @@ public class Mapa2 {
             throw new PosicionFueraDelMapaException();
     }
 
-<<<<<<< HEAD:src/Mapa2.java
-    public void verificarPosicionDesocupada(Posicion posicion){
+
+    public void verificarPosicionDesocupada(Posicion posicion) {
         Casillero casillero = this.seleccionarCasillero(posicion);
-        if(casillero.estaOcupado())
+        if( casillero.estaOcupado() )
             throw new PosicionOcupadaException();
-=======
-    public void moverUnidadMovil(UnidadMovil unidadMovil, Posicion destino ){
-        unidadMovil.mover(destino);
->>>>>>> cb73f0879d9e1132c34075c94d59094ca80ac844:src/Modelo/Mapa2.java
     }
 
-    /*
+
+    public void verificarPosicionesAledanias(Posicion origen, Posicion destino) {
+        if ( !origen.aledaniaA(destino) )
+            throw new PosicionInvalidaException();
+
+    }
+
+    /*public void moverUnidadMovil(IUnidadMovible unidad, Posicion destino){
+        unidadMovil.mover(destino);
+    }*/
+
 
     public void moverUnidadMovil( Posicion origen, Posicion destino ){
         verificarPosicionValida(destino);
+        verificarPosicionesAledanias(origen, destino);
         verificarPosicionDesocupada(destino);
-        Objeto unidad = this.desocuparCasillero(origen);
+        IUnidadMovible unidad = (IUnidadMovible) this.desocuparCasillero(origen);
         unidad.mover(destino);
+        ocuparCasillero(destino, unidad);
     }
-*/
 
 
 }

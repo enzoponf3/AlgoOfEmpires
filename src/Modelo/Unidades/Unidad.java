@@ -2,7 +2,7 @@ package Modelo.Unidades;
 
 import Modelo.*;
 
-public abstract class Unidad implements UnidadMovil, Objeto {
+public abstract class Unidad implements IUnidadMovible, IEntidad {
 
     protected int vida;
     protected int costo;

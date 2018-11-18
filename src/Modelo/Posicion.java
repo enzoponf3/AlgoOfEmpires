@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.lang.Math;
+
 public class Posicion {
 
     private int horizontal;
@@ -31,4 +33,16 @@ public class Posicion {
         int verticalNueva = this.vertical - posicion.vertical;
         return new Posicion(horizontalNueva,verticalNueva);
     }
+
+    public boolean compararPosiciones(Posicion unaposicion){
+        return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
+    } //Aca estoy rompiendo el encapsulamiento?
+
+    public boolean aledaniaA(Posicion destino){
+        int abs_horizontal = Math.abs(this.horizontal - destino.horizontal);
+        int abs_vertical = Math.abs(this.horizontal - destino.horizontal);
+        return ( ( (abs_horizontal == 1) || (abs_horizontal == 0) ) && ( (abs_vertical == 1) || (abs_vertical == 0) ) );
+    }
+
+
 }

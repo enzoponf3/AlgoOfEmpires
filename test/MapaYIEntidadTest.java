@@ -7,100 +7,100 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class MapaYObjetoTest {
+public class MapaYIEntidadTest {
 
     //Modelo.Unidades
 
     @Test
     public void colocarUnObjetoAldeanoEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Aldeano();
+        IEntidad IEntidad = new Aldeano();
         Posicion posicion = new Posicion(2,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
         Assert.assertTrue( casillero.estaOcupado() );
 
-        Objeto objeto2 = mapa.desocuparCasillero(posicion);
-        Assert.assertEquals( objeto, objeto2 );
+        IEntidad IEntidad2 = mapa.desocuparCasillero(posicion);
+        Assert.assertEquals(IEntidad, IEntidad2);
     }
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoAldeanoEnUnaPosicionFueraDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Aldeano();
+        IEntidad IEntidad = new Aldeano();
         Posicion posicion = new Posicion(15,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
     }
 
     @Test
     public void colocarUnObjetoArqueroEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Arquero();
+        IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(2,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
         Assert.assertTrue( casillero.estaOcupado() );
 
-        Objeto objeto2 = mapa.desocuparCasillero(posicion);
-        Assert.assertEquals( objeto, objeto2 );
+        IEntidad IEntidad2 = mapa.desocuparCasillero(posicion);
+        Assert.assertEquals(IEntidad, IEntidad2);
     }
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArqueroEnUnaPosicionFueraDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Arquero();
+        IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(15,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
     }
 
     @Test
     public void colocarUnObjetoEspadachinEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Espadachin();
+        IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(2,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
         Assert.assertTrue( casillero.estaOcupado() );
 
-        Objeto objeto2 = mapa.desocuparCasillero(posicion);
-        Assert.assertEquals( objeto, objeto2 );
+        IEntidad IEntidad2 = mapa.desocuparCasillero(posicion);
+        Assert.assertEquals(IEntidad, IEntidad2);
     }
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoEspadachinEnUnaPosicionFueraDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new Espadachin();
+        IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(15,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
     }
 
     @Test
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new ArmaDeAsedio();
+        IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
         Assert.assertTrue( casillero.estaOcupado() );
 
-        Objeto objeto2 = mapa.desocuparCasillero(posicion);
-        Assert.assertEquals( objeto, objeto2 );
+        IEntidad IEntidad2 = mapa.desocuparCasillero(posicion);
+        Assert.assertEquals(IEntidad, IEntidad2);
     }
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionFueraDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
-        Objeto objeto = new ArmaDeAsedio();
+        IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(15,5);
 
-        mapa.ocuparCasillero(posicion, objeto);
+        mapa.ocuparCasillero(posicion, IEntidad);
     }
 
     //Modelo.Edificios

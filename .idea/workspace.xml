@@ -2,12 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/PosicionOcupadaException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/PosicionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Casillero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mapa2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mapa2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/MapaYObjetoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MapaYObjetoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Casillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Casillero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/Edificio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/Edificio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCasillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCasillero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/EstadoDesocupado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/EstadoDesocupado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/EstadoOcupado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/EstadoOcupado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Mapa2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Mapa2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Objeto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/IEntidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Posicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Posicion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/UnidadMovil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/IUnidadMovible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PosicionOcupadaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Exceptions/PosicionOcupadaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CasilleroTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CasilleroTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Mapa2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Mapa2Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MapaYObjetoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MapaYIEntidadTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Pruebas Integrales/MapaYObjetoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Pruebas Integrales/MoverUnidadesEnMapaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Pruebas Unitarias/Mapa2Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/AldeanoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/ArmaDeAsedioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/ArqueroTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/CasilleroTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/CastilloTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/CuartelTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/EspadachinTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/Mapa2Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/MapaYObjetoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/MoverUnidadesEnMapaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PruebasPrimeraEntrega/PlazaCentralTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,36 +44,36 @@
     <session id="-1118664763">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.closed" value="12" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="8" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="104" />
+          <entry key="java" value="139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="104" />
+          <entry key="JAVA" value="139" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="4" />
-          <entry key="java" value="7206" />
+          <entry key="dummy" value="17" />
+          <entry key="java" value="9067" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7206" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="JAVA" value="9067" />
+          <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -57,19 +82,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mapa2.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
-              <caret line="118" column="2" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="2" />
+            <state relative-caret-position="247">
+              <caret line="130" column="47" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java">
+        <entry file="file://$PROJECT_DIR$/test/Mapa2Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="-1789">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,10 +106,53 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Casillero.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IUnidadMovible.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1590">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Casillero.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#647#648#0" expanded="true" />
+                <element signature="e#1155#1156#0" expanded="true" />
+                <element signature="e#1187#1188#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/CasilleroTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +174,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test/algoEmpires/PosicionTest.java" />
-        <option value="$PROJECT_DIR$/test/PosicionTest.java" />
         <option value="$PROJECT_DIR$/src/Posicion.java" />
         <option value="$PROJECT_DIR$/test/ArmaDeAsedioTest.java" />
         <option value="$PROJECT_DIR$/test/AldeanoTest.java" />
@@ -125,8 +195,6 @@
         <option value="$PROJECT_DIR$/src/Espadachin.java" />
         <option value="$PROJECT_DIR$/src/Arquero.java" />
         <option value="$PROJECT_DIR$/src/Unidad.java" />
-        <option value="$PROJECT_DIR$/test/CasilleroTest.java" />
-        <option value="$PROJECT_DIR$/test/Mapa2Test.java" />
         <option value="$PROJECT_DIR$/src/UnidadMovil.java" />
         <option value="$PROJECT_DIR$/src/Cuartel.java" />
         <option value="$PROJECT_DIR$/src/Edificio.java" />
@@ -138,6 +206,18 @@
         <option value="$PROJECT_DIR$/src/Casillero.java" />
         <option value="$PROJECT_DIR$/src/Mapa2.java" />
         <option value="$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Posicion.java" />
+        <option value="$PROJECT_DIR$/test/PosicionTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCasillero.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidades/UnidadMovil.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidades/IUnidadMovible.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Mapa2.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCasillero.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoOcupado.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoDesocupado.java" />
+        <option value="$PROJECT_DIR$/test/CasilleroTest.java" />
+        <option value="$PROJECT_DIR$/test/Mapa2Test.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Casillero.java" />
       </list>
     </option>
   </component>
@@ -153,6 +233,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -168,19 +249,39 @@
             <path>
               <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
               <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
+              <item name="Edificios" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
+              <item name="Unidades" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -208,58 +309,56 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapaYObjetoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CasilleroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MapaYObjetoTest" />
+      <option name="MAIN_CLASS_NAME" value="CasilleroTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AlgoOfEmpires" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MapaYObjetoTest" />
-      <option name="METHOD_NAME" value="colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AlgoOfEmpires" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MapaYObjetoTest" />
-      <option name="METHOD_NAME" value="colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MoverUnidadesEnMapaTest" />
-      <option name="METHOD_NAME" value="moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa" />
+      <option name="METHOD_NAME" value="moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AlgoOfEmpires" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MoverUnidadesEnMapaTest" />
+      <option name="METHOD_NAME" value="moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PosicionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AlgoOfEmpires" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PosicionTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.MapaYObjetoTest" />
-      <item itemvalue="JUnit.MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa" />
-      <item itemvalue="JUnit.MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" />
-      <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa" />
+      <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" />
+      <item itemvalue="JUnit.PosicionTest" />
+      <item itemvalue="JUnit.CasilleroTest" />
       <item itemvalue="JUnit.All in AlgoOfEmpires" />
+      <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in AlgoOfEmpires" />
-        <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa" />
-        <item itemvalue="JUnit.MapaYObjetoTest" />
-        <item itemvalue="JUnit.MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" />
-        <item itemvalue="JUnit.MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa" />
+        <item itemvalue="JUnit.CasilleroTest" />
+        <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa" />
+        <item itemvalue="JUnit.MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" />
+        <item itemvalue="JUnit.PosicionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -274,48 +373,48 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MapaYObjetoTest_moverUnOjetoUnidadAUnaPosicionValidaEnElMapa - 2018.11.14 at 18h 42m 02s.xml">
-      <configuration name="MapaYObjetoTest.moverUnOjetoUnidadAUnaPosicionValidaEnElMapa" configurationId="JUnit" />
+    <history-entry file="PosicionTest - 2018.11.18 at 11h 31m 03s.xml">
+      <configuration name="PosicionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MapaYObjetoTest_moverUnOjetoUnidadAUnaPosicionValidaEnElMapa - 2018.11.14 at 18h 44m 45s.xml">
-      <configuration name="MapaYObjetoTest.moverUnOjetoUnidadAUnaPosicionValidaEnElMapa" configurationId="JUnit" />
+    <history-entry file="MoverUnidadesEnMapaTest_moverAldeanoAUnCasilleroNoAledanioDentroDelMapa - 2018.11.18 at 11h 33m 40s.xml">
+      <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MapaYObjetoTest - 2018.11.14 at 18h 47m 01s.xml">
-      <configuration name="MapaYObjetoTest" configurationId="JUnit" />
+    <history-entry file="MoverUnidadesEnMapaTest_moverAldeanoAUnCasilleroNoAledanioDentroDelMapa - 2018.11.18 at 11h 35m 14s.xml">
+      <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroNoAledanioDentroDelMapa" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MapaYObjetoTest - 2018.11.14 at 18h 47m 49s.xml">
-      <configuration name="MapaYObjetoTest" configurationId="JUnit" />
+    <history-entry file="CasilleroTest - 2018.11.18 at 11h 55m 51s.xml">
+      <configuration name="CasilleroTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MapaYObjetoTest_colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa - 2018.11.14 at 19h 03m 36s.xml">
-      <configuration name="MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapaYObjetoTest_colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa - 2018.11.14 at 19h 04m 41s.xml">
-      <configuration name="MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapaYObjetoTest_colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa - 2018.11.14 at 19h 06m 38s.xml">
-      <configuration name="MapaYObjetoTest.colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MapaYObjetoTest - 2018.11.14 at 19h 06m 47s.xml">
-      <configuration name="MapaYObjetoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MoverUnidadesEnMapaTest_moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa - 2018.11.18 at 00h 51m 03s.xml">
-      <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 01h 08m 15s.xml">
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 11h 56m 11s.xml">
       <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MoverUnidadesEnMapaTest_moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa - 2018.11.18 at 11h 57m 06s.xml">
+      <configuration name="MoverUnidadesEnMapaTest.moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 11h 57m 09s.xml">
+      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CasilleroTest - 2018.11.18 at 12h 19m 18s.xml">
+      <configuration name="CasilleroTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 12h 19m 22s.xml">
+      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CasilleroTest - 2018.11.18 at 12h 23m 09s.xml">
+      <configuration name="CasilleroTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24942264" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24942264" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3128931" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24056605" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.18867925" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,17 +434,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/algoEmpires/MapaTest.java" />
-    <entry file="file://$PROJECT_DIR$/test/algoEmpires/PosicionTest.java" />
-    <entry file="file://$PROJECT_DIR$/test/PosicionTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/Movimiento.java" />
-    <entry file="file://$PROJECT_DIR$/src/Posicion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Posicion.java" />
     <entry file="file://$PROJECT_DIR$/test/ArmaDeAsedioTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -353,74 +442,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedioArmado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArquero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArqueroOcupado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArqueroLibre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ArmaDeAsedio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding>
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="60" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedioDesarmado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoAldeanoOcupado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
-          <folding>
-            <element signature="e#136#137#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedioArmado.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoArquero.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoArqueroOcupado.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoArqueroLibre.java" />
+    <entry file="file://$PROJECT_DIR$/src/ArmaDeAsedio.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedio.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoArmaDeAsedioDesarmado.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoAldeanoOcupado.java" />
     <entry file="file://$PROJECT_DIR$/test/ArqueroTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2115">
@@ -428,27 +457,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoAldeano.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoAldeanoLibre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="35" column="25" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EstadoAldeano.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachin.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoAldeanoLibre.java" />
     <entry file="file://$PROJECT_DIR$/test/AldeanoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -459,13 +470,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachinOcupado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachinOcupado.java" />
     <entry file="jar://$USER_HOME$/.m2/repository/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -473,33 +478,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachinLibre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Espadachin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Arquero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachinLibre.java" />
+    <entry file="file://$PROJECT_DIR$/src/Espadachin.java" />
+    <entry file="file://$PROJECT_DIR$/src/Arquero.java" />
     <entry file="file://$PROJECT_DIR$/src/Mapa.java" />
     <entry file="file://$PROJECT_DIR$/test/EspadachinTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -509,126 +490,150 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CasilleroNoOcupadoException.java" />
-    <entry file="file://$PROJECT_DIR$/test/CasilleroTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/PruebasIntegracion/MapaYObjetoTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/Cuartel.java">
+    <entry file="file://$PROJECT_DIR$/src/Cuartel.java" />
+    <entry file="file://$PROJECT_DIR$/src/Edificio.java" />
+    <entry file="file://$PROJECT_DIR$/src/EstadoOcupado.java" />
+    <entry file="file://$PROJECT_DIR$/src/EdificioNoSePuedeMoverException.java" />
+    <entry file="file://$PROJECT_DIR$/src/UnidadMovil.java" />
+    <entry file="file://$PROJECT_DIR$/src/Aldeano.java" />
+    <entry file="file://$PROJECT_DIR$/src/Unidad.java" />
+    <entry file="file://$PROJECT_DIR$/src/Objeto.java" />
+    <entry file="file://$PROJECT_DIR$/src/Mapa2.java" />
+    <entry file="file://$PROJECT_DIR$/src/Casillero.java" />
+    <entry file="file://$PROJECT_DIR$/test/Pruebas Unitarias/Mapa2Test.java" />
+    <entry file="file://$PROJECT_DIR$/test/Pruebas Integrales/MapaYObjetoTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Exceptions/PosicionOcupadaException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Edificio.java">
+    <entry file="file://$PROJECT_DIR$/test/PosicionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EstadoOcupado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Mapa2Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3030">
-          <caret line="207" column="5" selection-start-line="207" selection-start-column="5" selection-end-line="207" selection-end-column="5" />
-          <folding>
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EdificioNoSePuedeMoverException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="69" selection-start-column="69" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UnidadMovil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Aldeano.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
-          <folding>
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#489#490#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#600#601#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#862#863#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Unidad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PosicionOcupadaException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="62" selection-start-column="62" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Objeto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Casillero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MapaYObjetoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        <state relative-caret-position="318">
+          <caret line="147" column="46" selection-start-line="147" selection-start-column="46" selection-end-line="147" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mapa2.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCastillo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="118" column="2" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="2" />
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MapaYIEntidadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IUnidadMovible.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCasillero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoOcupado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding>
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoDesocupado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/MoverUnidadesEnMapaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        <state relative-caret-position="1590">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CasilleroTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="130" column="47" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Casillero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1187#1188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Mapa2Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1789">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

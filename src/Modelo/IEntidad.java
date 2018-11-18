@@ -1,5 +1,5 @@
 package Modelo;
 
-public interface Objeto {
+public interface IEntidad {
     void reducirVida(int danio);
 }

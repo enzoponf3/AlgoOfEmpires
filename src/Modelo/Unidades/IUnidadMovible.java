@@ -1,9 +1,9 @@
 package Modelo.Unidades;
 
+import Modelo.IEntidad;
 import Modelo.Posicion;
-import Modelo.Objeto;
 
-public interface UnidadMovil extends Objeto {
+public interface IUnidadMovible extends IEntidad {
 
     void mover(Posicion destino);
 

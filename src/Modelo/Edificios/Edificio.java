@@ -2,12 +2,12 @@ package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
 import Modelo.Exceptions.EdificioSinVidaExcepcion;
-import Modelo.Objeto;
+import Modelo.IEntidad;
 import Modelo.Posicion;
 
 import java.util.ArrayList;
 
-public abstract class Edificio implements Objeto {
+public abstract class Edificio implements IEntidad {
 
     protected int vida;
     protected int costo;

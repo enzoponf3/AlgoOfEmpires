@@ -1,19 +1,20 @@
 package Modelo;
 
-import Modelo.Edificios.EstadoCasillero;
+import Modelo.Edificios.IEstadoCasillero;
 import Modelo.Edificios.EstadoDesocupado;
 import Modelo.Edificios.EstadoOcupado;
 import Modelo.Exceptions.CasilleroDesocupadoException;
 import Modelo.Exceptions.CasilleroOcupadoException;
 
-public class Casillero{
+public class Casillero<T>{
 
     private Posicion posicion;
-    public Objeto objeto;
-    private EstadoCasillero estado;
+    private T entidad;
+    private IEstadoCasillero estado;
 
     public Casillero(Posicion posicion){
         this.posicion = posicion;
+        this.entidad = null;
         this.estado = new EstadoDesocupado();
     }
 
@@ -21,19 +22,23 @@ public class Casillero{
         return this.posicion;
     }
 
+    public void setEntidad(T entidad){
+        this.entidad = entidad;
+    }
 
-    public void colocarObjeto(Objeto objeto) {
+
+    public void colocarObjeto(IEntidad iEntidad) {
 
         try{
-            this.estado.colocarObjeto(objeto, this);
+            this.estado.colocarObjeto(iEntidad, this);
         } catch (CasilleroOcupadoException e) {
             throw e;
         }
     }
 
-    public Objeto removerObjeto(){
+    public T removerObjeto(){
         try {
-            Objeto objeto = this.objeto;
+            T objeto = this.entidad;
             this.estado.removerObjeto(this);
             return objeto;
         } catch (CasilleroDesocupadoException e){
@@ -41,10 +46,9 @@ public class Casillero{
         }
     }
 
-
     public boolean estaOcupado(){
-        return this.estado.estaOcupado();
-    }//Solo para la prueba, no se usa
+        return entidad != null;
+    }
 
     public void ocupar(){
         this.estado = new EstadoOcupado();
@@ -52,10 +56,6 @@ public class Casillero{
 
     public void desocupar(){
         this.estado = new EstadoDesocupado();
-    }
-
-    public boolean esIgualA(Casillero casillero){
-        return this.posicion.igualA(casillero.posicion);
     }
 
     public boolean tienePosicion(Posicion posicion){

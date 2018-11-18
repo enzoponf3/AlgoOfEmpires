@@ -2,16 +2,11 @@ package Modelo.Edificios;
 import Modelo.*;
 import Modelo.Exceptions.CasilleroDesocupadoException;
 
-public class EstadoDesocupado implements EstadoCasillero {
+public class EstadoDesocupado implements IEstadoCasillero {
 
     @Override
-    public boolean estaOcupado(){
-        return false;
-    }
-
-    @Override
-    public void colocarObjeto(Objeto objeto, Casillero casillero){
-        casillero.objeto = objeto;
+    public void colocarObjeto(IEntidad entidad, Casillero casillero){
+        casillero.setEntidad(entidad);
         casillero.ocupar();
     }
 

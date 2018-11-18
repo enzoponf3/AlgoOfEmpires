@@ -1,7 +1,7 @@
 import Modelo.Exceptions.CasilleroDesocupadoException;
 import Modelo.Exceptions.CasilleroOcupadoException;
 import Modelo.Casillero;
-import Modelo.Objeto;
+import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
@@ -9,61 +9,67 @@ import org.junit.Test;
 
 public class CasilleroTest {
 
-
     @Test
-    public void ColocarUnObjetoEnUnCasilleroVacio(){
+    public void compararCasillerosIgualesCorrectamente(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero  = new Casillero(posicion);
-        Objeto objeto = new Aldeano();
 
-        casillero.colocarObjeto(objeto);
+    }
+
+    @Test
+    public void colocarUnObjetoEnUnCasilleroVacio(){
+        Posicion posicion = new Posicion(5, 2);
+        Casillero casillero  = new Casillero(posicion);
+        IEntidad IEntidad = new Aldeano();
+
+        casillero.colocarObjeto(IEntidad);
 
         Assert.assertTrue( casillero.estaOcupado() );
     }
 
     @Test (expected = CasilleroOcupadoException.class)
-    public void ColocarUnObjetoEnUnCasilleroOcupadoLanzaCasilleroOcupadoException(){
+    public void colocarUnObjetoEnUnCasilleroOcupadoLanzaCasilleroOcupadoException(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        Objeto unObjeto = new Aldeano();
-        Objeto otroObjeto = new Aldeano();
+        IEntidad unIEntidad = new Aldeano();
+        IEntidad otroIEntidad = new Aldeano();
 
-        casillero.colocarObjeto(unObjeto);
+        casillero.colocarObjeto(unIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );
-        casillero.colocarObjeto(otroObjeto);
+        casillero.colocarObjeto(otroIEntidad);
     }
 
     @Test
-    public void ColocarUnObjetoEnUnCasilleroYLuegoDesocuparloDevuelveElMismoObjeto(){
+    public void colocarUnObjetoEnUnCasilleroYLuegoDesocuparloDevuelveElMismoObjeto(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        Objeto unObjeto = new Aldeano();
-        Objeto otroObjeto;
+        IEntidad unIEntidad = new Aldeano();
+        IEntidad otroIEntidad;
 
-        casillero.colocarObjeto(unObjeto);
+        casillero.colocarObjeto(unIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );
-        otroObjeto = casillero.removerObjeto();
+        otroIEntidad = (IEntidad) casillero.removerObjeto();
         Assert.assertFalse( casillero.estaOcupado() );
     }
 
     @Test
-    public void ColocarUnObjetoEnUnCasilleroDesocuparloYColocarOtro(){
+    public void colocarUnObjetoEnUnCasilleroDesocuparloYColocarOtro(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        Objeto unObjeto = new Aldeano();
-        Objeto otroObjeto = new Aldeano();
+        IEntidad unIEntidad = new Aldeano();
+        IEntidad otroIEntidad = new Aldeano();
 
-        casillero.colocarObjeto(unObjeto);
+        casillero.colocarObjeto(unIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );
         casillero.removerObjeto();
         Assert.assertFalse( casillero.estaOcupado() );
 
-        casillero.colocarObjeto(otroObjeto);
+        casillero.colocarObjeto(otroIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );
     }
 
     @Test (expected = CasilleroDesocupadoException.class)
-    public void RemoverObjetoDeCasilleroVacioLanzaCasilleroDesocupadoException(){
+    public void removerObjetoDeCasilleroVacioLanzaCasilleroDesocupadoException(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
 

@@ -1,9 +1,21 @@
+import Modelo.Exceptions.PosicionFueraDelMapaException;
+import Modelo.Exceptions.PosicionInvalidaException;
+import Modelo.Exceptions.PosicionOcupadaException;
+import Modelo.Mapa2;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.Casillero;
+import Modelo.IEntidad;
+import Modelo.Posicion;
+import Modelo.Unidades.*;
+
+
 public class MoverUnidadesEnMapaTest {
 
-    /*
+    //Movimiento a posicion desocupada
+
     @Test
     public void moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa(){
         Mapa2 mapa = new Mapa2(10, 20);
@@ -19,9 +31,110 @@ public class MoverUnidadesEnMapaTest {
 
         Assert.assertFalse( casilleroOrigen.estaOcupado() );
         Assert.assertTrue( casilleroDestino.estaOcupado() );
-        Objeto aldeano2 = mapa.desocuparCasillero(destino);
+        IEntidad aldeano2 = mapa.desocuparCasillero(destino);
         Assert.assertEquals( aldeano, aldeano2 );
     }
-    */
+
+    @Test
+    public void moverArqueroAUnCasilleroAledanioDesocupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, arquero);
+        mapa.moverUnidadMovil(origen, destino);
+
+        Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
+        Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
+
+        Assert.assertFalse( casilleroOrigen.estaOcupado() );
+        Assert.assertTrue( casilleroDestino.estaOcupado() );
+        IEntidad arquero2 = mapa.desocuparCasillero(destino);
+        Assert.assertEquals( arquero, arquero2 );
+    }
+
+    @Test
+    public void moverEspadachinAUnCasilleroAledanioDesocupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, espadachin);
+        mapa.moverUnidadMovil(origen, destino);
+
+        Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
+        Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
+
+        Assert.assertFalse( casilleroOrigen.estaOcupado() );
+        Assert.assertTrue( casilleroDestino.estaOcupado() );
+        IEntidad espadachin2 = mapa.desocuparCasillero(destino);
+        Assert.assertEquals( espadachin, espadachin2 );
+    }
+
+    @Test
+    public void moverArmaDeAsedioAUnCasilleroAledanioDesocupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, armaDeAsedio);
+        mapa.moverUnidadMovil(origen, destino);
+
+        Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
+        Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
+
+        Assert.assertFalse( casilleroOrigen.estaOcupado() );
+        Assert.assertTrue( casilleroDestino.estaOcupado() );
+        IEntidad armaDeAsedio2 = mapa.desocuparCasillero(destino);
+        Assert.assertEquals( armaDeAsedio, armaDeAsedio2 );
+    }
+
+    //Movimiento a posicion ocupada lanza exception
+
+    @Test (expected = PosicionOcupadaException.class)
+    public void moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Aldeano aldeano = new Aldeano();
+        Aldeano aldeano2 = new Aldeano();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, aldeano);
+        mapa.ocuparCasillero(destino, aldeano2);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+
+    //Movimiento a posicion fuera del mapa lanza exception
+
+    @Test (expected = PosicionFueraDelMapaException.class)
+    public void moverAldeanoAUnCasilleroAledanioFueraDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Aldeano aldeano = new Aldeano();
+        Posicion origen = new Posicion(10,20);
+        Posicion destino = new Posicion(10,21);
+
+        mapa.ocuparCasillero(origen, aldeano);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    //Mover mas de un casillero a la vez no se puede
+
+    @Test (expected = PosicionInvalidaException.class)
+    public void moverAldeanoAUnCasilleroNoAledanioDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Aldeano aldeano = new Aldeano();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(4,8);
+
+        mapa.ocuparCasillero(origen, aldeano);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
 
 }

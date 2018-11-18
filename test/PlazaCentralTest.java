@@ -1,3 +1,6 @@
+import Modelo.Edificios.*;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

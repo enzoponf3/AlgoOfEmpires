@@ -1,3 +1,7 @@
+import Modelo.Edificios.Cuartel;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.Arquero;
+import Modelo.Unidades.Espadachin;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

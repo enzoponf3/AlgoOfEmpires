@@ -1,3 +1,11 @@
+import Modelo.Edificios.Cuartel;
+import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.EdificioConVidaAlMaximoException;
+import Modelo.Exceptions.UndidadNoPuedeRepararException;
+import Modelo.Exceptions.UnidadEstaOcupadoException;
+import Modelo.Exceptions.UnidadNoPuedeConstruirException;
+import Modelo.Posicion;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Test;
 

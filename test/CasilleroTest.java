@@ -1,3 +1,9 @@
+import Modelo.Exceptions.CasilleroDesocupadoException;
+import Modelo.Exceptions.CasilleroOcupadoException;
+import Modelo.Casillero;
+import Modelo.Objeto;
+import Modelo.Posicion;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,3 +1,12 @@
+import Modelo.Exceptions.CasilleroDesocupadoException;
+import Modelo.Exceptions.CasilleroOcupadoException;
+import Modelo.Exceptions.MapaConDimensionesIncorrectasException;
+import Modelo.Exceptions.PosicionFueraDelMapaException;
+import Modelo.Casillero;
+import Modelo.Mapa2;
+import Modelo.Objeto;
+import Modelo.Posicion;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Test;
 

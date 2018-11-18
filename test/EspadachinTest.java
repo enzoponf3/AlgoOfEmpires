@@ -1,3 +1,8 @@
+//  import javafx.geometry.Pos;
+import Modelo.Edificios.*;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.*;
+import Modelo.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -197,13 +202,13 @@ public class EspadachinTest {
     @Test
     public void EspadachinAtacarArmaAsedioEnRangoSeOcupa(){}
 
-    @Test
-    public void EspadachinAtacarCuartelEnRangoSeOcupa(){
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void EspadachinAtacarCuartelEnRangoSeOcupa() {
         Cuartel cuartel = new Cuartel();
-        Posicion posicion1 = new Posicion(2,5);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,5);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
         ArrayList<Posicion> posiciones = new ArrayList<>();
         posiciones.add(posicion1);
         posiciones.add(posicion2);
@@ -211,14 +216,16 @@ public class EspadachinTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         Espadachin espadachin = new Espadachin();
-        Posicion posicion5 = new Posicion(1,3);
+        Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
         cuartel.construir();
         cuartel.construir();
         cuartel.construir();
-        Assert.assertEquals(250,cuartel.getVida());
+        Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
-        Assert.assertEquals(235,cuartel.getVida());
+        Assert.assertEquals(235, cuartel.getVida());
+        Posicion destino = new Posicion(1,1);
+        espadachin.mover(destino);
     }
 
     @Test

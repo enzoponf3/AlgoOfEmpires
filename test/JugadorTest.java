@@ -22,9 +22,7 @@ public class JugadorTest {
     public void verificarQueIniciaConUnaPlazaCentral(){
         Jugador jugador = new Jugador();
 
-        //ArrayList<Edificio> = jugador.getEdificios();
-        //No se como hacerlo mas general
-        Assert.assertNotNull( jugador.getPlazaCentral() );
+        Assert.assertEquals( 1, jugador.getEdificios().size() );
     }
 
     @Test
@@ -47,7 +45,7 @@ public class JugadorTest {
         Jugador jugador = new Jugador();
 
         Assert.assertNotNull( jugador.getCastillo() );
-        Assert.assertNotNull( jugador.getPlazaCentral() );
+        Assert.assertEquals( 1, jugador.getEdificios().size() );
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
         Assert.assertEquals(3, aldeanos.size());
         Assert.assertEquals(100, jugador.getCantidadOro());
@@ -211,4 +209,52 @@ public class JugadorTest {
 
     }
 
+    //Agregar edificios
+
+    @Test
+    public void agregarUnaPlazacentralCorrectamente(){
+        Jugador jugador = new Jugador();
+        PlazaCentral plazaCentral = new PlazaCentral();
+
+        jugador.agregarEdificio(plazaCentral);
+
+        Assert.assertEquals(2, jugador.getEdificios().size() );
+    }
+
+    @Test
+    public void agregarUnCuartelCorrectamente(){
+        Jugador jugador = new Jugador();
+        Cuartel cuartel = new Cuartel();
+
+        jugador.agregarEdificio(cuartel);
+
+        Assert.assertEquals(2, jugador.getEdificios().size() );
+    }
+
+    @Test
+    public void agregarUnaPlazaYUnCuartelCorrectamente(){
+        Jugador jugador = new Jugador();
+        PlazaCentral plazaCentral = new PlazaCentral();
+        Cuartel cuartel = new Cuartel();
+
+        jugador.agregarEdificio(plazaCentral);
+        jugador.agregarEdificio(cuartel);
+
+        Assert.assertEquals(3, jugador.getEdificios().size() );
+    }
+
+    //No pruebo agregar castillos dado que directamente no se pueden construir, y para agregarlos tienen que ser
+    //construidos primero.
+
+    //Remover aldeanos
+/*
+    @Test
+    public void removerUnAldeano(){
+        Jugador jugador = new Jugador();
+
+        jugador.removerAldeano();
+
+        Assert.assertEquals(2, jugador.getAldeanos().size() );
+    }
+*/
 }

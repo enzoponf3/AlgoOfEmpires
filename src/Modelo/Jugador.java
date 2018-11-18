@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Jugador {
 
     private Castillo castillo;
-    private PlazaCentral plaza;
+    private ArrayList<Edificio> edificios;
     private ArrayList<Aldeano> aldeanos;
     private static final int CANTIDAD_ALDEANOS_INICIAL = 3;
     private int cantidadOro;
@@ -21,7 +21,8 @@ public class Jugador {
 
     public Jugador(){
         this.castillo = new Castillo();
-        this.plaza = new PlazaCentral();
+        this.edificios = new ArrayList<>();
+        inicializarEdificios();
         this.aldeanos = new ArrayList<>();
         inicializarAldeanos();
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
@@ -32,8 +33,8 @@ public class Jugador {
         return this.castillo;
     }
 
-    public PlazaCentral getPlazaCentral(){
-        return this.plaza;
+    public ArrayList<Edificio> getEdificios(){
+        return this.edificios;
     }
 
     public ArrayList<Aldeano> getAldeanos(){
@@ -46,6 +47,11 @@ public class Jugador {
 
     public ArrayList<IAtacante> getEjercito(){
         return this.ejercito;
+    }
+
+    public void inicializarEdificios(){
+        PlazaCentral plazaCentral = new PlazaCentral();
+        edificios.add(plazaCentral);
     }
 
     public void inicializarAldeanos(){
@@ -68,8 +74,20 @@ public class Jugador {
     }
 
     public boolean llegoAlLimiteDePoblacion(){
-        return (this.aldeanos.size() + this.ejercito.size()) == 50 ;
-    }//no se me ocurre un buen nombre
+        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
+    }
+
+    public void agregarEdificio(Edificio edificio){
+        this.edificios.add(edificio);
+    }
+/*
+    public void seleccionarUnidad(ArrayList<> arrayList, Unidad unidad){
 
 
+    }
+
+    public void removerAldeano(Posicion posicion){
+
+    }
+*/
 }

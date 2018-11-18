@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Modelo/Exceptions/LimiteDePoblacionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/JugadorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/JugadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/JugadorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,24 +28,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="159" />
+          <entry key="java" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="159" />
+          <entry key="JAVA" value="166" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="35" />
-          <entry key="java" value="13179" />
+          <entry key="java" value="14202" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13179" />
+          <entry key="JAVA" value="14202" />
           <entry key="PLAIN_TEXT" value="35" />
         </counts>
       </usages-collector>
@@ -101,23 +97,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#353#354#0" expanded="true" />
-                <element signature="e#606#607#0" expanded="true" />
-                <element signature="e#632#633#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#1079#1080#0" expanded="true" />
-                <element signature="e#1114#1115#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -125,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="152" column="30" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
+            <state relative-caret-position="341">
+              <caret line="256" column="60" selection-start-line="256" selection-start-column="60" selection-end-line="256" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,80 +118,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+            <state relative-caret-position="236">
+              <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Exceptions/LimiteDePoblacionException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Casillero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#668#669#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#897#898#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#982#983#0" expanded="true" />
-                <element signature="e#1012#1013#0" expanded="true" />
-                <element signature="e#1073#1074#0" expanded="true" />
-                <element signature="e#1127#1128#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoCasilleroDesocupado.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoCasilleroOcupado.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -229,7 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/EstadoAldeanoLibre.java" />
         <option value="$PROJECT_DIR$/src/EstadoAldeano.java" />
         <option value="$PROJECT_DIR$/src/EstadoAldeanoOcupado.java" />
         <option value="$PROJECT_DIR$/test/ArqueroTest.java" />
@@ -273,13 +200,14 @@
         <option value="$PROJECT_DIR$/src/Modelo/EstadoCasilleroOcupado.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Casillero.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Mapa.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/LimiteDePoblacionException.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
-        <option value="$PROJECT_DIR$/test/JugadorTest.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java" />
+        <option value="$PROJECT_DIR$/test/JugadorTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
       </list>
     </option>
   </component>
@@ -356,7 +284,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in AlgoOfEmpires">
+  <component name="RunManager" selected="JUnit.JugadorTest.agregarUnaPlazaYUnCuartelCorrectamente">
     <configuration name="All in AlgoOfEmpires" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
@@ -373,50 +301,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.agregarAldeanosPasandoElLimiteDePoblacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.agregarUnCuartelCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="agregarAldeanosPasandoElLimiteDePoblacion" />
+      <option name="METHOD_NAME" value="agregarUnCuartelCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.agregarArmaDeAsedioSobreElLimiteYVerificarPoblacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.agregarUnaPlazaYUnCuartelCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="agregarArmaDeAsedioSobreElLimiteYVerificarPoblacion" />
+      <option name="METHOD_NAME" value="agregarUnaPlazaYUnCuartelCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.agregarEspadachinesPasandoElLimiteDePoblacion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.agregarUnaPlazacentralCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="agregarEspadachinesPasandoElLimiteDePoblacion" />
+      <option name="METHOD_NAME" value="agregarUnaPlazacentralCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.JugadorTest.agregarAldeanosPasandoElLimiteDePoblacion" />
-      <item itemvalue="JUnit.JugadorTest.agregarEspadachinesPasandoElLimiteDePoblacion" />
       <item itemvalue="JUnit.JugadorTest" />
-      <item itemvalue="JUnit.JugadorTest.agregarArmaDeAsedioSobreElLimiteYVerificarPoblacion" />
       <item itemvalue="JUnit.All in AlgoOfEmpires" />
+      <item itemvalue="JUnit.JugadorTest.agregarUnaPlazacentralCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.agregarUnCuartelCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.agregarUnaPlazaYUnCuartelCorrectamente" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in AlgoOfEmpires" />
+        <item itemvalue="JUnit.JugadorTest.agregarUnaPlazaYUnCuartelCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.agregarUnCuartelCorrectamente" />
         <item itemvalue="JUnit.JugadorTest" />
-        <item itemvalue="JUnit.JugadorTest.agregarArmaDeAsedioSobreElLimiteYVerificarPoblacion" />
-        <item itemvalue="JUnit.JugadorTest.agregarEspadachinesPasandoElLimiteDePoblacion" />
-        <item itemvalue="JUnit.JugadorTest.agregarAldeanosPasandoElLimiteDePoblacion" />
+        <item itemvalue="JUnit.JugadorTest.agregarUnaPlazacentralCorrectamente" />
+        <item itemvalue="JUnit.All in AlgoOfEmpires" />
       </list>
     </recent_temporary>
   </component>
@@ -442,21 +370,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JugadorTest_agregarAldeanoCorrectamente - 2018.11.18 at 19h 06m 43s.xml">
-      <configuration name="JugadorTest.agregarAldeanoCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_agregarAldeanoCorrectamente - 2018.11.18 at 19h 07m 14s.xml">
-      <configuration name="JugadorTest.agregarAldeanoCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_agregarCuarentaYSieteAldeanosYVerificarPoblacion - 2018.11.18 at 19h 08m 17s.xml">
-      <configuration name="JugadorTest.agregarCuarentaYSieteAldeanosYVerificarPoblacion" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_agregarAldeanosPasandoElLimiteDePoblacion - 2018.11.18 at 19h 16m 10s.xml">
-      <configuration name="JugadorTest.agregarAldeanosPasandoElLimiteDePoblacion" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_agregarEspadachinesPasandoElLimiteDePoblacion - 2018.11.18 at 19h 17m 39s.xml">
-      <configuration name="JugadorTest.agregarEspadachinesPasandoElLimiteDePoblacion" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JugadorTest - 2018.11.18 at 19h 24m 34s.xml">
       <configuration name="JugadorTest" configurationId="JUnit" />
     </history-entry>
@@ -471,6 +384,21 @@
     </history-entry>
     <history-entry file="JugadorTest - 2018.11.18 at 19h 27m 46s.xml">
       <configuration name="JugadorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 19h 40m 19s.xml">
+      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.18 at 19h 42m 41s.xml">
+      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest - 2018.11.18 at 19h 56m 52s.xml">
+      <configuration name="JugadorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_agregarUnCuartelCorrectamente - 2018.11.18 at 19h 57m 34s.xml">
+      <configuration name="JugadorTest.agregarUnCuartelCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_agregarUnaPlazaYUnCuartelCorrectamente - 2018.11.18 at 19h 58m 10s.xml">
+      <configuration name="JugadorTest.agregarUnaPlazaYUnCuartelCorrectamente" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -514,7 +442,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Corrección nombre Interfaz" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EstadoEspadachin.java" />
     <entry file="file://$PROJECT_DIR$/src/EstadoAldeanoLibre.java" />
     <entry file="file://$PROJECT_DIR$/test/AldeanoTest.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -701,6 +628,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCuartel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ArqueroTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2265">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-214">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="256" column="60" selection-start-line="256" selection-start-column="60" selection-end-line="256" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-79">
@@ -713,73 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="64" column="12" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1114#1115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2280">
-          <caret line="152" column="30" selection-start-line="152" selection-start-column="30" selection-end-line="152" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="61" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCuartel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="45" column="11" selection-start-line="45" selection-start-column="11" selection-end-line="45" selection-end-column="11" />
+        <state relative-caret-position="236">
+          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

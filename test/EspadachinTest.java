@@ -1,4 +1,3 @@
-//  import javafx.geometry.Pos;
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.*;
@@ -199,18 +198,55 @@ public class EspadachinTest {
         Assert.assertEquals(75, espadachin2.getVida());
     }
 
-    @Test
+    @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarArqueroEnRangoSeOcupa(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,2);
+        espadachin.setPosicion(posEspadachin);
+        Arquero arquero = new Arquero();
+        Posicion pos = new Posicion(1,1);
+        arquero.setPosicion(pos);
+        espadachin.atacar(arquero);
+        Posicion destino = new Posicion(1,3);
+        espadachin.mover(destino);
     }
 
     @Test
-    public void espadachinAtacarArqueroEnRangoBajaVida(){}
+    public void espadachinAtacarArqueroEnRangoBajaVida(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,2);
+        espadachin.setPosicion(posEspadachin);
+        Arquero arquero = new Arquero();
+        Posicion pos = new Posicion(1,1);
+        arquero.setPosicion(pos);
+        espadachin.atacar(arquero);
+        Assert.assertEquals(50, arquero.getVida());
+    }
 
     @Test
-    public void espadachinAtacarArmaAsedioEnRangoBajaVida(){}
+    public void espadachinAtacarArmaAsedioEnRangoBajaVida(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,2);
+        espadachin.setPosicion(posEspadachin);
+        ArmaDeAsedio arma = new ArmaDeAsedio();
+        Posicion pos = new Posicion(1,1);
+        arma.setPosicion(pos);
+        espadachin.atacar(arma);
+        Assert.assertEquals(125, arma.getVida());
+    }
 
-    @Test
-    public void espadachinAtacarArmaAsedioEnRangoSeOcupa(){}
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void espadachinAtacarArmaAsedioEnRangoSeOcupa(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,2);
+        espadachin.setPosicion(posEspadachin);
+        ArmaDeAsedio arma = new ArmaDeAsedio();
+        Posicion pos = new Posicion(1,1);
+        arma.setPosicion(pos);
+        espadachin.atacar(arma);
+        Posicion destino = new Posicion(1,3);
+        espadachin.mover(destino);
+    }
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarCuartelEnRangoSeOcupa() {
@@ -233,19 +269,82 @@ public class EspadachinTest {
         cuartel.construir();
         Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
-        Assert.assertEquals(235, cuartel.getVida());
         Posicion destino = new Posicion(1,1);
         espadachin.mover(destino);
     }
 
     @Test
-    public void espadachinAtacarCuartelEnRangoBajaVida(){}
+    public void espadachinAtacarCuartelEnRangoBajaVida(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,3);
+        espadachin.setPosicion(posEspadachin);
+        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        cuartel.setPosiciones(posiciones);
+        cuartel.construir();
+        cuartel.construir();
+        cuartel.construir();
+        Assert.assertEquals(250, cuartel.getVida());
+        espadachin.atacar(cuartel);
+        Assert.assertEquals(235, cuartel.getVida());
+    }
 
     @Test
-    public void espadachinAtacarPlazaCentralEnRangoBajaVida(){}
+    public void espadachinAtacarPlazaCentralEnRangoBajaVida(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,3);
+        espadachin.setPosicion(posEspadachin);
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        Assert.assertEquals(450, plaza.getVida());
+        espadachin.atacar(plaza);
+        Assert.assertEquals(435, plaza.getVida());
+    }
 
-    @Test
-    public void espadachinAtacarPlazaCentralEnRangoSeOcupa(){}
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void espadachinAtacarPlazaCentralEnRangoSeOcupa(){
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        Espadachin espadachin = new Espadachin();
+        Posicion posicion5 = new Posicion(1, 3);
+        espadachin.setPosicion(posicion5);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        Assert.assertEquals(450, plaza.getVida());
+        espadachin.atacar(plaza);
+        Posicion destino = new Posicion(1,1);
+        espadachin.mover(destino);
+    }
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void espadachinAtacarUnidadFueraDeRango(){
@@ -260,8 +359,94 @@ public class EspadachinTest {
     }
 
     @Test
-    public void espadachinAtacarCastilloEnRango(){}
-
+    public void espadachinAtacarCastilloEnRango(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(5,5);
+        espadachin.setPosicion(posEspadachin);
+        Castillo castillo = new Castillo();
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 2);
+        Posicion posicion3 = new Posicion(1, 3);
+        Posicion posicion4 = new Posicion(1, 4);
+        Posicion posicion5 = new Posicion(2, 1);
+        Posicion posicion6 = new Posicion(2, 2);
+        Posicion posicion7 = new Posicion(2, 3);
+        Posicion posicion8 = new Posicion(2, 4);
+        Posicion posicion9 = new Posicion(3, 1);
+        Posicion posicion10 = new Posicion(3, 2);
+        Posicion posicion11 = new Posicion(3, 3);
+        Posicion posicion12 = new Posicion(3, 4);
+        Posicion posicion13 = new Posicion(4, 1);
+        Posicion posicion14 = new Posicion(4, 2);
+        Posicion posicion15 = new Posicion(4, 3);
+        Posicion posicion16 = new Posicion(4, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        posiciones.add(posicion5);
+        posiciones.add(posicion6);
+        posiciones.add(posicion7);
+        posiciones.add(posicion8);
+        posiciones.add(posicion9);
+        posiciones.add(posicion10);
+        posiciones.add(posicion11);
+        posiciones.add(posicion12);
+        posiciones.add(posicion13);
+        posiciones.add(posicion14);
+        posiciones.add(posicion15);
+        posiciones.add(posicion16);
+        castillo.setPosiciones(posiciones);
+        Assert.assertEquals(1000, castillo.getVida());
+        espadachin.atacar(castillo);
+        Assert.assertEquals(985, castillo.getVida());
+    }
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void espadachinAtacarCastilloEnRangoSeOcupa(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(5,5);
+        espadachin.setPosicion(posEspadachin);
+        Castillo castillo = new Castillo();
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 2);
+        Posicion posicion3 = new Posicion(1, 3);
+        Posicion posicion4 = new Posicion(1, 4);
+        Posicion posicion5 = new Posicion(2, 1);
+        Posicion posicion6 = new Posicion(2, 2);
+        Posicion posicion7 = new Posicion(2, 3);
+        Posicion posicion8 = new Posicion(2, 4);
+        Posicion posicion9 = new Posicion(3, 1);
+        Posicion posicion10 = new Posicion(3, 2);
+        Posicion posicion11 = new Posicion(3, 3);
+        Posicion posicion12 = new Posicion(3, 4);
+        Posicion posicion13 = new Posicion(4, 1);
+        Posicion posicion14 = new Posicion(4, 2);
+        Posicion posicion15 = new Posicion(4, 3);
+        Posicion posicion16 = new Posicion(4, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        posiciones.add(posicion5);
+        posiciones.add(posicion6);
+        posiciones.add(posicion7);
+        posiciones.add(posicion8);
+        posiciones.add(posicion9);
+        posiciones.add(posicion10);
+        posiciones.add(posicion11);
+        posiciones.add(posicion12);
+        posiciones.add(posicion13);
+        posiciones.add(posicion14);
+        posiciones.add(posicion15);
+        posiciones.add(posicion16);
+        castillo.setPosiciones(posiciones);
+        Assert.assertEquals(1000, castillo.getVida());
+        espadachin.atacar(castillo);
+        Posicion pos = new Posicion(5,6);
+        espadachin.mover(pos);
+    }
 
 
 }

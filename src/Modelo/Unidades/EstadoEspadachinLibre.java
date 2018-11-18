@@ -14,7 +14,7 @@ public class EstadoEspadachinLibre implements EstadoEspadachin {
 
     @Override
     public void atacar(Espadachin espadachin, Unidad unidad){
-        if (!espadachin.posicion.estaEnRango(unidad.getPosicion(), espadachin.rango)) {
+        if (!espadachin.posicion.estaEnRango(unidad.getPosicion(), espadachin.getRango())) {
            throw new EntidadFueraDeRangoException();
         }
         unidad.reducirVida(espadachin.getDanioUnidad());
@@ -24,7 +24,7 @@ public class EstadoEspadachinLibre implements EstadoEspadachin {
     public void atacar(Espadachin espadachin, Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
-            if (espadachin.posicion.estaEnRango(pos, espadachin.rango)){
+            if (espadachin.posicion.estaEnRango(pos, espadachin.getRango())){
                 edificio.reducirVida(espadachin.getDanioEdificio());
                 espadachin.ocupar();
                 return;

@@ -2,7 +2,7 @@ package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioEnReparacionException;
 
-public class EstadoCastilloEnReparacion implements EstadoCastillo {
+public class EstadoCastilloEnReparacion implements IEstadoCastillo {
 
 
     @Override

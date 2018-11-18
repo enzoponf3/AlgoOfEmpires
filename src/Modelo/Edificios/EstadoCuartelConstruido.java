@@ -5,18 +5,16 @@ import Modelo.Exceptions.EdificioYaConstruidoException;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
-public class EstadoCuartelConstruido implements EstadoCuartel {
+public class EstadoCuartelConstruido implements IEstadoCuartel {
 
     @Override
     public Espadachin crearEspadachin() {
-        Espadachin espadachin = new Espadachin();
-        return espadachin;
+        return new Espadachin();
     }
 
     @Override
     public Arquero crearArquero() {
-        Arquero arquero = new Arquero();
-        return arquero;
+        return new Arquero();
     }
 
     @Override

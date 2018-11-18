@@ -4,12 +4,11 @@ import Modelo.Exceptions.EdificioConVidaAlMaximoException;
 import Modelo.Exceptions.EdificioYaConstruidoException;
 import Modelo.Unidades.Aldeano;
 
-public class EstadoPlazaCentralConstruida implements EstadoPlazaCentral {
+public class EstadoPlazaCentralConstruida implements IEstadoPlazaCentral {
 
     @Override
     public Aldeano crearAldeano() {
-        Aldeano aldeano = new Aldeano();
-        return aldeano;
+        return new Aldeano();
     }
 
     @Override

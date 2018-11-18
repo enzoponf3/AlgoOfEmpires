@@ -47,14 +47,7 @@ public abstract class Edificio implements IEntidad {
         this.vida -= cant;
     }
 
-    public void reparar() {
-        if (this.vida == this.vidaMax)
-            throw new EdificioConVidaAlMaximoException();
-        if ((this.vida + this.velocidadReparacion) >= this.vidaMax)
-            this.vida = this.vidaMax;
-        else
-            this.vida += this.velocidadReparacion;
-    }
+    public abstract void reparar();
 
     public void construir(){}
 

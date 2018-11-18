@@ -1,7 +1,7 @@
 package Modelo.Edificios;
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
 
-public class EstadoCastilloConstruido implements EstadoCastillo {
+public class EstadoCastilloConstruido implements IEstadoCastillo {
 
     @Override
     public void reparar(Castillo castillo) {

@@ -3,9 +3,9 @@ package Modelo.Edificios;
 import Modelo.Exceptions.EdificioEnConstruccionException;
 import Modelo.Unidades.Aldeano;
 
-public class EstadoPlazaCentralEnConstruccion implements EstadoPlazaCentral {
+public class EstadoPlazaCentralEnConstruccion implements IEstadoPlazaCentral {
 
-    public static final int TURNOS = 3;
+    private static final int TURNOS = 3;
 
     private int turnos;
 

@@ -10,7 +10,7 @@ public class PlazaCentral extends Edificio {
     private static final int ANCHO = 2;
     private static final int ALTO = 2;
 
-    private EstadoPlazaCentral estado;
+    private IEstadoPlazaCentral estado;
 
     public PlazaCentral() {
         this.vidaMax = VIDA;

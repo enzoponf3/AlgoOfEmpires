@@ -9,12 +9,12 @@ public class Castillo extends Edificio {
     private static final int ANCHO = 4;
     private static final int ALTO = 4;
     private static final int DISTANCIA_MAXIMA_ATAQUE = 3;
-    private static final int DAÑO = 20;
+    private static final int DANIO = 20;
 
 
-    private int daño;
+    private int danio;
     private int distanciaMaximaAtaque;
-    private EstadoCastillo estado;
+    private IEstadoCastillo estado;
 
     public Castillo() {
         this.vidaMax = VIDA;
@@ -23,7 +23,7 @@ public class Castillo extends Edificio {
         this.ancho = ANCHO;
         this.alto = ALTO;
         this.distanciaMaximaAtaque = DISTANCIA_MAXIMA_ATAQUE;
-        this.daño = DAÑO;
+        this.danio = DANIO;
         this.estado = new EstadoCastilloConstruido();
     }
 
@@ -33,8 +33,7 @@ public class Castillo extends Edificio {
     }
 
     public ArmaDeAsedio crearArmaDeAsedio() {
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
-        return armaDeAsedio;
+        return new ArmaDeAsedio();
     }
 
     public int getDistanciaMaximaAtaque() {
@@ -57,7 +56,7 @@ public class Castillo extends Edificio {
 //
 //    public void atacarA(ElementoMapa[] objetivos) {
 //        for (ElementoMapa objetivo : objetivos)
-//            objetivo.reducirVida(this.daño)
+//            objetivo.reducirVida(this.danio)
 //    }
 //
 //    HAY QUE CREAR LA INTERFAZ ELEMENTOMAPA QUE IMPLEMENTARIAN UNIDAD Y EDIFICIO

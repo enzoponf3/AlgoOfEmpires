@@ -4,9 +4,9 @@ import Modelo.Exceptions.EdificioEnConstruccionException;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
-public class EstadoCuartelEnConstruccion implements EstadoCuartel{
+public class EstadoCuartelEnConstruccion implements IEstadoCuartel {
 
-    public static final int TURNOS = 3;
+    private static final int TURNOS = 3;
 
     private int turnos;
 

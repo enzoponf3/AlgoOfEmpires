@@ -12,7 +12,7 @@ public class Cuartel extends Edificio {
     private static final int ALTO = 2;
 
 
-    private EstadoCuartel estado;
+    private IEstadoCuartel estado;
 
     public Cuartel() {
         this.vidaMax = VIDA;

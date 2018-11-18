@@ -4,12 +4,11 @@ import Modelo.Exceptions.EdificioEnReparacionException;
 import Modelo.Exceptions.EdificioYaConstruidoException;
 import Modelo.Unidades.Aldeano;
 
-public class EstadoPlazaCentralEnReparacion implements EstadoPlazaCentral {
+public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
 
     @Override
     public Aldeano crearAldeano() {
-        Aldeano aldeano = new Aldeano();
-        return aldeano;
+        return new Aldeano();
     }
 
     @Override

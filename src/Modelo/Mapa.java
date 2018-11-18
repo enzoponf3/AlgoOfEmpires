@@ -5,13 +5,13 @@ import Modelo.Unidades.IUnidadMovible;
 
 import java.util.ArrayList;
 
-public class Mapa2 {
+public class Mapa {
 
     private int ancho;
     private int alto;
     protected ArrayList<Casillero> casilleros = new ArrayList<>();
 
-    public Mapa2(int ancho, int alto){
+    public Mapa(int ancho, int alto){
         verificarDimensionesCorrectas(ancho, alto);
         this.ancho = ancho;
         this.alto = alto;

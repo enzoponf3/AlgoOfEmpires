@@ -13,7 +13,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoAldeanoEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Aldeano();
         Posicion posicion = new Posicion(2,5);
 
@@ -27,7 +27,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoAldeanoEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Aldeano();
         Posicion posicion = new Posicion(15,5);
 
@@ -36,7 +36,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoArqueroEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(2,5);
 
@@ -50,7 +50,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArqueroEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(15,5);
 
@@ -59,7 +59,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoEspadachinEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(2,5);
 
@@ -73,7 +73,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoEspadachinEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(15,5);
 
@@ -82,7 +82,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
 
@@ -96,7 +96,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(15,5);
 
@@ -107,7 +107,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2,5);
         Posicion posicion2 = new Posicion(2,4);
@@ -130,7 +130,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(-1,0);
         Posicion posicion2 = new Posicion(0,0);
@@ -153,7 +153,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoPlazaCentralEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion1 = new Posicion(2,5);
         Posicion posicion2 = new Posicion(2,4);
@@ -176,7 +176,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoPlazaCentralEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion1 = new Posicion(-1,0);
         Posicion posicion2 = new Posicion(0,0);
@@ -199,7 +199,7 @@ public class MapaYIEntidadTest {
 
     @Test
     public void colocarUnObjetoCastilloEnUnaPosicionDeterminadaDentroDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(2,5);
         Posicion posicion2 = new Posicion(2,4);
@@ -230,7 +230,7 @@ public class MapaYIEntidadTest {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoCastilloEnUnaPosicionFueraDelMapa(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(-1,0);
         Posicion posicion2 = new Posicion(0,0);

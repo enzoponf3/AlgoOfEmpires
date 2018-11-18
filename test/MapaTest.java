@@ -3,7 +3,7 @@ import Modelo.Exceptions.CasilleroOcupadoException;
 import Modelo.Exceptions.MapaConDimensionesIncorrectasException;
 import Modelo.Exceptions.PosicionFueraDelMapaException;
 import Modelo.Casillero;
-import Modelo.Mapa2;
+import Modelo.Mapa;
 import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
@@ -12,13 +12,11 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import java.util.Iterator;
-
-public class Mapa2Test {
+public class MapaTest {
 
     @Test
     public void crearMapaConMedidasCorrectas(){
-        Mapa2 mapa = new Mapa2(10, 20);
+        Mapa mapa = new Mapa(10, 20);
 
         Assert.assertEquals(20, mapa.getAlto());
         Assert.assertEquals(10, mapa.getAncho());
@@ -26,7 +24,7 @@ public class Mapa2Test {
 
     @Test
     public void crearMapaRectangularAnchoMayorALargo() {
-        Mapa2 mapa = new Mapa2(10,5);
+        Mapa mapa = new Mapa(10,5);
 
         Assert.assertEquals(mapa.getAncho(), 10);
         Assert.assertEquals(mapa.getAlto(), 5);
@@ -34,7 +32,7 @@ public class Mapa2Test {
 
     @Test
     public void crearMapaRectangularAnchoMenorALargo() {
-        Mapa2 mapa = new Mapa2(5,10);
+        Mapa mapa = new Mapa(5,10);
 
         Assert.assertEquals(mapa.getAncho(), 5);
         Assert.assertEquals(mapa.getAlto(), 10);
@@ -43,12 +41,12 @@ public class Mapa2Test {
 
     @Test (expected = MapaConDimensionesIncorrectasException.class)
     public void crearMapaConAnchoYLargoCero() {
-        Mapa2 mapa = new Mapa2(0,0);
+        Mapa mapa = new Mapa(0,0);
     }
 
     @Test
     public void crearMapaYVerificarQueTodosSusCasillerosEstanDesocupados() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         ArrayList<Casillero> casilleros;
 
         casilleros = mapa.devolverCasilleros();
@@ -59,7 +57,7 @@ public class Mapa2Test {
 
     @Test
     public void seleccionarUnCasillero(){
-        Mapa2 mapa = new Mapa2(10, 10);
+        Mapa mapa = new Mapa(10, 10);
         Posicion posicion = new Posicion(1,1);
         Casillero casillero;
 
@@ -71,7 +69,7 @@ public class Mapa2Test {
 
     @Test
     public void ocuparUnCasilleroVacio() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion posicion = new Posicion(0,0);
         IEntidad IEntidad = new Aldeano();
 
@@ -83,7 +81,7 @@ public class Mapa2Test {
 
     @Test (expected = CasilleroOcupadoException.class)
     public void ocuparUnCasilleroYaOcupado() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion posicion = new Posicion(0,0);
         IEntidad unIEntidad = new Aldeano();
         IEntidad otroIEntidad = new Aldeano();
@@ -97,7 +95,7 @@ public class Mapa2Test {
 
     @Test
     public void ocuparCasillerosDistintosConObjetosDistintos() {
-        Mapa2 mapa = new Mapa2(10,20);
+        Mapa mapa = new Mapa(10,20);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
         IEntidad unIEntidad = new Aldeano();
@@ -114,7 +112,7 @@ public class Mapa2Test {
 
     @Test
     public void ocuparUnCasillerosYDespuesDesocuparlo() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
         IEntidad unIEntidad = new Aldeano();
@@ -132,7 +130,7 @@ public class Mapa2Test {
 
     @Test
     public void OcuparUnCasilleroDesocuparloYVerificarObtenerElMismoObjeto(){
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
         IEntidad unIEntidad = new Aldeano();
@@ -148,7 +146,7 @@ public class Mapa2Test {
 
     @Test (expected = CasilleroOcupadoException.class)
     public void ocuparUnCasilleroOcupadoLanzaCasilleroOcupadoException() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         IEntidad unIEntidad = new Aldeano();
         IEntidad otroIEntidad = new Aldeano();
@@ -162,7 +160,7 @@ public class Mapa2Test {
 
     @Test (expected = CasilleroDesocupadoException.class)
     public void desocuparCasilleroNoOcupado() {
-        Mapa2 mapa = new Mapa2(3,2);
+        Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
 
         mapa.desocuparCasillero(unaPosicion);
@@ -170,7 +168,7 @@ public class Mapa2Test {
 
     @Test
     public void ocuparVariosCasillerosYDesocuparUno() {
-        Mapa2 mapa = new Mapa2(10,20);
+        Mapa mapa = new Mapa(10,20);
         Posicion posicion1 = new Posicion(0,0);
         Posicion posicion2 = new Posicion(4,5);
         Posicion posicion3 = new Posicion(4,6);
@@ -197,7 +195,7 @@ public class Mapa2Test {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void ocuparCasilleroFueraDelAnchoDelMapa() {
-        Mapa2 mapa = new Mapa2(5,2);
+        Mapa mapa = new Mapa(5,2);
 
         Posicion posicion1 = new Posicion(10,0);
         IEntidad IEntidad1 = new Aldeano();
@@ -208,7 +206,7 @@ public class Mapa2Test {
 
     @Test (expected = PosicionFueraDelMapaException.class)
     public void desocuparCasilleroFueraDelAnchoDelMapa() {
-        Mapa2 mapa = new Mapa2(5,2);
+        Mapa mapa = new Mapa(5,2);
         Posicion posicion1 = new Posicion(10,0);
         IEntidad IEntidad1 = new Aldeano();
 

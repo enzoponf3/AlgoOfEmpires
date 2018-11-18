@@ -1,7 +1,8 @@
 package Modelo.Unidades;
+import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
-public class Arquero extends Unidad {
+public class Arquero extends Unidad implements IAtacante {
 
     protected static int VIDA = 75;
     protected static int COSTO= 75;
@@ -38,6 +39,9 @@ public class Arquero extends Unidad {
         this.estado = new EstadoArqueroLibre();
     }
 
+    @Override
     public void atacar(Unidad unidad){}
 
+    @Override
+    public void atacar(Edificio edificio){}
 }

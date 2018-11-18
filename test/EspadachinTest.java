@@ -448,5 +448,61 @@ public class EspadachinTest {
         espadachin.mover(pos);
     }
 
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void espadachinAtacarEdificioEstandoOcupadoFalla(){
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(5,4);
+        Posicion destino = new Posicion(4,4);
+        espadachin.setPosicion(origen);
+        espadachin.mover(destino);
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        espadachin.atacar(plaza);
+    }
 
+    @Test ( expected = EntidadFueraDeRangoException.class)
+    public void espadachinAtacarEdificioFueraDeRangoFalla(){
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(10,10);
+        espadachin.setPosicion(origen);
+        espadachin.atacar(plaza);
+    }
+
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void espadachinAtacarDosVecesMismoTurnofalla(){
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(5,4);
+        espadachin.setPosicion(origen);
+        Aldeano aldeano = new Aldeano();
+        Posicion posAldeano = new Posicion(5,5);
+        aldeano.setPosicion(posAldeano);
+        espadachin.atacar(aldeano);
+        espadachin.atacar(aldeano);
+    }
 }

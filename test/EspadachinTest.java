@@ -164,7 +164,7 @@ public class EspadachinTest {
     }
     //pruebas atacar
     @Test
-    public void EspadachinAtacarAldeanoEnRangoYBajaVida(){
+    public void espadachinAtacarAldeanoEnRangoYBajaVida(){
         Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
         aldeano.setPosicion(posAldeano);
@@ -176,7 +176,7 @@ public class EspadachinTest {
         Assert.assertEquals(25,aldeano.getVida());
     }
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void EspadachinAtacarAldeanoEnRangoSeOcupa(){
+    public void espadachinAtacarAldeanoEnRangoSeOcupa(){
         Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
         aldeano.setPosicion(posAldeano);
@@ -188,22 +188,32 @@ public class EspadachinTest {
     }
 
     @Test
-    public void EspadachinAtacarEspadachinEnRangoYBajaVida(){}
+    public void espadachinAtacarEspadachinEnRangoYBajaVida(){
+        Espadachin espadachin = new Espadachin();
+        Posicion posEspadachin = new Posicion(1,2);
+        espadachin.setPosicion(posEspadachin);
+        Espadachin espadachin2 = new Espadachin();
+        Posicion posEspadachin2 = new Posicion(1,3);
+        espadachin2.setPosicion(posEspadachin2);
+        espadachin.atacar(espadachin2);
+        Assert.assertEquals(75, espadachin2.getVida());
+    }
 
     @Test
-    public void EspadachinAtacarArqueroEnRangoSeOcupa(){}
+    public void espadachinAtacarArqueroEnRangoSeOcupa(){
+    }
 
     @Test
-    public void EspadachinAtacarArqueroEnRangoBajaVida(){}
+    public void espadachinAtacarArqueroEnRangoBajaVida(){}
 
     @Test
-    public void EspadachinAtacarArmaAsedioEnRangoBajaVida(){}
+    public void espadachinAtacarArmaAsedioEnRangoBajaVida(){}
 
     @Test
-    public void EspadachinAtacarArmaAsedioEnRangoSeOcupa(){}
+    public void espadachinAtacarArmaAsedioEnRangoSeOcupa(){}
 
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void EspadachinAtacarCuartelEnRangoSeOcupa() {
+    public void espadachinAtacarCuartelEnRangoSeOcupa() {
         Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
@@ -229,16 +239,16 @@ public class EspadachinTest {
     }
 
     @Test
-    public void EspadachinAtacarCuartelEnRangoBajaVida(){}
+    public void espadachinAtacarCuartelEnRangoBajaVida(){}
 
     @Test
-    public void EspadachinAtacarPlazaCentralEnRangoBajaVida(){}
+    public void espadachinAtacarPlazaCentralEnRangoBajaVida(){}
 
     @Test
-    public void EspadachinAtacarPlazaCentralEnRangoSeOcupa(){}
+    public void espadachinAtacarPlazaCentralEnRangoSeOcupa(){}
 
-    @Test (expected = ObjetoFueraDeRangoException.class)
-    public void EspadachinAtacarUnidadFueraDeRango(){
+    @Test (expected = EntidadFueraDeRangoException.class)
+    public void espadachinAtacarUnidadFueraDeRango(){
         Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
         aldeano.setPosicion(posAldeano);
@@ -250,7 +260,7 @@ public class EspadachinTest {
     }
 
     @Test
-    public void EspadachinAtacarCastilloEnRango(){}
+    public void espadachinAtacarCastilloEnRango(){}
 
 
 

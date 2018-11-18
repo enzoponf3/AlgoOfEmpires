@@ -1,7 +1,5 @@
 import Modelo.Edificios.Castillo;
-import Modelo.Exceptions.EdificioConVidaAlMaximoException;
-import Modelo.Exceptions.EdificioEnReparacionException;
-import Modelo.Exceptions.EdificioSinVidaExcepcion;
+import Modelo.Exceptions.*;
 import Modelo.Unidades.ArmaDeAsedio;
 import org.junit.Assert;
 import org.junit.Before;

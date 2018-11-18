@@ -52,10 +52,4 @@ public class Espadachin extends Unidad {
         return DANIO_EDIFICIO;
     }
 
-    public void estaEnRango(Posicion posicion){         //De ultima pensar otra forma
-        Posicion posicionDif = this.posicion.diferenciaEntrePos(posicion);
-        if(posicionDif.getHorizontal() > this.rango || posicionDif.getVertical() > this.rango){
-            throw new ObjetoFueraDeRangoException();
-        }
-    }
 }

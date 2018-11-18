@@ -7,17 +7,16 @@ public class Arquero extends Unidad implements IAtacante {
     protected static int VIDA = 75;
     protected static int COSTO= 75;
     protected EstadoArquero estado;
-
-    public int getVida() {
-        return this.vida;
-    }
-    public int getCosto() {
-        return this.costo;
-    }
+    protected  int RANGO = 3;
+    protected static int DANIO_UNIDAD = 15;
+    protected static int DANIO_EDIFICIO = 10;
 
     public Arquero() {
         this.vida = VIDA;
         this.costo = COSTO;
+        this.danioUnidad = DANIO_UNIDAD;
+        this.danioEdificio = DANIO_EDIFICIO;
+        this.rango = RANGO;
         this.estado = new EstadoArqueroLibre();
     }
 
@@ -40,8 +39,9 @@ public class Arquero extends Unidad implements IAtacante {
     }
 
     @Override
-    public void atacar(Unidad unidad){}
+    public void atacar(Unidad unidad){ this.estado.atacar(this,unidad);}
 
     @Override
-    public void atacar(Edificio edificio){}
+    public void atacar(Edificio edificio) {this.estado.atacar(this,edificio);}
+
 }

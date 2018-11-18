@@ -7,16 +7,24 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
     protected int vida;
     protected int costo;
     protected Posicion posicion;
-    protected int DANIO_UNIDAD = 0;
-    protected int DANIO_EDIFICIO = 0;
+    protected int danioUnidad = 0;
+    protected int danioEdificio = 0;
+    protected int rango = 0;
+
 
     public int getVida(){
         return vida;
     }
-
     public int getCosto(){
         return costo;
     }
+    public int getDanioUnidad(){
+        return danioUnidad;
+    }
+    public int getDanioEdificio(){
+        return danioEdificio;
+    }
+    public int getRango(){ return rango;}
 
     public boolean estaEnPosicion(Posicion posicionAComparar){
         return this.posicion.igualA(posicionAComparar);
@@ -34,10 +42,7 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
         this.vida -= danio;
     }
 
-    public int getDanioUnidad(){
-        return DANIO_UNIDAD;
-    }
-    public int getDanioEdificio(){
-        return DANIO_EDIFICIO;
-    }
+
+
+
 }

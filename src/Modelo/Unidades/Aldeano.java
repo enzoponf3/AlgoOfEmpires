@@ -49,9 +49,6 @@ public class Aldeano extends Unidad {
         return this.estado.generaOro();
     }
 
-    //Estoy haciendolo con la precondicion de que el mapa chequeo que la posicion de destino es valida y que
-    //no esta ocupada por otro objeto. Solo necesita la de destino dado que directamente hace un swap y el mapa antes
-    //desocupo la origen
     @Override
     public void mover(Posicion destino){
         this.estado.mover(destino, this);
@@ -61,4 +58,5 @@ public class Aldeano extends Unidad {
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }
+
 }

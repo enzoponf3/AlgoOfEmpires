@@ -245,6 +245,16 @@ public class ArmaDeAsedioTest {
         armaAsedio.desmontar();
     }
 
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void armaAsedioDesmontarHabiendoMovidoFalla(){
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion origen = new Posicion(5, 5);
+        armaAsedio.setPosicion(origen);
+        Posicion destino = new Posicion(5,6);
+        armaAsedio.mover(destino);
+        armaAsedio.desmontar();
+    }
+
     //Pruebas atacar
 
     @Test (expected = ArmaDeAsedioNoAtacaUnidadException.class)

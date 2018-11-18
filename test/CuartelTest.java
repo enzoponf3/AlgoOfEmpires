@@ -1,4 +1,7 @@
-
+import Modelo.Edificios.Cuartel;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.Arquero;
+import Modelo.Unidades.Espadachin;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +72,22 @@ public class CuartelTest {
         }
         cuartel.construir();
         cuartel.crearArquero();
+    }
+
+    @Test (expected = EdificioEnReparacionException.class)
+    public void soloSePuedeRepararUnaVezAntesDeCambiarDeEstado() {
+        cuartelConstruido.reducirVida(100);
+        cuartelConstruido.reparar();
+        cuartelConstruido.reparar();
+    }
+
+    @Test
+    public void sePuedeRepararNuevamenteDespuesDeCambiarDeEstado() {
+        cuartelConstruido.reducirVida(100);
+        cuartelConstruido.reparar();
+        cuartelConstruido.volverAEstadoOriginal();
+        cuartelConstruido.reparar();
+        Assert.assertEquals(cuartelConstruido.getVida(),250);
     }
 
 //  EN EL SIGUIENTE TEST NO SE COMPRUEBA SI SE CREA EL ESPADACHIN

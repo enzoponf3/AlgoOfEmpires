@@ -1,0 +1,16 @@
+package Modelo.Edificios;
+
+import Modelo.Unidades.Aldeano;
+
+public interface EstadoPlazaCentral {
+
+    Aldeano crearAldeano();
+
+    void reparar(PlazaCentral plaza);
+
+    void construir(PlazaCentral plaza);
+
+    int getTurnosConstruccion();
+
+    void volverAEstadoOriginal(PlazaCentral plazaCentral);
+}

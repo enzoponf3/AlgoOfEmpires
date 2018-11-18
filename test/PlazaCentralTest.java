@@ -1,4 +1,6 @@
-
+import Modelo.Edificios.*;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -164,10 +166,19 @@ public class PlazaCentralTest {
         Assert.assertEquals(aldeano.getCosto(),25);
     }
 
-    @Test
-    public void repararConMasDeUnAldeanoFalla(){
-
+    @Test (expected = EdificioEnReparacionException.class)
+    public void soloSePuedeRepararUnaVezAntesDeCambiarDeEstado() {
+        plazaConstruida.reducirVida(100);
+        plazaConstruida.reparar();
+        plazaConstruida.reparar();
     }
 
-
+    @Test
+    public void sePuedeRepararNuevamenteDespuesDeCambiarDeEstado() {
+        plazaConstruida.reducirVida(100);
+        plazaConstruida.reparar();
+        plazaConstruida.volverAEstadoOriginal();
+        plazaConstruida.reparar();
+        Assert.assertEquals(plazaConstruida.getVida(),400);
+    }
 }

@@ -1,3 +1,7 @@
+import Modelo.Edificios.*;
+import Modelo.*;
+import Modelo.Exceptions.*;
+import Modelo.Unidades.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -5,7 +9,7 @@ import java.util.ArrayList;
 
 public class MapaYObjetoTest {
 
-    //Unidades
+    //Modelo.Unidades
 
     @Test
     public void colocarUnObjetoAldeanoEnUnaPosicionDeterminadaDentroDelMapa(){
@@ -99,7 +103,7 @@ public class MapaYObjetoTest {
         mapa.ocuparCasillero(posicion, objeto);
     }
 
-    //Edificios
+    //Modelo.Edificios
 
     @Test
     public void colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa(){

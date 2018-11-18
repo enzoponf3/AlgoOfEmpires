@@ -1,3 +1,6 @@
+import Modelo.Exceptions.UnidadEstaOcupadoException;
+import Modelo.Posicion;
+import Modelo.Unidades.Arquero;
 import org.junit.Assert;
 import org.junit.Test;
 

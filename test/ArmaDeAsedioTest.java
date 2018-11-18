@@ -1,3 +1,8 @@
+import Modelo.Exceptions.UnidadDesarmadaException;
+import Modelo.Exceptions.UnidadEstaMontadaException;
+import Modelo.Exceptions.UnidadEstaOcupadoException;
+import Modelo.Posicion;
+import Modelo.Unidades.ArmaDeAsedio;
 import org.junit.Assert;
 import org.junit.Test;
 

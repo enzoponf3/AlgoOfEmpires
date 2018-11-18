@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public abstract class Edificio implements IEntidad {
 
-    protected int vida;
-    protected int costo;
-    protected int velocidadReparacion;
-    protected int vidaMax;
-    protected int ancho;
-    protected int alto;
-    protected ArrayList<Posicion> posiciones;
+    int vida;
+    int costo;
+    int velocidadReparacion;
+    int vidaMax;
+    int ancho;
+    int alto;
+    private ArrayList<Posicion> posiciones;
 
     public int getVida() {
         return this.vida;
@@ -48,6 +48,18 @@ public abstract class Edificio implements IEntidad {
     }
 
     public abstract void reparar();
+
+    public abstract void enReparacion();
+
+    void aumentarVida() {
+        if (this.vida == this.vidaMax)
+            throw new EdificioConVidaAlMaximoException();
+        this.enReparacion();
+        if ((this.vida + this.velocidadReparacion) >= this.vidaMax)
+            this.vida = this.vidaMax;
+        else
+            this.vida += this.velocidadReparacion;
+    }
 
     public void construir(){}
 

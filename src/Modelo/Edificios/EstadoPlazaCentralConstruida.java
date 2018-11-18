@@ -13,13 +13,7 @@ public class EstadoPlazaCentralConstruida implements IEstadoPlazaCentral {
 
     @Override
     public void reparar(PlazaCentral plaza) {
-        if (plaza.vida == plaza.vidaMax)
-            throw new EdificioConVidaAlMaximoException();
-        plaza.enReparacion();
-        if ((plaza.vida + plaza.velocidadReparacion) >= plaza.vidaMax)
-            plaza.vida = plaza.vidaMax;
-        else
-            plaza.vida += plaza.velocidadReparacion;
+        plaza.aumentarVida();
     }
 
     @Override

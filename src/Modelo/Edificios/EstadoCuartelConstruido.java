@@ -19,13 +19,7 @@ public class EstadoCuartelConstruido implements IEstadoCuartel {
 
     @Override
     public void reparar(Cuartel cuartel) {
-        if (cuartel.vida == cuartel.vidaMax)
-            throw new EdificioConVidaAlMaximoException();
-        cuartel.enReparacion();
-        if ((cuartel.vida + cuartel.velocidadReparacion) >= cuartel.vidaMax)
-            cuartel.vida = cuartel.vidaMax;
-        else
-            cuartel.vida += cuartel.velocidadReparacion;
+        cuartel.aumentarVida();
     }
 
     @Override

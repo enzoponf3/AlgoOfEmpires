@@ -108,6 +108,48 @@ public class MoverUnidadesEnMapaTest {
 
     }
 
+    @Test (expected = PosicionOcupadaException.class)
+    public void moverArqueroUnCasilleroAledanioOcupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Arquero arquero = new Arquero();
+        Arquero arquero2 = new Arquero();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, arquero);
+        mapa.ocuparCasillero(destino, arquero2);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionOcupadaException.class)
+    public void moverEspadachinUnCasilleroAledanioOcupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Espadachin espadachin = new Espadachin();
+        Espadachin espadachin2 = new Espadachin();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, espadachin);
+        mapa.ocuparCasillero(destino, espadachin2);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionOcupadaException.class)
+    public void moverArmaDeAsedioUnCasilleroAledanioOcupadoDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        ArmaDeAsedio armaDeAsedio2 = new ArmaDeAsedio();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(2,6);
+
+        mapa.ocuparCasillero(origen, armaDeAsedio);
+        mapa.ocuparCasillero(destino, armaDeAsedio2);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
 
     //Movimiento a posicion fuera del mapa lanza exception
 
@@ -123,6 +165,42 @@ public class MoverUnidadesEnMapaTest {
 
     }
 
+    @Test (expected = PosicionFueraDelMapaException.class)
+    public void moverArqueroAUnCasilleroAledanioFueraDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(10,20);
+        Posicion destino = new Posicion(10,21);
+
+        mapa.ocuparCasillero(origen, arquero);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionFueraDelMapaException.class)
+    public void moverEspadachinAUnCasilleroAledanioFueraDelMapa() {
+        Mapa2 mapa = new Mapa2(10, 20);
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(10, 20);
+        Posicion destino = new Posicion(10, 21);
+
+        mapa.ocuparCasillero(origen, espadachin);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionFueraDelMapaException.class)
+    public void moverArmaDeAsedioAUnCasilleroAledanioFueraDelMapa() {
+        Mapa2 mapa = new Mapa2(10, 20);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion origen = new Posicion(10, 20);
+        Posicion destino = new Posicion(10, 21);
+
+        mapa.ocuparCasillero(origen, armaDeAsedio);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
     //Mover mas de un casillero a la vez no se puede
 
     @Test (expected = PosicionInvalidaException.class)
@@ -133,6 +211,42 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(4,8);
 
         mapa.ocuparCasillero(origen, aldeano);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionInvalidaException.class)
+    public void moverArqueroAUnCasilleroNoAledanioDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(4,8);
+
+        mapa.ocuparCasillero(origen, arquero);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionInvalidaException.class)
+    public void moverEspadachinAUnCasilleroNoAledanioDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        Espadachin espadachin = new Espadachin();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(4,8);
+
+        mapa.ocuparCasillero(origen, espadachin);
+        mapa.moverUnidadMovil(origen, destino);
+
+    }
+
+    @Test (expected = PosicionInvalidaException.class)
+    public void moverArmaDeAsedioAUnCasilleroNoAledanioDentroDelMapa(){
+        Mapa2 mapa = new Mapa2(10, 20);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion origen = new Posicion(2,5);
+        Posicion destino = new Posicion(4,8);
+
+        mapa.ocuparCasillero(origen, armaDeAsedio);
         mapa.moverUnidadMovil(origen, destino);
 
     }

@@ -24,7 +24,7 @@ public class Posicion {
 
     public boolean compararPosiciones(Posicion unaposicion){
         return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
-    } //Aca estoy rompiendo el encapsulamiento?
+    }
 
     public boolean aledaniaA(Posicion destino){
         int abs_horizontal = Math.abs(this.horizontal - destino.horizontal);

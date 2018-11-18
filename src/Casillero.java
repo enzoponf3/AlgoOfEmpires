@@ -33,6 +33,7 @@ public class Casillero{
         }
     }
 
+
     public boolean estaOcupado(){
         return this.estado.estaOcupado();
     }//Solo para la prueba, no se usa

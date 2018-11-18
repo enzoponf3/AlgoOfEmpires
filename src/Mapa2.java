@@ -102,10 +102,21 @@ public class Mapa2 {
             throw new PosicionFueraDelMapaException();
     }
 
-    public void moverUnidadMovil( UnidadMovil unidadMovil, Posicion destino ){
-        unidadMovil.mover(destino);
+    public void verificarPosicionDesocupada(Posicion posicion){
+        Casillero casillero = this.seleccionarCasillero(posicion);
+        if(casillero.estaOcupado())
+            throw new PosicionOcupadaException();
     }
 
+    /*
+
+    public void moverUnidadMovil( Posicion origen, Posicion destino ){
+        verificarPosicionValida(destino);
+        verificarPosicionDesocupada(destino);
+        Objeto unidad = this.desocuparCasillero(origen);
+        unidad.mover(destino);
+    }
+*/
 
 
 }

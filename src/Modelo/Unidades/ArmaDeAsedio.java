@@ -1,23 +1,21 @@
 package Modelo.Unidades;
+import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
 public class ArmaDeAsedio extends Unidad {
 
     private int VIDA = 150;
     private int COSTO = 200;
+    protected static int RANGO = 5;
+    protected static int DANIO_EDIFICIO = 75;
     protected EstadoArmaDeAsedio estado;
 
     public ArmaDeAsedio(){
         this.vida = VIDA;
         this.costo = COSTO;
+        this.rango = RANGO;
+        this.danioEdificio = DANIO_EDIFICIO;
         this.estado = new EstadoArmaDeAsedioDesarmado();
-    }
-    public int getVida() {
-        return this.vida;
-    }
-
-    public int getCosto() {
-        return this.costo;
     }
 
     public void montar(){ this.estado.montar(this);}
@@ -35,5 +33,7 @@ public class ArmaDeAsedio extends Unidad {
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }
+
+    public void atacar(Edificio edificio) {this.estado.atacar(this,edificio);}
 
 }

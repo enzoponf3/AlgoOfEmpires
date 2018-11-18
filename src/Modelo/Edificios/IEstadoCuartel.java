@@ -3,7 +3,7 @@ package Modelo.Edificios;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
-public interface EstadoCuartel {
+public interface IEstadoCuartel {
 
     Espadachin crearEspadachin();
 

@@ -1,6 +1,6 @@
 package Modelo.Edificios;
 
-public interface EstadoCastillo {
+public interface IEstadoCastillo {
 
     void reparar(Castillo castillo);
 

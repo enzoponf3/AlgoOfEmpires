@@ -2,7 +2,7 @@ package Modelo.Edificios;
 
 import Modelo.Unidades.Aldeano;
 
-public interface EstadoPlazaCentral {
+public interface IEstadoPlazaCentral {
 
     Aldeano crearAldeano();
 

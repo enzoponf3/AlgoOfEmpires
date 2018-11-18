@@ -1,10 +1,7 @@
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Exceptions.EntidadFueraDeRangoException;
-import Modelo.Exceptions.UnidadDesarmadaException;
-import Modelo.Exceptions.UnidadEstaMontadaException;
-import Modelo.Exceptions.UnidadEstaOcupadoException;
+import Modelo.Exceptions.*;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -250,7 +247,18 @@ public class ArmaDeAsedioTest {
 
     //Pruebas atacar
 
-
+    @Test (expected = ArmaDeAsedioNoAtacaUnidadException.class)
+    public void armaDeAsedioAtacarUnidadFalla(){
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion5 = new Posicion(1, 3);
+        armaAsedio.setPosicion(posicion5);
+        armaAsedio.montar();
+        armaAsedio.desocupar();
+        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(1,4);
+        aldeano.setPosicion(posicion);
+        armaAsedio.atacar(aldeano);
+    }
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioAtacarCuartelEnRangoSeOcupa() {

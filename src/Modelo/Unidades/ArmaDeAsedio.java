@@ -1,5 +1,6 @@
 package Modelo.Unidades;
 import Modelo.Edificios.Edificio;
+import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
 import Modelo.Posicion;
 
 public class ArmaDeAsedio extends Unidad implements IAtacante {
@@ -25,12 +26,6 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
     public void desocupar(){this.estado.desocupar(this);}
 
     @Override
-    public void atacar(Unidad unidad){}
-
-    @Override
-    public void atacar(Edificio edificio){}
-
-    @Override
     public void mover(Posicion destino){
         this.estado.mover(destino, this);
     }
@@ -39,6 +34,8 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }
+
+    public void atacar(Unidad unidad){ throw new ArmaDeAsedioNoAtacaUnidadException();}
 
     public void atacar(Edificio edificio) {this.estado.atacar(this,edificio);}
 

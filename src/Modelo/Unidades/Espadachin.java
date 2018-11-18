@@ -2,7 +2,7 @@ package Modelo.Unidades;
 import Modelo.Posicion;
 import Modelo.Exceptions.*;
 import Modelo.Edificios.Edificio;
-public class Espadachin extends Unidad {
+public class Espadachin extends Unidad implements IAtacante{
 
    protected int VIDA = 100;
    protected int COSTO = 50;
@@ -34,6 +34,10 @@ public class Espadachin extends Unidad {
         this.ocupar();
     }
 
+    @Override
     public void atacar(Unidad unidad){ this.estado.atacar(this,unidad);}
+
+
+    @Override
     public void atacar(Edificio edificio){this.estado.atacar(this,edificio);}
 }

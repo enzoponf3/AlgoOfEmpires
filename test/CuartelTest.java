@@ -1,10 +1,13 @@
 import Modelo.Edificios.Cuartel;
 import Modelo.Exceptions.*;
+import Modelo.Posicion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class CuartelTest {
 
@@ -12,7 +15,16 @@ public class CuartelTest {
 
     @Before
     public void setUp() throws Exception {
-        cuartelConstruido = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        cuartelConstruido = new Cuartel(posiciones);
         cuartelConstruido.finalizarConstruccion();
     }
 
@@ -80,14 +92,32 @@ public class CuartelTest {
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void intentarConstruirMasDeUnaVezSinVolverAEstadoOriginalAntes() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.construir();
     }
 
     @Test(expected = EdificioYaConstruidoException.class)
     public void intentarConstruirMasTurnosDeLoNecesario() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -99,7 +129,16 @@ public class CuartelTest {
 
     @Test
     public void vidaAntesDeTerminarConstruccionEsCero() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -110,7 +149,16 @@ public class CuartelTest {
 
     @Test
     public void vidaCorrectaTrasFinalizarConstruccion() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -122,7 +170,16 @@ public class CuartelTest {
 
     @Test (expected = EdificioNoConstruidoException.class)
     public void noEsPosibleRepararSinInicializarConstruccion() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.reparar();
     }
 
@@ -136,7 +193,16 @@ public class CuartelTest {
 
     @Test (expected = EdificioNoConstruidoException.class)
     public void noEsPosibleRepararTrasDosTurnosConstruccion() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -146,7 +212,16 @@ public class CuartelTest {
 
     @Test (expected = EdificioEnConstruccionException.class)
     public void noEsPosibleRepararTrasTresTurnosConstruccionSinFinalizar() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -157,7 +232,16 @@ public class CuartelTest {
 
     @Test
     public void repararTrasTresTurnosConstruccionYFinalizar() {
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -203,7 +287,16 @@ public class CuartelTest {
 
     @Test (expected =  EdificioNoConstruidoException.class)
     public void cuartelNoConstruidoSigueNoConstruidoAlVolverAEstadoOriginal(){
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.volverAEstadoOriginal();
         cuartel.reparar();
     }

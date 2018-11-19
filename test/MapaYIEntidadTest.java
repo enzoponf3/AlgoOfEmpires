@@ -2,6 +2,7 @@ import Modelo.Edificios.*;
 import Modelo.*;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.*;
+import javafx.print.PageLayout;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -108,7 +109,6 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoCuartelEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2,5);
         Posicion posicion2 = new Posicion(2,4);
         Posicion posicion3 = new Posicion(3,5);
@@ -118,7 +118,7 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
 
         for(int i=0; i<posiciones.size(); i++){
             mapa.ocuparCasillero(posiciones.get(i), cuartel);
@@ -131,7 +131,6 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoCuartelEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(-1,0);
         Posicion posicion2 = new Posicion(0,0);
         Posicion posicion3 = new Posicion(-1,1);
@@ -141,7 +140,7 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
 
         for(int i=0; i<posiciones.size(); i++){
             mapa.ocuparCasillero(posiciones.get(i), cuartel);
@@ -154,7 +153,6 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoPlazaCentralEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion1 = new Posicion(2,5);
         Posicion posicion2 = new Posicion(2,4);
         Posicion posicion3 = new Posicion(3,5);
@@ -164,7 +162,7 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plazaCentral.setPosiciones(posiciones);
+        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
 
         for(int i=0; i<posiciones.size(); i++){
             mapa.ocuparCasillero(posiciones.get(i), plazaCentral);
@@ -177,7 +175,6 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoPlazaCentralEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        PlazaCentral plazaCentral = new PlazaCentral();
         Posicion posicion1 = new Posicion(-1,0);
         Posicion posicion2 = new Posicion(0,0);
         Posicion posicion3 = new Posicion(-1,1);
@@ -187,7 +184,7 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plazaCentral.setPosiciones(posiciones);
+        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
 
         for(int i=0; i<posiciones.size(); i++){
             mapa.ocuparCasillero(posiciones.get(i), plazaCentral);

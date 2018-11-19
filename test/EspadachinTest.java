@@ -250,7 +250,6 @@ public class EspadachinTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarCuartelEnRangoSeOcupa() {
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -260,7 +259,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         Espadachin espadachin = new Espadachin();
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
@@ -281,7 +280,6 @@ public class EspadachinTest {
         Espadachin espadachin = new Espadachin();
         Posicion posEspadachin = new Posicion(1,3);
         espadachin.setPosicion(posEspadachin);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -291,7 +289,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -308,7 +306,6 @@ public class EspadachinTest {
         Espadachin espadachin = new Espadachin();
         Posicion posEspadachin = new Posicion(1,3);
         espadachin.setPosicion(posEspadachin);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -318,7 +315,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -332,7 +329,6 @@ public class EspadachinTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarPlazaCentralEnRangoSeOcupa(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -342,7 +338,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         Espadachin espadachin = new Espadachin();
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
@@ -467,7 +463,6 @@ public class EspadachinTest {
         Posicion destino = new Posicion(4,4);
         espadachin.setPosicion(origen);
         espadachin.mover(destino);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -477,7 +472,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -489,7 +484,6 @@ public class EspadachinTest {
 
     @Test ( expected = EntidadFueraDeRangoException.class)
     public void espadachinAtacarEdificioFueraDeRangoFalla(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -499,7 +493,7 @@ public class EspadachinTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();

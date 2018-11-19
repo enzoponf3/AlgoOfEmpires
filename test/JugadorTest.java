@@ -226,7 +226,16 @@ public class JugadorTest {
     @Test
     public void agregarUnaPlazacentralCorrectamente(){
         Jugador jugador = new Jugador();
-        PlazaCentral plazaCentral = new PlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        PlazaCentral plazaCentral = new PlazaCentral(posicions);
 
         jugador.agregarEdificio(plazaCentral);
 
@@ -236,7 +245,16 @@ public class JugadorTest {
     @Test
     public void agregarUnCuartelCorrectamente(){
         Jugador jugador = new Jugador();
-        Cuartel cuartel = new Cuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        Cuartel cuartel = new Cuartel(posicions);
 
         jugador.agregarEdificio(cuartel);
 
@@ -245,9 +263,26 @@ public class JugadorTest {
 
     @Test
     public void agregarUnaPlazaYUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador();
-        PlazaCentral plazaCentral = new PlazaCentral();
-        Cuartel cuartel = new Cuartel();
+        Jugador jugador = new Jugador();        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        PlazaCentral plazaCentral = new PlazaCentral(posicions);
+        Posicion posicion5 = new Posicion(1,2);
+        Posicion posicion6 = new Posicion(1,3);
+        Posicion posicion7 = new Posicion(2,2);
+        Posicion posicion8 = new Posicion(2,3);
+        ArrayList<Posicion> posicions2 =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        Cuartel cuartel = new Cuartel(posicions2);
 
         jugador.agregarEdificio(plazaCentral);
         jugador.agregarEdificio(cuartel);
@@ -426,7 +461,6 @@ public class JugadorTest {
     @Test
     public void devolverPlazaCentralEnPosicionCorrectamente(){
         Jugador jugador = new Jugador();
-        PlazaCentral plazaCentral = new PlazaCentral();
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
         Posicion posicion2 = new Posicion(2,4);
@@ -436,11 +470,9 @@ public class JugadorTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plazaCentral.setPosiciones(posiciones);
-
+        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
         jugador.agregarEdificio(plazaCentral);
         PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
-
         Assert.assertEquals(plazaCentral, plaza);
     }
 

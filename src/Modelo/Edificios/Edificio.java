@@ -13,8 +13,6 @@ public abstract class Edificio implements IEntidad {
     int costo;
     int velocidadReparacion;
     int vidaMax;
-    int ancho;
-    int alto;
     private ArrayList<Posicion> posiciones;
 
     public int getVida() {
@@ -23,14 +21,6 @@ public abstract class Edificio implements IEntidad {
 
     public int getVelocidadReparacion() {
         return velocidadReparacion;
-    }
-
-    public int getAncho() {
-        return ancho;
-    }
-
-    public int getAlto() {
-        return alto;
     }
 
     public ArrayList<Posicion> getPosiciones() {
@@ -58,6 +48,4 @@ public abstract class Edificio implements IEntidad {
     }
 
     public void construir(){}
-
-
 }

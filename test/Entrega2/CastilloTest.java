@@ -100,6 +100,4 @@ public class CastilloTest {
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
         Assert.assertNotNull(armaDeAsedio);
     }
-    
-
 }

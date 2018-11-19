@@ -1,7 +1,10 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+
+import java.util.ArrayList;
 
 public class PlazaCentral extends Edificio {
 
@@ -15,6 +18,16 @@ public class PlazaCentral extends Edificio {
 
     private IEstadoPlazaCentral estado;
 
+    public PlazaCentral(ArrayList<Posicion> posiciones) {
+        this.vidaMax = VIDA;
+        this.vida = 0;
+        this.costo = COSTO;
+        this.velocidadReparacion = VELOCIDAD_REPARACION;
+        this.estado = new EstadoPlazaCentralNoConstruida(TURNOS);
+
+        this.posiciones = posiciones;
+    }
+
     public PlazaCentral() {
         this.vidaMax = VIDA;
         this.vida = 0;
@@ -22,6 +35,7 @@ public class PlazaCentral extends Edificio {
         this.velocidadReparacion = VELOCIDAD_REPARACION;
         this.estado = new EstadoPlazaCentralNoConstruida(TURNOS);
     }
+
 
     public int getCosto() {
         return this.costo;

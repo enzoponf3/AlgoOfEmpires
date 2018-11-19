@@ -5,6 +5,8 @@ import Modelo.Unidades.*;
 import Modelo.Edificios.*;
 import Modelo.Posicion;
 
+import java.util.ArrayList;
+
 public class Aldeano extends Unidad {
 
     public static final int VIDA = 50;
@@ -17,8 +19,16 @@ public class Aldeano extends Unidad {
         this.estado = new EstadoAldeanoLibre();
     }
 
+    public Cuartel construirCuartel(ArrayList<Posicion> posiciones){
+        return this.estado.construirCuartel(this, posiciones);
+    }
+
     public Cuartel construirCuartel(){
         return this.estado.construirCuartel(this);
+    }
+
+    public PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones){
+        return this.estado.construirPlazaCentral(this, posiciones);
     }
 
     public PlazaCentral construirPlazaCentral(){

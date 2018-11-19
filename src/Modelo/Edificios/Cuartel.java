@@ -2,8 +2,12 @@ package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Exceptions.EdificioSinVidaExcepcion;
+import Modelo.Posicion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Cuartel extends Edificio {
 
@@ -15,6 +19,16 @@ public class Cuartel extends Edificio {
     private static final int TURNOS_CONSTRUCCION = 3;
 
     private IEstadoCuartel estado;
+
+    public Cuartel(ArrayList<Posicion> posiciones) {
+        this.vidaMax = VIDA;
+        this.vida = 0;
+        this.costo = COSTO;
+        this.velocidadReparacion = VELOCIDAD_REPARACION;
+        this.estado = new EstadoCuartelNoConstruido(TURNOS_CONSTRUCCION);
+
+        this.posiciones = posiciones;
+    }
 
     public Cuartel() {
         this.vidaMax = VIDA;

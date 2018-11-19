@@ -42,6 +42,9 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
         this.vida -= danio;
     }
 
+    public boolean enPosicion(Posicion posicion){
+        return this.posicion.compararPosiciones(posicion);
+    }
 
 
 

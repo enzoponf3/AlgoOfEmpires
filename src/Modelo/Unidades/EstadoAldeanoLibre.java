@@ -4,11 +4,25 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 
+import java.util.ArrayList;
+
 public class EstadoAldeanoLibre implements EstadoAldeano {
 
     @Override
     public int generaOro(){
         return 20;
+    }
+
+    @Override
+    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posiciones){
+        aldeano.ocupar();
+        return new Cuartel(posiciones);
+    }
+
+    @Override
+    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posiciones){
+        aldeano.ocupar();
+        return new PlazaCentral(posiciones);
     }
 
     @Override

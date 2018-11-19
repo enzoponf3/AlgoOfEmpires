@@ -1,6 +1,7 @@
 import Modelo.Exceptions.AtacanteNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
 import Modelo.Exceptions.AldeanoNoExisteException;
+import Modelo.Exceptions.UnidadNoPuedeConstruirException;
 import Modelo.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
@@ -8,6 +9,7 @@ import Modelo.Edificios.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class JugadorTest {
@@ -369,5 +371,43 @@ public class JugadorTest {
         Assert.assertEquals(0, jugador.getEjercito().size() );
         Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
     }
+
+    //Devolver una entidad
+
+    @Test
+    public void devolverAldeano(){
+        Jugador jugador = new Jugador();
+        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(2,5);
+        aldeano.setPosicion(posicion);
+
+        jugador.agregarAldeano(aldeano);
+        Aldeano aldeanoAComparar = jugador.devolverAldeanoEnPosicion(posicion);
+
+        Assert.assertEquals( aldeano, aldeanoAComparar );
+    }
+
+    @Test
+    public void devolverPlazaCentral(){
+        Jugador jugador = new Jugador();
+        PlazaCentral plazaCentral = new PlazaCentral();
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        Posicion posicion1 = new Posicion(2,3);
+        Posicion posicion2 = new Posicion(2,4);
+        Posicion posicion3 = new Posicion(3,3);
+        Posicion posicion4 = new Posicion(3,4);
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plazaCentral.setPosiciones(posiciones);
+
+        jugador.agregarEdificio(plazaCentral);
+        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
+
+        Assert.assertEquals(plazaCentral, plaza);
+    }
+
+
 
 }

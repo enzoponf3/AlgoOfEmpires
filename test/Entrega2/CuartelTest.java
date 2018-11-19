@@ -2,6 +2,8 @@ package Entrega2;
 
 import Modelo.Edificios.Cuartel;
 import Modelo.Exceptions.*;
+import Modelo.Unidades.Arquero;
+import Modelo.Unidades.Espadachin;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -198,4 +200,42 @@ public class CuartelTest {
         cuartelConstruido.reducirVida(250);
         cuartelConstruido.volverAEstadoOriginal();
     }
+
+    //Tests agregados 18-11-18
+
+    @Test (expected =  EdificioNoConstruidoException.class)
+    public void cuartelNoConstruidoSigueNoConstruidoAlVolverAEstadoOriginal(){
+        Cuartel cuartel = new Cuartel();
+        cuartel.volverAEstadoOriginal();
+        cuartel.reparar();
+    }
+
+    @Test (expected = EdificioYaConstruidoException.class)
+    public void cuartelConstruidoSigueConstruidoAlVolverAEstadoOriginal(){
+        cuartelConstruido.volverAEstadoOriginal();
+        cuartelConstruido.construir();
+    }
+
+    @Test (expected = EdificioYaConstruidoException.class)
+    public void cuartelEnReparacionFallaAlConstruir(){
+        cuartelConstruido.reducirVida(30);
+        cuartelConstruido.construir();
+    }
+
+    @Test
+    public void cuartelEnReparacionCreaEspadachin(){
+        cuartelConstruido.reducirVida(30);
+        Espadachin espadachin = cuartelConstruido.crearEspadachin();
+        Assert.assertNotNull(espadachin);
+    }
+
+    @Test
+    public void cuartelEnReparacionCreaArquero(){
+        cuartelConstruido.reducirVida(30);
+        Arquero arquero = cuartelConstruido.crearArquero();
+        Assert.assertNotNull(arquero);
+    }
+
+
+
 }

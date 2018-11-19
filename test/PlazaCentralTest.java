@@ -90,7 +90,16 @@ public class PlazaCentralTest {
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void intentarConstruirMasDeUnaVezSinVolverAEstadoOriginalAntes() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.construir();
     }

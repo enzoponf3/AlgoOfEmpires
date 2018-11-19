@@ -107,7 +107,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarCuartelEnRangoSeOcupa() {
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -117,7 +116,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         Espadachin espadachin = new Espadachin();
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
@@ -138,7 +137,6 @@ public class UnidadAtaqueTest {
         Espadachin espadachin = new Espadachin();
         Posicion posEspadachin = new Posicion(1,3);
         espadachin.setPosicion(posEspadachin);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -148,7 +146,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -165,7 +163,6 @@ public class UnidadAtaqueTest {
         Espadachin espadachin = new Espadachin();
         Posicion posEspadachin = new Posicion(1,3);
         espadachin.setPosicion(posEspadachin);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -175,7 +172,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -189,7 +186,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void espadachinAtacarPlazaCentralEnRangoSeOcupa(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -199,7 +195,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         Espadachin espadachin = new Espadachin();
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
@@ -324,7 +320,6 @@ public class UnidadAtaqueTest {
         Posicion destino = new Posicion(4,4);
         espadachin.setPosicion(origen);
         espadachin.mover(destino);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -334,7 +329,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -346,7 +341,6 @@ public class UnidadAtaqueTest {
 
     @Test ( expected = EntidadFueraDeRangoException.class)
     public void espadachinAtacarEdificioFueraDeRangoFalla(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -356,7 +350,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -380,9 +374,7 @@ public class UnidadAtaqueTest {
         espadachin.atacar(aldeano);
         espadachin.atacar(aldeano);
     }
-
     //Pruebas arquero
-
     @Test
     public void arqueroAtacarAldeanoEnRangoYBajaVida(){
         Aldeano aldeano = new Aldeano();
@@ -484,7 +476,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarCuartelEnRangoSeOcupa() {
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -494,7 +485,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
@@ -515,7 +506,6 @@ public class UnidadAtaqueTest {
         Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
         arquero.setPosicion(posArquero);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -525,7 +515,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -542,7 +532,6 @@ public class UnidadAtaqueTest {
         Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
         arquero.setPosicion(posArquero);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -552,7 +541,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -566,7 +555,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarPlazaCentralEnRangoSeOcupa(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -576,7 +564,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
@@ -699,7 +687,6 @@ public class UnidadAtaqueTest {
         Arquero arquero = new Arquero();
         Posicion origen = new Posicion(1,1);
         arquero.setPosicion(origen);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -709,7 +696,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -726,7 +713,6 @@ public class UnidadAtaqueTest {
         Arquero arquero = new Arquero();
         Posicion origen = new Posicion(10,10);
         arquero.setPosicion(origen);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -736,7 +722,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -764,7 +750,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioAtacarCuartelEnRangoSeOcupa() {
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -774,7 +759,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion5 = new Posicion(1, 3);
         armaAsedio.setPosicion(posicion5);
@@ -799,7 +784,6 @@ public class UnidadAtaqueTest {
         armaAsedio.setPosicion(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -809,7 +793,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -823,7 +807,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioAtacarDosVecesMismoTurnoFalla(){
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -833,7 +816,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -851,7 +834,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void armaAsedioAtacarDesarmadoFalla(){
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -861,7 +843,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -876,7 +858,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void armaAsedioAtacarDesarmadoLuegoDeMoverFalla(){
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -886,7 +867,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -908,7 +889,6 @@ public class UnidadAtaqueTest {
         armaAsedio.setPosicion(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -918,7 +898,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -932,7 +912,6 @@ public class UnidadAtaqueTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioAtacarPlazaCentralEnRangoSeOcupa(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -942,7 +921,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion5 = new Posicion(1, 3);
         armaAsedio.setPosicion(posicion5);
@@ -1061,7 +1040,6 @@ public class UnidadAtaqueTest {
         armaAsedio.setPosicion(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -1071,7 +1049,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();

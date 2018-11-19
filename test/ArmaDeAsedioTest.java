@@ -245,6 +245,16 @@ public class ArmaDeAsedioTest {
         armaAsedio.desmontar();
     }
 
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void armaAsedioDesmontarHabiendoMovidoFalla(){
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion origen = new Posicion(5, 5);
+        armaAsedio.setPosicion(origen);
+        Posicion destino = new Posicion(5,6);
+        armaAsedio.mover(destino);
+        armaAsedio.desmontar();
+    }
+
     //Pruebas atacar
 
     @Test (expected = ArmaDeAsedioNoAtacaUnidadException.class)
@@ -529,5 +539,29 @@ public class ArmaDeAsedioTest {
         armaAsedio.atacar(castillo);
         Posicion pos = new Posicion(5,6);
         armaAsedio.mover(pos);
+    }
+
+    @Test (expected = EntidadFueraDeRangoException.class)
+    public void armaAsedioAtacarEdificioFueraDeRangoFalla(){
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posArmaDeAsedio = new Posicion(10,10);
+        armaAsedio.setPosicion(posArmaDeAsedio);
+        armaAsedio.montar();
+        armaAsedio.desocupar();
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        armaAsedio.atacar(plaza);
     }
 }

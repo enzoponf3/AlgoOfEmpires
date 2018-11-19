@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Unidades.ArmaDeAsedio;
 
 public class Castillo extends Edificio {
@@ -28,12 +29,21 @@ public class Castillo extends Edificio {
     }
 
     @Override
-    public void reparar() {
-        this.estado.reparar(this);
+    public void reducirVida(int cant) {
+        if (this.vida <= 0)
+            throw new EdificioDestruidoException();
+        this.vida -= cant;
+        if (this.vida <= 0)
+            this.estado = new EstadoCastilloDestruido();
     }
 
     public ArmaDeAsedio crearArmaDeAsedio() {
-        return new ArmaDeAsedio();
+        return this.estado.crearArmaDeAsedio();
+    }
+
+    @Override
+    public void reparar() {
+        this.estado.reparar(this);
     }
 
     public int getDistanciaMaximaAtaque() {
@@ -48,7 +58,7 @@ public class Castillo extends Edificio {
         this.estado.volverAEstadoOriginal(this);
     }
 
-    public void construido() {
+    void construido() {
         this.estado = new EstadoCastilloConstruido();
     }
 //

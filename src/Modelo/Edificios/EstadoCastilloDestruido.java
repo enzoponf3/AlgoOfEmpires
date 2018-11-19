@@ -1,23 +1,22 @@
 package Modelo.Edificios;
 
-import Modelo.Exceptions.EdificioEnReparacionException;
+import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Unidades.ArmaDeAsedio;
 
-public class EstadoCastilloEnReparacion implements IEstadoCastillo {
-
+public class EstadoCastilloDestruido implements IEstadoCastillo {
 
     @Override
     public void reparar(Castillo castillo) {
-        throw new EdificioEnReparacionException();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void volverAEstadoOriginal(Castillo castillo) {
-        castillo.construido();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public ArmaDeAsedio crearArmaDeAsedio() {
-        return new ArmaDeAsedio();
+        throw new EdificioDestruidoException();
     }
 }

@@ -466,4 +466,51 @@ public class ArqueroTest {
         Posicion pos = new Posicion(5,6);
         arquero.mover(pos);
     }
+
+    @Test (expected = UnidadEstaOcupadoException.class)
+    public void arqueroAtacarEdificioEstandoOcupadoFalla(){
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(1,1);
+        arquero.setPosicion(origen);
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        Posicion destino = new Posicion(1,2);
+        arquero.mover(destino);
+        arquero.atacar(plaza);
+    }
+
+    @Test (expected = EntidadFueraDeRangoException.class)
+    public void arqueroAtacarEdificioFueraDeRangoFalla(){
+        Arquero arquero = new Arquero();
+        Posicion origen = new Posicion(10,10);
+        arquero.setPosicion(origen);
+        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        plaza.setPosiciones(posiciones);
+        plaza.construir();
+        plaza.construir();
+        plaza.construir();
+        arquero.atacar(plaza);
+    }
 }
+

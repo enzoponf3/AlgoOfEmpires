@@ -13,7 +13,5 @@ public interface IEstadoCuartel {
 
     void construir(Cuartel cuartel);
 
-    int getTurnosConstruccion();
-
     void volverAEstadoOriginal(Cuartel cuartel);
 }

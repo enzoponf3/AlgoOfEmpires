@@ -5,41 +5,34 @@ import Modelo.Unidades.Aldeano;
 
 public class EstadoPlazaCentralEnConstruccion implements IEstadoPlazaCentral {
 
-    private static final int TURNOS = 3;
-
     private int turnos;
 
-    public EstadoPlazaCentralEnConstruccion() {
-        this.turnos = TURNOS;
+    EstadoPlazaCentralEnConstruccion(int turnosRestantes) {
+        this.turnos = turnosRestantes;
     }
 
     @Override
     public Aldeano crearAldeano() {
-        if (this.turnos > 0)
-            throw new EdificioEnConstruccionException();
-        return null;
+        throw new EdificioEnConstruccionException();
     }
 
     @Override
     public void reparar(PlazaCentral plaza) {
-        if (this.turnos > 0)
-            throw new EdificioEnConstruccionException();
+        throw new EdificioEnConstruccionException();
     }
 
     @Override
     public void construir(PlazaCentral plaza) {
-        this.turnos -=1;
-        if (this.turnos == 0)
-            plaza.finalizarConstruccion();
+        throw new EdificioEnConstruccionException();
     }
 
-    @Override
-    public int getTurnosConstruccion() {
-        return this.turnos;
-    }
-
+    // Cuando se llevaron a cabo los tres turnos volverAEstadoOriginal indica al
+    // edificio que debe finalizar la construccion.
     @Override
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
-        // Mantiene estado en construccion
+        if (this.turnos == 0)
+            plazaCentral.finalizarConstruccion();
+        else
+            plazaCentral.noConstruida(this.turnos);
     }
 }

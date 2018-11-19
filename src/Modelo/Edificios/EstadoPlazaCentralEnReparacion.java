@@ -22,11 +22,6 @@ public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
     }
 
     @Override
-    public int getTurnosConstruccion() {
-        throw new EdificioYaConstruidoException();
-    }
-
-    @Override
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
         plazaCentral.construida();
     }

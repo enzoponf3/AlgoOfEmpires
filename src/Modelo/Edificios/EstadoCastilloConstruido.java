@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
+import Modelo.Unidades.ArmaDeAsedio;
 
 public class EstadoCastilloConstruido implements IEstadoCastillo {
 
@@ -11,5 +12,10 @@ public class EstadoCastilloConstruido implements IEstadoCastillo {
     @Override
     public void volverAEstadoOriginal(Castillo castillo) {
         // Estado continua siendo construido
+    }
+
+    @Override
+    public ArmaDeAsedio crearArmaDeAsedio() {
+        return new ArmaDeAsedio();
     }
 }

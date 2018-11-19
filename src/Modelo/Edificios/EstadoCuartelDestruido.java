@@ -1,34 +1,35 @@
 package Modelo.Edificios;
 
-import Modelo.Exceptions.EdificioConVidaAlMaximoException;
-import Modelo.Exceptions.EdificioYaConstruidoException;
+import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
-public class EstadoCuartelConstruido implements IEstadoCuartel {
+public class EstadoCuartelDestruido implements IEstadoCuartel {
 
     @Override
     public Espadachin crearEspadachin() {
-        return new Espadachin();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public Arquero crearArquero() {
-        return new Arquero();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void reparar(Cuartel cuartel) {
-        cuartel.aumentarVida();
+        throw new EdificioDestruidoException();
     }
 
     @Override
     public void construir(Cuartel cuartel) {
-        throw new EdificioYaConstruidoException();
+        throw new EdificioDestruidoException();
     }
 
+    // El metodo me informa que el edificio fue destruido
     @Override
     public void volverAEstadoOriginal(Cuartel cuartel) {
-        // Matiene estado construido
+        throw new EdificioDestruidoException();
     }
+
 }

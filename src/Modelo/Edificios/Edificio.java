@@ -41,11 +41,7 @@ public abstract class Edificio implements IEntidad {
         this.posiciones = posiciones;
     }
 
-    public void reducirVida(int cant) {
-        if (this.vida <= 0)
-            throw new EdificioSinVidaExcepcion();
-        this.vida -= cant;
-    }
+    public abstract void reducirVida(int cant);
 
     public abstract void reparar();
 

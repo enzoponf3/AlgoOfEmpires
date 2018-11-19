@@ -1,5 +1,8 @@
+import Modelo.Exceptions.AtacanteNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
+import Modelo.Exceptions.AldeanoNoExisteException;
 import Modelo.Jugador;
+import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
 import org.junit.Assert;
@@ -247,14 +250,114 @@ public class JugadorTest {
     //construidos primero.
 
     //Remover aldeanos
-/*
+
     @Test
     public void removerUnAldeano(){
         Jugador jugador = new Jugador();
+        Aldeano aldeanoARemover = new Aldeano();
+        Posicion posicion = new Posicion(3,5);
+        aldeanoARemover.setPosicion(posicion);
 
-        jugador.removerAldeano();
+        jugador.agregarAldeano(aldeanoARemover);
+        Aldeano aldeano = jugador.removerAldeano(aldeanoARemover);
 
-        Assert.assertEquals(2, jugador.getAldeanos().size() );
+        Assert.assertEquals(3, jugador.getAldeanos().size() );
+        Assert.assertEquals(aldeano, aldeanoARemover);
     }
-*/
+
+    @Test (expected = AldeanoNoExisteException.class)
+    public void removerUnAldeanoQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        Aldeano aldeanoARemover = new Aldeano();
+        Posicion posicion = new Posicion(3,5);
+        aldeanoARemover.setPosicion(posicion);
+
+        Aldeano aldeano = jugador.removerAldeano(aldeanoARemover);
+
+        Assert.assertEquals(3, jugador.getAldeanos().size() );
+    }
+
+    @Test
+    public void removerUnAldeanoDisminuyeLaPoblacionEnUno(){
+        Jugador jugador = new Jugador();
+        Aldeano aldeanoARemover = new Aldeano();
+
+        jugador.agregarAldeano(aldeanoARemover);
+        Assert.assertEquals(4, jugador.getAldeanos().size() );
+        Aldeano aldeano = jugador.removerAldeano(aldeanoARemover);
+
+        Assert.assertEquals(3, jugador.getAldeanos().size() );
+        Assert.assertEquals(aldeano, aldeanoARemover);
+    }
+
+    //Remover atacantes
+
+    @Test
+    public void removerUnEspadachinCorrectamenteDisminuyePoblacion(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachinARemover = new Espadachin();
+
+        jugador.agregarAEjercito(espadachinARemover);
+        Espadachin espadachin = (Espadachin) jugador.removerDeEjercito(espadachinARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(espadachin, espadachinARemover);
+    }
+
+    @Test (expected = AtacanteNoExisteException.class)
+    public void removerUnEspadachinQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachinARemover = new Espadachin();
+
+        Espadachin espadachin = (Espadachin) jugador.removerDeEjercito(espadachinARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+    }
+
+    @Test
+    public void removerUnArqueroCorrectamenteDisminuyePoblacion(){
+        Jugador jugador = new Jugador();
+        Arquero arqueroARemover = new Arquero();
+
+        jugador.agregarAEjercito(arqueroARemover);
+        Arquero arquero = (Arquero) jugador.removerDeEjercito(arqueroARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(arquero, arqueroARemover);
+    }
+
+    @Test (expected = AtacanteNoExisteException.class)
+    public void removerUnArqueroQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        Arquero arqueroARemover = new Arquero();
+
+        Arquero arquero = (Arquero) jugador.removerDeEjercito(arqueroARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(arquero, arqueroARemover);
+    }
+
+    @Test
+    public void removerUnArmaDeAsedioCorrectamenteDisminuyePoblacion(){
+        Jugador jugador = new Jugador();
+        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+
+        jugador.agregarAEjercito(armaDeAsedioARemover);
+        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
+    }
+
+    @Test (expected = AtacanteNoExisteException.class)
+    public void removerUnArmaDeAsedioQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+
+        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
+    }
+
 }

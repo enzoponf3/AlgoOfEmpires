@@ -1,6 +1,8 @@
 package Modelo;
 
 import Modelo.Edificios.*;
+import Modelo.Exceptions.AldeanoNoExisteException;
+import Modelo.Exceptions.AtacanteNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
 import Modelo.Unidades.*;
 import Modelo.Exceptions.LimiteDePoblacionException;
@@ -81,13 +83,24 @@ public class Jugador {
         this.edificios.add(edificio);
     }
 /*
-    public void seleccionarUnidad(ArrayList<> arrayList, Unidad unidad){
+    public Unidad seleccionarUnidad(ArrayList<Unidad> arrayList, Unidad unidadASeleccionar){
+        for (Unidad unidad : arrayList) {
 
-
-    }
-
-    public void removerAldeano(Posicion posicion){
-
+        }
     }
 */
+    public Aldeano removerAldeano(Aldeano aldeanoARemover){
+        if( !aldeanos.contains(aldeanoARemover) )
+            throw new AldeanoNoExisteException();
+        this.aldeanos.remove(aldeanoARemover);
+        return aldeanoARemover;
+    }
+
+    public IAtacante removerDeEjercito(IAtacante atacanteARemover){
+        if( !ejercito.contains(atacanteARemover) )
+            throw new AtacanteNoExisteException();
+        this.ejercito.remove(atacanteARemover);
+        return atacanteARemover;
+    }
+
 }

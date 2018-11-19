@@ -172,9 +172,6 @@ public class CastilloUnidadesYAtaqueTest {
     @Test
     public void atacarEdificioEnRango() {
         ArrayList<Edificio> edificios = new ArrayList<>();
-        Cuartel cuartel = new Cuartel();
-        // Finalizo construccion automaticamente para prolijidad en las pruebas
-        cuartel.finalizarConstruccion();
         Posicion posicionCuartel1 = new Posicion(5,5);
         Posicion posicionCuartel2 = new Posicion(5,6);
         Posicion posicionCuartel3 = new Posicion(6,5);
@@ -184,7 +181,9 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesCuartel.add(posicionCuartel2);
         posicionesCuartel.add(posicionCuartel3);
         posicionesCuartel.add(posicionCuartel4);
-        cuartel.setPosiciones(posicionesCuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        // Finalizo construccion automaticamente para prolijidad en las pruebas
+        cuartel.finalizarConstruccion();
         edificios.add(cuartel);
         castillo.atacarEdificios(edificios);
         Assert.assertEquals(cuartel.getVida(),230);
@@ -192,10 +191,7 @@ public class CastilloUnidadesYAtaqueTest {
 
     @Test
     public void atacarEdificioFueraDeRango() {
-    ArrayList<Edificio> edificios = new ArrayList<>();
-        Cuartel cuartel = new Cuartel();
-        // Finalizo construccion automaticamente para prolijidad en las pruebas
-        cuartel.finalizarConstruccion();
+        ArrayList<Edificio> edificios = new ArrayList<>();
         Posicion posicionCuartel1 = new Posicion(10,10);
         Posicion posicionCuartel2 = new Posicion(10,11);
         Posicion posicionCuartel3 = new Posicion(11,10);
@@ -205,6 +201,9 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesCuartel.add(posicionCuartel2);
         posicionesCuartel.add(posicionCuartel3);
         posicionesCuartel.add(posicionCuartel4);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        // Finalizo construccion automaticamente para prolijidad en las pruebas
+        cuartel.finalizarConstruccion();
         cuartel.setPosiciones(posicionesCuartel);
         edificios.add(cuartel);
         castillo.atacarEdificios(edificios);
@@ -214,9 +213,6 @@ public class CastilloUnidadesYAtaqueTest {
     @Test
     public void reducirVidaCastilloNoEvitaAtacarEdificioEnRango() {
         ArrayList<Edificio> edificios = new ArrayList<>();
-        Cuartel cuartel = new Cuartel();
-        // Finalizo construccion automaticamente para prolijidad en las pruebas
-        cuartel.finalizarConstruccion();
         Posicion posicionCuartel1 = new Posicion(5,5);
         Posicion posicionCuartel2 = new Posicion(5,6);
         Posicion posicionCuartel3 = new Posicion(6,5);
@@ -226,7 +222,9 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesCuartel.add(posicionCuartel2);
         posicionesCuartel.add(posicionCuartel3);
         posicionesCuartel.add(posicionCuartel4);
-        cuartel.setPosiciones(posicionesCuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        // Finalizo construccion automaticamente para prolijidad en las pruebas
+        cuartel.finalizarConstruccion();
         edificios.add(cuartel);
         castillo.reducirVida(150);
         castillo.atacarEdificios(edificios);
@@ -236,10 +234,6 @@ public class CastilloUnidadesYAtaqueTest {
     @Test
     public void atacarEdificiosDentroYFueraDeRango() {
         ArrayList<Edificio> edificios = new ArrayList<>();
-
-        Cuartel cuartel = new Cuartel();
-        // Finalizo construccion automaticamente para prolijidad en las pruebas
-        cuartel.finalizarConstruccion();
         Posicion posicionCuartel1 = new Posicion(5,5);
         Posicion posicionCuartel2 = new Posicion(5,6);
         Posicion posicionCuartel3 = new Posicion(6,5);
@@ -249,12 +243,11 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesCuartel.add(posicionCuartel2);
         posicionesCuartel.add(posicionCuartel3);
         posicionesCuartel.add(posicionCuartel4);
-        cuartel.setPosiciones(posicionesCuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        // Finalizo construccion automaticamente para prolijidad en las pruebas
+        cuartel.finalizarConstruccion();
         edificios.add(cuartel);
 
-        PlazaCentral plaza = new PlazaCentral();
-        // Finalizo construccion automaticamente para prolijidad en las pruebas
-        plaza.finalizarConstruccion();
         Posicion posicionPlaza1 = new Posicion(1,6);
         Posicion posicionPlaza2 = new Posicion(2,6);
         Posicion posicionPlaza3 = new Posicion(1,7);
@@ -264,6 +257,9 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesPlaza.add(posicionPlaza2);
         posicionesPlaza.add(posicionPlaza3);
         posicionesPlaza.add(posicionPlaza4);
+        PlazaCentral plaza = new PlazaCentral(posicionesPlaza);
+        // Finalizo construccion automaticamente para prolijidad en las pruebas
+        plaza.finalizarConstruccion();
         plaza.setPosiciones(posicionesPlaza);
         edificios.add(plaza);
 

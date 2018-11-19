@@ -13,7 +13,7 @@ public abstract class Edificio implements IEntidad {
     int costo;
     int velocidadReparacion;
     int vidaMax;
-    private ArrayList<Posicion> posiciones;
+    protected ArrayList<Posicion> posiciones;
 
     public int getVida() {
         return this.vida;

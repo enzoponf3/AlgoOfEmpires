@@ -1,7 +1,12 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Posicion;
 import Modelo.Unidades.ArmaDeAsedio;
+import Modelo.Unidades.Unidad;
+import javafx.geometry.Pos;
+
+import java.util.ArrayList;
 
 public class Castillo extends Edificio {
 
@@ -14,14 +19,12 @@ public class Castillo extends Edificio {
 
 
     private int danio;
-    private int distanciaMaximaAtaque;
     private IEstadoCastillo estado;
 
     public Castillo() {
         this.vidaMax = VIDA;
         this.vida = VIDA;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.distanciaMaximaAtaque = DISTANCIA_MAXIMA_ATAQUE;
         this.danio = DANIO;
         this.estado = new EstadoCastilloConstruido();
     }
@@ -44,10 +47,6 @@ public class Castillo extends Edificio {
         this.estado.reparar(this);
     }
 
-    public int getDistanciaMaximaAtaque() {
-        return this.distanciaMaximaAtaque;
-    }
-
     public void enReparacion() {
         this.estado = new EstadoCastilloEnReparacion();
     }
@@ -59,15 +58,40 @@ public class Castillo extends Edificio {
     void construido() {
         this.estado = new EstadoCastilloConstruido();
     }
-//
-//    LE PASO UN LISTADO DE OBJETIVOS
-//
-//    public void atacarA(ElementoMapa[] objetivos) {
-//        for (ElementoMapa objetivo : objetivos)
-//            objetivo.reducirVida(this.danio)
-//    }
-//
-//    HAY QUE CREAR LA INTERFAZ ELEMENTOMAPA QUE IMPLEMENTARIAN UNIDAD Y EDIFICIO
-//    ¿ COMPROBAMOS FUERA DEL CASTILLO LOS ELEMENTOS A MENOS DE DISTANCIA_MAXIMA ?
-//
+
+    private boolean estaEnRango(Edificio edificio) {
+        ArrayList<Posicion> posicionesOtroEdificio = edificio.getPosiciones();
+        for (Posicion posicion : this.posiciones) {
+            for (Posicion posicionOtroEdificio : posicionesOtroEdificio) {
+                if (posicion.estaEnRango(posicionOtroEdificio, DISTANCIA_MAXIMA_ATAQUE))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean estaEnRango(Unidad unidad) {
+        Posicion posicionUnidad = unidad.getPosicion();
+        for (Posicion posicion : this.posiciones) {
+            if (posicion.estaEnRango(posicionUnidad, DISTANCIA_MAXIMA_ATAQUE))
+                    return true;
+        }
+        return false;
+    }
+
+    public void atacarEdificios(ArrayList<Edificio> edificios) {
+        for (Edificio edificio : edificios) {
+            if (this.estaEnRango(edificio))
+               edificio.reducirVida(this.danio);
+        }
+    }
+
+    public void atacarUnidades(ArrayList<Unidad> unidades) {
+        for (Unidad unidad : unidades) {
+            if (this.estaEnRango(unidad))
+                unidad.reducirVida(this.danio);
+        }
+    }
+
+
 }

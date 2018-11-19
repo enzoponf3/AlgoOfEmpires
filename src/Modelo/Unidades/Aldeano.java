@@ -25,16 +25,8 @@ public class Aldeano extends Unidad {
         return this.estado.construirCuartel(this, posiciones);
     }
 
-    public Cuartel construirCuartel(){
-        return this.estado.construirCuartel(this);
-    }
-
     public PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones){
         return this.estado.construirPlazaCentral(this, posiciones);
-    }
-
-    public PlazaCentral construirPlazaCentral(){
-        return this.estado.construirPlazaCentral(this);
     }
 
     public void repararEdificio(Edificio edificio){

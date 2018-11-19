@@ -4,7 +4,6 @@ import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.*;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
-import javafx.geometry.Pos;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -175,14 +174,36 @@ public class AldeanoTest {
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueExiste(){
         Aldeano aldeano = new Aldeano();
-        Cuartel cuartel = aldeano.construirCuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        Cuartel cuartel = aldeano.construirCuartel(posicions);
         Assert.assertNotNull(cuartel);
     }
 
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueTieneVidaCorrespondiente(){
         Aldeano aldeano = new Aldeano();
-        Cuartel cuartel = aldeano.construirCuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        Cuartel cuartel = aldeano.construirCuartel(posicions);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -198,14 +219,36 @@ public class AldeanoTest {
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueExiste(){
         Aldeano aldeano = new Aldeano();
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
         Assert.assertNotNull(plaza);
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueTieneVidaCorrespondiente(){
         Aldeano aldeano = new Aldeano();
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -221,8 +264,19 @@ public class AldeanoTest {
     @Test(expected = UnidadNoPuedeConstruirException.class)
     public void AldeanoConstruyeCuartelYSeVerificaQueAldeanoEstaOcupado(){
         Aldeano aldeano = new Aldeano();
-        aldeano.construirPlazaCentral();
-        aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        aldeano.construirCuartel(posicions);
+        aldeano.construirPlazaCentral(posicions);
     }
 
 
@@ -230,7 +284,18 @@ public class AldeanoTest {
     public void AldeanoConstruyeCuartelYSeVerificaQueoNoGeneraOro(){
         Aldeano aldeano = new Aldeano();
         Assert.assertEquals(20,aldeano.generaOro());
-        aldeano.construirCuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        aldeano.construirCuartel(posicions);
         Assert.assertEquals(0,aldeano.generaOro());
     }
 
@@ -238,7 +303,18 @@ public class AldeanoTest {
     public void AldeanoConstruyePlazaCentralYSeVerificaQueNoGeneraOro(){
         Aldeano aldeano = new Aldeano();
         Assert.assertEquals(20,aldeano.generaOro());
-        aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        aldeano.construirPlazaCentral(posicions);
         Assert.assertEquals(0,aldeano.generaOro());
     }
 
@@ -246,28 +322,74 @@ public class AldeanoTest {
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoConstruirPlazaCentralDosVecesEnMismoTurnoFalla(){
         Aldeano aldeano = new Aldeano();
-        aldeano.construirPlazaCentral();
-        aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        aldeano.construirPlazaCentral(posicions);
+        aldeano.construirPlazaCentral(posicions);
     }
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoConstruirCuartellDosVecesEnMismoTurnoFalla(){
         Aldeano aldeano = new Aldeano();
-        aldeano.construirCuartel();
-        aldeano.construirCuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        aldeano.construirCuartel(posicions);
+        aldeano.construirCuartel(posicions);
     }
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoContinuarConstruccionPlazaCentralEnMismoTurnoFalla(){
         Aldeano aldeano = new Aldeano();
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
+        aldeano.desocupar();
+        aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.continuarConstruccionPlazaCentral(plaza);
     }
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoContinuarConstruccionCuartelEnMismoTurnoFalla(){
         Aldeano aldeano = new Aldeano();
-        Cuartel cuartel = aldeano.construirCuartel();
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        Posicion posicionAlde = new Posicion(1,1);
+        ArrayList<Posicion> posicions =new ArrayList<>();
+        posicions.add(posicion1);
+        posicions.add(posicion2);
+        posicions.add(posicion3);
+        posicions.add(posicion4);
+        aldeano.setPosicion(posicionAlde);
+        Cuartel cuartel = aldeano.construirCuartel(posicions);
         aldeano.continuarConstruccionCuartel(cuartel);
     }
 
@@ -278,7 +400,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,3);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -288,7 +409,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -307,7 +428,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -317,7 +437,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -336,7 +456,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,6);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -346,7 +465,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -368,7 +487,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,6);
         aldeano.setPosicion(posicion);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -378,7 +496,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -401,7 +519,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(3,6);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -411,7 +528,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -433,7 +550,6 @@ public class AldeanoTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(3,6);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -443,7 +559,7 @@ public class AldeanoTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();

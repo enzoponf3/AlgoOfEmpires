@@ -27,18 +27,6 @@ public class EstadoAldeanoLibre implements EstadoAldeano {
     }
 
     @Override
-    public Cuartel construirCuartel(Aldeano aldeano){
-        aldeano.ocupar();
-        return new Cuartel();
-    }
-
-    @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano){
-        aldeano.ocupar();
-        return new PlazaCentral();
-    }
-
-    @Override
     public void repararEdificio(Edificio edificio, Aldeano aldeano){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){

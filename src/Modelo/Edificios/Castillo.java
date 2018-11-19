@@ -4,7 +4,6 @@ import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Posicion;
 import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Unidad;
-import javafx.geometry.Pos;
 
 import java.util.ArrayList;
 
@@ -12,8 +11,6 @@ public class Castillo extends Edificio {
 
     private static final int VIDA = 1000;
     private static final int VELOCIDAD_REPARACION = 15;
-    private static final int ANCHO = 4;
-    private static final int ALTO = 4;
     private static final int DISTANCIA_MAXIMA_ATAQUE = 3;
     private static final int DANIO = 20;
 

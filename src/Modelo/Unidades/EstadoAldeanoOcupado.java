@@ -19,15 +19,6 @@ public class EstadoAldeanoOcupado implements EstadoAldeano{
         throw new UnidadNoPuedeConstruirException();
     }
 
-    @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano){
-        throw new UnidadNoPuedeConstruirException();
-    }
-
-    @Override
-    public Cuartel construirCuartel(Aldeano aldeano){
-        throw new UnidadNoPuedeConstruirException();
-    }
 
     @Override
     public void repararEdificio(Edificio edificio, Aldeano aldeano) {

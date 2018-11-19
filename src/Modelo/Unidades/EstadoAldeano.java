@@ -14,10 +14,6 @@ public interface EstadoAldeano{
 
     PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posiciones);
 
-    Cuartel construirCuartel(Aldeano aldeano);
-
-    PlazaCentral construirPlazaCentral(Aldeano aldeano);
-
     void repararEdificio(Edificio edificio, Aldeano aldeano);
 
     void continuarConstruccion(Edificio edificio, Aldeano aldeano);

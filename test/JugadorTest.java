@@ -17,36 +17,48 @@ public class JugadorTest {
     @Test
     public void verificarQueIniciaConUnCastillo(){
         Jugador jugador = new Jugador();
-
-        Assert.assertNotNull( jugador.getCastillo() );
+        Castillo castillo = jugador.getCastillo();
+        Assert.assertEquals(castillo.getVida(), 1000);
     }
 
     @Test
     public void verificarQueIniciaConUnaPlazaCentral(){
         Jugador jugador = new Jugador();
-
         Assert.assertEquals( 1, jugador.getEdificios().size() );
+    }
+
+    @Test
+    public void verificarQueIniciaConUnaPlazaCentralCorrectamenteCreada(){
+        Jugador jugador = new Jugador();
+        ArrayList<Edificio> edificios = jugador.getEdificios();
+        Edificio plaza = edificios.get(0);
+        Assert.assertEquals(plaza.getVida(), 450);
     }
 
     @Test
     public void verificarQueIniciaConTresAldeanos(){
         Jugador jugador = new Jugador();
-
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
         Assert.assertEquals(3, aldeanos.size());
     }
 
     @Test
+    public void verificarQueIniciaConTresAldeanosCorrectamenteCreados(){
+        Jugador jugador = new Jugador();
+        ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
+        for (Aldeano aldeano : aldeanos)
+            Assert.assertEquals(aldeano.getVida(),50);
+    }
+
+    @Test
     public void verificarQueIniciaConCienDeOro(){
         Jugador jugador = new Jugador();
-
         Assert.assertEquals(100, jugador.getCantidadOro());
     }
 
     @Test
     public void verificarTodasLasCondicionesEnSimultaneo(){
         Jugador jugador = new Jugador();
-
         Assert.assertNotNull( jugador.getCastillo() );
         Assert.assertEquals( 1, jugador.getEdificios().size() );
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
@@ -57,7 +69,6 @@ public class JugadorTest {
     @Test
     public void verificarQueIniciaConEjercitoVacio(){
         Jugador jugador = new Jugador();
-
         Assert.assertTrue( jugador.getEjercito().isEmpty() );
     }
 
@@ -67,7 +78,6 @@ public class JugadorTest {
     public void agregarUnArqueroAlEjercitoCorrectamente(){
         Jugador jugador = new Jugador();
         Arquero arquero = new Arquero();
-
         jugador.agregarAEjercito(arquero);
         Assert.assertFalse( jugador.getEjercito().isEmpty() );
     }

@@ -5,9 +5,6 @@ import Modelo.Exceptions.AldeanoNoExisteException;
 import Modelo.Exceptions.AtacanteNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
 import Modelo.Unidades.*;
-import Modelo.Exceptions.LimiteDePoblacionException;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Jugador {
@@ -51,12 +48,14 @@ public class Jugador {
         return this.ejercito;
     }
 
-    public void inicializarEdificios(){
+    private void inicializarEdificios(){
         PlazaCentral plazaCentral = new PlazaCentral();
+        // Finalizo construccion automaticamente
+        plazaCentral.finalizarConstruccion();
         edificios.add(plazaCentral);
     }
 
-    public void inicializarAldeanos(){
+    private void inicializarAldeanos(){
         for(int i=0; i<CANTIDAD_ALDEANOS_INICIAL; i++) {
             Aldeano aldeano = new Aldeano();
             aldeanos.add(aldeano);
@@ -75,7 +74,7 @@ public class Jugador {
         this.ejercito.add(atacante);
     }
 
-    public boolean llegoAlLimiteDePoblacion(){
+    private boolean llegoAlLimiteDePoblacion(){
         return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
     }
 

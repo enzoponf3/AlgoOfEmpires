@@ -12,12 +12,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 public class RepararTest {
+
     @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaCuartelConVidaCompletaException(){
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,3);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -27,7 +27,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -46,7 +46,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -56,7 +55,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -75,7 +74,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,6);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -85,7 +83,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -107,7 +105,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,6);
         aldeano.setPosicion(posicion);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -117,7 +114,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -140,7 +137,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(3,6);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -150,7 +146,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -172,7 +168,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(3,6);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -182,7 +177,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -204,7 +199,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(1,6);
         aldeano.setPosicion(origen);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -214,7 +208,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -238,7 +232,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -248,7 +241,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -273,7 +266,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion inicial = new Posicion(3,3);
         aldeano.setPosicion(inicial);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -283,7 +275,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -306,7 +298,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -316,7 +307,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -339,7 +330,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,3);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -349,7 +339,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
@@ -370,7 +360,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
         aldeano.setPosicion(posicion);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -380,7 +369,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -401,7 +390,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
         aldeano.setPosicion(posicion);
-        Cuartel cuartel = aldeano.construirCuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -411,7 +399,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = aldeano.construirCuartel(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
@@ -431,7 +419,6 @@ public class RepararTest {
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
         aldeano.setPosicion(posicion);
-        PlazaCentral plaza = aldeano.construirPlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -441,7 +428,7 @@ public class RepararTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posiciones);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();

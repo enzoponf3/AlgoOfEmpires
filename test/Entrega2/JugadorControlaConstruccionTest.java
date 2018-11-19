@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class jugadorControlaConstruccionTest {
+public class JugadorControlaConstruccionTest {
 
 
     //Mandar a un aldeano a construir un edificio
@@ -174,5 +174,5 @@ public class jugadorControlaConstruccionTest {
         jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
 
     }
-    
+
 }

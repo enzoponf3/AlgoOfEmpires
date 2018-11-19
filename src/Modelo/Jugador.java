@@ -132,6 +132,16 @@ public class Jugador {
         throw new AldeanoNoExisteException();
     }
 
+    //Aca hay un problema que hay que preguntar, porque es un IAtacante y no entiende el enPosicion de Unidad
+    public IAtacante devolverAtacanteEnPosicion(Posicion posicion){
+        for( IAtacante atacante : this.ejercito ){
+            Unidad atacanteU = (Unidad) atacante;
+            if( atacanteU.enPosicion(posicion) )
+                return atacante;
+        }
+        throw new AtacanteNoExisteException();
+    }
+
     public Edificio devolverEdificioEnPosicion(Posicion posicion){
         for( Edificio edificio : this.edificios ){
             if( edificio.getPosiciones().contains(posicion) )//Rompe encaps...
@@ -164,11 +174,30 @@ public class Jugador {
         aldeano.continuarConstruccionCuartel(cuartel);
     }
 
+    public void reparar(Posicion posicionAldeano, Posicion posicionEdificio){
+        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
+        Edificio edificio = devolverEdificioEnPosicion(posicionEdificio);
+
+        aldeano.repararEdificio(edificio);
+    }
+
     public void recolectarOro(){
         for( Aldeano aldeano : this.aldeanos ){
             cantidadOro += aldeano.generaOro();
         }
     }
+
+    public void atacar(Posicion posicionAtacante, Aldeano aldeanoAAtacar){
+        IAtacante atacante = devolverAtacanteEnPosicion(posicionAtacante);
+        atacante.atacar(aldeanoAAtacar);
+    }
+
+    public void atacar(Posicion posicionAtacante, Edificio edificioAAtacar){
+        IAtacante atacante = devolverAtacanteEnPosicion(posicionAtacante);
+        atacante.atacar(edificioAAtacar);
+    }
+
+    //El jugador deberia armar y desarmar el ArmaDeAsedio?
 
 
 }

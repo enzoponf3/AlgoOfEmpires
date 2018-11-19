@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Modelo/Exceptions/EdificioNoExisteException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/PlazaCentral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/PlazaCentral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoLibre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoLibre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoOcupado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoOcupado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Entrega2/jugadorControlaConstruccionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/JugadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/JugadorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,25 +30,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="10" />
-          <entry key="java" value="193" />
+          <entry key="java" value="205" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="10" />
-          <entry key="JAVA" value="193" />
+          <entry key="JAVA" value="205" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="35" />
-          <entry key="java" value="19622" />
+          <entry key="dummy" value="36" />
+          <entry key="java" value="21905" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19622" />
-          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="JAVA" value="21905" />
+          <entry key="PLAIN_TEXT" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -95,9 +89,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+            <state relative-caret-position="164">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding>
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
                 <element signature="e#1000#1001#0" expanded="true" />
                 <element signature="e#1035#1036#0" expanded="true" />
               </folding>
@@ -108,8 +104,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="566" column="8" selection-start-line="566" selection-start-column="8" selection-end-line="566" selection-end-column="8" />
+            <state relative-caret-position="747">
+              <caret line="606" column="8" selection-start-line="606" selection-start-column="8" selection-end-line="606" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="163" column="46" selection-start-line="163" selection-start-column="46" selection-end-line="163" selection-end-column="46" />
+            <state relative-caret-position="342">
+              <caret line="180" column="32" selection-start-line="180" selection-start-column="32" selection-end-line="180" selection-end-column="32" />
               <folding>
                 <element signature="e#1147#1148#0" expanded="true" />
                 <element signature="e#1183#1184#0" expanded="true" />
@@ -133,12 +141,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-              <folding>
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#720#721#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="162">
+              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -159,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Unidad.java" />
-        <option value="$PROJECT_DIR$/src/UnidadMovil.java" />
         <option value="$PROJECT_DIR$/src/Cuartel.java" />
         <option value="$PROJECT_DIR$/src/Edificio.java" />
         <option value="$PROJECT_DIR$/src/EdificioNoSePuedeMoverException.java" />
@@ -193,14 +195,12 @@
         <option value="$PROJECT_DIR$/src/Modelo/Casillero.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Mapa.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/LimiteDePoblacionException.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Espadachin.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/AldeanoNoExisteException.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/AtacanteNoExisteException.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/PlazaCentral.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeano.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoLibre.java" />
@@ -208,6 +208,10 @@
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/EdificioNoExisteException.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Posicion.java" />
+        <option value="$PROJECT_DIR$/test/Entrega2/jugadorControlaConstruccionTest.java" />
+        <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
         <option value="$PROJECT_DIR$/test/JugadorTest.java" />
       </list>
@@ -243,20 +247,6 @@
               <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Modelo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
-              <item name="Edificios" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
@@ -299,69 +289,71 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.jugadorControlaConstruccionTest">
-    <configuration name="JugadorTest.aldeanoConstruyeUnCuartelCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.JugadorTest.aldeanoReparaPlazaCentralCorrectamente">
+    <configuration name="JugadorTest.ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="aldeanoConstruyeUnCuartelCorrectamente" />
+      <option name="METHOD_NAME" value="ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.aldeanoContinuaConstruccionDeUnCuartelCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="aldeanoContinuaConstruccionDeUnCuartelCorrectamente" />
+      <option name="METHOD_NAME" value="ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="aldeanoEnConstruccionNoGeneraOro" />
+      <option name="METHOD_NAME" value="EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion" />
+      <option name="METHOD_NAME" value="EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="jugadorControlaConstruccionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.aldeanoReparaPlazaCentralCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
-      <option name="PACKAGE_NAME" value="Entrega2" />
-      <option name="MAIN_CLASS_NAME" value="Entrega2.jugadorControlaConstruccionTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JugadorTest" />
+      <option name="METHOD_NAME" value="aldeanoReparaPlazaCentralCorrectamente" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.JugadorTest.aldeanoEnConstruccionNoGeneraOro" />
-      <item itemvalue="JUnit.JugadorTest.aldeanoConstruyeUnCuartelCorrectamente" />
-      <item itemvalue="JUnit.JugadorTest.aldeanoContinuaConstruccionDeUnCuartelCorrectamente" />
-      <item itemvalue="JUnit.JugadorTest.dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion" />
-      <item itemvalue="JUnit.jugadorControlaConstruccionTest" />
+      <item itemvalue="JUnit.JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" />
+      <item itemvalue="JUnit.JugadorTest.EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia" />
+      <item itemvalue="JUnit.JugadorTest.ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.aldeanoReparaPlazaCentralCorrectamente" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.jugadorControlaConstruccionTest" />
-        <item itemvalue="JUnit.JugadorTest.dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion" />
-        <item itemvalue="JUnit.JugadorTest.aldeanoContinuaConstruccionDeUnCuartelCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.aldeanoConstruyeUnCuartelCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.aldeanoEnConstruccionNoGeneraOro" />
+        <item itemvalue="JUnit.JugadorTest.aldeanoReparaPlazaCentralCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia" />
+        <item itemvalue="JUnit.JugadorTest.EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" />
       </list>
     </recent_temporary>
   </component>
@@ -387,42 +379,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JugadorTest_aldeanoNoPuedeConstruirSiNoFueDesocupado - 2018.11.19 at 17h 39m 42s.xml">
-      <configuration name="JugadorTest.aldeanoNoPuedeConstruirSiNoFueDesocupado" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArqueroDelJugadorAtacaAAldeanoEnemigoADosUnidadesDeDistanciaCorrectamente - 2018.11.19 at 18h 42m 41s.xml">
+      <configuration name="JugadorTest.ArqueroDelJugadorAtacaAAldeanoEnemigoADosUnidadesDeDistanciaCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest - 2018.11.19 at 17h 43m 50s.xml">
-      <configuration name="JugadorTest" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArqueroDelJugadorAtacaAAldeanoEnemigoATresUnidadesDeDistanciaCorrectamente - 2018.11.19 at 18h 43m 00s.xml">
+      <configuration name="JugadorTest.ArqueroDelJugadorAtacaAAldeanoEnemigoATresUnidadesDeDistanciaCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 51m 04s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia - 2018.11.19 at 18h 44m 04s.xml">
+      <configuration name="JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 52m 26s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia - 2018.11.19 at 18h 46m 49s.xml">
+      <configuration name="JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 52m 36s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia - 2018.11.19 at 18h 47m 38s.xml">
+      <configuration name="JugadorTest.ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 52m 48s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente - 2018.11.19 at 18h 50m 11s.xml">
+      <configuration name="JugadorTest.EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 52m 51s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente - 2018.11.19 at 18h 51m 03s.xml">
+      <configuration name="JugadorTest.EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoEnConstruccionNoGeneraOro - 2018.11.19 at 17h 54m 15s.xml">
-      <configuration name="JugadorTest.aldeanoEnConstruccionNoGeneraOro" configurationId="JUnit" />
+    <history-entry file="JugadorTest_EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia - 2018.11.19 at 18h 51m 06s.xml">
+      <configuration name="JugadorTest.EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoConstruyeUnCuartelCorrectamente - 2018.11.19 at 17h 57m 12s.xml">
-      <configuration name="JugadorTest.aldeanoConstruyeUnCuartelCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente - 2018.11.19 at 18h 55m 39s.xml">
+      <configuration name="JugadorTest.ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_aldeanoContinuaConstruccionDeUnCuartelCorrectamente - 2018.11.19 at 18h 01m 07s.xml">
-      <configuration name="JugadorTest.aldeanoContinuaConstruccionDeUnCuartelCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_aldeanoReparaPlazaCentralCorrectamente - 2018.11.19 at 19h 14m 19s.xml">
+      <configuration name="JugadorTest.aldeanoReparaPlazaCentralCorrectamente" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -432,8 +424,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1981132" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3726415" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25786164" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2688679" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -459,9 +451,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Corrección nombre Interfaz" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EstadoOcupado.java" />
-    <entry file="file://$PROJECT_DIR$/src/EdificioNoSePuedeMoverException.java" />
-    <entry file="file://$PROJECT_DIR$/src/UnidadMovil.java" />
     <entry file="file://$PROJECT_DIR$/src/Aldeano.java" />
     <entry file="file://$PROJECT_DIR$/src/Unidad.java" />
     <entry file="file://$PROJECT_DIR$/src/Objeto.java" />
@@ -583,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/ArmaDeAsedio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -662,24 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeano.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/AldeanoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="172" column="33" selection-start-line="172" selection-start-column="33" selection-end-line="172" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -729,28 +697,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-          <folding>
-            <element signature="e#1000#1001#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,19 +711,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/EstadoAldeanoOcupado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
+        <state relative-caret-position="69">
           <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
           <folding>
             <element signature="e#672#673#0" expanded="true" />
@@ -784,21 +724,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Arquero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/EstadoArqueroLibre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CuartelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/AldeanoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-398">
+          <caret line="172" column="26" lean-forward="true" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-          <folding>
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="163" column="46" selection-start-line="163" selection-start-column="46" selection-end-line="163" selection-end-column="46" />
+        <state relative-caret-position="342">
+          <caret line="180" column="32" selection-start-line="180" selection-start-column="32" selection-end-line="180" selection-end-column="32" />
           <folding>
             <element signature="e#1147#1148#0" expanded="true" />
             <element signature="e#1183#1184#0" expanded="true" />
@@ -808,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="566" column="8" selection-start-line="566" selection-start-column="8" selection-end-line="566" selection-end-column="8" />
+        <state relative-caret-position="747">
+          <caret line="606" column="8" selection-start-line="606" selection-start-column="8" selection-end-line="606" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

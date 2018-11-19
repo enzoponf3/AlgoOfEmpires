@@ -86,5 +86,5 @@ public class CastilloTest {
         castillo.reducirVida(1000);
         castillo.volverAEstadoOriginal();
     }
-
+    
 }

@@ -217,4 +217,11 @@ public class PlazaCentralTest {
         plaza.volverAEstadoOriginal();
         plaza.reparar();
     }
+
+    @Test (expected = EdificioYaConstruidoException.class)
+    public void plazaCentralConstruirEnReparacionFalla(){
+        plazaConstruida.reducirVida(50);
+        plazaConstruida.reparar();
+        plazaConstruida.construir();
+    }
 }

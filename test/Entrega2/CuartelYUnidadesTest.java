@@ -135,6 +135,7 @@ public class CuartelYUnidadesTest {
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(30);
+        cuartel.reparar();
         Espadachin espadachin = cuartel.crearEspadachin();
         Assert.assertNotNull(espadachin);
     }
@@ -149,6 +150,7 @@ public class CuartelYUnidadesTest {
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(30);
+        cuartel.reparar();
         Arquero arquero = cuartel.crearArquero();
         Assert.assertNotNull(arquero);
     }

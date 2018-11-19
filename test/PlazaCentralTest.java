@@ -1,5 +1,3 @@
-package Entrega2;
-
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.Aldeano;

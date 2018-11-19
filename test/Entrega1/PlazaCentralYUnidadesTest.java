@@ -1,4 +1,4 @@
-package Entrega2;
+package Entrega1;
 
 
 import Modelo.Edificios.*;

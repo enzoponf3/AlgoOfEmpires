@@ -1,5 +1,3 @@
-package Entrega2;
-
 import Modelo.Edificios.Castillo;
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
 import Modelo.Exceptions.EdificioDestruidoException;
@@ -86,5 +84,5 @@ public class CastilloTest {
         castillo.reducirVida(1000);
         castillo.volverAEstadoOriginal();
     }
-    
+
 }

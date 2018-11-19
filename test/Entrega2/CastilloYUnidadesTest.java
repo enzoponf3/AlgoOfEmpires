@@ -28,4 +28,18 @@ public class CastilloYUnidadesTest {
         castillo.reducirVida(1000);
         castillo.crearArmaDeAsedio();
     }
+
+    @Test
+    public void castilloCrearArmaAsedioExitosamente(){
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        Assert.assertNotNull(armaDeAsedio);
+    }
+
+    @Test
+    public void castilloEnReparacionCreaArmaDeAsedio(){
+        castillo.reducirVida(50);
+        castillo.reparar();
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        Assert.assertNotNull(armaDeAsedio);
+    }
 }

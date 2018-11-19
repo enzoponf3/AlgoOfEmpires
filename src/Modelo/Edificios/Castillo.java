@@ -21,8 +21,6 @@ public class Castillo extends Edificio {
         this.vidaMax = VIDA;
         this.vida = VIDA;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.ancho = ANCHO;
-        this.alto = ALTO;
         this.distanciaMaximaAtaque = DISTANCIA_MAXIMA_ATAQUE;
         this.danio = DANIO;
         this.estado = new EstadoCastilloConstruido();

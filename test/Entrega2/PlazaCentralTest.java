@@ -196,13 +196,7 @@ public class PlazaCentralTest {
 
     //Pruebas agregadas 18-11-18
 
-    @Test
-    public void plazaCentralEnReparacionCreaAldeano(){
-        plazaConstruida.reducirVida(100);
-        plazaConstruida.reparar();
-        Aldeano aldeano = plazaConstruida.crearAldeano();
-        Assert.assertNotNull(aldeano);
-    }
+
 
     @Test (expected = EdificioYaConstruidoException.class)
     public void plazaCentralEnReparacionSigueEstandoConstruida(){

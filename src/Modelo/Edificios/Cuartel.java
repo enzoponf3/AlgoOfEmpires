@@ -21,8 +21,6 @@ public class Cuartel extends Edificio {
         this.vida = 0;
         this.costo = COSTO;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.ancho = ANCHO;
-        this.alto = ALTO;
         this.estado = new EstadoCuartelNoConstruido(TURNOS_CONSTRUCCION);
     }
 

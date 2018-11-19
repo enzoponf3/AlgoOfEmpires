@@ -67,4 +67,19 @@ public class PlazaCentralYUnidadesTest {
         Aldeano espadachin = plaza.crearAldeano();
         Assert.assertEquals(espadachin.getVida(), 50);
     }
+
+    @Test
+    public void plazaCentralEnReparacionCreaAldeano(){
+        PlazaCentral plaza = new PlazaCentral();
+        plaza.construir();
+        plaza.volverAEstadoOriginal();
+        plaza.construir();
+        plaza.volverAEstadoOriginal();
+        plaza.construir();
+        plaza.volverAEstadoOriginal();
+        plaza.reducirVida(100);
+        plaza.reparar();
+        Aldeano aldeano = plaza.crearAldeano();
+        Assert.assertNotNull(aldeano);
+    }
 }

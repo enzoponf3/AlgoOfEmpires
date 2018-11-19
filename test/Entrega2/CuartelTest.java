@@ -222,19 +222,4 @@ public class CuartelTest {
         cuartelConstruido.construir();
     }
 
-    @Test
-    public void cuartelEnReparacionCreaEspadachin(){
-        cuartelConstruido.reducirVida(30);
-        Espadachin espadachin = cuartelConstruido.crearEspadachin();
-        Assert.assertNotNull(espadachin);
-    }
-
-    @Test
-    public void cuartelEnReparacionCreaArquero(){
-        cuartelConstruido.reducirVida(30);
-        Arquero arquero = cuartelConstruido.crearArquero();
-        Assert.assertNotNull(arquero);
-    }
-
-
 }

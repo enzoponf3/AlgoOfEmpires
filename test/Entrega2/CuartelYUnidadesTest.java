@@ -124,4 +124,32 @@ public class CuartelYUnidadesTest {
         Arquero arquero = cuartel.crearArquero();
         Assert.assertEquals(arquero.getVida(), 75);
     }
+
+    @Test
+    public void cuartelEnReparacionCreaEspadachin(){
+        Cuartel cuartel = new Cuartel();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.reducirVida(30);
+        Espadachin espadachin = cuartel.crearEspadachin();
+        Assert.assertNotNull(espadachin);
+    }
+
+    @Test
+    public void cuartelEnReparacionCreaArquero(){
+        Cuartel cuartel = new Cuartel();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.construir();
+        cuartel.volverAEstadoOriginal();
+        cuartel.reducirVida(30);
+        Arquero arquero = cuartel.crearArquero();
+        Assert.assertNotNull(arquero);
+    }
 }

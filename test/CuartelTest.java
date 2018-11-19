@@ -1,5 +1,3 @@
-package Entrega2;
-
 import Modelo.Edificios.Cuartel;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.Arquero;

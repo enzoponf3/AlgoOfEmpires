@@ -31,7 +31,7 @@ public class EstadoAldeanoOcupado implements EstadoAldeano{
 
     @Override
     public void repararEdificio(Edificio edificio, Aldeano aldeano) {
-        throw new UndidadNoPuedeRepararException();
+        throw new UnidadNoPuedeRepararException();
     }
 
     @Override

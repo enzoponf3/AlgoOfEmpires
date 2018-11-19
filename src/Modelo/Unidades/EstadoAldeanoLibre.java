@@ -2,6 +2,7 @@ package Modelo.Unidades;
 import Modelo.Edificios.*;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.EntidadFueraDeRangoException;
 import Modelo.Posicion;
 
 import java.util.ArrayList;
@@ -39,8 +40,15 @@ public class EstadoAldeanoLibre implements EstadoAldeano {
 
     @Override
     public void repararEdificio(Edificio edificio, Aldeano aldeano){
-        edificio.reparar();
-        aldeano.ocupar();
+        ArrayList<Posicion> posiciones = edificio.getPosiciones();
+        for (Posicion pos : posiciones ){
+            if (aldeano.posicion.estaEnRango(pos, aldeano.getRango())){
+                edificio.reparar();
+                aldeano.ocupar();
+                return;
+            }
+        }
+        throw new EntidadFueraDeRangoException();
     }
 
     @Override

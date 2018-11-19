@@ -289,8 +289,11 @@ public class ArmaDeAsedioTest {
         armaAsedio.montar();
         armaAsedio.desocupar();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         armaAsedio.atacar(cuartel);
         Posicion destino = new Posicion(1,1);
@@ -316,8 +319,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         armaAsedio.atacar(cuartel);
         Assert.assertEquals(175, cuartel.getVida());
@@ -337,8 +343,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
         armaDeAsedio.setPosicion(posicion);
@@ -362,8 +371,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
         armaDeAsedio.setPosicion(posicion);
@@ -384,8 +396,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
         armaDeAsedio.setPosicion(posicion);
@@ -413,8 +428,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         armaAsedio.atacar(plaza);
         Assert.assertEquals(375, plaza.getVida());
@@ -439,8 +457,11 @@ public class ArmaDeAsedioTest {
         armaAsedio.montar();
         armaAsedio.desocupar();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         armaAsedio.atacar(plaza);
         Posicion destino = new Posicion(1,1);
@@ -560,8 +581,11 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         armaAsedio.atacar(plaza);
     }
 }

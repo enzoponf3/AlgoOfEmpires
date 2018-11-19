@@ -181,9 +181,12 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
     }
 
@@ -201,9 +204,12 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
     }
 
@@ -269,10 +275,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.repararEdificio(cuartel);
     }
 
@@ -283,10 +292,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.repararEdificio(plaza);
     }
 
@@ -299,10 +311,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(60);
         aldeano.repararEdificio(cuartel);
         Posicion destino = new Posicion(2,3);
@@ -316,10 +331,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250,cuartel.getVida());
         cuartel.reducirVida(50);
         Assert.assertEquals(200,cuartel.getVida());
@@ -334,10 +352,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(50);
         Assert.assertEquals(200,cuartel.getVida());
         aldeano.repararEdificio(cuartel);
@@ -351,10 +372,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         plaza.reducirVida(50);
         Assert.assertEquals(400,plaza.getVida());
         aldeano.repararEdificio(plaza);
@@ -368,10 +392,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250,cuartel.getVida());
         cuartel.reducirVida(50);
         Assert.assertEquals(200,cuartel.getVida());
@@ -387,10 +414,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         plaza.reducirVida(50);
         Assert.assertEquals(400,plaza.getVida());
         aldeano.repararEdificio(plaza);
@@ -409,10 +439,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         plaza.reducirVida(50);
         Assert.assertEquals(400,plaza.getVida());
         aldeano.repararEdificio(plaza);
@@ -427,10 +460,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450,plaza.getVida());
         plaza.reducirVida(50);
         Assert.assertEquals(400,plaza.getVida());
@@ -445,10 +481,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         aldeano.continuarConstruccionPlazaCentral(plaza);
         aldeano.desocupar();
+        plaza.volverAEstadoOriginal();
         plaza.reducirVida(100);
         aldeano.repararEdificio(plaza);
         aldeano.repararEdificio(plaza);
@@ -461,10 +500,13 @@ public class AldeanoTest {
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         aldeano.continuarConstruccionCuartel(cuartel);
         aldeano.desocupar();
+        cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(100);
         aldeano.repararEdificio(cuartel);
         aldeano.repararEdificio(cuartel);

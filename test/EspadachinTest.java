@@ -265,8 +265,11 @@ public class EspadachinTest {
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
         Posicion destino = new Posicion(1,1);
@@ -290,8 +293,11 @@ public class EspadachinTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
         Assert.assertEquals(235, cuartel.getVida());
@@ -314,8 +320,11 @@ public class EspadachinTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         espadachin.atacar(plaza);
         Assert.assertEquals(435, plaza.getVida());
@@ -338,8 +347,11 @@ public class EspadachinTest {
         Posicion posicion5 = new Posicion(1, 3);
         espadachin.setPosicion(posicion5);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         espadachin.atacar(plaza);
         Posicion destino = new Posicion(1,1);
@@ -467,8 +479,11 @@ public class EspadachinTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         espadachin.atacar(plaza);
     }
 
@@ -486,8 +501,11 @@ public class EspadachinTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(10,10);
         espadachin.setPosicion(origen);

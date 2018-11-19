@@ -284,8 +284,11 @@ public class ArqueroTest {
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         arquero.atacar(cuartel);
         Posicion destino = new Posicion(1,1);
@@ -309,8 +312,11 @@ public class ArqueroTest {
         posiciones.add(posicion4);
         cuartel.setPosiciones(posiciones);
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         cuartel.construir();
+        cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         arquero.atacar(cuartel);
         Assert.assertEquals(240, cuartel.getVida());
@@ -333,8 +339,11 @@ public class ArqueroTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         arquero.atacar(plaza);
         Assert.assertEquals(440, plaza.getVida());
@@ -357,8 +366,11 @@ public class ArqueroTest {
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         arquero.atacar(plaza);
         Posicion destino = new Posicion(1,1);
@@ -484,8 +496,11 @@ public class ArqueroTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         Posicion destino = new Posicion(1,2);
         arquero.mover(destino);
         arquero.atacar(plaza);
@@ -508,8 +523,11 @@ public class ArqueroTest {
         posiciones.add(posicion4);
         plaza.setPosiciones(posiciones);
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         plaza.construir();
+        plaza.volverAEstadoOriginal();
         arquero.atacar(plaza);
     }
 }

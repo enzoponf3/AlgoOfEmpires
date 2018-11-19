@@ -3,16 +3,28 @@ package Entrega1;
 
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Posicion;
 import Modelo.Unidades.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class PlazaCentralYUnidadesTest {
 
 
     @Test(expected = EdificioNoConstruidoException.class)
     public void crearAldeanoTrasUnTurnoConstruccion() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.crearAldeano();
@@ -20,14 +32,32 @@ public class PlazaCentralYUnidadesTest {
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasUnTurnoConstruccionSinVolverAEstadoOriginal() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.crearAldeano();
     }
 
     @Test(expected = EdificioNoConstruidoException.class)
     public void crearAldeanoTrasDosTurnosConstruccion() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -37,7 +67,16 @@ public class PlazaCentralYUnidadesTest {
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasDosTurnosConstruccionSinVolverAEstadoOriginal() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -46,7 +85,16 @@ public class PlazaCentralYUnidadesTest {
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasTresTurnosConstruccion() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -57,7 +105,16 @@ public class PlazaCentralYUnidadesTest {
 
     @Test
     public void crearAldeanoTrasTresTurnosConstruccionYFinalizarConstruccion() {
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -70,7 +127,16 @@ public class PlazaCentralYUnidadesTest {
 
     @Test
     public void plazaCentralEnReparacionCreaAldeano(){
-        PlazaCentral plaza = new PlazaCentral();
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();

@@ -1,7 +1,6 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
-import Modelo.Exceptions.EdificioSinVidaExcepcion;
 import Modelo.Posicion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;

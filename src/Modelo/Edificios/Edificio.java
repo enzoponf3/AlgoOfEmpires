@@ -1,7 +1,6 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
-import Modelo.Exceptions.EdificioSinVidaExcepcion;
 import Modelo.IEntidad;
 import Modelo.Posicion;
 

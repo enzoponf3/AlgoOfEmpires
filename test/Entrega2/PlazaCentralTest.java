@@ -2,6 +2,7 @@ package Entrega2;
 
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -191,5 +192,35 @@ public class PlazaCentralTest {
     public void volverAEstadoOriginalTrasDestruirPlazaCentral() {
         plazaConstruida.reducirVida(450);
         plazaConstruida.volverAEstadoOriginal();
+    }
+
+    //Pruebas agregadas 18-11-18
+
+    @Test
+    public void plazaCentralEnReparacionCreaAldeano(){
+        plazaConstruida.reducirVida(100);
+        plazaConstruida.reparar();
+        Aldeano aldeano = plazaConstruida.crearAldeano();
+        Assert.assertNotNull(aldeano);
+    }
+
+    @Test (expected = EdificioYaConstruidoException.class)
+    public void plazaCentralEnReparacionSigueEstandoConstruida(){
+        plazaConstruida.reducirVida(100);
+        plazaConstruida.reparar();
+        plazaConstruida.construir();
+    }
+
+    @Test (expected = EdificioYaConstruidoException.class)
+    public void plazaCentralConstruidaSigueConstruidaAlVolverAlEstadoOriginal(){
+        plazaConstruida.volverAEstadoOriginal();
+        plazaConstruida.construir();
+    }
+
+    @Test (expected = EdificioNoConstruidoException.class)
+    public void plazaCentralNoConstruidaSigueNoConstruidaAlVolverAlEstadoOriginal(){
+        PlazaCentral plaza = new PlazaCentral();
+        plaza.volverAEstadoOriginal();
+        plaza.reparar();
     }
 }

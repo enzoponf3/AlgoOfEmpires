@@ -269,7 +269,6 @@ public class ArqueroTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarCuartelEnRangoSeOcupa() {
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -279,7 +278,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
@@ -300,7 +299,6 @@ public class ArqueroTest {
         Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
         arquero.setPosicion(posArquero);
-        Cuartel cuartel = new Cuartel();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -310,7 +308,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        cuartel.setPosiciones(posiciones);
+        Cuartel cuartel = new Cuartel(posiciones);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -327,7 +325,6 @@ public class ArqueroTest {
         Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
         arquero.setPosicion(posArquero);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -337,7 +334,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -351,7 +348,6 @@ public class ArqueroTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarPlazaCentralEnRangoSeOcupa(){
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -361,7 +357,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
         arquero.setPosicion(posicion5);
@@ -484,7 +480,6 @@ public class ArqueroTest {
         Arquero arquero = new Arquero();
         Posicion origen = new Posicion(1,1);
         arquero.setPosicion(origen);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -494,7 +489,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -511,7 +506,6 @@ public class ArqueroTest {
         Arquero arquero = new Arquero();
         Posicion origen = new Posicion(10,10);
         arquero.setPosicion(origen);
-        PlazaCentral plaza = new PlazaCentral();
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -521,7 +515,7 @@ public class ArqueroTest {
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
-        plaza.setPosiciones(posiciones);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();

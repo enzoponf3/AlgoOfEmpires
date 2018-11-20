@@ -209,9 +209,9 @@ public class Jugador {
         }
     }
 
-    public void atacar(Posicion posicionAtacante, Aldeano aldeanoAAtacar){
+    public void atacar(Posicion posicionAtacante, Unidad unidadAAtacar){
         IAtacante atacante = devolverAtacanteEnPosicion(posicionAtacante);
-        atacante.atacar(aldeanoAAtacar);
+        atacante.atacar(unidadAAtacar);
     }
 
     public void atacar(Posicion posicionAtacante, Edificio edificioAAtacar){
@@ -220,6 +220,16 @@ public class Jugador {
     }
 
     //El jugador deberia armar y desarmar el ArmaDeAsedio?
+
+    public void montarArmaDeAsedio(Posicion posicionArmaDeAsedio){
+        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) devolverAtacanteEnPosicion(posicionArmaDeAsedio);
+        armaDeAsedio.montar();
+    }
+
+    public void desmontarArmaDeAsedio(Posicion posicionArmaDeAsedio){
+        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) devolverAtacanteEnPosicion(posicionArmaDeAsedio);
+        armaDeAsedio.desmontar();
+    }
 
 
 }

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Modelo/Exceptions/UnidadMovibleNoExisteException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/JugadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/JugadorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,12 +38,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="47" />
-          <entry key="java" value="25581" />
+          <entry key="java" value="26062" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="25581" />
+          <entry key="JAVA" value="26062" />
           <entry key="PLAIN_TEXT" value="47" />
         </counts>
       </usages-collector>
@@ -87,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="356" column="51" selection-start-line="356" selection-start-column="51" selection-end-line="356" selection-end-column="51" />
+            <state relative-caret-position="321">
+              <caret line="652" column="7" selection-start-line="652" selection-start-column="7" selection-end-line="652" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -96,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1446">
+            <state relative-caret-position="321">
               <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
             </state>
           </provider>
@@ -265,21 +263,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="devolverAldeanoInicialCorrectamente" />
+      <option name="METHOD_NAME" value="moverAldeanoAgregadoCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.devolverUnidadMovibleCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="devolverUnidadMovibleCorrectamente" />
+      <option name="METHOD_NAME" value="moverAldeanoInicialAUnaPosicionNoAledania" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -295,30 +293,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.removerUnaCuartelQueFueAgregadaCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.moverEspadachinAgregadoCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="removerUnaCuartelQueFueAgregadaCorrectamente" />
+      <option name="METHOD_NAME" value="moverEspadachinAgregadoCorrectamente" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.JugadorTest.removerUnaCuartelQueFueAgregadaCorrectamente" />
       <item itemvalue="JUnit.All in AlgoOfEmpires" />
-      <item itemvalue="JUnit.JugadorTest.devolverUnidadMovibleCorrectamente" />
-      <item itemvalue="JUnit.JugadorTest.devolverAldeanoInicialCorrectamente" />
       <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.moverAldeanoAgregadoCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" />
+      <item itemvalue="JUnit.JugadorTest.moverEspadachinAgregadoCorrectamente" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in AlgoOfEmpires" />
+        <item itemvalue="JUnit.JugadorTest.moverEspadachinAgregadoCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" />
+        <item itemvalue="JUnit.JugadorTest.moverAldeanoAgregadoCorrectamente" />
         <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.devolverAldeanoInicialCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.devolverUnidadMovibleCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.removerUnaCuartelQueFueAgregadaCorrectamente" />
       </list>
     </recent_temporary>
   </component>
@@ -344,42 +342,42 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JugadorTest_removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 09h 51m 04s.xml">
-      <configuration name="JugadorTest.removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverUnidadMovibleCorrectamente - 2018.11.20 at 10h 25m 18s.xml">
+      <configuration name="JugadorTest.devolverUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 09h 54m 42s.xml">
-      <configuration name="JugadorTest.devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 26m 17s.xml">
+      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 09h 56m 32s.xml">
-      <configuration name="JugadorTest.devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 26m 51s.xml">
+      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 10h 00m 17s.xml">
-      <configuration name="JugadorTest.devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 27m 00s.xml">
+      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 10h 00m 33s.xml">
-      <configuration name="JugadorTest.removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_moverAldeanoInicialCorrectamente - 2018.11.20 at 10h 27m 09s.xml">
+      <configuration name="JugadorTest.moverAldeanoInicialCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 10h 01m 32s.xml">
-      <configuration name="JugadorTest.removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 10h 02m 27s.xml">
-      <configuration name="JugadorTest.removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente - 2018.11.20 at 10h 02m 36s.xml">
-      <configuration name="JugadorTest.removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_removerUnaCuartelQueFueAgregadaCorrectamente - 2018.11.20 at 10h 07m 40s.xml">
-      <configuration name="JugadorTest.removerUnaCuartelQueFueAgregadaCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_AlgoOfEmpires - 2018.11.20 at 10h 10m 03s.xml">
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.20 at 10h 28m 29s.xml">
       <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_moverAldeanoAgregadoCorrectamente - 2018.11.20 at 10h 39m 53s.xml">
+      <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_moverAldeanoAgregadoCorrectamente - 2018.11.20 at 10h 40m 23s.xml">
+      <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_moverAldeanoInicialAUnaPosicionNoAledania - 2018.11.20 at 10h 41m 19s.xml">
+      <configuration name="JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorTest_moverEspadachinAgregadoCorrectamente - 2018.11.20 at 10h 42m 44s.xml">
+      <configuration name="JugadorTest.moverEspadachinAgregadoCorrectamente" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -389,8 +387,8 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22484277" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2437107" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22484277" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21069182" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -621,6 +619,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -777,15 +779,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1446">
+        <state relative-caret-position="321">
           <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="356" column="51" selection-start-line="356" selection-start-column="51" selection-end-line="356" selection-end-column="51" />
+        <state relative-caret-position="321">
+          <caret line="652" column="7" selection-start-line="652" selection-start-column="7" selection-end-line="652" selection-end-column="7" />
         </state>
       </provider>
     </entry>

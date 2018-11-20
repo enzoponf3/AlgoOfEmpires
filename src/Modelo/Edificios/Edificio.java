@@ -47,4 +47,12 @@ public abstract class Edificio implements IEntidad {
     }
 
     public void construir(){}
+
+    public boolean contienePosicion(Posicion posicionBuscada){
+        for( Posicion posicion : this.posiciones){
+            if( posicion.compararPosiciones(posicionBuscada) )
+                return true;
+        }
+        return false;
+    }
 }

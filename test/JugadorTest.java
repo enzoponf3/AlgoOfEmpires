@@ -291,6 +291,90 @@ public class JugadorTest {
     //No pruebo agregar castillos dado que directamente no se pueden construir, y para agregarlos tienen que ser
     //construidos primero.
 
+
+    //Devolver una entidad
+
+    @Test
+    public void devolverAldeanoEnPosicionCorrectamente(){
+        Jugador jugador = new Jugador();
+        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(2,5);
+        aldeano.setPosicion(posicion);
+
+        jugador.agregarAldeano(aldeano);
+        Aldeano aldeanoAComparar = jugador.devolverAldeanoEnPosicion(posicion);
+
+        Assert.assertEquals( aldeano, aldeanoAComparar );
+    }
+
+    @Test
+    public void devolverArqueroEnPosicionCorrectamente(){
+        Jugador jugador = new Jugador();
+        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(2,5);
+        arquero.setPosicion(posicion);
+
+        jugador.agregarAEjercito(arquero);
+        Arquero arqueroAComparar = (Arquero) jugador.devolverAtacanteEnPosicion(posicion);
+
+        Assert.assertEquals( arquero, arqueroAComparar );
+    }
+
+    @Test
+    public void devolverEspadachinEnPosicionCorrectamente(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachin = new Espadachin();
+        Posicion posicion = new Posicion(2,5);
+        espadachin.setPosicion(posicion);
+
+        jugador.agregarAEjercito(espadachin);
+        Espadachin espadachinAComprar = (Espadachin) jugador.devolverAtacanteEnPosicion(posicion);
+
+        Assert.assertEquals( espadachin, espadachinAComprar);
+    }
+
+    @Test
+    public void devolverArmaDeAsedioEnPosicionCorrectamente(){
+        Jugador jugador = new Jugador();
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(2,5);
+        armaDeAsedio.setPosicion(posicion);
+
+        jugador.agregarAEjercito(armaDeAsedio);
+        ArmaDeAsedio armaDeAsedioAComparar = (ArmaDeAsedio) jugador.devolverAtacanteEnPosicion(posicion);
+
+        Assert.assertEquals( armaDeAsedio, armaDeAsedioAComparar);
+    }
+
+    @Test
+    public void devolverPlazaCentralEnPosicionCorrectamente(){
+        Jugador jugador = new Jugador();
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        Posicion posicion1 = new Posicion(2,3);
+        Posicion posicion2 = new Posicion(2,4);
+        Posicion posicion3 = new Posicion(3,3);
+        Posicion posicion4 = new Posicion(3,4);
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
+        jugador.agregarEdificio(plazaCentral);
+        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
+        Assert.assertEquals(plazaCentral, plaza);
+    }
+
+    @Test
+    public void devolverLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente(){
+        Jugador jugador = new Jugador();
+
+        Posicion posicion3 = new Posicion(5,5);
+
+        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion3);
+        Assert.assertEquals(1, jugador.getEdificios().size() );
+    }
+
+
     //Remover aldeanos
 
     @Test
@@ -402,90 +486,11 @@ public class JugadorTest {
         Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
     }
 
-    //Devolver una entidad
+    //Remover edificios
 
     @Test
-    public void devolverAldeanoEnPosicionCorrectamente(){
+    public void removerUnaPlazaCentralQueFueAgregadaCorrectamente(){
         Jugador jugador = new Jugador();
-        Aldeano aldeano = new Aldeano();
-        Posicion posicion = new Posicion(2,5);
-        aldeano.setPosicion(posicion);
-
-        jugador.agregarAldeano(aldeano);
-        Aldeano aldeanoAComparar = jugador.devolverAldeanoEnPosicion(posicion);
-
-        Assert.assertEquals( aldeano, aldeanoAComparar );
-    }
-
-    @Test
-    public void devolverArqueroEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador();
-        Arquero arquero = new Arquero();
-        Posicion posicion = new Posicion(2,5);
-        arquero.setPosicion(posicion);
-
-        jugador.agregarAEjercito(arquero);
-        Arquero arqueroAComparar = (Arquero) jugador.devolverAtacanteEnPosicion(posicion);
-
-        Assert.assertEquals( arquero, arqueroAComparar );
-    }
-
-    @Test
-    public void devolverEspadachinEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador();
-        Espadachin espadachin = new Espadachin();
-        Posicion posicion = new Posicion(2,5);
-        espadachin.setPosicion(posicion);
-
-        jugador.agregarAEjercito(espadachin);
-        Espadachin espadachinAComprar = (Espadachin) jugador.devolverAtacanteEnPosicion(posicion);
-
-        Assert.assertEquals( espadachin, espadachinAComprar);
-    }
-
-    @Test
-    public void devolverArmaDeAsedioEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador();
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
-        Posicion posicion = new Posicion(2,5);
-        armaDeAsedio.setPosicion(posicion);
-
-        jugador.agregarAEjercito(armaDeAsedio);
-        ArmaDeAsedio armaDeAsedioAComparar = (ArmaDeAsedio) jugador.devolverAtacanteEnPosicion(posicion);
-
-        Assert.assertEquals( armaDeAsedio, armaDeAsedioAComparar);
-    }
-
-    @Test
-    public void devolverPlazaCentralEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador();
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
-        posiciones.add(posicion4);
-        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
-        jugador.agregarEdificio(plazaCentral);
-        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
-        Assert.assertEquals(plazaCentral, plaza);
-    }
-
-
-
-    //Control de reparacion
-
-    @Test
-    public void aldeanoReparaPlazaCentralCorrectamente(){
-        Jugador jugador = new Jugador();
-        Espadachin espadachinEnemigo = new Espadachin();
-        Posicion posicionEspadachin = new Posicion(5,1);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
-
-        Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -495,42 +500,43 @@ public class JugadorTest {
         posicionesPlazaCentral.add(posicion2PlazaCentral);
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
 
-        jugador.construirPlazaCentral(posicionAldeano, posicionesPlazaCentral);
+        jugador.agregarEdificio(plazaCentral);
+        PlazaCentral plazaCentral1 = (PlazaCentral) jugador.removerEdificio(posicion1PlazaCentral);
 
-        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
-        aldeano2.desocupar();
-        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
-
-        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
-        plaza.volverAEstadoOriginal();
-        aldeano2.desocupar();
-        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
-
-        plaza.volverAEstadoOriginal();
-        aldeano2.desocupar();
-        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
-        plaza.volverAEstadoOriginal();
-        aldeano2.desocupar();
-
-        Assert.assertEquals(450, plaza.getVida() );
-
-        espadachinEnemigo.atacar(plaza);
-        Assert.assertEquals(435, plaza.getVida() );
-
-        jugador.reparar(posicionAldeano, posicion1PlazaCentral);
-        Assert.assertEquals(450, plaza.getVida() );
-
-    } //Esta prueba queda inmensa porque hay que hacer control de turnos manual
+        Assert.assertEquals(1, jugador.getEdificios().size() );
+        Assert.assertEquals(plazaCentral1, plazaCentral);
+    }
 
     @Test
-    public void aldeanoReparaCuartelCorrectamente(){
+    public void removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente(){
         Jugador jugador = new Jugador();
-        Espadachin espadachinEnemigo = new Espadachin();
-        Posicion posicionEspadachin = new Posicion(5,1);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
+        Posicion posicion1 = new Posicion(4,5);
 
-        Posicion posicionAldeano = new Posicion(2,2);
+        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
+        PlazaCentral plazaCentral1 = (PlazaCentral) jugador.removerEdificio(posicion1);
+
+        Assert.assertEquals(0, jugador.getEdificios().size() );
+        Assert.assertEquals(plazaCentral1, plazaCentral);
+    }
+
+
+    @Test (expected = AtacanteNoExisteException.class)
+    public void removerUnaPlazaCentralQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+
+        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
+
+        Assert.assertEquals(0, jugador.getEjercito().size() );
+        Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
+    }
+
+    @Test
+    public void removerUnaCuartelQueFueAgregadaCorrectamente(){
+        Jugador jugador = new Jugador();
+
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -540,54 +546,19 @@ public class JugadorTest {
         posicionesCuartel.add(posicion2Cuartel);
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
 
-        jugador.construirCuartel(posicionAldeano, posicionesCuartel);
+        jugador.agregarEdificio(cuartel);
+        Cuartel cuartel1 = (Cuartel) jugador.removerEdificio(posicion1Cuartel);
 
-        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
-        aldeano2.desocupar();
-        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
-
-        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
-        cuartel.volverAEstadoOriginal();
-        aldeano2.desocupar();
-        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
-
-        cuartel.volverAEstadoOriginal();
-        aldeano2.desocupar();
-        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
-        cuartel.volverAEstadoOriginal();
-        aldeano2.desocupar();
-
-        cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
-        Assert.assertEquals(250, cuartel.getVida() );
-
-        espadachinEnemigo.atacar(cuartel);
-        Assert.assertEquals(235, cuartel.getVida() );
-
-        jugador.reparar(posicionAldeano, posicion1Cuartel);
-        Assert.assertEquals(250, cuartel.getVida() );
-
+        Assert.assertEquals(1, jugador.getEdificios().size() );
+        Assert.assertEquals(cuartel1, cuartel);
     }
 
-    @Test
-    public void aldeanoReparaCastilloCorrectamente(){
-        Jugador jugador = new Jugador();
-        Espadachin espadachinEnemigo = new Espadachin();
-        Posicion posicionEspadachin = new Posicion(0,4);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
+    //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
 
-        Posicion posicionAldeano = new Posicion(2,2);
 
-        Castillo castillo = jugador.getCastillo();
-        Assert.assertEquals(1000, castillo.getVida() );
 
-        espadachinEnemigo.atacar(castillo);
-        Assert.assertEquals(985, castillo.getVida() );
-
-        jugador.reparar(posicionAldeano);
-        Assert.assertEquals(1000, castillo.getVida() );
-
-    }
 
     /*
     @Test

@@ -1,15 +1,19 @@
 package Entrega2;
 
+import Modelo.Edificios.Castillo;
+import Modelo.Edificios.Cuartel;
+import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.UnidadNoPuedeConstruirException;
 import Modelo.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import Modelo.Unidades.Espadachin;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class JugadorControlaConstruccionTest {
+public class JugadorControlaConstruccionYReparacionTest {
 
 
     //Mandar a un aldeano a construir un edificio
@@ -174,5 +178,119 @@ public class JugadorControlaConstruccionTest {
         jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
 
     }
+
+    //Control de reparacion
+
+    @Test
+    public void aldeanoReparaPlazaCentralCorrectamente(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachinEnemigo = new Espadachin();
+        Posicion posicionEspadachin = new Posicion(5,1);
+        espadachinEnemigo.setPosicion(posicionEspadachin);
+
+        Posicion posicionAldeano = new Posicion(2,2);
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+
+        jugador.construirPlazaCentral(posicionAldeano, posicionesPlazaCentral);
+
+        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
+        aldeano2.desocupar();
+        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
+
+        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        plaza.volverAEstadoOriginal();
+        aldeano2.desocupar();
+        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
+
+        plaza.volverAEstadoOriginal();
+        aldeano2.desocupar();
+        jugador.continuarConstruccionPlazaCentral(posicionAldeano, posicion1PlazaCentral);
+        plaza.volverAEstadoOriginal();
+        aldeano2.desocupar();
+
+        Assert.assertEquals(450, plaza.getVida() );
+
+        espadachinEnemigo.atacar(plaza);
+        Assert.assertEquals(435, plaza.getVida() );
+
+        jugador.reparar(posicionAldeano, posicion1PlazaCentral);
+        Assert.assertEquals(450, plaza.getVida() );
+
+    } //Esta prueba queda inmensa porque hay que hacer control de turnos manual
+
+    @Test
+    public void aldeanoReparaCuartelCorrectamente(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachinEnemigo = new Espadachin();
+        Posicion posicionEspadachin = new Posicion(5,1);
+        espadachinEnemigo.setPosicion(posicionEspadachin);
+
+        Posicion posicionAldeano = new Posicion(2,2);
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+
+        jugador.construirCuartel(posicionAldeano, posicionesCuartel);
+
+        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
+        aldeano2.desocupar();
+        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
+
+        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        cuartel.volverAEstadoOriginal();
+        aldeano2.desocupar();
+        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
+
+        cuartel.volverAEstadoOriginal();
+        aldeano2.desocupar();
+        jugador.continuarConstruccionCuartel(posicionAldeano, posicion1Cuartel);
+        cuartel.volverAEstadoOriginal();
+        aldeano2.desocupar();
+
+        cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        Assert.assertEquals(250, cuartel.getVida() );
+
+        espadachinEnemigo.atacar(cuartel);
+        Assert.assertEquals(235, cuartel.getVida() );
+
+        jugador.reparar(posicionAldeano, posicion1Cuartel);
+        Assert.assertEquals(250, cuartel.getVida() );
+
+    }
+
+    @Test
+    public void aldeanoReparaCastilloCorrectamente(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachinEnemigo = new Espadachin();
+        Posicion posicionEspadachin = new Posicion(0,4);
+        espadachinEnemigo.setPosicion(posicionEspadachin);
+
+        Posicion posicionAldeano = new Posicion(2,2);
+
+        Castillo castillo = jugador.getCastillo();
+        Assert.assertEquals(1000, castillo.getVida() );
+
+        espadachinEnemigo.atacar(castillo);
+        Assert.assertEquals(985, castillo.getVida() );
+
+        jugador.reparar(posicionAldeano);
+        Assert.assertEquals(1000, castillo.getVida() );
+
+    }
+
 
 }

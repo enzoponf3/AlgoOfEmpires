@@ -134,12 +134,14 @@ public class Jugador {
         return atacanteARemover;
     }
 
+    public Edificio removerEdificio(Posicion posicionEdificioARemover){
+        Edificio edificioARemover = devolverEdificioEnPosicion(posicionEdificioARemover);
+        if( !this.edificios.contains(edificioARemover) )
+            throw new EdificioNoExisteException();
+        this.edificios.remove(edificioARemover);
+        return edificioARemover;
+    }    //Aca los tres remover deberian ya mataer la referencia? o devolver lo que se remueve?
 
-/*
-    public IEntidad devolverEntidadEnPosicion(Posicion posicion, ArrayList<IEntidad> entidades){
-
-    }
-*/
     public Aldeano devolverAldeanoEnPosicion(Posicion posicion){
         for( Aldeano aldeano : this.aldeanos ){
             if( aldeano.enPosicion(posicion) )
@@ -160,11 +162,12 @@ public class Jugador {
 
     public Edificio devolverEdificioEnPosicion(Posicion posicion){
         for( Edificio edificio : this.edificios ){
-            if( edificio.getPosiciones().contains(posicion) )//Rompe encaps...
+            if( edificio.contienePosicion(posicion) )//Rompe encaps...
                 return edificio;
         }
         throw new EdificioNoExisteException();
     }
+
 
     public void construirPlazaCentral(Posicion posicionAldeano, ArrayList<Posicion> posiciones){
         Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);

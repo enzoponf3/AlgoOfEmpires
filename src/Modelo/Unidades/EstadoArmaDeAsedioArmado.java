@@ -5,7 +5,7 @@ import Modelo.Exceptions.*;
 
 import java.util.ArrayList;
 
-public class EstadoArmaDeAsedioArmado implements EstadoArmaDeAsedio {
+public class EstadoArmaDeAsedioArmado implements IEstadoArmaDeAsedio {
 
     @Override
     public void mover(Posicion destino, ArmaDeAsedio armaDeAsedio){

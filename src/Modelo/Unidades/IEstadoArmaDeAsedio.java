@@ -2,7 +2,7 @@ package Modelo.Unidades;
 import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
-public interface EstadoArmaDeAsedio {
+public interface IEstadoArmaDeAsedio {
     void mover(Posicion destino, ArmaDeAsedio armaDeAsedio);
     void desocupar(ArmaDeAsedio armaDeAsedio);
     void montar (ArmaDeAsedio armaAsedio);

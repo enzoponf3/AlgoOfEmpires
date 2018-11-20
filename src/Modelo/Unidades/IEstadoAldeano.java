@@ -6,7 +6,7 @@ import Modelo.Posicion;
 
 import java.util.ArrayList;
 
-public interface EstadoAldeano{
+public interface IEstadoAldeano{
 
     int generaOro();
 

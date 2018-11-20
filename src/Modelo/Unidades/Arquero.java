@@ -6,7 +6,7 @@ public class Arquero extends Unidad implements IAtacante {
 
     protected static int VIDA = 75;
     protected static int COSTO= 75;
-    protected EstadoArquero estado;
+    protected IEstadoArquero estado;
     protected  int RANGO = 3;
     protected static int DANIO_UNIDAD = 15;
     protected static int DANIO_EDIFICIO = 10;

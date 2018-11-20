@@ -3,7 +3,7 @@ import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 import Modelo.Exceptions.*;
 
-public class EstadoArmaDeAsedioDesarmadoOcupado implements EstadoArmaDeAsedio {
+public class EstadoArmaDeAsedioDesarmadoOcupado implements IEstadoArmaDeAsedio {
 
     @Override
     public void mover(Posicion destino, ArmaDeAsedio armaDeAsedio){

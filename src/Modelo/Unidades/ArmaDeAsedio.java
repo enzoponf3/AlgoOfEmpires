@@ -9,7 +9,7 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
     private int COSTO = 200;
     protected static int RANGO = 5;
     protected static int DANIO_EDIFICIO = 75;
-    protected EstadoArmaDeAsedio estado;
+    protected IEstadoArmaDeAsedio estado;
 
     public ArmaDeAsedio(){
         this.vida = VIDA;

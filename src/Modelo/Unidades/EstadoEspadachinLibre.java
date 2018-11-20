@@ -5,7 +5,7 @@ import Modelo.Edificios.Edificio;
 
 import java.util.ArrayList;
 
-public class EstadoEspadachinLibre implements EstadoEspadachin {
+public class EstadoEspadachinLibre implements IEstadoEspadachin {
     @Override
     public void mover(Posicion destino, Espadachin espadachin){
         espadachin.cambiarPosicion(destino);

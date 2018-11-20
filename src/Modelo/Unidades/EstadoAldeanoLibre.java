@@ -7,7 +7,7 @@ import Modelo.Posicion;
 
 import java.util.ArrayList;
 
-public class EstadoAldeanoLibre implements EstadoAldeano {
+public class EstadoAldeanoLibre implements IEstadoAldeano {
 
     @Override
     public int generaOro(){

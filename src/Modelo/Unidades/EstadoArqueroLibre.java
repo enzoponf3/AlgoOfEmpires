@@ -5,7 +5,7 @@ import Modelo.Posicion;
 
 import java.util.ArrayList;
 
-public class EstadoArqueroLibre implements EstadoArquero {
+public class EstadoArqueroLibre implements IEstadoArquero {
     @Override
     public void mover(Posicion destino, Arquero arquero){
         arquero.cambiarPosicion(destino);

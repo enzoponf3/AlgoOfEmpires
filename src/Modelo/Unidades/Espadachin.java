@@ -8,7 +8,7 @@ public class Espadachin extends Unidad implements IAtacante{
    protected int COSTO = 50;
    protected int DANIO_UNIDAD = 25;
    protected int DANIO_EDIFICIO = 15;
-   protected EstadoEspadachin estado;
+   protected IEstadoEspadachin estado;
    protected int RANGO = 1;
 
 

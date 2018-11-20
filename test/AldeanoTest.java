@@ -169,6 +169,17 @@ public class AldeanoTest {
         aldeano.mover(destino2);
     }
 
+    @Test
+    public void moverAldeanoContinuaGenerandoOro(){
+        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(1,1);
+        aldeano.setPosicion(posicion);
+        Assert.assertEquals(20, aldeano.generaOro());
+        Posicion posicion2 = new Posicion(1,2);
+        aldeano.mover(posicion2);
+        Assert.assertEquals(20, aldeano.generaOro());
+    }
+
     //Pruebas construccion
 
     @Test

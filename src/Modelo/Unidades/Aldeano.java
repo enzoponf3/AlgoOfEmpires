@@ -53,6 +53,7 @@ public class Aldeano extends Unidad {
         return this.estado.generaOro();
     }
 
+    public void movio(){this.estado = new EstadoAldeanoMovio();}
     @Override
     public void mover(Posicion destino){
         this.estado.mover(destino, this);

@@ -43,11 +43,13 @@ public class Cuartel extends Edificio {
 
     @Override
     public void reducirVida(int cant) {
-        if (this.vida <= 0)
+        if (this.vida < 0)
             throw new EdificioDestruidoException();
         this.vida -= cant;
-        if (this.vida <= 0)
+        if (this.vida <= 0) {
+            this.vida -= cant; // Aseguro vida sea negativa
             this.estado = new EstadoCuartelDestruido();
+        }
     }
 
     @Override

@@ -20,6 +20,7 @@ public class PlazaCentral extends Edificio {
 
     public PlazaCentral(ArrayList<Posicion> posiciones) {
         this.vidaMax = VIDA;
+        // Inicializo con vida negativa en funcion del reducirVida
         this.vida = 0;
         this.costo = COSTO;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
@@ -38,11 +39,13 @@ public class PlazaCentral extends Edificio {
 
     @Override
     public void reducirVida(int cant) {
-        if (this.vida <= 0)
+        if (this.vida < 0)
             throw new EdificioDestruidoException();
         this.vida -= cant;
-        if (this.vida <= 0)
+        if (this.vida <= 0) {
+            this.vida -= cant; // Aseguro vida sea negativa
             this.estado = new EstadoPlazaCentralDestruida();
+        }
     }
 
     @Override

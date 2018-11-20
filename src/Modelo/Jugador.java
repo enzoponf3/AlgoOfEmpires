@@ -16,7 +16,7 @@ public class Jugador {
     private ArrayList<IAtacante> ejercito;
     private static final int LIMITE_POBLACION = 50;
 
-    private ArrayList<Edificio> edificiosEnConstruccion; //No se si vale la pena, lo charlamos luego
+    private IEstadoJugador estado;
 
 
     public Jugador(){
@@ -27,8 +27,11 @@ public class Jugador {
         inicializarAldeanos();
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
+        // El estado se inicializa en el juego.
+    }
 
-        this.edificiosEnConstruccion = new ArrayList<>();
+    public void setEstado(IEstadoJugador estado){
+        this.estado = estado;
     }
 
     public Castillo getCastillo(){

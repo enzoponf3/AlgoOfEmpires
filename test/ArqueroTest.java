@@ -1,6 +1,7 @@
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.DestinoNoEsAledanioException;
 import Modelo.Exceptions.EntidadFueraDeRangoException;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Posicion;
@@ -165,7 +166,16 @@ public class ArqueroTest {
         arquero.mover(destino1);
         arquero.mover(destino2);
     }
-    
+
+    @Test (expected = DestinoNoEsAledanioException.class)
+    public void moverArqueroPosicionNoAdyacenteFalla(){
+        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(1,1);
+        arquero.setPosicion(posicion);
+        Posicion posicion2 = new Posicion(1,4);
+        arquero.mover(posicion2);
+    }
+
     //Pruebas atacar
 
     @Test
@@ -290,7 +300,7 @@ public class ArqueroTest {
         cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         arquero.atacar(cuartel);
-        Posicion destino = new Posicion(1,1);
+        Posicion destino = new Posicion(1,2);
         arquero.mover(destino);
     }
 
@@ -369,7 +379,7 @@ public class ArqueroTest {
         plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         arquero.atacar(plaza);
-        Posicion destino = new Posicion(1,1);
+        Posicion destino = new Posicion(1,2);
         arquero.mover(destino);
     }
 

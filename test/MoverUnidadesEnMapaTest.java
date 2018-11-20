@@ -22,10 +22,9 @@ public class MoverUnidadesEnMapaTest {
         Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,5);
         Posicion destino = new Posicion(2,6);
-
+        aldeano.setPosicion(origen);//esto lo deberia hacer el ocupar casillero
         mapa.ocuparCasillero(origen, aldeano);
         mapa.moverUnidadMovil(origen, destino);
-
         Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
         Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
 
@@ -41,7 +40,7 @@ public class MoverUnidadesEnMapaTest {
         Arquero arquero = new Arquero();
         Posicion origen = new Posicion(2,5);
         Posicion destino = new Posicion(2,6);
-
+        arquero.setPosicion(origen);//esto lo deberia hacer el ocupar casillero
         mapa.ocuparCasillero(origen, arquero);
         mapa.moverUnidadMovil(origen, destino);
 
@@ -60,6 +59,7 @@ public class MoverUnidadesEnMapaTest {
         Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(2,5);
         Posicion destino = new Posicion(2,6);
+        espadachin.setPosicion(origen); //esto lo deberia hacer el ocupar casillero
 
         mapa.ocuparCasillero(origen, espadachin);
         mapa.moverUnidadMovil(origen, destino);
@@ -79,7 +79,7 @@ public class MoverUnidadesEnMapaTest {
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(2,5);
         Posicion destino = new Posicion(2,6);
-
+        armaDeAsedio.setPosicion(origen);//esto lo deberia hacer el ocupar casillero
         mapa.ocuparCasillero(origen, armaDeAsedio);
         mapa.moverUnidadMovil(origen, destino);
 

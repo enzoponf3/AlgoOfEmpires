@@ -25,6 +25,9 @@ public class Espadachin extends Unidad implements IAtacante{
 
     @Override
     public void mover(Posicion destino){
+        if(!this.posicion.aledaniaA(destino)){
+            throw new DestinoNoEsAledanioException();
+        }
         this.estado.mover(destino, this);
     }
 

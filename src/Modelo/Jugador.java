@@ -1,10 +1,7 @@
 package Modelo;
 
 import Modelo.Edificios.*;
-import Modelo.Exceptions.AldeanoNoExisteException;
-import Modelo.Exceptions.AtacanteNoExisteException;
-import Modelo.Exceptions.EdificioNoExisteException;
-import Modelo.Exceptions.LimiteDePoblacionException;
+import Modelo.Exceptions.*;
 import Modelo.Unidades.*;
 import java.util.ArrayList;
 
@@ -234,5 +231,22 @@ public class Jugador {
         armaDeAsedio.desmontar();
     }
 
+    public IUnidadMovible devolverUnidadMovible(Posicion posicionUnidad){
+        try {
+            IUnidadMovible unidad = (IUnidadMovible) devolverAldeanoEnPosicion(posicionUnidad);
+            return unidad;
+        } catch( AldeanoNoExisteException e){}
+        try{
+            IUnidadMovible unidad = (IUnidadMovible) devolverAtacanteEnPosicion(posicionUnidad);
+            return unidad;
+        } catch( AtacanteNoExisteException e ){}
+
+        throw new UnidadMovibleNoExisteException();
+    }
+
+    public void mover( Posicion origen, Posicion destino ){
+        IUnidadMovible unidad = devolverUnidadMovible(origen);
+        unidad.mover(destino);
+    }
 
 }

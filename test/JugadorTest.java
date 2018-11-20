@@ -308,6 +308,16 @@ public class JugadorTest {
     }
 
     @Test
+    public void devolverAldeanoInicialCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicionAldeano = new Posicion(1,1);
+
+        Aldeano aldeanoInicial = jugador.devolverAldeanoEnPosicion(posicionAldeano);
+
+        Assert.assertEquals( aldeanoInicial, jugador.getAldeanos().get(1) );
+    }
+
+    @Test
     public void devolverArqueroEnPosicionCorrectamente(){
         Jugador jugador = new Jugador();
         Arquero arquero = new Arquero();
@@ -344,6 +354,17 @@ public class JugadorTest {
         ArmaDeAsedio armaDeAsedioAComparar = (ArmaDeAsedio) jugador.devolverAtacanteEnPosicion(posicion);
 
         Assert.assertEquals( armaDeAsedio, armaDeAsedioAComparar);
+    }
+
+    @Test
+    public void devolverUnidadMovibleCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicionAldeano = new Posicion(1,1);
+
+        Aldeano aldeanoInicial = jugador.devolverAldeanoEnPosicion(posicionAldeano);
+        IUnidadMovible aldeano = jugador.devolverUnidadMovible(posicionAldeano);
+
+        Assert.assertEquals(aldeanoInicial, aldeano);
     }
 
     @Test
@@ -558,12 +579,19 @@ public class JugadorTest {
     //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
 
 
+    //Pruebas movimiento
 
-
-    /*
     @Test
-    public void removerEdificiosSinVida(){
+    public void moverAldeanoInicialCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion origen = new Posicion(1,1);
+        Posicion destino = new Posicion(2,1);
 
+        Aldeano aldeano = jugador.devolverAldeanoEnPosicion(origen);
+        jugador.mover(origen, destino);
+
+        Assert.assertTrue( aldeano.enPosicion(destino) );
     }
-*/
+
+
 }

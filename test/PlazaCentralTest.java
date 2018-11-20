@@ -5,7 +5,6 @@ import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 public class PlazaCentralTest {
@@ -122,7 +121,7 @@ public class PlazaCentralTest {
         plaza.volverAEstadoOriginal();
         plaza.construir();
         plaza.volverAEstadoOriginal();
-        plaza.construir();;
+        plaza.construir();
     }
 
     @Test
@@ -323,5 +322,49 @@ public class PlazaCentralTest {
         plazaConstruida.reducirVida(50);
         plazaConstruida.reparar();
         plazaConstruida.construir();
+    }
+
+    @Test
+    public void atacarEdificioEnConstruccionEIntentarConstruirlo() {
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.reducirVida(20);
+        boolean errorLanzado = false;
+        try {
+            plaza.construir();
+        } catch (EdificioDestruidoException e) {
+            errorLanzado = true;
+        }
+        Assert.assertTrue(errorLanzado);
+    }
+
+    @Test
+    public void atacarEdificioEnConstruccionEIntentarRepararlo() {
+        Posicion posicion1 = new Posicion(2, 5);
+        Posicion posicion2 = new Posicion(2, 4);
+        Posicion posicion3 = new Posicion(3, 5);
+        Posicion posicion4 = new Posicion(3, 4);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.reducirVida(20);
+        boolean errorLanzado = false;
+        try {
+            plaza.reparar();
+        } catch (EdificioDestruidoException e) {
+            errorLanzado = true;
+        }
+        Assert.assertTrue(errorLanzado);
     }
 }

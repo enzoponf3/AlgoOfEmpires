@@ -54,7 +54,7 @@ public class Jugador {
         return this.ejercito;
     }
 
-    private ArrayList<Posicion> posicionesInicial(){
+    private ArrayList<Posicion> posicionesPlazaCentralInicial(){
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(4,5);
         Posicion posicion2 = new Posicion(4,6);
@@ -68,11 +68,27 @@ public class Jugador {
         return posiciones;
     }
 
+    private ArrayList<Posicion> posicionesCastilloInicial(){
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        Posicion posicion1 = new Posicion(1,4);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,4);
+        Posicion posicion4 = new Posicion(2,3);
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+
+        return posiciones;
+    }
+
     private void inicializarEdificios(){
-        PlazaCentral plazaCentral = new PlazaCentral( posicionesInicial() );
+        PlazaCentral plazaCentral = new PlazaCentral( posicionesPlazaCentralInicial() );
         // Finalizo construccion automaticamente
         plazaCentral.finalizarConstruccion();
         edificios.add(plazaCentral);
+
+        this.castillo.setPosiciones( posicionesCastilloInicial() ); //Agrego el constructor despues
     }
 
     private void inicializarAldeanos(){
@@ -179,6 +195,12 @@ public class Jugador {
         Edificio edificio = devolverEdificioEnPosicion(posicionEdificio);
 
         aldeano.repararEdificio(edificio);
+    }
+
+    public void reparar(Posicion posicionAldeano){
+        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
+
+        aldeano.repararEdificio( this.castillo );
     }
 
     public void recolectarOro(){

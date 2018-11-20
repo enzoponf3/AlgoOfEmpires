@@ -317,6 +317,14 @@ public class JugadorTest {
         Assert.assertEquals( aldeanoInicial, jugador.getAldeanos().get(1) );
     }
 
+    @Test (expected = AldeanoNoExisteException.class)
+    public void devolverAldeanoQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+        Posicion posicionAldeano = new Posicion(1,6);
+
+        jugador.devolverAldeanoEnPosicion(posicionAldeano);
+    }
+
     @Test
     public void devolverArqueroEnPosicionCorrectamente(){
         Jugador jugador = new Jugador();
@@ -328,6 +336,16 @@ public class JugadorTest {
         Arquero arqueroAComparar = (Arquero) jugador.devolverAtacanteEnPosicion(posicion);
 
         Assert.assertEquals( arquero, arqueroAComparar );
+    }
+
+    @Test (expected = AtacanteNoExisteException.class)
+    public void devolverArqueroQueNoEsDelJugadorEnPosicion(){
+        Jugador jugador = new Jugador();
+        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(2,5);
+        arquero.setPosicion(posicion);
+
+        jugador.devolverAtacanteEnPosicion(posicion);
     }
 
     @Test
@@ -343,6 +361,16 @@ public class JugadorTest {
         Assert.assertEquals( espadachin, espadachinAComprar);
     }
 
+    @Test (expected = AtacanteNoExisteException.class)
+    public void devolverEspadachinQueNoEsDelJugadorEnPosicion(){
+        Jugador jugador = new Jugador();
+        Espadachin espadachin = new Espadachin();
+        Posicion posicion = new Posicion(2,5);
+        espadachin.setPosicion(posicion);
+
+        jugador.devolverAtacanteEnPosicion(posicion);
+    }
+
     @Test
     public void devolverArmaDeAsedioEnPosicionCorrectamente(){
         Jugador jugador = new Jugador();
@@ -356,8 +384,20 @@ public class JugadorTest {
         Assert.assertEquals( armaDeAsedio, armaDeAsedioAComparar);
     }
 
+    @Test (expected = AtacanteNoExisteException.class)
+    public void devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion(){
+        Jugador jugador = new Jugador();
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(2,5);
+        armaDeAsedio.setPosicion(posicion);
+
+        jugador.devolverAtacanteEnPosicion(posicion);
+    }
+
+    //Unidad movible
+
     @Test
-    public void devolverUnidadMovibleCorrectamente(){
+    public void devolverAldeanoInicialComoUnidadMovibleCorrectamente(){
         Jugador jugador = new Jugador();
         Posicion posicionAldeano = new Posicion(1,1);
 
@@ -366,6 +406,100 @@ public class JugadorTest {
 
         Assert.assertEquals(aldeanoInicial, aldeano);
     }
+
+    @Test
+    public void devolverAldeanoAgregadoComoUnidadMovibleCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicionAldeano = new Posicion(1,5);
+        Aldeano aldeano = new Aldeano();
+        aldeano.setPosicion(posicionAldeano);
+
+        jugador.agregarAldeano(aldeano);
+        IUnidadMovible aldeanoAgregado = jugador.devolverUnidadMovible(posicionAldeano);
+
+        Assert.assertEquals(aldeano, aldeanoAgregado);
+    }
+
+    @Test (expected = UnidadMovibleNoExisteException.class)
+    public void devolverAldeanoQueNoEsDelJugadorComoUnidadMovible(){
+        Jugador jugador = new Jugador();
+        Posicion posicionAldeano = new Posicion(1,5);
+        Aldeano aldeano = new Aldeano();
+        aldeano.setPosicion(posicionAldeano);
+
+        jugador.devolverUnidadMovible(posicionAldeano);
+    }
+
+    @Test
+    public void devolverArqueroComoUnidadMovibleCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        Arquero arquero = new Arquero();
+        arquero.setPosicion(posicion);
+
+        jugador.agregarAEjercito(arquero);
+        IUnidadMovible arqueroAgregado = jugador.devolverUnidadMovible(posicion);
+
+        Assert.assertEquals(arqueroAgregado, arquero);
+    }
+
+    @Test (expected = UnidadMovibleNoExisteException.class)
+    public void devolverArqueroQueNoEsDelJugadorComoUnidadMovible(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        Arquero arquero = new Arquero();
+        arquero.setPosicion(posicion);
+
+        jugador.devolverUnidadMovible(posicion);
+    }
+
+    @Test
+    public void devolverArmaDeAsedioComoUnidadMovibleCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        armaDeAsedio.setPosicion(posicion);
+
+        jugador.agregarAEjercito(armaDeAsedio);
+        IUnidadMovible armaAgregada = jugador.devolverUnidadMovible(posicion);
+
+        Assert.assertEquals(armaDeAsedio, armaAgregada);
+    }
+
+    @Test (expected = UnidadMovibleNoExisteException.class)
+    public void devolverArmaDeAsedioQueNoEsDelJugadorComoUnidadMovible(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        armaDeAsedio.setPosicion(posicion);
+
+        IUnidadMovible armaAgregada = jugador.devolverUnidadMovible(posicion);
+    }
+
+    @Test
+    public void devolverEspadachinComoUnidadMovibleCorrectamente(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        Espadachin espadachin = new Espadachin();
+        espadachin.setPosicion(posicion);
+
+        jugador.agregarAEjercito(espadachin);
+        IUnidadMovible espadachinAgregado = jugador.devolverUnidadMovible(posicion);
+
+        Assert.assertEquals(espadachin, espadachinAgregado);
+    }
+
+    @Test (expected = UnidadMovibleNoExisteException.class)
+    public void devolverEspadachinQueNoEsDelJugadorComoUnidadMovible(){
+        Jugador jugador = new Jugador();
+        Posicion posicion = new Posicion(2,5);
+        Espadachin espadachin = new Espadachin();
+        espadachin.setPosicion(posicion);
+
+        IUnidadMovible espadachinAgregado = jugador.devolverUnidadMovible(posicion);
+    }
+
+    //Edificios
 
     @Test
     public void devolverPlazaCentralEnPosicionCorrectamente(){
@@ -393,6 +527,23 @@ public class JugadorTest {
 
         PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion3);
         Assert.assertEquals(1, jugador.getEdificios().size() );
+    }
+
+    @Test (expected = EdificioNoExisteException.class)
+    public void devolverPlazaCentralQueNoEsDelJugadorEnPosicion(){
+        Jugador jugador = new Jugador();
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        Posicion posicion1 = new Posicion(2,3);
+        Posicion posicion2 = new Posicion(2,4);
+        Posicion posicion3 = new Posicion(3,3);
+        Posicion posicion4 = new Posicion(3,4);
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plazaCentral = new PlazaCentral(posiciones);
+
+        PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
     }
 
 
@@ -543,15 +694,21 @@ public class JugadorTest {
     }
 
 
-    @Test (expected = AtacanteNoExisteException.class)
+    @Test (expected = EdificioNoExisteException.class)
     public void removerUnaPlazaCentralQueNoEsDelJugador(){
         Jugador jugador = new Jugador();
-        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
 
-        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
-
-        Assert.assertEquals(0, jugador.getEjercito().size() );
-        Assert.assertEquals(armaDeAsedio, armaDeAsedioARemover);
+        PlazaCentral plazaCentral1 = (PlazaCentral) jugador.removerEdificio(posicion1PlazaCentral);
     }
 
     @Test
@@ -574,6 +731,24 @@ public class JugadorTest {
 
         Assert.assertEquals(1, jugador.getEdificios().size() );
         Assert.assertEquals(cuartel1, cuartel);
+    }
+
+    @Test (expected = EdificioNoExisteException.class)
+    public void removerUnCuartelQueNoEsDelJugador(){
+        Jugador jugador = new Jugador();
+
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+
+        Cuartel cuartel1 = (Cuartel) jugador.removerEdificio(posicion1Cuartel);
     }
 
     //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
@@ -652,7 +827,7 @@ public class JugadorTest {
     //No hay que probar posiciones aldeanias dado que eso es verificado por el mapa
     // al darme la posicion de origen y destino.
 
-    
+
 
 
 }

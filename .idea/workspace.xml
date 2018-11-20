@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/JugadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/JugadorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,24 +27,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="12" />
-          <entry key="java" value="228" />
+          <entry key="java" value="229" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="12" />
-          <entry key="JAVA" value="228" />
+          <entry key="JAVA" value="229" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="47" />
-          <entry key="java" value="26062" />
+          <entry key="java" value="27053" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="26062" />
+          <entry key="JAVA" value="27053" />
           <entry key="PLAIN_TEXT" value="47" />
         </counts>
       </usages-collector>
@@ -85,8 +86,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="652" column="7" selection-start-line="652" selection-start-column="7" selection-end-line="652" selection-end-column="7" />
+            <state relative-caret-position="231">
+              <caret line="324" column="59" selection-start-line="324" selection-start-column="59" selection-end-line="324" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="342" selection-start-line="342" selection-end-line="342" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="70" />
+              <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,11 +186,11 @@
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionTest.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Unidades/IAtacante.java" />
-        <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/Edificio.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Exceptions/UnidadMovibleNoExisteException.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
+        <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" />
         <option value="$PROJECT_DIR$/test/JugadorTest.java" />
       </list>
     </option>
@@ -254,69 +267,69 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in AlgoOfEmpires">
-    <configuration name="All in AlgoOfEmpires" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.JugadorTest.devolverPlazaCentralQueNoEsDelJugadorEnPosicion">
+    <configuration name="JugadorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="Entrega2" />
+      <option name="MAIN_CLASS_NAME" value="Entrega2.JugadorTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="moverAldeanoAgregadoCorrectamente" />
+      <option name="METHOD_NAME" value="devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.devolverArqueroQueNoEsDelJugadorComoUnidadMovible" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="moverAldeanoInicialAUnaPosicionNoAledania" />
+      <option name="METHOD_NAME" value="devolverArqueroQueNoEsDelJugadorComoUnidadMovible" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.moverAldeanoInicialCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.devolverEspadachinQueNoEsDelJugadorComoUnidadMovible" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="moverAldeanoInicialCorrectamente" />
+      <option name="METHOD_NAME" value="devolverEspadachinQueNoEsDelJugadorComoUnidadMovible" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JugadorTest.moverEspadachinAgregadoCorrectamente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JugadorTest.devolverPlazaCentralQueNoEsDelJugadorEnPosicion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AlgoOfEmpires" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="JugadorTest" />
-      <option name="METHOD_NAME" value="moverEspadachinAgregadoCorrectamente" />
+      <option name="METHOD_NAME" value="devolverPlazaCentralQueNoEsDelJugadorEnPosicion" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in AlgoOfEmpires" />
-      <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialCorrectamente" />
-      <item itemvalue="JUnit.JugadorTest.moverAldeanoAgregadoCorrectamente" />
-      <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" />
-      <item itemvalue="JUnit.JugadorTest.moverEspadachinAgregadoCorrectamente" />
+      <item itemvalue="JUnit.JugadorTest.devolverEspadachinQueNoEsDelJugadorComoUnidadMovible" />
+      <item itemvalue="JUnit.JugadorTest.devolverArqueroQueNoEsDelJugadorComoUnidadMovible" />
+      <item itemvalue="JUnit.JugadorTest" />
+      <item itemvalue="JUnit.JugadorTest.devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion" />
+      <item itemvalue="JUnit.JugadorTest.devolverPlazaCentralQueNoEsDelJugadorEnPosicion" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in AlgoOfEmpires" />
-        <item itemvalue="JUnit.JugadorTest.moverEspadachinAgregadoCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" />
-        <item itemvalue="JUnit.JugadorTest.moverAldeanoAgregadoCorrectamente" />
-        <item itemvalue="JUnit.JugadorTest.moverAldeanoInicialCorrectamente" />
+        <item itemvalue="JUnit.JugadorTest.devolverPlazaCentralQueNoEsDelJugadorEnPosicion" />
+        <item itemvalue="JUnit.JugadorTest" />
+        <item itemvalue="JUnit.JugadorTest.devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion" />
+        <item itemvalue="JUnit.JugadorTest.devolverArqueroQueNoEsDelJugadorComoUnidadMovible" />
+        <item itemvalue="JUnit.JugadorTest.devolverEspadachinQueNoEsDelJugadorComoUnidadMovible" />
       </list>
     </recent_temporary>
   </component>
@@ -342,35 +355,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JugadorTest_devolverUnidadMovibleCorrectamente - 2018.11.20 at 10h 25m 18s.xml">
-      <configuration name="JugadorTest.devolverUnidadMovibleCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_removerUnCuartelQueNoEsDelJugador - 2018.11.20 at 10h 55m 27s.xml">
+      <configuration name="JugadorTest.removerUnCuartelQueNoEsDelJugador" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 26m 17s.xml">
-      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverArqueroComoUnidadMovibleCorrectamente - 2018.11.20 at 10h 59m 03s.xml">
+      <configuration name="JugadorTest.devolverArqueroComoUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 26m 51s.xml">
-      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverArqueroComoUnidadMovibleCorrectamente - 2018.11.20 at 10h 59m 38s.xml">
+      <configuration name="JugadorTest.devolverArqueroComoUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_devolverAldeanoInicialCorrectamente - 2018.11.20 at 10h 27m 00s.xml">
-      <configuration name="JugadorTest.devolverAldeanoInicialCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoAgregadoComoUnidadMovibleCorrectamente - 2018.11.20 at 11h 00m 32s.xml">
+      <configuration name="JugadorTest.devolverAldeanoAgregadoComoUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_moverAldeanoInicialCorrectamente - 2018.11.20 at 10h 27m 09s.xml">
-      <configuration name="JugadorTest.moverAldeanoInicialCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoAgregadoComoUnidadMovibleCorrectamente - 2018.11.20 at 11h 00m 51s.xml">
+      <configuration name="JugadorTest.devolverAldeanoAgregadoComoUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_AlgoOfEmpires - 2018.11.20 at 10h 28m 29s.xml">
-      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverAldeanoAgregadoComoUnidadMovibleCorrectamente - 2018.11.20 at 11h 01m 07s.xml">
+      <configuration name="JugadorTest.devolverAldeanoAgregadoComoUnidadMovibleCorrectamente" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_moverAldeanoAgregadoCorrectamente - 2018.11.20 at 10h 39m 53s.xml">
-      <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverEspadachinQueNoEsDelJugadorComoUnidadMovible - 2018.11.20 at 11h 04m 34s.xml">
+      <configuration name="JugadorTest.devolverEspadachinQueNoEsDelJugadorComoUnidadMovible" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_moverAldeanoAgregadoCorrectamente - 2018.11.20 at 10h 40m 23s.xml">
-      <configuration name="JugadorTest.moverAldeanoAgregadoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverArqueroQueNoEsDelJugadorComoUnidadMovible - 2018.11.20 at 11h 06m 22s.xml">
+      <configuration name="JugadorTest.devolverArqueroQueNoEsDelJugadorComoUnidadMovible" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_moverAldeanoInicialAUnaPosicionNoAledania - 2018.11.20 at 10h 41m 19s.xml">
-      <configuration name="JugadorTest.moverAldeanoInicialAUnaPosicionNoAledania" configurationId="JUnit" />
+    <history-entry file="JugadorTest - 2018.11.20 at 11h 07m 07s.xml">
+      <configuration name="JugadorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JugadorTest_moverEspadachinAgregadoCorrectamente - 2018.11.20 at 10h 42m 44s.xml">
-      <configuration name="JugadorTest.moverEspadachinAgregadoCorrectamente" configurationId="JUnit" />
+    <history-entry file="JugadorTest_devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion - 2018.11.20 at 11h 08m 22s.xml">
+      <configuration name="JugadorTest.devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -740,30 +753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="336" column="5" selection-start-line="336" selection-start-column="5" selection-end-line="336" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
           <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -777,6 +770,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="113" column="49" selection-start-line="113" selection-start-column="49" selection-end-line="113" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
@@ -784,10 +787,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="342" selection-start-line="342" selection-end-line="342" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/JugadorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="652" column="7" selection-start-line="652" selection-start-column="7" selection-end-line="652" selection-end-column="7" />
+        <state relative-caret-position="231">
+          <caret line="324" column="59" selection-start-line="324" selection-start-column="59" selection-end-line="324" selection-end-column="59" />
         </state>
       </provider>
     </entry>

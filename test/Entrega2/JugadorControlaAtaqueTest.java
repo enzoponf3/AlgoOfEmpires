@@ -336,4 +336,12 @@ public class JugadorControlaAtaqueTest {
         jugador.atacar(posicionArmaDeAsedio, edificioEnemigo);
     }
 
+    //Recibir ataque
+
+    @Test
+    public void aldeanoRecibeAtaqueDeEspadachin(){
+
+    }
+
+
 }

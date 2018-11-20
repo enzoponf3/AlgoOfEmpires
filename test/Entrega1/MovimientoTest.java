@@ -580,7 +580,7 @@ public class MovimientoTest {
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
-        Posicion destino = new Posicion(1, 2);
+        Posicion destino = new Posicion(1, 3);
         armaAsedio.mover(destino);
     }
 

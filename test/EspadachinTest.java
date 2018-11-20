@@ -161,15 +161,6 @@ public class EspadachinTest {
         espadachin.mover(destino1);
         espadachin.mover(destino2);
     }
-    @Test (expected = DestinoNoEsAledanioException.class)
-    public void moverEspadachinPosicionNoAdyacenteFalla(){
-        Espadachin espadachin = new Espadachin();
-        Posicion posicion = new Posicion(1,1);
-        espadachin.setPosicion(posicion);
-        Posicion posicion2 = new Posicion(1,4);
-        espadachin.mover(posicion2);
-    }
-
     //pruebas atacar
     @Test
     public void espadachinAtacarAldeanoEnRangoYBajaVida(){
@@ -280,7 +271,7 @@ public class EspadachinTest {
         cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         espadachin.mover(destino);
     }
 
@@ -359,7 +350,7 @@ public class EspadachinTest {
         plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         espadachin.atacar(plaza);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         espadachin.mover(destino);
     }
 

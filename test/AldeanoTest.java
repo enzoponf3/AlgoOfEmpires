@@ -157,7 +157,7 @@ public class AldeanoTest {
     }
 
     @Test (expected = UnidadEstaOcupadoException.class)
-    public void moverAldeanoDosVecesConsecutivasFalla(){
+    public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
         Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,1);
         aldeano.setPosicion(posicion);
@@ -168,6 +168,7 @@ public class AldeanoTest {
         aldeano.mover(destino1);
         aldeano.mover(destino2);
     }
+
     @Test
     public void moverAldeanoContinuaGenerandoOro(){
         Aldeano aldeano = new Aldeano();
@@ -179,14 +180,6 @@ public class AldeanoTest {
         Assert.assertEquals(20, aldeano.generaOro());
     }
 
-    @Test (expected = DestinoNoEsAledanioException.class)
-    public void moverAldeanoPosicionNoAdyacenteFalla(){
-        Aldeano aldeano = new Aldeano();
-        Posicion posicion = new Posicion(1,1);
-        aldeano.setPosicion(posicion);
-        Posicion posicion2 = new Posicion(1,4);
-        aldeano.mover(posicion2);
-    }
     //Pruebas construccion
 
     @Test
@@ -496,7 +489,7 @@ public class AldeanoTest {
         cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(60);
         aldeano.repararEdificio(cuartel);
-        Posicion destino = new Posicion(2,7);
+        Posicion destino = new Posicion(2,3);
         aldeano.mover(destino);
     }
 

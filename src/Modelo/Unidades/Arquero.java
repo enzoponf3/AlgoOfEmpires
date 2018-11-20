@@ -1,6 +1,5 @@
 package Modelo.Unidades;
 import Modelo.Edificios.Edificio;
-import Modelo.Exceptions.DestinoNoEsAledanioException;
 import Modelo.Posicion;
 
 public class Arquero extends Unidad implements IAtacante {
@@ -23,9 +22,6 @@ public class Arquero extends Unidad implements IAtacante {
 
     @Override
     public void mover(Posicion destino){
-        if(!this.posicion.aledaniaA(destino)){
-            throw new DestinoNoEsAledanioException();
-        }
         this.estado.mover(destino, this);
     }
 

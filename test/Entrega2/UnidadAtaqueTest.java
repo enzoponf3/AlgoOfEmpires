@@ -128,7 +128,7 @@ public class UnidadAtaqueTest {
         cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         espadachin.atacar(cuartel);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         espadachin.mover(destino);
     }
 
@@ -207,7 +207,7 @@ public class UnidadAtaqueTest {
         plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         espadachin.atacar(plaza);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         espadachin.mover(destino);
     }
 
@@ -497,7 +497,7 @@ public class UnidadAtaqueTest {
         cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         arquero.atacar(cuartel);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         arquero.mover(destino);
     }
 
@@ -576,7 +576,7 @@ public class UnidadAtaqueTest {
         plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         arquero.atacar(plaza);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         arquero.mover(destino);
     }
 
@@ -773,7 +773,7 @@ public class UnidadAtaqueTest {
         cuartel.volverAEstadoOriginal();
         Assert.assertEquals(250, cuartel.getVida());
         armaAsedio.atacar(cuartel);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         armaAsedio.mover(destino);
     }
 
@@ -935,7 +935,7 @@ public class UnidadAtaqueTest {
         plaza.volverAEstadoOriginal();
         Assert.assertEquals(450, plaza.getVida());
         armaAsedio.atacar(plaza);
-        Posicion destino = new Posicion(1,2);
+        Posicion destino = new Posicion(1,1);
         armaAsedio.mover(destino);
     }
 

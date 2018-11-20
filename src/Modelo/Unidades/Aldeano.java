@@ -1,7 +1,6 @@
 package Modelo.Unidades;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Exceptions.DestinoNoEsAledanioException;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
 import Modelo.Posicion;
@@ -46,8 +45,6 @@ public class Aldeano extends Unidad {
         this.estado = new EstadoAldeanoOcupado();
     }
 
-    public void movio() { this.estado = new EstadoAldeanoMovio();}
-
     public void desocupar() {
         this.estado = new EstadoAldeanoLibre();
     }
@@ -56,15 +53,13 @@ public class Aldeano extends Unidad {
         return this.estado.generaOro();
     }
 
+    public void movio(){this.estado = new EstadoAldeanoMovio();}
     @Override
-    public void mover(Posicion destino) {
-        if (!this.posicion.aledaniaA(destino)) {
-            throw new DestinoNoEsAledanioException();
-        }
+    public void mover(Posicion destino){
         this.estado.mover(destino, this);
-
     }
-        @Override
+
+    @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
     }

@@ -222,6 +222,20 @@ public class Jugador {
             throw new AtacanteNoExisteException();
     }
 
+    private void verificarUnidadEnemiga(Unidad unidad){
+        if( this.ejercito.contains(unidad) || this.aldeanos.contains(unidad) )
+            throw new UnidadPropiaException();
+    }
+
+    private void verificarEdificioPropio(Edificio edificio){
+        if( !this.edificios.contains(edificio) )
+            throw new EdificioNoExisteException();
+    }
+
+    private void verificarEdificioEnemigo(Edificio edificio){
+        if( this.edificios.contains(edificio) )
+            throw new EdificioPropioException();
+    }
 
 
 
@@ -241,10 +255,7 @@ public class Jugador {
     }
 
 
-    private void verificarEdificioPropio(Edificio edificio){
-        if( !this.edificios.contains(edificio) )
-            throw new EdificioNoExisteException();
-    }
+
 
     private void verificarLimitePoblacion(){
         if( llegoAlLimiteDePoblacion() )
@@ -254,6 +265,7 @@ public class Jugador {
 
 
     //Aca empiexo a cambiar a estados...
+
     public void activar(){
         this.estado = new EstadoJugadorActivo();
     }
@@ -303,11 +315,13 @@ public class Jugador {
 
     public void atacar(IAtacante atacante, Unidad unidadAAtacar){
         verificarAtacantePropio(atacante);
+        verificarUnidadEnemiga(unidadAAtacar);
         this.estado.atacar(atacante, unidadAAtacar);
     }
 
     public void atacar(IAtacante atacante, Edificio edificioAAtacar){
         verificarAtacantePropio(atacante);
+        verificarEdificioEnemigo(edificioAAtacar);
         this.estado.atacar(atacante, edificioAAtacar);
     }
 

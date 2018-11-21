@@ -20,6 +20,7 @@ public class EstadoArqueroLibre implements IEstadoArquero {
         unidad.reducirVida(arquero.getDanioUnidad());
         arquero.ocupar();
     }
+
     @Override
     public void atacar(Arquero arquero, Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();

@@ -22,9 +22,6 @@ public class Jugador1YJugador2ataqueTest {
 
     //Atacar al oponente: jugador1 ataca a jugador2
 
-    //PASAN PERO ESTAN MAL PORQUE HAY QUE CHEQUEAR QUE LO QUE ESTOY AtACANDO PERTENECE AL OTRO!!!!!
-
-    /*
     @Test
     public void arqueroPropioAtacaAldeanoEnemigoEnTurnoPropio(){
         Jugador jugador1 = new Jugador(5, 14);
@@ -90,6 +87,6 @@ public class Jugador1YJugador2ataqueTest {
 
         Assert.assertEquals(85, espadachinEnemigo.getVida() );
     }
-    */
+
 
 }

@@ -282,4 +282,12 @@ public class Jugador {
         agregarAEjercito(espadachin);
     }
 
+    public void crearArmaDeAsedio(){
+        verificarLimitePoblacion();
+        ArmaDeAsedio armaDeAsedio = this.castillo.crearArmaDeAsedio();
+        agregarAEjercito(armaDeAsedio);
+    } //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
+      //en otro lado o como hacemos?
+    //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
+
 }

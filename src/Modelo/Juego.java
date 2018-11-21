@@ -7,13 +7,21 @@ import java.util.Random;
 
 public class Juego {
 
+    private static final int SEED_CASTILLO_J1 = 5;
+    private static final int SEED_PLAZA_CENTRAL_J1 = 14;
+    private static final int SEED_CASTILLO_J2 = 41;
+    private static final int SEED_PLAZA_CENTRAL_J2 = 35;
+    //Esto es para que cada jugador, al inicializarse pueda generar las posiciones de inicio
+    //de su castillo y su plaza central.
+    //Elegi las constantes para que queden en extremos opuestos.
+
     private Jugador jugador1;
     private Jugador jugador2;
 
     public void inicializar() {
 
-        jugador1 = new Jugador( 5,14);
-        jugador2 = new Jugador( 41, 35);
+        jugador1 = new Jugador( SEED_CASTILLO_J1, SEED_PLAZA_CENTRAL_J1 );
+        jugador2 = new Jugador( SEED_CASTILLO_J2, SEED_PLAZA_CENTRAL_J2 );
         int turnoInicial = new Random().nextInt(2);
         if (turnoInicial == 0) {
 //            jugador1.turnoActivo();
@@ -25,61 +33,6 @@ public class Juego {
         }
     }
 
-    //Inicializacion jugador1
-
-    public ArrayList<Posicion> obtenerPosicionesInicialesCastilloJugador1(){
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=5; i<9; i++ ){
-            for(int j=5; j<9; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
-        return posiciones;
-    }
-
-    public ArrayList<Posicion> obtenerPosicionesInicialesPlazaCentralJugador1(){
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=14; i<16; i++ ){
-            for(int j=5; j<7; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
-        return posiciones;
-    }
-
-    //Inicializacion jugador 2
-
-    public ArrayList<Posicion> obtenerPosicionesInicialesCastilloJugador2(){
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=41; i<45; i++ ){
-            for(int j=41; j<45; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
-        return posiciones;
-    }
-
-    public ArrayList<Posicion> obtenerPosicionesInicialesPlazaCentralJugador2(){
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=35; i<37; i++ ){
-            for(int j=43; j<45; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
-        return posiciones;
-    }
 
     public void cambiarDeTurno() {
 //        jugador1.cambiarTurno();

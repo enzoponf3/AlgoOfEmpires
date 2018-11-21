@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/Entrega2/JuegoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/Castillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/Castillo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Edificios/Edificio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificios/Edificio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Posicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Posicion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidades/Unidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Entrega2/JugadorCreaUnidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorCreaUnidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Entrega2/JugadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Entrega2/JugadorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PosicionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PosicionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Entrega2/JuegoTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,36 +16,37 @@
     <session id="-1118664763">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.11" value="12" />
           <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="12" />
-          <entry key="java" value="267" />
+          <entry key="java" value="271" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="12" />
-          <entry key="JAVA" value="267" />
+          <entry key="JAVA" value="271" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="47" />
-          <entry key="java" value="31463" />
+          <entry key="java" value="31808" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="31463" />
+          <entry key="JAVA" value="31808" />
           <entry key="PLAIN_TEXT" value="47" />
         </counts>
       </usages-collector>
@@ -94,11 +85,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-390">
+            <state relative-caret-position="-930">
               <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/IEstadoJugador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorInactivo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorActivo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -106,17 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
+            <state relative-caret-position="-45">
+              <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -124,20 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/Entrega2/JuegoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -145,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="1470">
+              <caret line="113" selection-start-line="113" selection-end-line="113" />
             </state>
           </provider>
         </entry>
@@ -213,11 +210,11 @@
         <option value="$PROJECT_DIR$/src/Modelo/Posicion.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JuegoTest.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Juego.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorCreaUnidades.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaAtaqueTest.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorTest.java" />
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Juego.java" />
       </list>
     </option>
   </component>
@@ -232,6 +229,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -256,17 +254,10 @@
               <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="Entrega2" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -379,18 +370,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 10m 33s.xml">
-      <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 10m 54s.xml">
-      <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_obtenerPosicionesInicialesCastilloJugador1Correctamente - 2018.11.20 at 23h 14m 29s.xml">
-      <configuration name="JugadorTest.obtenerPosicionesInicialesCastilloJugador1Correctamente" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="JugadorTest_obtenerPosicionesInicialesPlazaCentralCorrectamente - 2018.11.20 at 23h 14m 34s.xml">
-      <configuration name="JugadorTest.obtenerPosicionesInicialesPlazaCentralCorrectamente" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JugadorTest_obtenerPosicionesInicialesPlazaCentralCorrectamente - 2018.11.20 at 23h 14m 53s.xml">
       <configuration name="JugadorTest.obtenerPosicionesInicialesPlazaCentralCorrectamente" configurationId="JUnit" />
     </history-entry>
@@ -409,12 +388,24 @@
     <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 17m 09s.xml">
       <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 18m 40s.xml">
+      <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 19m 19s.xml">
+      <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JugadorControlaConstruccionYReparacionTest_aldeanoReparaCastilloCorrectamente - 2018.11.20 at 23h 19m 44s.xml">
+      <configuration name="JugadorControlaConstruccionYReparacionTest.aldeanoReparaCastilloCorrectamente" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_AlgoOfEmpires - 2018.11.20 at 23h 20m 02s.xml">
+      <configuration name="All in AlgoOfEmpires" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25250193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -424,7 +415,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861635" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2955975" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2955975" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3034591" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -642,27 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorInactivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/IEstadoJugador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1725">
-          <caret line="545" column="90" selection-start-line="545" selection-start-column="90" selection-end-line="545" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/PlazaCentral.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -680,24 +650,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorActivo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
         </state>
       </provider>
     </entry>
@@ -726,10 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -771,16 +723,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
+    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        <state relative-caret-position="366">
+          <caret line="297" column="4" selection-start-line="297" selection-start-column="4" selection-end-line="297" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/Entrega2/JuegoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
+        <state relative-caret-position="1125">
           <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -788,24 +747,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        <state relative-caret-position="300">
+          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+        <state relative-caret-position="-45">
+          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/Entrega2/JugadorControlaConstruccionYReparacionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorInactivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="284" column="30" selection-start-line="284" selection-start-column="30" selection-end-line="284" selection-end-column="30" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoJugadorActivo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/IEstadoJugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
         </state>
       </provider>
     </entry>

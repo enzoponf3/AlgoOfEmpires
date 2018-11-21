@@ -173,44 +173,7 @@ public class Jugador {
         throw new EdificioNoExisteException();
     }
 
-
-    public void construirPlazaCentral(Posicion posicionAldeano, ArrayList<Posicion> posiciones){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-        edificios.add( aldeano.construirPlazaCentral(posiciones) );
-    }
-
-    public void continuarConstruccionPlazaCentral(Posicion posicionAldeano, Posicion posicionPlazaCentral){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-        PlazaCentral plazaCentral = (PlazaCentral) devolverEdificioEnPosicion(posicionPlazaCentral);
-
-        aldeano.continuarConstruccionPlazaCentral(plazaCentral);
-    }
-
-    public void construirCuartel(Posicion posicionAldeano, ArrayList<Posicion> posiciones){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-        edificios.add( aldeano.construirCuartel(posiciones) );
-    }
-
-    public void continuarConstruccionCuartel(Posicion posicionAldeano, Posicion posicionCuartel){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-        Cuartel cuartel = (Cuartel) devolverEdificioEnPosicion(posicionCuartel);
-
-        aldeano.continuarConstruccionCuartel(cuartel);
-    }
-
-    public void reparar(Posicion posicionAldeano, Posicion posicionEdificio){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-        Edificio edificio = devolverEdificioEnPosicion(posicionEdificio);
-
-        aldeano.repararEdificio(edificio);
-    }
-
-    public void reparar(Posicion posicionAldeano){
-        Aldeano aldeano = devolverAldeanoEnPosicion(posicionAldeano);
-
-        aldeano.repararEdificio( this.castillo );
-    }
-
+    
     public void recolectarOro(){
         for( Aldeano aldeano : this.aldeanos ){
             cantidadOro += aldeano.generaOro();
@@ -323,6 +286,26 @@ public class Jugador {
         verificarAtacantePropio(atacante);
         verificarEdificioEnemigo(edificioAAtacar);
         this.estado.atacar(atacante, edificioAAtacar);
+    }
+
+    public void construirPlazaCentral(Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
+        edificios.add( this.estado.construirPlazaCentral(aldeano, posicionesPlazaCentral) );
+    }
+
+    public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaEnConstruccion){
+        this.estado.continuarConstruccionPlazaCentral(aldeano, plazaEnConstruccion);
+    }
+
+    public void construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        edificios.add( this.estado.construirCuartel(aldeano, posicionesCuartel) );
+    }
+
+    public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartelEnConstruccion){
+        this.estado.continuarConstruccionCuartel(aldeano, cuartelEnConstruccion);
+    }
+
+    public void reparar(Aldeano aldeano, Edificio edificio){
+        this.estado.reparar(aldeano, edificio);
     }
 
 }

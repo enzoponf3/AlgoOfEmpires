@@ -2,6 +2,7 @@ package Entrega2;
 
 import Modelo.Exceptions.EdificioPropioException;
 import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Exceptions.UnidadDesarmadaException;
 import Modelo.Exceptions.UnidadPropiaException;
 import Modelo.Jugador;
 import Modelo.Posicion;
@@ -531,5 +532,113 @@ public class Jugador1YJugador2ataqueTest {
     }
 
 
+    //Arma de asedio propia ataca
+
+    //Ataca un edificio
+
+    @Test
+    public void armaDeAsedioMontadaPropiaAtacaEdificioEnemigoEnTurnoPropio(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicionArmaDeAsedio = new Posicion(38,38);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
+        jugador1.agregarAEjercito(armaDeAsedio);
+
+        Castillo castilloEnemigo = jugador2.getCastillo();
+
+        jugador1.montarArmaDeAsedio(armaDeAsedio);
+        armaDeAsedio.desocupar();
+        jugador1.atacar(armaDeAsedio, castilloEnemigo);
+
+        Assert.assertEquals(925, castilloEnemigo.getVida() );
+    }
+
+    @Test (expected = UnidadDesarmadaException.class)
+    public void armaDeAsedioDesmontadaPropiaAtacaEdificioEnemigoEnTurnoPropio(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicionArmaDeAsedio = new Posicion(38,38);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
+        jugador1.agregarAEjercito(armaDeAsedio);
+
+        Castillo castilloEnemigo = jugador2.getCastillo();
+
+        jugador1.atacar(armaDeAsedio, castilloEnemigo);
+    }
+
+    @Test (expected = EdificioPropioException.class)
+    public void armaDeAsedioMontadaPropiaAtacaEdificioPropioEnTurnoPropio(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicionArmaDeAsedio = new Posicion(2,2);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
+        jugador1.agregarAEjercito(armaDeAsedio);
+
+        Castillo castillo = jugador1.getCastillo();
+
+        jugador1.atacar(armaDeAsedio, castillo);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void armaDeAsedioMontadaPropiaAtacaEdificioEnemigoEnTurnoDelOponente(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.inactivar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.activar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicionArmaDeAsedio = new Posicion(38,38);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
+        jugador1.agregarAEjercito(armaDeAsedio);
+
+        Castillo castilloEnemigo = jugador2.getCastillo();
+
+        jugador1.montarArmaDeAsedio(armaDeAsedio);
+        armaDeAsedio.desocupar();
+        jugador1.atacar(armaDeAsedio, castilloEnemigo);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void armaDeAsedioMontadaPropiaAtacaEdificioPropioEnTurnoDelOponente(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.inactivar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.activar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicionArmaDeAsedio = new Posicion(2, 2);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
+        jugador1.agregarAEjercito(armaDeAsedio);
+
+        Castillo castilloEnemigo = jugador1.getCastillo();
+
+        jugador1.montarArmaDeAsedio(armaDeAsedio);
+        armaDeAsedio.desocupar();
+        jugador1.atacar(armaDeAsedio, castilloEnemigo);
+    }
+
+    //Castillo ataca
 
 }

@@ -5,6 +5,8 @@ import Modelo.Unidades.*;
 import Modelo.Unidades.IUnidadMovible;
 import Modelo.Edificios.*;
 
+import java.util.ArrayList;
+
 public class EstadoJugadorInactivo implements IEstadoJugador {
 
 
@@ -53,5 +55,29 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
         throw new TurnoDelOponenteException();
     }
 
+    @Override
+    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void reparar(Aldeano aldeano, Edificio edificio){
+        throw new TurnoDelOponenteException();
+    }
 
 }

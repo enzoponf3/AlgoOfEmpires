@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class JugadorCreaUnidades {
+public class JugadorCreaUnidadesTest {
 
 
     //Crear aldeanos. Solo durante el turno activo.
@@ -61,7 +61,7 @@ public class JugadorCreaUnidades {
         jugador.agregarEdificio(plazaCentral);
         jugador.crearAldeano(plazaCentral);
 
-        Assert.assertEquals(4, jugador.getAldeanos().size() );
+        Assert.assertEquals(3, jugador.getAldeanos().size() );
 
     }
 

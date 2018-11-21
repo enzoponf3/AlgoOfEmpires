@@ -5,6 +5,8 @@ import Modelo.Unidades.*;
 import Modelo.Unidades.IAtacante;
 import Modelo.Unidades.IUnidadMovible;
 
+import java.util.ArrayList;
+
 public interface IEstadoJugador {
 
     void mover( IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador );
@@ -25,5 +27,13 @@ public interface IEstadoJugador {
 
     void atacar(IAtacante atacante, Edificio edificioAAtacar);
 
+    Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 
+    void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel);
+
+    PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral);
+
+    void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral);
+
+    void reparar(Aldeano aldeano, Edificio edificio);
 }

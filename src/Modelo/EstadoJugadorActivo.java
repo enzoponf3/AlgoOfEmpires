@@ -3,6 +3,8 @@ package Modelo;
 import Modelo.Edificios.*;
 import Modelo.Unidades.*;
 
+import java.util.ArrayList;
+
 public class EstadoJugadorActivo implements IEstadoJugador {
 
     //MOVER
@@ -62,6 +64,32 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public void atacar(IAtacante atacante, Edificio edificioAAtacar){
         atacante.atacar(edificioAAtacar);
+    }
+
+    //CONSTRUIR
+    @Override
+    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        return aldeano.construirCuartel(posicionesCuartel);
+    }
+
+    @Override
+    public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel){
+        aldeano.continuarConstruccionCuartel(cuartel);
+    }
+
+    @Override
+    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+        return aldeano.construirPlazaCentral(posicionesPlazaCentral);
+    }
+
+    @Override
+    public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral){
+        aldeano.continuarConstruccionPlazaCentral(plazaCentral);
+    }
+
+    @Override
+    public void reparar(Aldeano aldeano, Edificio edificio){
+        aldeano.repararEdificio(edificio);
     }
 
 }

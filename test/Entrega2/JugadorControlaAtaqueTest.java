@@ -634,48 +634,5 @@ public class JugadorControlaAtaqueTest {
         jugador.atacar(armaDeAsedio, edificioEnemigo);
     }
 
-    //Recibir ataque
-
-    @Test
-    public void aldeanoPropioRecibeAtaqueDeArqueroEnemigoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
-        jugador.inactivar();
-
-        Arquero arqueroEnemigo = new Arquero();
-        Posicion posicionArquero = new Posicion(3,2);
-        arqueroEnemigo.setPosicion(posicionArquero);
-
-        Aldeano aldeano = new Aldeano();
-        Posicion posicionAldeano = new Posicion(3,3);
-        aldeano.setPosicion(posicionAldeano);
-
-        jugador.agregarAldeano(aldeano);
-        arqueroEnemigo.atacar(aldeano);
-
-        Assert.assertEquals(35 , aldeano.getVida() );
-
-    }
-
-    @Test
-    public void aldeanoPropioRecibeAtaqueDeEspadachinEnemigoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
-        jugador.inactivar();
-
-        Espadachin espadachinEnemigo = new Espadachin();
-        Posicion posicionEspadachin = new Posicion(3,2);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
-
-        Aldeano aldeano = new Aldeano();
-        Posicion posicionAldeano = new Posicion(3,3);
-        aldeano.setPosicion(posicionAldeano);
-
-        jugador.agregarAldeano(aldeano);
-        espadachinEnemigo.atacar(aldeano);
-
-        Assert.assertEquals(25 , aldeano.getVida() );
-
-    }
-    //No se si estas pruebas tienen mucho sentido, tendria que ser directamente la de integracion con el otro jugador
-
 
 }

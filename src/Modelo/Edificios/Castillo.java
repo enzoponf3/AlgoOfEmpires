@@ -18,12 +18,24 @@ public class Castillo extends Edificio {
     private int danio;
     private IEstadoCastillo estado;
 
+    public Castillo(ArrayList<Posicion> posiciones) {
+        this.vidaMax = VIDA;
+        this.vida = VIDA;
+        this.velocidadReparacion = VELOCIDAD_REPARACION;
+        this.danio = DANIO;
+        this.estado = new EstadoCastilloConstruido();
+
+        this.posiciones = posiciones;
+    }
+
     public Castillo() {
         this.vidaMax = VIDA;
         this.vida = VIDA;
         this.velocidadReparacion = VELOCIDAD_REPARACION;
         this.danio = DANIO;
         this.estado = new EstadoCastilloConstruido();
+
+        this.posiciones = posiciones;
     }
 
     @Override

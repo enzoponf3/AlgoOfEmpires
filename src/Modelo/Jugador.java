@@ -19,16 +19,17 @@ public class Jugador {
     private IEstadoJugador estado;
 
 
-    public Jugador(){
-        this.castillo = new Castillo();
+    public Jugador( int seedCastillo, int seedPlazaCentral ){
+        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
         this.edificios = new ArrayList<>();
-        inicializarEdificios();
+        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
         this.aldeanos = new ArrayList<>();
         inicializarAldeanos();
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
         // El estado se inicializa en el juego.
     }
+
 
     public void setEstado(IEstadoJugador estado){
         this.estado = estado;
@@ -54,41 +55,40 @@ public class Jugador {
         return this.ejercito;
     }
 
-    private ArrayList<Posicion> posicionesPlazaCentralInicial(){
+    //Inicializacion jugador1
+
+    public ArrayList<Posicion> obtenerPosicionesInicialesCastillo( int seedCastillo ){
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(4,5);
-        Posicion posicion2 = new Posicion(4,6);
-        Posicion posicion3 = new Posicion(5,5);
-        Posicion posicion4 = new Posicion(5,6);
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
-        posiciones.add(posicion4);
+
+        for(int i=seedCastillo; i<seedCastillo+4; i++ ){
+            for(int j=seedCastillo; j<seedCastillo+4; j++){
+                Posicion posicion = new Posicion(i,j);
+                posiciones.add(posicion);
+            }
+        }
 
         return posiciones;
     }
 
-    private ArrayList<Posicion> posicionesCastilloInicial(){
+    public ArrayList<Posicion> obtenerPosicionesInicialesPlazaCentral(int seedPlaza, int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(1,4);
-        Posicion posicion2 = new Posicion(1,3);
-        Posicion posicion3 = new Posicion(2,4);
-        Posicion posicion4 = new Posicion(2,3);
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
-        posiciones.add(posicion4);
+
+        for(int i=seedPlaza; i<seedPlaza+2; i++ ){
+            for(int j=seedCastillo; j<seedCastillo+2; j++){
+                Posicion posicion = new Posicion(i,j);
+                posiciones.add(posicion);
+            }
+        }
 
         return posiciones;
     }
 
-    private void inicializarEdificios(){
-        PlazaCentral plazaCentral = new PlazaCentral( posicionesPlazaCentralInicial() );
+
+    private void inicializarEdificios(ArrayList<Posicion> posicionesPlaza ){
+        PlazaCentral plazaCentral = new PlazaCentral( posicionesPlaza);
         // Finalizo construccion automaticamente
         plazaCentral.finalizarConstruccion();
         edificios.add(plazaCentral);
-
-        this.castillo.setPosiciones( posicionesCastilloInicial() ); //Agrego el constructor despues
     }
 
     private void inicializarAldeanos(){

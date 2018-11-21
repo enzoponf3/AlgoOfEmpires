@@ -50,7 +50,7 @@ public abstract class Edificio implements IEntidad {
 
     public boolean contienePosicion(Posicion posicionBuscada){
         for( Posicion posicion : this.posiciones){
-            if( posicion.compararPosiciones(posicionBuscada) )
+            if( posicion.igualA(posicionBuscada) )
                 return true;
         }
         return false;

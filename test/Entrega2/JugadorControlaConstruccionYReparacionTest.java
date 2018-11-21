@@ -20,7 +20,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoConstruyeUnaPlazaCentralCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -40,7 +40,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoContinuaConstruccionDeUnaPlazaCentralCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -63,7 +63,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoConstruyeUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -84,7 +84,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoContinuaConstruccionDeUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -109,7 +109,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoNoPuedeConstruirSiNoFueDesocupado(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -130,7 +130,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoEnConstruccionNoGeneraOro(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -156,7 +156,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class )
     public void dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicionAldeano = new Posicion(2,2);
         Posicion posicionOtroAldeano = new Posicion(2,1);
         Aldeano otroAldeano = new Aldeano();
@@ -183,7 +183,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaPlazaCentralCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Espadachin espadachinEnemigo = new Espadachin();
         Posicion posicionEspadachin = new Posicion(5,1);
         espadachinEnemigo.setPosicion(posicionEspadachin);
@@ -228,7 +228,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaCuartelCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Espadachin espadachinEnemigo = new Espadachin();
         Posicion posicionEspadachin = new Posicion(5,1);
         espadachinEnemigo.setPosicion(posicionEspadachin);
@@ -274,12 +274,16 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaCastilloCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Espadachin espadachinEnemigo = new Espadachin();
-        Posicion posicionEspadachin = new Posicion(0,4);
+        Posicion posicionEspadachin = new Posicion(4,5);
+        Posicion posicion = new Posicion(5,4);
         espadachinEnemigo.setPosicion(posicionEspadachin);
 
         Posicion posicionAldeano = new Posicion(2,2);
+        Aldeano aldeano = (Aldeano) jugador.devolverUnidadMovible(posicionAldeano);
+        aldeano.mover(posicion);
+        aldeano.desocupar();
 
         Castillo castillo = jugador.getCastillo();
         Assert.assertEquals(1000, castillo.getVida() );
@@ -287,10 +291,11 @@ public class JugadorControlaConstruccionYReparacionTest {
         espadachinEnemigo.atacar(castillo);
         Assert.assertEquals(985, castillo.getVida() );
 
-        jugador.reparar(posicionAldeano);
+        jugador.reparar(posicion);
         Assert.assertEquals(1000, castillo.getVida() );
 
-    }
+    }//refactorizar
+    
 
 
 }

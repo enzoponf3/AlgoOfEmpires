@@ -18,7 +18,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void plazaCentralCreaUnAldeanoCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -40,7 +40,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = EdificioNoExisteException.class)
     public void plazaCentralQueNoEsDejJugadorNoPuedecrearAldeano(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -58,7 +58,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void plazaCentralCreaAldeanosHastaLlegarALimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -82,7 +82,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void plazaCentralNoPuedeCrearAldeanoSuperandoLimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -108,7 +108,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void cuartelCreaUnArqueroCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -131,7 +131,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = EdificioNoExisteException.class)
     public void cuartelQueNoEsDejJugadorNoPuedecrearArquero(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -150,7 +150,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void cuartelCreaArquerosHastaLlegarALimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -174,7 +174,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void cuartelNoPuedeCrearArqueroSuperandoLimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -196,7 +196,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void cuartelCreaUnEspadachinCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -219,7 +219,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = EdificioNoExisteException.class)
     public void cuartelQueNoEsDejJugadorNoPuedecrearEspadachin(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -238,7 +238,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void cuartelCreaEspadachinesHastaLlegarALimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -262,7 +262,7 @@ public class JugadorCreaUnidades {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void cuartelNoPuedeCrearEspadachinSuperandoLimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -286,7 +286,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void castilloCreaArmaDeAsedioCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         jugador.crearArmaDeAsedio();
 
@@ -295,7 +295,7 @@ public class JugadorCreaUnidades {
 
     @Test
     public void castilloCreaArmasDeAsedioHastaLlegarALimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         for(int i=0; i<47; i++) {
             jugador.crearArmaDeAsedio();
@@ -306,7 +306,7 @@ public class JugadorCreaUnidades {
 
     @Test( expected = LimiteDePoblacionException.class)
     public void castilloCreaArmasDeAsedioSuperandoLimiteDePoblacion(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
 
         for(int i=0; i<48; i++) {
             jugador.crearArmaDeAsedio();

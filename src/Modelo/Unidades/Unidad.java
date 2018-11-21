@@ -43,7 +43,7 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
     }
 
     public boolean enPosicion(Posicion posicion){
-        return this.posicion.compararPosiciones(posicion);
+        return this.posicion.igualA(posicion);
     }
 
 

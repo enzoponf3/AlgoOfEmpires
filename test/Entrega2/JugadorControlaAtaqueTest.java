@@ -21,7 +21,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
         arquero.setPosicion(posicionArquero);
@@ -37,7 +37,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoADosUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
         arquero.setPosicion(posicionArquero);
@@ -53,7 +53,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoATresUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
         arquero.setPosicion(posicionArquero);
@@ -69,7 +69,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistancia(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
         arquero.setPosicion(posicionArquero);
@@ -84,7 +84,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
         espadachin.setPosicion(posicionEspadachin);
@@ -101,7 +101,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistancia(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
         espadachin.setPosicion(posicionEspadachin);
@@ -117,7 +117,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(3,2);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -145,7 +145,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoADosUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -174,7 +174,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoATresUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(6,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -203,7 +203,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACuatroUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(7,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -232,7 +232,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACincoUnidadesDeDistanciaCorrectamente(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(8,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -261,7 +261,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAMasDeCincoUnidadesDeDistanciaNoPuedeAtacar(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(9,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -288,7 +288,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void ArmaDeAsedioDelJugadorDesarmadaNoPuedeAtacar(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);
@@ -311,7 +311,7 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void montarArmaDeAsediodesmontarArmaDeAsedioYVerificarQueNoPuedeAtacar(){
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
         armaDeAsedio.setPosicion(posicionArmaDeAsedio);

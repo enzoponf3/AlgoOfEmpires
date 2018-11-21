@@ -23,7 +23,7 @@ public class PosicionTest {
         Posicion unaPosicion = new Posicion(2,3);
         Posicion otraPosicion = new Posicion(2, 3);
 
-        Assert.assertTrue( unaPosicion.compararPosiciones(otraPosicion) );
+        Assert.assertTrue( unaPosicion.igualA(otraPosicion) );
     }
 
     @Test
@@ -31,7 +31,7 @@ public class PosicionTest {
         Posicion unaPosicion = new Posicion(2,3);
         Posicion otraPosicion = new Posicion(5, 6);
 
-        Assert.assertFalse( unaPosicion.compararPosiciones(otraPosicion) );
+        Assert.assertFalse( unaPosicion.igualA(otraPosicion) );
     }
 
     @Test
@@ -39,7 +39,7 @@ public class PosicionTest {
         Posicion unaPosicion = new Posicion(2,3);
         Posicion otraPosicion = new Posicion(2, 6);
 
-        Assert.assertFalse( unaPosicion.compararPosiciones(otraPosicion) );
+        Assert.assertFalse( unaPosicion.igualA(otraPosicion) );
     }
 
     @Test
@@ -47,7 +47,7 @@ public class PosicionTest {
         Posicion unaPosicion = new Posicion(2,3);
         Posicion otraPosicion = new Posicion(5, 3);
 
-        Assert.assertFalse( unaPosicion.compararPosiciones(otraPosicion) );
+        Assert.assertFalse( unaPosicion.igualA(otraPosicion) );
     }
 
     @Test

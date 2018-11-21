@@ -22,9 +22,6 @@ public class Posicion {
         return ( (this.horizontal >= 0 ) && (this.horizontal < limite1) && (this.vertical >= 0) && (this.vertical < limite2) );
     } // Decidir si parto de 0x0 o de 1x1. Y si hago el pasaje aca adentro.
 
-    public boolean compararPosiciones(Posicion unaposicion){
-        return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
-    }
 
     public boolean aledaniaA(Posicion destino){
         int abs_horizontal = Math.abs(this.horizontal - destino.horizontal);

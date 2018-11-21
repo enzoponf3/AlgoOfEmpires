@@ -14,28 +14,30 @@ public class AldeanoTest {
     //Pruebas base
     @Test
     public void crearAldeanoEnPosicionIndicada() {
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(5,7);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
     }
 
     @Test
     public void crearAldeanoYVerificarQueGeneraOro() {
-        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(5,7);
+        Aldeano aldeano = new Aldeano(posicion);
         Assert.assertEquals(20, aldeano.generaOro());
     }
 
     @Test
     public void crearAldeanoYVerificarVidaCorrespondiente() {
-        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(5,7);
+        Aldeano aldeano = new Aldeano(posicion);
         Assert.assertEquals(50, aldeano.getVida());
     }
 
     @Test
     public void crearAldeanoYVerificarCostoCorrespondiente() {
-        Aldeano aldeano = new Aldeano();
+        Posicion posicion = new Posicion(5,7);
+        Aldeano aldeano = new Aldeano(posicion);
         Assert.assertEquals(25, aldeano.getCosto());
     }
     
@@ -43,9 +45,8 @@ public class AldeanoTest {
     
     @Test
     public void moverAldeanoUnaUnidadArribaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(4,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -55,9 +56,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,5);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -67,9 +67,8 @@ public class AldeanoTest {
     
     @Test
     public void moverAldeanoUnaUnidadDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,5);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -80,9 +79,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(4,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -93,9 +91,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -106,9 +103,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -119,9 +115,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadArribaIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -132,9 +127,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoUnaUnidadaArribaDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -143,9 +137,8 @@ public class AldeanoTest {
     }
     @Test
     public void moverEnDosTurnosDistintos(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(1,1);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Assert.assertTrue(aldeano.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         aldeano.mover(destino1);
@@ -158,9 +151,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,1);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
@@ -171,9 +163,8 @@ public class AldeanoTest {
 
     @Test
     public void moverAldeanoContinuaGenerandoOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,1);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Assert.assertEquals(20, aldeano.generaOro());
         Posicion posicion2 = new Posicion(1,2);
         aldeano.mover(posicion2);
@@ -184,36 +175,34 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueExiste(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         Cuartel cuartel = aldeano.construirCuartel(posicions);
         Assert.assertNotNull(cuartel);
     }
 
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueTieneVidaCorrespondiente(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         Cuartel cuartel = aldeano.construirCuartel(posicions);
         aldeano.desocupar();
         aldeano.continuarConstruccionCuartel(cuartel);
@@ -229,36 +218,34 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueExiste(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
         Assert.assertNotNull(plaza);
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueTieneVidaCorrespondiente(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
@@ -274,18 +261,17 @@ public class AldeanoTest {
 
     @Test(expected = UnidadNoPuedeConstruirException.class)
     public void AldeanoConstruyeCuartelYSeVerificaQueAldeanoEstaOcupado(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         aldeano.construirCuartel(posicions);
         aldeano.construirPlazaCentral(posicions);
     }
@@ -293,38 +279,36 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoConstruyeCuartelYSeVerificaQueoNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Assert.assertEquals(20,aldeano.generaOro());
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         aldeano.construirCuartel(posicions);
         Assert.assertEquals(0,aldeano.generaOro());
     }
 
     @Test
     public void AldeanoConstruyePlazaCentralYSeVerificaQueNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Assert.assertEquals(20,aldeano.generaOro());
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         aldeano.construirPlazaCentral(posicions);
         Assert.assertEquals(0,aldeano.generaOro());
     }
@@ -332,54 +316,51 @@ public class AldeanoTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoConstruirPlazaCentralDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         aldeano.construirPlazaCentral(posicions);
         aldeano.construirPlazaCentral(posicions);
     }
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoConstruirCuartellDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         aldeano.construirCuartel(posicions);
         aldeano.construirCuartel(posicions);
     }
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoContinuarConstruccionPlazaCentralEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicions);
         aldeano.desocupar();
         aldeano.continuarConstruccionPlazaCentral(plaza);
@@ -388,18 +369,17 @@ public class AldeanoTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoContinuarConstruccionCuartelEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
+        Posicion posicionAlde = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicionAlde);
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
         Posicion posicion4 = new Posicion(2,3);
-        Posicion posicionAlde = new Posicion(1,1);
         ArrayList<Posicion> posicions =new ArrayList<>();
         posicions.add(posicion1);
         posicions.add(posicion2);
         posicions.add(posicion3);
         posicions.add(posicion4);
-        aldeano.setPosicion(posicionAlde);
         Cuartel cuartel = aldeano.construirCuartel(posicions);
         aldeano.continuarConstruccionCuartel(cuartel);
     }
@@ -408,9 +388,8 @@ public class AldeanoTest {
 
     @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaCuartelConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,3);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -436,9 +415,8 @@ public class AldeanoTest {
 
     @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaPlazaCentralConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -464,9 +442,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void AldeanoReparaCuartelYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -495,9 +472,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoReparaCuartelYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -527,9 +503,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoReparaCuartelNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(3,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -558,9 +533,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoReparaPlazaCentralNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(3,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -589,9 +563,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoFinalizaReparacionCuartelYGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(1,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -622,9 +595,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -656,9 +628,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void AldeanoReparaPlazaCentralYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano();
         Posicion inicial = new Posicion(3,3);
-        aldeano.setPosicion(inicial);
+        Aldeano aldeano = new Aldeano(inicial);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -688,9 +659,8 @@ public class AldeanoTest {
 
     @Test
     public void AldeanoReparaPlazaCentralYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -720,9 +690,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoRepararPlazaCentralDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,3);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -750,9 +719,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoRepararCuartellDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -780,9 +748,8 @@ public class AldeanoTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void aldeanoRepararCuartelFueraDeRango(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -809,9 +776,8 @@ public class AldeanoTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void aldeanoRepararPlazaCentralFueraDeRango(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -838,9 +804,8 @@ public class AldeanoTest {
 
     @Test
     public void aldeanoRepararCastilloExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(4,5);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
@@ -883,9 +848,8 @@ public class AldeanoTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoOcupadoRepararCastilloFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(4,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);

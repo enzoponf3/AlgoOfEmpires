@@ -17,9 +17,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadArribaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(4,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -29,9 +28,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,5);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -41,9 +39,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,5);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -54,9 +51,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(4,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -67,9 +63,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -80,9 +75,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadAbajoDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,4);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -93,9 +87,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadArribaIzquierdaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(3,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -106,9 +99,8 @@ public class MovimientoTest {
 
     @Test
     public void moverAldeanoUnaUnidadaArribaDerechaExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino = new Posicion(5,6);
 
         Assert.assertTrue(aldeano.estaEnPosicion(posicion));
@@ -117,9 +109,8 @@ public class MovimientoTest {
     }
     @Test
     public void moverEnDosTurnosDistintos(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(1,1);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Assert.assertTrue(aldeano.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         aldeano.mover(destino1);
@@ -132,9 +123,8 @@ public class MovimientoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverAldeanoDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,1);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
@@ -143,14 +133,24 @@ public class MovimientoTest {
         aldeano.mover(destino2);
     }
 
+    @Test
+    public void moverAldeanoContinuaGenerandoOro(){
+        Posicion posicion = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(posicion);
+        Assert.assertEquals(20, aldeano.generaOro());
+        Posicion posicion2 = new Posicion(1,2);
+        aldeano.mover(posicion2);
+        Assert.assertEquals(20, aldeano.generaOro());
+    }
+
+
     //Pruebas espadachin
 
 
     @Test
     public void moverEspadachinUnaUnidadArribaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(4,6);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -160,9 +160,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadIzquierdaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(3,5);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -174,9 +173,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadDerechaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(5,5);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -187,9 +185,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadAbajoExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(4,4);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -200,9 +197,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadAbajoIzquierdaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(3,4);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -213,9 +209,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadAbajoDerechaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(5,4);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -226,9 +221,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadArribaIzquierdaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(3,6);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -239,9 +233,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinUnaUnidadaArribaDerechaExitosamente(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(4,5);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino = new Posicion(5,6);
 
         Assert.assertTrue(espadachin.estaEnPosicion(posicion));
@@ -251,9 +244,8 @@ public class MovimientoTest {
 
     @Test
     public void moverEspadachinEnDosTurnosDistintos(){
-        Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(1,1);
-        espadachin.setPosicion(origen);
+        Espadachin espadachin = new Espadachin(origen);
         Assert.assertTrue(espadachin.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         espadachin.mover(destino1);
@@ -266,9 +258,8 @@ public class MovimientoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverEspadachinDosVecesConsecutivasFalla(){
-        Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(1,1);
-        espadachin.setPosicion(posicion);
+        Espadachin espadachin = new Espadachin(posicion);
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
@@ -282,9 +273,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadArribaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(4,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -294,9 +284,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,5);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -308,9 +297,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,5);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -321,9 +309,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(4,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -334,9 +321,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -347,9 +333,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -360,9 +345,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadArribaIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -373,9 +357,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroUnaUnidadaArribaDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -385,9 +368,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArqueroEnDosTurnosDistintos(){
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(1,1);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Assert.assertTrue(arquero.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         arquero.mover(destino1);
@@ -400,9 +382,8 @@ public class MovimientoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverArqueroDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(1,1);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
@@ -416,9 +397,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(4, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -428,9 +408,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 5);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -440,9 +419,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 5);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -453,9 +431,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(4, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -466,9 +443,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -479,9 +455,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -492,9 +467,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -505,9 +479,8 @@ public class MovimientoTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadaArribaDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -516,10 +489,9 @@ public class MovimientoTest {
     }
 
     @Test
-    public void moverArmaAsedioEnDosTurnosDistintos(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+    public void moverArmaDeAsedioEnDosTurnosDistintos(){
         Posicion origen = new Posicion(1,1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         Assert.assertTrue(armaAsedio.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         armaAsedio.mover(destino1);
@@ -532,9 +504,8 @@ public class MovimientoTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void moverArmaDeAsedioDosVecesConsecutivasLanzaUnidadEstaOcupadaException() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1, 1);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino1 = new Posicion(0, 1);
         Posicion destino2 = new Posicion(1, 1);
 
@@ -545,9 +516,8 @@ public class MovimientoTest {
 
     @Test(expected = UnidadEstaMontadaException.class)
     public void moverArmaDeAsedioMontadaFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         Posicion destino = new Posicion(1, 2);
         armaAsedio.desocupar();
@@ -556,27 +526,24 @@ public class MovimientoTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void moverArmaDeAsedioMontadaEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         Posicion destino = new Posicion(1, 2);
         armaAsedio.mover(destino);
     }
     @Test(expected = UnidadEstaOcupadoException.class)
     public void montarArmaDeAsedioMontadaEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.montar();
     }
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioDesmontarYMoverEnUnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -586,18 +553,16 @@ public class MovimientoTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioMontarYDesmontarEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desmontar();
     }
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioDesmontarYMontarEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -606,18 +571,16 @@ public class MovimientoTest {
 
     @Test(expected = UnidadEstaMontadaException.class)
     public void armaDeAsedioMontarYaMontadoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.montar();
     }
     @Test(expected = UnidadDesarmadaException.class)
     public void armaDeAsedioDesmontarYaDesmontadoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.desmontar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -625,9 +588,8 @@ public class MovimientoTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioDesmontarHabiendoMovidoFalla(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(5,6);
         armaAsedio.mover(destino);
         armaAsedio.desmontar();

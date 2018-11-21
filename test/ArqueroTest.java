@@ -15,21 +15,23 @@ public class ArqueroTest {
     //Pruebas base
     @Test
     public void crearArqueroEnPosicionIndicada(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(5,7);
+        Arquero arquero = new Arquero(posicion);
         arquero.setPosicion(posicion);
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
     }
 
     @Test
     public void crearArqueroYVerificarVidaCorrespondiente(){
-        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(5,7);
+        Arquero arquero = new Arquero(posicion);
         Assert.assertEquals(75,arquero.getVida());
     }
 
     @Test
     public void crearArqueroYVerificarCostoCorrespondiente(){
-        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(5,7);
+        Arquero arquero = new Arquero(posicion);
         Assert.assertEquals(75,arquero.getCosto());
     }
 
@@ -37,9 +39,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadArribaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(4,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -49,9 +50,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,5);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -63,9 +63,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,5);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -76,9 +75,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(4,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -89,9 +87,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -102,9 +99,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadAbajoDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,4);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -115,9 +111,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadArribaIzquierdaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(3,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -128,9 +123,8 @@ public class ArqueroTest {
 
     @Test
     public void moverArqueroUnaUnidadaArribaDerechaExitosamente(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(4,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino = new Posicion(5,6);
 
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
@@ -140,9 +134,8 @@ public class ArqueroTest {
 
     @Test
     public void moverEnDosTurnosDistintos(){
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(1,1);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Assert.assertTrue(arquero.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         arquero.mover(destino1);
@@ -155,9 +148,8 @@ public class ArqueroTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void moverArqueroDosVecesConsecutivasLanzaUnidadEstaOcupadaException(){
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(1,1);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
         Posicion destino1 = new Posicion(0,1);
         Posicion destino2 = new Posicion(1,1);
 
@@ -170,11 +162,10 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarAldeanoEnRangoYBajaVida(){
-        Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
-        aldeano.setPosicion(posAldeano);
-        Arquero arquero = new Arquero();
+        Aldeano aldeano = new Aldeano(posAldeano);
         Posicion posArquero = new Posicion(1,2);
+        Arquero arquero = new Arquero(posArquero);
         arquero.setPosicion(posArquero);
         Assert.assertEquals(50,aldeano.getVida());
         arquero.atacar(aldeano);
@@ -182,11 +173,10 @@ public class ArqueroTest {
     }
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarAldeanoEnRangoSeOcupa(){
-        Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
-        aldeano.setPosicion(posAldeano);
-        Arquero arquero = new Arquero();
+        Aldeano aldeano = new Aldeano(posAldeano);
         Posicion posArquero = new Posicion(1,2);
+        Arquero arquero = new Arquero(posArquero);
         arquero.setPosicion(posArquero);
         arquero.atacar(aldeano);
         arquero.atacar(aldeano);
@@ -194,11 +184,10 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarArqueroEnRangoYBajaVida(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        Arquero arquero2 = new Arquero();
+        Arquero arquero = new Arquero(posArquero);
         Posicion posArquero2 = new Posicion(1,3);
+        Arquero arquero2 = new Arquero(posArquero2);
         arquero2.setPosicion(posArquero2);
         arquero.atacar(arquero2);
         Assert.assertEquals(60, arquero2.getVida());
@@ -206,12 +195,10 @@ public class ArqueroTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarArqueroEnRangoSeOcupa(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        Arquero arquero2 = new Arquero();
+        Arquero arquero = new Arquero(posArquero);
         Posicion pos2 = new Posicion(1,1);
-        arquero2.setPosicion(pos2);
+        Arquero arquero2 = new Arquero(pos2);
         arquero.atacar(arquero2);
         Posicion destino = new Posicion(1,3);
         arquero.mover(destino);
@@ -219,24 +206,20 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarEspadachinEnRangoBajaVida(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        Espadachin espadachin = new Espadachin();
+        Arquero arquero = new Arquero(posArquero);
         Posicion posEspadachin = new Posicion(1,1);
-        espadachin.setPosicion(posEspadachin);
+        Espadachin espadachin = new Espadachin(posEspadachin);
         arquero.atacar(espadachin);
         Assert.assertEquals(85, espadachin.getVida());
     }
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarEspadachinEnRangoSeOcupa(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        Espadachin espadachin = new Espadachin();
+        Arquero arquero = new Arquero(posArquero);
         Posicion posEspadachin = new Posicion(1,1);
-        espadachin.setPosicion(posEspadachin);
+        Espadachin espadachin = new Espadachin(posEspadachin);
         arquero.atacar(espadachin);
         Posicion destino = new Posicion(2,2);
         arquero.mover(destino);
@@ -244,24 +227,20 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarArmaAsedioEnRangoBajaVida(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        ArmaDeAsedio arma = new ArmaDeAsedio();
+        Arquero arquero = new Arquero(posArquero);
         Posicion pos = new Posicion(1,1);
-        arma.setPosicion(pos);
+        ArmaDeAsedio arma = new ArmaDeAsedio(pos);
         arquero.atacar(arma);
         Assert.assertEquals(135, arma.getVida());
     }
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarArmaAsedioEnRangoSeOcupa(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,2);
-        arquero.setPosicion(posArquero);
-        ArmaDeAsedio arma = new ArmaDeAsedio();
+        Arquero arquero = new Arquero(posArquero);
         Posicion pos = new Posicion(1,1);
-        arma.setPosicion(pos);
+        ArmaDeAsedio arma = new ArmaDeAsedio(pos);
         arquero.atacar(arma);
         Posicion destino = new Posicion(1,3);
         arquero.mover(destino);
@@ -279,9 +258,8 @@ public class ArqueroTest {
         posiciones.add(posicion3);
         posiciones.add(posicion4);
         Cuartel cuartel = new Cuartel(posiciones);
-        Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
-        arquero.setPosicion(posicion5);
+        Arquero arquero = new Arquero(posicion5);
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
@@ -296,9 +274,8 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarCuartelEnRangoBajaVida(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
-        arquero.setPosicion(posArquero);
+        Arquero arquero = new Arquero(posArquero);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -322,9 +299,8 @@ public class ArqueroTest {
 
     @Test
     public void arqueroAtacarPlazaCentralEnRangoBajaVida(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(1,3);
-        arquero.setPosicion(posArquero);
+        Arquero arquero = new Arquero(posArquero);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -358,9 +334,8 @@ public class ArqueroTest {
         posiciones.add(posicion3);
         posiciones.add(posicion4);
         PlazaCentral plaza = new PlazaCentral(posiciones);
-        Arquero arquero = new Arquero();
         Posicion posicion5 = new Posicion(1, 3);
-        arquero.setPosicion(posicion5);
+        Arquero arquero = new Arquero(posicion5);
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
@@ -375,21 +350,18 @@ public class ArqueroTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void arqueroAtacarUnidadFueraDeRango(){
-        Aldeano aldeano = new Aldeano();
         Posicion posAldeano = new Posicion(1,1);
-        aldeano.setPosicion(posAldeano);
-        Arquero arquero = new Arquero();
+        Aldeano aldeano = new Aldeano(posAldeano);
         Posicion posArquero = new Posicion(1,10);
-        arquero.setPosicion(posArquero);
+        Arquero arquero = new Arquero(posArquero);
         Assert.assertEquals(50,aldeano.getVida());
         arquero.atacar(aldeano);
     }
 
     @Test
     public void arqueroAtacarCastilloEnRango(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(5,5);
-        arquero.setPosicion(posArquero);
+        Arquero arquero = new Arquero(posArquero);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
@@ -431,9 +403,8 @@ public class ArqueroTest {
     }
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarCastilloEnRangoSeOcupa(){
-        Arquero arquero = new Arquero();
         Posicion posArquero = new Posicion(5,5);
-        arquero.setPosicion(posArquero);
+        Arquero arquero = new Arquero(posArquero);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
@@ -477,9 +448,8 @@ public class ArqueroTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void arqueroAtacarEdificioEstandoOcupadoFalla(){
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(1,1);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -503,9 +473,8 @@ public class ArqueroTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void arqueroAtacarEdificioFueraDeRangoFalla(){
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(10,10);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);

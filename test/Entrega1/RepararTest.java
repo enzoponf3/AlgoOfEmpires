@@ -15,9 +15,8 @@ public class RepararTest {
 
     @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaCuartelConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,3);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -43,9 +42,8 @@ public class RepararTest {
 
     @Test (expected = EdificioConVidaAlMaximoException.class)
     public void AldeanoReparaPlazaCentralConVidaCompletaException(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -71,9 +69,8 @@ public class RepararTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void AldeanoReparaCuartelYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -102,9 +99,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoReparaCuartelYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -134,9 +130,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoReparaCuartelNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(3,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -165,9 +160,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoReparaPlazaCentralNoGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(3,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -196,9 +190,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoFinalizaReparacionCuartelYGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(1,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -229,9 +222,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoFinalizaReparacionPlazaCentralYGeneraOro(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(4,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -263,9 +255,8 @@ public class RepararTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void AldeanoReparaPlazaCentralYSeVerificaSuEstado(){
-        Aldeano aldeano = new Aldeano();
         Posicion inicial = new Posicion(3,3);
-        aldeano.setPosicion(inicial);
+        Aldeano aldeano = new Aldeano(inicial);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -295,9 +286,8 @@ public class RepararTest {
 
     @Test
     public void AldeanoReparaPlazaCentralYSeVerificaAumentoVida(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -327,9 +317,8 @@ public class RepararTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoRepararPlazaCentralDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(2,3);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -357,9 +346,8 @@ public class RepararTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoRepararCuartellDosVecesEnMismoTurnoFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,6);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -387,9 +375,8 @@ public class RepararTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void aldeanoRepararCuartelFueraDeRango(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -416,9 +403,8 @@ public class RepararTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void aldeanoRepararPlazaCentralFueraDeRango(){
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,99);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -445,9 +431,8 @@ public class RepararTest {
 
     @Test
     public void aldeanoRepararCastilloExitosamente(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(4,5);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
@@ -490,9 +475,8 @@ public class RepararTest {
 
     @Test (expected = UnidadNoPuedeRepararException.class)
     public void aldeanoOcupadoRepararCastilloFalla(){
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(4,6);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
         Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);

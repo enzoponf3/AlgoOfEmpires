@@ -16,21 +16,22 @@ public class ArmaDeAsedioTest {
     //Pruebas base
     @Test
     public void crearArmaDeAsedioEnPosicionIndicada() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(5, 7);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
     }
 
     @Test
     public void crearArmaDeAsedioYVerificarVidaCorrespondiente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(5,7);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Assert.assertEquals(150, armaAsedio.getVida());
     }
 
     @Test
     public void crearArmaDeAsedioYVerificarCostoCorrespondiente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(5,7);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Assert.assertEquals(200, armaAsedio.getCosto());
     }
 
@@ -38,9 +39,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(4, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -50,9 +50,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 5);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -62,9 +61,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 5);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -75,9 +73,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(4, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -88,9 +85,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -101,9 +97,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadAbajoDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 4);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -114,9 +109,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadArribaIzquierdaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(3, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -127,9 +121,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void moverArmaDeAsedioUnaUnidadaArribaDerechaExitosamente() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(4, 5);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(5, 6);
 
         Assert.assertTrue(armaAsedio.estaEnPosicion(posicion));
@@ -139,9 +132,8 @@ public class ArmaDeAsedioTest {
     
     @Test
     public void moverEnDosTurnosDistintos(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1,1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         Assert.assertTrue(armaAsedio.estaEnPosicion(origen));
         Posicion destino1 = new Posicion(1,2);
         armaAsedio.mover(destino1);
@@ -154,9 +146,8 @@ public class ArmaDeAsedioTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void moverArmaDeAsedioDosVecesConsecutivasLanzaUnidadEstaOcupadaException() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1, 1);
-        armaAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         Posicion destino1 = new Posicion(0, 1);
         Posicion destino2 = new Posicion(1, 1);
 
@@ -167,9 +158,8 @@ public class ArmaDeAsedioTest {
 
     @Test(expected = UnidadEstaMontadaException.class)
     public void moverArmaDeAsedioMontadaFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         Posicion destino = new Posicion(1, 2);
         armaAsedio.desocupar();
@@ -178,27 +168,24 @@ public class ArmaDeAsedioTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void moverArmaDeAsedioMontadaEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         Posicion destino = new Posicion(1, 2);
         armaAsedio.mover(destino);
     }
     @Test(expected = UnidadEstaOcupadoException.class)
     public void montarArmaDeAsedioMontadaEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.montar();
     }
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioDesmontarYMoverEnUnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(1, 1);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -208,18 +195,16 @@ public class ArmaDeAsedioTest {
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioMontarYDesmontarEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desmontar();
     }
 
     @Test(expected = UnidadEstaOcupadoException.class)
     public void armaDeAsedioDesmontarYMontarEnMismoTurnoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -228,18 +213,16 @@ public class ArmaDeAsedioTest {
 
     @Test(expected = UnidadEstaMontadaException.class)
     public void armaDeAsedioMontarYaMontadoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.montar();
         armaAsedio.desocupar();
         armaAsedio.montar();
     }
     @Test(expected = UnidadDesarmadaException.class)
     public void armaDeAsedioDesmontarYaDesmontadoFalla() {
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         armaAsedio.desmontar();
         armaAsedio.desocupar();
         armaAsedio.desmontar();
@@ -247,9 +230,8 @@ public class ArmaDeAsedioTest {
 
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioDesmontarHabiendoMovidoFalla(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(5, 5);
-        armaAsedio.setPosicion(origen);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(5,6);
         armaAsedio.mover(destino);
         armaAsedio.desmontar();
@@ -259,14 +241,12 @@ public class ArmaDeAsedioTest {
 
     @Test (expected = ArmaDeAsedioNoAtacaUnidadException.class)
     public void armaDeAsedioAtacarUnidadFalla(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
-        Posicion posicion5 = new Posicion(1, 3);
-        armaAsedio.setPosicion(posicion5);
+        Posicion posicionArma = new Posicion(1, 3);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicionArma);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        Aldeano aldeano = new Aldeano();
         Posicion posicion = new Posicion(1,4);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
         armaAsedio.atacar(aldeano);
     }
 
@@ -282,9 +262,8 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion3);
         posiciones.add(posicion4);
         Cuartel cuartel = new Cuartel(posiciones);
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion5 = new Posicion(1, 3);
-        armaAsedio.setPosicion(posicion5);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion5);
         armaAsedio.montar();
         armaAsedio.desocupar();
         cuartel.construir();
@@ -301,9 +280,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void armaAsedioAtacarCuartelEnRangoBajaVida(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posArmaDeAsedio = new Posicion(1,3);
-        armaAsedio.setPosicion(posArmaDeAsedio);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
         Posicion posicion1 = new Posicion(2, 5);
@@ -345,9 +323,8 @@ public class ArmaDeAsedioTest {
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
-        armaDeAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
         armaDeAsedio.montar();
         armaDeAsedio.desocupar();
         armaDeAsedio.atacar(cuartel);
@@ -372,9 +349,8 @@ public class ArmaDeAsedioTest {
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
-        armaDeAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
         armaDeAsedio.atacar(cuartel);
     }
 
@@ -396,9 +372,8 @@ public class ArmaDeAsedioTest {
         cuartel.volverAEstadoOriginal();
         cuartel.construir();
         cuartel.volverAEstadoOriginal();
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(1,1);
-        armaDeAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
         Posicion destino = new Posicion(1,2);
         armaDeAsedio.mover(destino);
         armaDeAsedio.atacar(cuartel);
@@ -406,9 +381,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void armaAsedioAtacarPlazaCentralEnRangoBajaVida(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posArmaDeAsedio = new Posicion(1,3);
-        armaAsedio.setPosicion(posArmaDeAsedio);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
         Posicion posicion1 = new Posicion(2, 5);
@@ -444,9 +418,8 @@ public class ArmaDeAsedioTest {
         posiciones.add(posicion3);
         posiciones.add(posicion4);
         PlazaCentral plaza = new PlazaCentral(posiciones);
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posicion5 = new Posicion(1, 3);
-        armaAsedio.setPosicion(posicion5);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion5);
         armaAsedio.montar();
         armaAsedio.desocupar();
         plaza.construir();
@@ -463,9 +436,8 @@ public class ArmaDeAsedioTest {
 
     @Test
     public void armaAsedioAtacarCastilloEnRango(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posArmaDeAsedio = new Posicion(5,5);
-        armaAsedio.setPosicion(posArmaDeAsedio);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
         Castillo castillo = new Castillo();
@@ -509,9 +481,8 @@ public class ArmaDeAsedioTest {
     }
     @Test (expected = UnidadEstaOcupadoException.class)
     public void armaAsedioAtacarCastilloEnRangoSeOcupa(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posArmaDeAsedio = new Posicion(5,5);
-        armaAsedio.setPosicion(posArmaDeAsedio);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
         Castillo castillo = new Castillo();
@@ -557,9 +528,8 @@ public class ArmaDeAsedioTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void armaAsedioAtacarEdificioFueraDeRangoFalla(){
-        ArmaDeAsedio armaAsedio = new ArmaDeAsedio();
         Posicion posArmaDeAsedio = new Posicion(10,10);
-        armaAsedio.setPosicion(posArmaDeAsedio);
+        ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
         Posicion posicion1 = new Posicion(2, 5);

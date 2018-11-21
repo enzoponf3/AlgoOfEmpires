@@ -18,6 +18,14 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
         this.danioEdificio = DANIO_EDIFICIO;
         this.estado = new EstadoArmaDeAsedioDesarmado();
     }
+    public ArmaDeAsedio(Posicion posicion){
+        this.vida = VIDA;
+        this.costo = COSTO;
+        this.rango = RANGO;
+        this.danioEdificio = DANIO_EDIFICIO;
+        this.estado = new EstadoArmaDeAsedioDesarmado();
+        this.posicion = posicion;
+    }
 
     public void montar(){ this.estado.montar(this);}
 

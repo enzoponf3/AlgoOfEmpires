@@ -245,10 +245,6 @@ public class Jugador {
         throw new UnidadMovibleNoExisteException();
     }
 
-    public void mover( Posicion origen, Posicion destino ){
-        IUnidadMovible unidad = devolverUnidadMovible(origen);
-        unidad.mover(destino);
-    }
 
     private void verificarEdificioPropio(Edificio edificio){
         if( !this.edificios.contains(edificio) )
@@ -290,4 +286,18 @@ public class Jugador {
       //en otro lado o como hacemos?
     //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
 
+
+    //Aca empiexo a cambiar a estados...
+    public void activar(){
+        this.estado = new EstadoJugadorActivo();
+    }
+
+    public void inactivar(){
+        this.estado = new EstadoJugadorInactivo();
+    }
+
+    public void mover( Posicion origen, Posicion destino ){
+        IUnidadMovible unidad = devolverUnidadMovible(origen);
+        this.estado.mover(unidad, origen, destino);
+    }
 }

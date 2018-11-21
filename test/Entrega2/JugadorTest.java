@@ -144,6 +144,7 @@ public class JugadorTest {
 
 
     //Agrego unidades al ejercito
+
     @Test
     public void agregarUnArqueroAlEjercitoCorrectamente(){
         Jugador jugador = new Jugador(5, 14);
@@ -822,84 +823,12 @@ public class JugadorTest {
         posicionesCuartel.add(posicion4Cuartel);
         Cuartel cuartel = new Cuartel(posicionesCuartel);
 
-        Cuartel cuartel1 = (Cuartel) jugador.removerEdificio(posicion1Cuartel);
+        jugador.removerEdificio(posicion1Cuartel);
     }
 
     //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
 
 
-    //Pruebas movimiento
-
-    @Test
-    public void moverAldeanoInicialCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Posicion origen = new Posicion(1,1);
-        Posicion destino = new Posicion(2,1);
-
-        Aldeano aldeano = jugador.devolverAldeanoEnPosicion(origen);
-        jugador.mover(origen, destino);
-
-        Assert.assertTrue( aldeano.enPosicion(destino) );
-    }
-
-    @Test
-    public void moverAldeanoAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeano = new Aldeano();
-        Posicion origen = new Posicion(2,5);
-        aldeano.setPosicion(origen);
-        Posicion destino = new Posicion(2,6);
-
-        jugador.agregarAldeano(aldeano);
-        jugador.mover(origen, destino);
-
-        Assert.assertTrue( aldeano.enPosicion(destino) );
-    }
-
-    @Test
-    public void moverEspadachinAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Espadachin espadachin = new Espadachin();
-        Posicion origen = new Posicion(2,5);
-        espadachin.setPosicion(origen);
-        Posicion destino = new Posicion(2,6);
-
-        jugador.agregarAEjercito(espadachin);
-        jugador.mover(origen, destino);
-
-        Assert.assertTrue( espadachin.enPosicion(destino) );
-    }
-
-    @Test
-    public void moverArqueroAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Arquero arquero = new Arquero();
-        Posicion origen = new Posicion(2,5);
-        arquero.setPosicion(origen);
-        Posicion destino = new Posicion(2,6);
-
-        jugador.agregarAEjercito(arquero);
-        jugador.mover(origen, destino);
-
-        Assert.assertTrue( arquero.enPosicion(destino) );
-    }
-
-    @Test
-    public void moverArmaDeAsedioAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
-        Posicion origen = new Posicion(2,5);
-        armaDeAsedio.setPosicion(origen);
-        Posicion destino = new Posicion(2,6);
-
-        jugador.agregarAEjercito(armaDeAsedio);
-        jugador.mover(origen, destino);
-
-        Assert.assertTrue( armaDeAsedio.enPosicion(destino) );
-    }
-
-    //No hay que probar posiciones aldeanias dado que eso es verificado por el mapa
-    // al darme la posicion de origen y destino.
 
 
 }

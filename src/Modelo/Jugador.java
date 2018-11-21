@@ -101,14 +101,12 @@ public class Jugador {
     }
 
     public void agregarAldeano(Aldeano aldeano){
-        if( llegoAlLimiteDePoblacion() )
-            throw new LimiteDePoblacionException();
+        verificarLimitePoblacion();
         this.aldeanos.add(aldeano);
     }
 
     public void agregarAEjercito(IAtacante atacante){
-        if( llegoAlLimiteDePoblacion() )
-            throw new LimiteDePoblacionException();
+        verificarLimitePoblacion();
         this.ejercito.add(atacante);
     }
 
@@ -250,6 +248,38 @@ public class Jugador {
     public void mover( Posicion origen, Posicion destino ){
         IUnidadMovible unidad = devolverUnidadMovible(origen);
         unidad.mover(destino);
+    }
+
+    private void verificarEdificioPropio(Edificio edificio){
+        if( !this.edificios.contains(edificio) )
+            throw new EdificioNoExisteException();
+    }
+
+    private void verificarLimitePoblacion(){
+        if( llegoAlLimiteDePoblacion() )
+            throw new LimiteDePoblacionException();
+    }
+
+    public void crearAldeano(PlazaCentral plazaCentral){
+        verificarEdificioPropio(plazaCentral);
+        verificarLimitePoblacion();
+        Aldeano aldeano = plazaCentral.crearAldeano();
+        agregarAldeano(aldeano);
+        //Hay que setearle las posiciones...
+    }
+
+    public void crearArquero(Cuartel cuartel){
+        verificarEdificioPropio(cuartel);
+        verificarLimitePoblacion();
+        Arquero arquero = cuartel.crearArquero();
+        agregarAEjercito(arquero);
+    }
+
+    public void crearEspadachin(Cuartel cuartel){
+        verificarEdificioPropio(cuartel);
+        verificarLimitePoblacion();
+        Espadachin espadachin = cuartel.crearEspadachin();
+        agregarAEjercito(espadachin);
     }
 
 }

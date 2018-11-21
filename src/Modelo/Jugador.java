@@ -233,7 +233,7 @@ public class Jugador {
     }
 
     private void verificarEdificioEnemigo(Edificio edificio){
-        if( this.edificios.contains(edificio) )
+        if( this.edificios.contains(edificio) || this.castillo == edificio )
             throw new EdificioPropioException();
     }
 

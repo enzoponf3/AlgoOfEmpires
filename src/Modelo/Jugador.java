@@ -259,29 +259,26 @@ public class Jugador {
     public void crearAldeano(PlazaCentral plazaCentral){
         verificarEdificioPropio(plazaCentral);
         verificarLimitePoblacion();
-        Aldeano aldeano = plazaCentral.crearAldeano();
-        agregarAldeano(aldeano);
+        this.estado.crearAldeano(plazaCentral, this);
         //Hay que setearle las posiciones...
-    }
+    }//No se si las verificaciones se hacen aca o dentro del estado, porque si ya es turno del oponente tal vez no tiene sentido
+    //verificar.
 
     public void crearArquero(Cuartel cuartel){
         verificarEdificioPropio(cuartel);
         verificarLimitePoblacion();
-        Arquero arquero = cuartel.crearArquero();
-        agregarAEjercito(arquero);
+        this.estado.crearArquero(cuartel, this);
     }
 
     public void crearEspadachin(Cuartel cuartel){
         verificarEdificioPropio(cuartel);
         verificarLimitePoblacion();
-        Espadachin espadachin = cuartel.crearEspadachin();
-        agregarAEjercito(espadachin);
+        this.estado.crearEspadachin(cuartel, this);
     }
 
     public void crearArmaDeAsedio(){
         verificarLimitePoblacion();
-        ArmaDeAsedio armaDeAsedio = this.castillo.crearArmaDeAsedio();
-        agregarAEjercito(armaDeAsedio);
+        this.estado.crearArmaDeAsedio(this.castillo, this);
     } //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
       //en otro lado o como hacemos?
     //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
@@ -298,6 +295,6 @@ public class Jugador {
 
     public void mover( Posicion origen, Posicion destino ){
         IUnidadMovible unidad = devolverUnidadMovible(origen);
-        this.estado.mover(unidad, origen, destino);
+        this.estado.mover(unidad, origen, destino, this);
     }
 }

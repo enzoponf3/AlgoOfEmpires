@@ -829,6 +829,4 @@ public class JugadorTest {
     //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
 
 
-
-
 }

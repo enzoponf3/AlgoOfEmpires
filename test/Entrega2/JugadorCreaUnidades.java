@@ -4,6 +4,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
+import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Jugador;
 import Modelo.Posicion;
 import org.junit.Assert;
@@ -14,11 +15,13 @@ import java.util.ArrayList;
 public class JugadorCreaUnidades {
 
 
-    //Crear aldeanos
+    //Crear aldeanos. Solo durante el turno activo.
 
     @Test
-    public void plazaCentralCreaUnAldeanoCorrectamente(){
+    public void plazaCentralCreaUnAldeanoCorrectamenteDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -38,9 +41,35 @@ public class JugadorCreaUnidades {
 
     }//Cuando tengamos lo de las posiciones agregarlo al Test
 
-    @Test (expected = EdificioNoExisteException.class)
-    public void plazaCentralQueNoEsDejJugadorNoPuedecrearAldeano(){
+    @Test (expected = TurnoDelOponenteException.class)
+    public void plazaCentralCreaUnAldeanoDuranteTurnoDelOponente(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
+        plazaCentral.finalizarConstruccion();
+
+        jugador.agregarEdificio(plazaCentral);
+        jugador.crearAldeano(plazaCentral);
+
+        Assert.assertEquals(4, jugador.getAldeanos().size() );
+
+    }
+
+    @Test (expected = EdificioNoExisteException.class)
+    public void plazaCentralQueNoEsDejJugadorNoPuedecrearAldeanoDuranteSuTurno(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -55,10 +84,59 @@ public class JugadorCreaUnidades {
 
         jugador.crearAldeano(plazaCentral);
     }
+/*
+    @Test (expected = TurnoDelOponenteException.class)
+    public void plazaCentralQueNoEsDejJugadorNoPuedecrearAldeanoDuranteTurnoOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
+        plazaCentral.finalizarConstruccion();
+
+        jugador.crearAldeano(plazaCentral);
+    }
+*/ //Cuestion de verificaciones, ver.
 
     @Test
-    public void plazaCentralCreaAldeanosHastaLlegarALimiteDePoblacion(){
+    public void plazaCentralCreaAldeanosHastaLlegarALimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
+        plazaCentral.finalizarConstruccion();
+
+        jugador.agregarEdificio(plazaCentral);
+        for(int i = 0; i<47; i++){
+            jugador.crearAldeano(plazaCentral);
+        }
+
+        Assert.assertEquals(50, jugador.getAldeanos().size() );
+
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void plazaCentralCreaAldeanosHastaLlegarALimiteDePoblacionDuranteTurnoDelOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -81,8 +159,10 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = LimiteDePoblacionException.class)
-    public void plazaCentralNoPuedeCrearAldeanoSuperandoLimiteDePoblacion(){
+    public void plazaCentralNoPuedeCrearAldeanoSuperandoLimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -103,12 +183,64 @@ public class JugadorCreaUnidades {
         Assert.assertEquals(50, jugador.getAldeanos().size() );
 
     }
+/*
+    @Test (expected = LimiteDePoblacionException.class)
+    public void plazaCentralNoPuedeCrearAldeanoSuperandoLimiteDePoblacionDuranteTurnoDelOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
+        plazaCentral.finalizarConstruccion();
+
+        jugador.agregarEdificio(plazaCentral);
+        for(int i = 0; i<48; i++){
+            jugador.crearAldeano(plazaCentral);
+        }
+
+        Assert.assertEquals(50, jugador.getAldeanos().size() );
+
+    }
+*/ //Mismo problema de verificacion
 
     //crear espadachin y arquero
 
     @Test
-    public void cuartelCreaUnArqueroCorrectamente(){
+    public void cuartelCreaUnArqueroCorrectamenteDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        cuartel.finalizarConstruccion();
+
+        jugador.agregarEdificio(cuartel);
+        jugador.crearArquero(cuartel);
+
+        Assert.assertEquals(1, jugador.getEjercito().size() );
+
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void cuartelCreaUnArqueroDuranteTurnodelOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -130,8 +262,9 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = EdificioNoExisteException.class)
-    public void cuartelQueNoEsDejJugadorNoPuedecrearArquero(){
+    public void cuartelQueNoEsDejJugadorNoPuedecrearArqueroDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -149,8 +282,10 @@ public class JugadorCreaUnidades {
     }
 
     @Test
-    public void cuartelCreaArquerosHastaLlegarALimiteDePoblacion(){
+    public void cuartelCreaArquerosHastaLlegarALimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -173,8 +308,10 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = LimiteDePoblacionException.class)
-    public void cuartelNoPuedeCrearArqueroSuperandoLimiteDePoblacion(){
+    public void cuartelNoPuedeCrearArqueroSuperandoLimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -195,8 +332,33 @@ public class JugadorCreaUnidades {
     }
 
     @Test
-    public void cuartelCreaUnEspadachinCorrectamente(){
+    public void cuartelCreaUnEspadachinCorrectamenteDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+        Cuartel cuartel = new Cuartel(posicionesCuartel);
+        cuartel.finalizarConstruccion();
+
+        jugador.agregarEdificio(cuartel);
+        jugador.crearEspadachin(cuartel);
+
+        Assert.assertEquals(1, jugador.getEjercito().size() );
+
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void cuartelCreaUnEspadachinDuranteTurnoDelOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -218,8 +380,9 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = EdificioNoExisteException.class)
-    public void cuartelQueNoEsDejJugadorNoPuedecrearEspadachin(){
+    public void cuartelQueNoEsDejJugadorNoPuedecrearEspadachinDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -237,8 +400,10 @@ public class JugadorCreaUnidades {
     }
 
     @Test
-    public void cuartelCreaEspadachinesHastaLlegarALimiteDePoblacion(){
+    public void cuartelCreaEspadachinesHastaLlegarALimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -261,8 +426,10 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = LimiteDePoblacionException.class)
-    public void cuartelNoPuedeCrearEspadachinSuperandoLimiteDePoblacion(){
+    public void cuartelNoPuedeCrearEspadachinSuperandoLimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
         Posicion posicion3Cuartel = new Posicion(4,2);
@@ -285,8 +452,19 @@ public class JugadorCreaUnidades {
     //Castillo crea ArmaDeAsedio
 
     @Test
-    public void castilloCreaArmaDeAsedioCorrectamente(){
+    public void castilloCreaArmaDeAsedioCorrectamenteDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        jugador.crearArmaDeAsedio();
+
+        Assert.assertEquals(1, jugador.getEjercito().size() );
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void castilloCreaArmaDeAsedioDuranteSuTurnoDelOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
 
         jugador.crearArmaDeAsedio();
 
@@ -294,8 +472,9 @@ public class JugadorCreaUnidades {
     }
 
     @Test
-    public void castilloCreaArmasDeAsedioHastaLlegarALimiteDePoblacion(){
+    public void castilloCreaArmasDeAsedioHastaLlegarALimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
 
         for(int i=0; i<47; i++) {
             jugador.crearArmaDeAsedio();
@@ -305,8 +484,9 @@ public class JugadorCreaUnidades {
     }
 
     @Test( expected = LimiteDePoblacionException.class)
-    public void castilloCreaArmasDeAsedioSuperandoLimiteDePoblacion(){
+    public void castilloCreaArmasDeAsedioSuperandoLimiteDePoblacionDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
 
         for(int i=0; i<48; i++) {
             jugador.crearArmaDeAsedio();

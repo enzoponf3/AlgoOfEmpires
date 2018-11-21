@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MapaTest {
 
@@ -129,7 +130,7 @@ public class MapaTest {
 
 
     @Test
-    public void OcuparUnCasilleroDesocuparloYVerificarObtenerElMismoObjeto(){
+    public void ocuparUnCasilleroDesocuparloYVerificarObtenerElMismoObjeto(){
         Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
@@ -213,4 +214,84 @@ public class MapaTest {
         mapa.ocuparCasillero(posicion1, IEntidad1);
     }
 
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionMedioDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(1,1);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),8);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionEsquinaInferiorIzquierdaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(0,0);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),3);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionEsquinaInferiorDerechaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(2,0);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),3);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionEsquinaSuperiorIzquierdaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(0,3);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),3);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionEsquinaSuperiorDerechaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(2,3);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),3);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionBordeInferiorDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(0,1);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),5);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionBordeSuperiorDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(1,3);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),5);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionBordeDerechaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(2,1);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),5);
+    }
+
+    @Test
+    public void obtenerPosicionesAledaniasDePosicionBordeIzquierdaDevuelveCantidadCorrecta() {
+        Mapa mapa = new Mapa(3,4);
+        Posicion posicion = new Posicion(0,1);
+        ArrayList<Posicion> posicionesAledanias;
+        posicionesAledanias = mapa.getPosicionesAledanias(posicion);
+        Assert.assertEquals(posicionesAledanias.size(),5);
+    }
 }

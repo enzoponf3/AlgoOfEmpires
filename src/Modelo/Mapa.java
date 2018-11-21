@@ -1,7 +1,9 @@
 package Modelo;
 
+import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.IUnidadMovible;
+import Modelo.Unidades.Unidad;
 
 import java.util.ArrayList;
 
@@ -107,7 +109,6 @@ public class Mapa {
     public void verificarPosicionesAledanias(Posicion origen, Posicion destino) {
         if ( !origen.aledaniaA(destino) )
             throw new PosicionInvalidaException();
-
     }
 
 
@@ -120,5 +121,27 @@ public class Mapa {
         ocuparCasillero(destino, unidad);
     }
 
+    public Posicion devolverPosicionAledaniaLibre(Edificio edificio) {
+        ArrayList<Posicion> posicionesEdificio = edificio.getPosiciones();
+        for (Posicion posicion : posicionesEdificio) {
+            ArrayList<Posicion> posicionesAledanias = this.getPosicionesAledanias(posicion);
+            for (Posicion posicionAledania : posicionesAledanias) {
+                Casillero casillero = this.seleccionarCasillero(posicionAledania);
+                if (!casillero.estaOcupado())
+                    return posicionAledania;
+            }
+        }
+        throw new PosicionesAledaniasOcupadasException();
+    }
+
+    public ArrayList<Posicion> getPosicionesAledanias(Posicion posicion) {
+        ArrayList<Posicion> posicionesAledanias = new ArrayList<>();
+        for (Casillero casillero : this.casilleros) {
+            Posicion posicionCasillero = casillero.getPosicion();
+            if ((posicionCasillero.aledaniaA(posicion)) & (!posicionCasillero.igualA(posicion)))
+                posicionesAledanias.add(posicionCasillero);
+        }
+        return posicionesAledanias;
+    }
 
 }

@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MapaYIEntidadTest {
 
@@ -119,10 +121,10 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion4);
         Cuartel cuartel = new Cuartel(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), cuartel);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, cuartel);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
 
     }
@@ -141,10 +143,10 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion4);
         Cuartel cuartel = new Cuartel(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), cuartel);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, cuartel);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
     }
 
@@ -163,10 +165,10 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion4);
         PlazaCentral plazaCentral = new PlazaCentral(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), plazaCentral);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, plazaCentral);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
 
     }
@@ -185,10 +187,10 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion4);
         PlazaCentral plazaCentral = new PlazaCentral(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), plazaCentral);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, plazaCentral);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
     }
 
@@ -216,10 +218,10 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion8);
         castillo.setPosiciones(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), castillo);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, castillo);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
 
     }
@@ -247,13 +249,110 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion8);
         castillo.setPosiciones(posiciones);
 
-        for(int i=0; i<posiciones.size(); i++){
-            mapa.ocuparCasillero(posiciones.get(i), castillo);
-            Casillero casillero = mapa.seleccionarCasillero(posiciones.get(i));
-            Assert.assertTrue( casillero.estaOcupado() );
+        for (Posicion posicion : posiciones) {
+            mapa.ocuparCasillero(posicion, castillo);
+            Casillero casillero = mapa.seleccionarCasillero(posicion);
+            Assert.assertTrue(casillero.estaOcupado());
         }
     }
 
+    @Test
+    public void obtenerPosicionAledaniaLibreConTodasLibresAlrededor() {
+        Mapa mapa = new Mapa(3, 4);
+        Posicion posicion1 = new Posicion(0,0);
+        Posicion posicion2 = new Posicion(1,0);
+        Posicion posicion3 = new Posicion(0,1);
+        Posicion posicion4 = new Posicion(1,1);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
+        for (Posicion posicion : posiciones) mapa.ocuparCasillero(posicion, cuartel);
+        Posicion posicionLibre = mapa.devolverPosicionAledaniaLibre(cuartel);
+        Posicion posicionPosible1 = new Posicion(0,2);
+        Posicion posicionPosible2 = new Posicion(1,2);
+        Posicion posicionPosible3 = new Posicion(2,0);
+        Posicion posicionPosible4 = new Posicion(2,1);
+        Posicion posicionPosible5 = new Posicion(2,2);
+        boolean posicionValida = posicionLibre.igualA(posicionPosible1) ||
+                posicionLibre.igualA(posicionPosible2) ||
+                posicionLibre.igualA(posicionPosible3) ||
+                posicionLibre.igualA(posicionPosible4) ||
+                posicionLibre.igualA(posicionPosible5);
+        Assert.assertTrue(posicionValida);
+    }
 
+    @Test (expected = PosicionesAledaniasOcupadasException.class)
+    public void obtenerPosicionAledaniaLibreConTodasOcupadasAlrededor() {
+        Mapa mapa = new Mapa(3, 4);
+        Posicion posicion1 = new Posicion(0,0);
+        Posicion posicion2 = new Posicion(1,0);
+        Posicion posicion3 = new Posicion(0,1);
+        Posicion posicion4 = new Posicion(1,1);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
+        Posicion posicionAldeano1 = new Posicion(2,0);
+        Posicion posicionAldeano2 = new Posicion(2,1);
+        Posicion posicionAldeano3 = new Posicion(2,2);
+        Posicion posicionAldeano4 = new Posicion(1,2);
+        Posicion posicionAldeano5 = new Posicion(0,2);
+        Aldeano aldeano1 = new Aldeano();
+        Aldeano aldeano2 = new Aldeano();
+        Aldeano aldeano3 = new Aldeano();
+        Aldeano aldeano4 = new Aldeano();
+        Aldeano aldeano5 = new Aldeano();
+        aldeano1.setPosicion(posicionAldeano1);
+        aldeano2.setPosicion(posicionAldeano2);
+        aldeano3.setPosicion(posicionAldeano3);
+        aldeano4.setPosicion(posicionAldeano4);
+        aldeano5.setPosicion(posicionAldeano5);
+        for (Posicion posicion : posiciones) mapa.ocuparCasillero(posicion, cuartel);
+        mapa.ocuparCasillero(posicionAldeano1,aldeano1);
+        mapa.ocuparCasillero(posicionAldeano2,aldeano2);
+        mapa.ocuparCasillero(posicionAldeano3,aldeano3);
+        mapa.ocuparCasillero(posicionAldeano4,aldeano4);
+        mapa.ocuparCasillero(posicionAldeano5,aldeano5);
+        Posicion posicionLibre = mapa.devolverPosicionAledaniaLibre(cuartel);
+    }
 
+    @Test
+    public void obtenerPosicionAledaniaLibreConUnaSolaLibreAlrededor() {
+        Mapa mapa = new Mapa(3, 4);
+        Posicion posicion1 = new Posicion(0,0);
+        Posicion posicion2 = new Posicion(1,0);
+        Posicion posicion3 = new Posicion(0,1);
+        Posicion posicion4 = new Posicion(1,1);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
+        Posicion posicionAldeano1 = new Posicion(2,0);
+        Posicion posicionAldeano2 = new Posicion(2,1);
+        Posicion posicionAldeano3 = new Posicion(2,2);
+        Posicion posicionAldeano4 = new Posicion(1,2);
+        Aldeano aldeano1 = new Aldeano();
+        Aldeano aldeano2 = new Aldeano();
+        Aldeano aldeano3 = new Aldeano();
+        Aldeano aldeano4 = new Aldeano();
+        aldeano1.setPosicion(posicionAldeano1);
+        aldeano2.setPosicion(posicionAldeano2);
+        aldeano3.setPosicion(posicionAldeano3);
+        aldeano4.setPosicion(posicionAldeano4);
+        for (Posicion posicion : posiciones) mapa.ocuparCasillero(posicion, cuartel);
+        mapa.ocuparCasillero(posicionAldeano1,aldeano1);
+        mapa.ocuparCasillero(posicionAldeano2,aldeano2);
+        mapa.ocuparCasillero(posicionAldeano3,aldeano3);
+        mapa.ocuparCasillero(posicionAldeano4,aldeano4);
+        Posicion posicionAledaniaLibre = new Posicion(0,2);
+        Posicion posicionLibre = mapa.devolverPosicionAledaniaLibre(cuartel);
+        Assert.assertTrue(posicionLibre.igualA(posicionAledaniaLibre));
+    }
 }

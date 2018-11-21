@@ -20,6 +20,16 @@ public class Arquero extends Unidad implements IAtacante {
         this.estado = new EstadoArqueroLibre();
     }
 
+    public Arquero(Posicion posicion) {
+        this.vida = VIDA;
+        this.costo = COSTO;
+        this.danioUnidad = DANIO_UNIDAD;
+        this.danioEdificio = DANIO_EDIFICIO;
+        this.rango = RANGO;
+        this.estado = new EstadoArqueroLibre();
+        this.posicion = posicion;
+    }
+
     @Override
     public void mover(Posicion destino){
         this.estado.mover(destino, this);

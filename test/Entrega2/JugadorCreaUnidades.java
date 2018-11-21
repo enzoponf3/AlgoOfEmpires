@@ -66,7 +66,7 @@ public class JugadorCreaUnidades {
     }
 
     @Test (expected = EdificioNoExisteException.class)
-    public void plazaCentralQueNoEsDejJugadorNoPuedecrearAldeanoDuranteSuTurno(){
+    public void plazaCentralQueNoEsDeJugadorNoPuedecrearAldeanoDuranteSuTurno(){
         Jugador jugador = new Jugador(5, 14);
         jugador.activar();
 

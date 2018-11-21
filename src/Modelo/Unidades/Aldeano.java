@@ -21,6 +21,14 @@ public class Aldeano extends Unidad {
         this.estado = new EstadoAldeanoLibre();
     }
 
+    public Aldeano(Posicion posicion) {
+        this.vida = VIDA;
+        this.costo = COSTO;
+        this.rango = RANGO;
+        this.estado = new EstadoAldeanoLibre();
+        this.posicion = posicion;
+    }
+
     public Cuartel construirCuartel(ArrayList<Posicion> posiciones){
         return this.estado.construirCuartel(this, posiciones);
     }

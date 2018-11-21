@@ -20,6 +20,17 @@ public class Espadachin extends Unidad implements IAtacante{
         this.danioEdificio = DANIO_EDIFICIO;
         this.rango = RANGO;
     }
+
+    public Espadachin(Posicion posicion){
+        this.vida = VIDA;
+        this.costo = COSTO;
+        this.estado = new EstadoEspadachinLibre();
+        this.danioUnidad = DANIO_UNIDAD;
+        this.danioEdificio = DANIO_EDIFICIO;
+        this.rango = RANGO;
+        this.posicion = posicion;
+    }
+
     public void desocupar(){ this.estado = new EstadoEspadachinLibre();}
     public void ocupar(){ this.estado = new EstadoEspadachinOcupado();}
 

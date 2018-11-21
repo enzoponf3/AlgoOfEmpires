@@ -15,6 +15,7 @@ public class Jugador {
     private static final int CANTIDAD_ORO_INICIAL = 100;
     private ArrayList<IAtacante> ejercito;
     private static final int LIMITE_POBLACION = 50;
+    private Jugador oponente;
 
     private IEstadoJugador estado;
 
@@ -26,10 +27,16 @@ public class Jugador {
         this.aldeanos = new ArrayList<>();
         inicializarAldeanos();
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
-        this.ejercito = new ArrayList<>();
-        // El estado se inicializa en el juego.
+        this.ejercito = new ArrayList<>(); // El estado se inicializa en el juego.
     }
 
+    public void setOponente(Jugador jugadorOponente){
+        this.oponente = jugadorOponente;
+    }
+
+    public Jugador getOponente(){
+        return this.oponente;
+    }
 
     public void setEstado(IEstadoJugador estado){
         this.estado = estado;

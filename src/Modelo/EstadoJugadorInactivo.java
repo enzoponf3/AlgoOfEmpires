@@ -1,6 +1,7 @@
 package Modelo;
 
 import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Unidades.*;
 import Modelo.Unidades.IUnidadMovible;
 import Modelo.Edificios.*;
 
@@ -31,5 +32,26 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     public void crearArmaDeAsedio(Castillo castillo, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
+
+    @Override
+    public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void atacar(IAtacante atacante, Unidad unidadAAtacar){
+        throw new TurnoDelOponenteException();
+    }
+
+    @Override
+    public void atacar(IAtacante atacante, Edificio edificioAAtacar){
+        throw new TurnoDelOponenteException();
+    }
+
 
 }

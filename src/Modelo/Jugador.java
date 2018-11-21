@@ -210,27 +210,15 @@ public class Jugador {
         }
     }
 
-    public void atacar(Posicion posicionAtacante, Unidad unidadAAtacar){
-        IAtacante atacante = devolverAtacanteEnPosicion(posicionAtacante);
-        atacante.atacar(unidadAAtacar);
+    private void verificarAtacantePropio(IAtacante atacante){
+        if( !this.ejercito.contains(atacante) )
+            throw new AtacanteNoExisteException();
     }
 
-    public void atacar(Posicion posicionAtacante, Edificio edificioAAtacar){
-        IAtacante atacante = devolverAtacanteEnPosicion(posicionAtacante);
-        atacante.atacar(edificioAAtacar);
-    }
 
-    //El jugador deberia armar y desarmar el ArmaDeAsedio?
 
-    public void montarArmaDeAsedio(Posicion posicionArmaDeAsedio){
-        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) devolverAtacanteEnPosicion(posicionArmaDeAsedio);
-        armaDeAsedio.montar();
-    }
 
-    public void desmontarArmaDeAsedio(Posicion posicionArmaDeAsedio){
-        ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) devolverAtacanteEnPosicion(posicionArmaDeAsedio);
-        armaDeAsedio.desmontar();
-    }
+
 
     public IUnidadMovible devolverUnidadMovible(Posicion posicionUnidad){
         try {
@@ -254,6 +242,22 @@ public class Jugador {
     private void verificarLimitePoblacion(){
         if( llegoAlLimiteDePoblacion() )
             throw new LimiteDePoblacionException();
+    }
+
+
+
+    //Aca empiexo a cambiar a estados...
+    public void activar(){
+        this.estado = new EstadoJugadorActivo();
+    }
+
+    public void inactivar(){
+        this.estado = new EstadoJugadorInactivo();
+    }
+
+    public void mover( Posicion origen, Posicion destino ){
+        IUnidadMovible unidad = devolverUnidadMovible(origen);
+        this.estado.mover(unidad, origen, destino, this);
     }
 
     public void crearAldeano(PlazaCentral plazaCentral){
@@ -280,21 +284,24 @@ public class Jugador {
         verificarLimitePoblacion();
         this.estado.crearArmaDeAsedio(this.castillo, this);
     } //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
-      //en otro lado o como hacemos?
+    //en otro lado o como hacemos?
     //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
 
-
-    //Aca empiexo a cambiar a estados...
-    public void activar(){
-        this.estado = new EstadoJugadorActivo();
+    public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        this.estado.montarArmaDeAsedio(armaDeAsedio);
+    }
+    public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        this.estado.desmontarArmaDeAsedio(armaDeAsedio);
     }
 
-    public void inactivar(){
-        this.estado = new EstadoJugadorInactivo();
+    public void atacar(IAtacante atacante, Unidad unidadAAtacar){
+        verificarAtacantePropio(atacante);
+        this.estado.atacar(atacante, unidadAAtacar);
     }
 
-    public void mover( Posicion origen, Posicion destino ){
-        IUnidadMovible unidad = devolverUnidadMovible(origen);
-        this.estado.mover(unidad, origen, destino, this);
+    public void atacar(IAtacante atacante, Edificio edificioAAtacar){
+        verificarAtacantePropio(atacante);
+        this.estado.atacar(atacante, edificioAAtacar);
     }
+
 }

@@ -1,6 +1,8 @@
 package Modelo;
 
 import Modelo.Edificios.*;
+import Modelo.Unidades.*;
+import Modelo.Unidades.IAtacante;
 import Modelo.Unidades.IUnidadMovible;
 
 public interface IEstadoJugador {
@@ -14,6 +16,14 @@ public interface IEstadoJugador {
     void crearEspadachin(Cuartel cuartel, Jugador jugador);
 
     void crearArmaDeAsedio(Castillo castillo, Jugador jugador);
+
+    void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
+
+    void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
+
+    void atacar(IAtacante atacante, Unidad unidadAAtacar);
+
+    void atacar(IAtacante atacante, Edificio edificioAAtacar);
 
 
 }

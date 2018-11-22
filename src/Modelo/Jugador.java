@@ -6,6 +6,7 @@ import Modelo.Unidades.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Jugador {
 
@@ -315,20 +316,24 @@ public class Jugador {
 
 
     public void limpiarEntidadesMuertas() {
-        for(Aldeano aldeano : this.aldeanos){
-            if(aldeano.getVida() == 0){
-                this.aldeanos.remove(aldeano);
-            }
+        Iterator aldeanoIter = this.aldeanos.iterator();
+        Iterator ejercitoIter = this.ejercito.iterator();
+        Iterator edificioIter = this.edificios.iterator();
+
+        while(aldeanoIter.hasNext()){
+            Aldeano aldeano = (Aldeano) aldeanoIter.next();
+            if(aldeano.getVida() <= 0 )
+                aldeanoIter.remove();
         }
-        for(IAtacante atacante : this.ejercito){
-            if(atacante.getVida() == 0){
-                this.ejercito.remove(atacante);
-            }
+        while(ejercitoIter.hasNext()){
+            IAtacante atacante = (IAtacante) ejercitoIter.next();
+            if(atacante.getVida() <= 0 )
+                ejercitoIter.remove();
         }
-        for(Edificio edificio : this.edificios){
-            if(edificio.getVida() == 0){
-                this.edificios.remove(edificio);
-            }
+        while(edificioIter.hasNext()){
+            Edificio edificio = (Edificio) edificioIter.next();
+            if(edificio.getVida() <= 0 )
+                edificioIter.remove();
         }
     }
 }

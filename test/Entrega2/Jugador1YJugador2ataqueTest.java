@@ -745,7 +745,7 @@ public class Jugador1YJugador2ataqueTest {
         Assert.assertEquals(450, plaza.getVida());
     }
 
-   /* @Test (expected = AldeanoNoExisteException.class)
+    @Test (expected = AldeanoNoExisteException.class)
     public void limpiarUnidadMoridaPorAtaque(){
         Jugador jugador1 = new Jugador(5, 14);
         jugador1.activar();
@@ -757,19 +757,79 @@ public class Jugador1YJugador2ataqueTest {
 
         Posicion posicion = new Posicion(20,20);
         Aldeano aldeano = new Aldeano(posicion);
-        Espadachin espadachin1 = new Espadachin(new Posicion(21,20));
-        Espadachin espadachin2 = new Espadachin(new Posicion(21,21));
+        aldeano.reducirVida(49);
 
-        jugador1.agregarAEjercito(espadachin1);
-        jugador1.agregarAEjercito(espadachin2);
+        Espadachin espadachin = new Espadachin(new Posicion(21,20));
+
+        jugador1.agregarAEjercito(espadachin);
         jugador2.agregarAldeano(aldeano);
 
-        jugador1.atacar(espadachin1,aldeano);
-        jugador1.atacar(espadachin2,aldeano);
+        jugador1.atacar(espadachin,aldeano);
 
         jugador2.limpiarEntidadesMuertas();
 
         jugador2.devolverAldeanoEnPosicion(posicion);
+    }
 
-    }*/
+    @Test (expected = AtacanteNoExisteException.class)
+    public void limpiarAtacanteMuertoPorAtaque(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicion = new Posicion(20,20);
+        Espadachin espadachin = new Espadachin(posicion);
+        espadachin.reducirVida(90);
+
+        Arquero arquero = new Arquero(new Posicion(22,20));
+
+        jugador1.agregarAEjercito(arquero);
+        jugador2.agregarAEjercito(espadachin);
+
+        jugador1.atacar(arquero,espadachin);
+
+        jugador2.limpiarEntidadesMuertas();
+        jugador2.devolverAtacanteEnPosicion(posicion);
+    }
+
+
+
+    @Test (expected = EdificioNoExisteException.class)
+    public void limpiarEdificioExplotadoPorAtaque(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicion1 = new Posicion(40, 40);
+        Posicion posicion2 = new Posicion(39, 40);
+        Posicion posicion3 = new Posicion(39, 39);
+        Posicion posicion4 = new Posicion(40, 39);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.finalizarConstruccion();
+        plaza.reducirVida(440);                    //Reducimos vida para que el espadachin la destruya en 1 ataque
+
+        Espadachin espadachin = new Espadachin(new Posicion(39,38));
+
+        jugador1.agregarAEjercito(espadachin);
+        jugador2.agregarEdificio(plaza);
+
+        jugador1.atacar(espadachin,plaza);
+        jugador2.limpiarEntidadesMuertas();
+
+        jugador2.devolverEdificioEnPosicion(posicion1);
+    }
+
 }

@@ -36,4 +36,6 @@ public interface IEstadoJugador {
     void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral);
 
     void reparar(Aldeano aldeano, Edificio edificio);
+
+    int recolectarOro(Jugador jugador);
 }

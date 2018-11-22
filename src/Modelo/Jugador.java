@@ -3,6 +3,8 @@ package Modelo;
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.*;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Jugador {
@@ -175,9 +177,7 @@ public class Jugador {
 
     
     public void recolectarOro(){
-        for( Aldeano aldeano : this.aldeanos ){
-            cantidadOro += aldeano.generaOro();
-        }
+        cantidadOro += this.estado.recolectarOro(this);
     }
 
     private void verificarAtacantePropio(IAtacante atacante){
@@ -288,6 +288,11 @@ public class Jugador {
         this.estado.atacar(atacante, edificioAAtacar);
     }
 
+    public void castilloAtacar(ArrayList<Aldeano> aldeanos,ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito){
+        this.castillo.atacarEdificios(edificios);
+        this.castillo.atacarUnidades(aldeanos,ejercito);
+    }
+
     public void construirPlazaCentral(Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
         edificios.add( this.estado.construirPlazaCentral(aldeano, posicionesPlazaCentral) );
     }
@@ -307,5 +312,7 @@ public class Jugador {
     public void reparar(Aldeano aldeano, Edificio edificio){
         this.estado.reparar(aldeano, edificio);
     }
+
+
 
 }

@@ -639,6 +639,79 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.atacar(armaDeAsedio, castilloEnemigo);
     }
 
-    //Castillo ataca
+    @Test
+    public void castilloJugadorAtacaUnidadesEnemigas(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Aldeano aldeano = new Aldeano(new Posicion(2,2));
+        Espadachin espadachin = new Espadachin(new Posicion(2,3));
+        Arquero arquero = new Arquero(new Posicion(3,2));
+        ArmaDeAsedio arma = new ArmaDeAsedio(new Posicion(3,3));
+        jugador2.agregarAldeano(aldeano);
+        jugador2.agregarAEjercito(espadachin);
+        jugador2.agregarAEjercito(arquero);
+        jugador2.agregarAEjercito(arma);
+
+        ArrayList <Aldeano> aldeanosJug2 = jugador2.getAldeanos();
+        ArrayList <IAtacante> ejercitoJug2 = jugador2.getEjercito();
+        ArrayList <Edificio> edificiosJug2 = jugador2.getEdificios();
+        jugador1.castilloAtacar(aldeanosJug2,edificiosJug2,ejercitoJug2);
+        Assert.assertEquals(30,aldeano.getVida());
+        Assert.assertEquals(80,espadachin.getVida());
+        Assert.assertEquals(55,arquero.getVida());
+        Assert.assertEquals(130,arma.getVida());
+    }
+
+    @Test
+    public void castilloJugadorAtacaEdificiosEnemigos(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.inactivar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.activar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicion1 = new Posicion(40, 40);
+        Posicion posicion2 = new Posicion(39, 40);
+        Posicion posicion3 = new Posicion(39, 39);
+        Posicion posicion4 = new Posicion(40, 39);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.finalizarConstruccion();
+
+        Posicion posicion5 = new Posicion(38, 38);
+        Posicion posicion6 = new Posicion(37, 38);
+        Posicion posicion7 = new Posicion(38, 37);
+        Posicion posicion8 = new Posicion(37, 37);
+        ArrayList<Posicion> posiciones2 = new ArrayList<>();
+        posiciones2.add(posicion5);
+        posiciones2.add(posicion6);
+        posiciones2.add(posicion7);
+        posiciones2.add(posicion8);
+        Cuartel cuartel = new Cuartel(posiciones2);
+        cuartel.finalizarConstruccion();
+
+        jugador1.agregarEdificio(cuartel);
+        jugador1.agregarEdificio(plaza);
+
+        ArrayList <Aldeano> aldeanosJug1 = jugador1.getAldeanos();
+        ArrayList <IAtacante> ejercitoJug1 = jugador1.getEjercito();
+        ArrayList <Edificio> edificiosJug1 = jugador1.getEdificios();
+        jugador2.castilloAtacar(aldeanosJug1,edificiosJug1,ejercitoJug1);
+
+        Assert.assertEquals(430,plaza.getVida());
+        Assert.assertEquals(230,cuartel.getVida());
+    }
 
 }

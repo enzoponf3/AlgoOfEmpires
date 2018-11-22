@@ -80,4 +80,6 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
         throw new TurnoDelOponenteException();
     }
 
+    @Override
+    public int recolectarOro(Jugador jugador){return 0;} //return 0 o exception?
 }

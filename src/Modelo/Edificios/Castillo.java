@@ -2,7 +2,9 @@ package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Posicion;
+import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
+import Modelo.Unidades.IAtacante;
 import Modelo.Unidades.Unidad;
 
 import java.util.ArrayList;
@@ -95,12 +97,15 @@ public class Castillo extends Edificio {
         }
     }
 
-    public void atacarUnidades(ArrayList<Unidad> unidades) {
-        for (Unidad unidad : unidades) {
-            if (this.estaEnRango(unidad))
-                unidad.reducirVida(this.danio);
+    public void atacarUnidades(ArrayList<Aldeano> aldeanos, ArrayList<IAtacante> atacantes) {
+        for (Aldeano aldeano : aldeanos) {
+            if (this.estaEnRango(aldeano))
+                aldeano.reducirVida(this.danio);
+        }
+        for(IAtacante atacante : atacantes){
+            if(this.estaEnRango((Unidad) atacante))
+                atacante.reducirVida(this.danio);
         }
     }
-
 
 }

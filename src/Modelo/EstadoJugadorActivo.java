@@ -91,5 +91,13 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     public void reparar(Aldeano aldeano, Edificio edificio){
         aldeano.repararEdificio(edificio);
     }
+    @Override
+    public int recolectarOro(Jugador jugador){
+        int oroExtra = 0;
+        for( Aldeano aldeano : jugador.getAldeanos()){
+            oroExtra += aldeano.generaOro();
+        }
+        return oroExtra;
+    }
 
 }

@@ -85,58 +85,55 @@ public class CastilloUnidadesYAtaqueTest {
 
     @Test
     public void atacarAldeanoEnRango() {
-        ArrayList<Unidad> unidades = new ArrayList<>();
-        Aldeano aldeano = new Aldeano();
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
         Posicion posicion = new Posicion(5,5);
-        aldeano.setPosicion(posicion);
-        unidades.add(aldeano);
-        castillo.atacarUnidades(unidades);
+        Aldeano aldeano = new Aldeano(posicion);
+        aldeanos.add(aldeano);
+        castillo.atacarUnidades(aldeanos,atacantes);
         Assert.assertEquals(aldeano.getVida(),30);
     }
 
     @Test
     public void atacarAldeanoFueraDeRango() {
-        ArrayList<Unidad> unidades = new ArrayList<>();
-        Aldeano aldeano = new Aldeano();
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
         Posicion posicion = new Posicion(8,8);
-        aldeano.setPosicion(posicion);
-        unidades.add(aldeano);
-        castillo.atacarUnidades(unidades);
+        Aldeano aldeano = new Aldeano(posicion);
+        aldeanos.add(aldeano);
+        castillo.atacarUnidades(aldeanos,atacantes);
         Assert.assertEquals(aldeano.getVida(),50);
     }
 
     @Test
     public void reducirVidaCastilloNoEvitaAtacarAldeanoEnRango() {
-        ArrayList<Unidad> unidades = new ArrayList<>();
-        Aldeano aldeano = new Aldeano();
-        Posicion posicion = new Posicion(5,5);
-        aldeano.setPosicion(posicion);
-        unidades.add(aldeano);
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
+        Posicion posicion = new Posicion(7,7);
+        Aldeano aldeano = new Aldeano(posicion);
+        aldeanos.add(aldeano);
         castillo.reducirVida(150);
-        castillo.atacarUnidades(unidades);
+        castillo.atacarUnidades(aldeanos,atacantes);
         Assert.assertEquals(aldeano.getVida(),30);
     }
 
     @Test
     public void atacarTodoTipoUnidadesEnRango() {
-        ArrayList<Unidad> unidades = new ArrayList<>();
-        Aldeano aldeano = new Aldeano();
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
         Posicion posicionAldeano = new Posicion(5,5);
-        aldeano.setPosicion(posicionAldeano);
-        Arquero arquero = new Arquero();
+        Aldeano aldeano = new Aldeano(posicionAldeano);
         Posicion posicionArquero = new Posicion(7,7);
-        arquero.setPosicion(posicionArquero);
-        Espadachin espadachin = new Espadachin();
+        Arquero arquero = new Arquero(posicionArquero);
         Posicion posicionEspadachin = new Posicion(5,3);
-        espadachin.setPosicion(posicionEspadachin);
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
         Posicion posicionArmaAsedio = new Posicion(4,6);
-        armaDeAsedio.setPosicion(posicionArmaAsedio);
-        unidades.add(aldeano);
-        unidades.add(arquero);
-        unidades.add(espadachin);
-        unidades.add(armaDeAsedio);
-        castillo.atacarUnidades(unidades);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaAsedio);
+        aldeanos.add(aldeano);
+        atacantes.add(arquero);
+        atacantes.add(espadachin);
+        atacantes.add(armaDeAsedio);
+        castillo.atacarUnidades(aldeanos,atacantes);
         Assert.assertEquals(aldeano.getVida(),30);
         Assert.assertEquals(arquero.getVida(),55);
         Assert.assertEquals(espadachin.getVida(),80);
@@ -145,24 +142,21 @@ public class CastilloUnidadesYAtaqueTest {
 
     @Test
     public void atacarUnidadesDentroYFueraDeRango() {
-        ArrayList<Unidad> unidades = new ArrayList<>();
-        Aldeano aldeano = new Aldeano();
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
         Posicion posicionAldeano = new Posicion(5,5);
-        aldeano.setPosicion(posicionAldeano);
-        Arquero arquero = new Arquero();
+        Aldeano aldeano = new Aldeano(posicionAldeano);
         Posicion posicionArquero = new Posicion(10,10);
-        arquero.setPosicion(posicionArquero);
-        Espadachin espadachin = new Espadachin();
+        Arquero arquero = new Arquero(posicionArquero);
         Posicion posicionEspadachin = new Posicion(5,3);
-        espadachin.setPosicion(posicionEspadachin);
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
         Posicion posicionArmaAsedio = new Posicion(9,9);
-        armaDeAsedio.setPosicion(posicionArmaAsedio);
-        unidades.add(aldeano);
-        unidades.add(arquero);
-        unidades.add(espadachin);
-        unidades.add(armaDeAsedio);
-        castillo.atacarUnidades(unidades);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaAsedio);
+        aldeanos.add(aldeano);
+        atacantes.add(arquero);
+        atacantes.add(espadachin);
+        atacantes.add(armaDeAsedio);
+        castillo.atacarUnidades(aldeanos,atacantes);
         Assert.assertEquals(aldeano.getVida(),30);
         Assert.assertEquals(arquero.getVida(),75);
         Assert.assertEquals(espadachin.getVida(),80);

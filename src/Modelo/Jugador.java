@@ -314,5 +314,21 @@ public class Jugador {
     }
 
 
-
+    public void limpiarEntidadesMuertas() {
+        for(Aldeano aldeano : this.aldeanos){
+            if(aldeano.getVida() == 0){
+                this.aldeanos.remove(aldeano);
+            }
+        }
+        for(IAtacante atacante : this.ejercito){
+            if(atacante.getVida() == 0){
+                this.ejercito.remove(atacante);
+            }
+        }
+        for(Edificio edificio : this.edificios){
+            if(edificio.getVida() == 0){
+                this.edificios.remove(edificio);
+            }
+        }
+    }
 }

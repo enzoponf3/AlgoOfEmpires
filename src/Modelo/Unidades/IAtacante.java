@@ -10,4 +10,6 @@ public interface IAtacante {
     void atacar(Edificio edificio);
 
     void reducirVida(int danio);
+
+    int getVida();
 }

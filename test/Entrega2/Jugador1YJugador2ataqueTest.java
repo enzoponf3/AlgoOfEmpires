@@ -1,16 +1,12 @@
 package Entrega2;
 
-import Modelo.Exceptions.EdificioPropioException;
-import Modelo.Exceptions.TurnoDelOponenteException;
-import Modelo.Exceptions.UnidadDesarmadaException;
-import Modelo.Exceptions.UnidadPropiaException;
+import Modelo.Exceptions.*;
 import Modelo.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
 import org.junit.Assert;
 import org.junit.Test;
-import sun.net.www.protocol.http.HttpURLConnection;
 
 import java.util.ArrayList;
 
@@ -714,4 +710,66 @@ public class Jugador1YJugador2ataqueTest {
         Assert.assertEquals(230,cuartel.getVida());
     }
 
+    @Test
+    public void castilloJugadorNoAtacaUnidadYEdificioFueraDerango(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+        Aldeano aldeano = new Aldeano(new Posicion(20,20));
+
+        Posicion posicion1 = new Posicion(40, 40);
+        Posicion posicion2 = new Posicion(39, 40);
+        Posicion posicion3 = new Posicion(39, 39);
+        Posicion posicion4 = new Posicion(40, 39);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.finalizarConstruccion();
+
+        jugador2.agregarAldeano(aldeano);
+        jugador2.agregarEdificio(plaza);
+
+        ArrayList <Aldeano> aldeanosJug2 = jugador2.getAldeanos();
+        ArrayList <IAtacante> ejercitoJug2 = jugador2.getEjercito();
+        ArrayList <Edificio> edificiosJug2 = jugador2.getEdificios();
+        jugador1.castilloAtacar(aldeanosJug2,edificiosJug2,ejercitoJug2);
+
+        Assert.assertEquals(50, aldeano.getVida());
+        Assert.assertEquals(450, plaza.getVida());
+    }
+
+   /* @Test (expected = AldeanoNoExisteException.class)
+    public void limpiarUnidadMoridaPorAtaque(){
+        Jugador jugador1 = new Jugador(5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        Posicion posicion = new Posicion(20,20);
+        Aldeano aldeano = new Aldeano(posicion);
+        Espadachin espadachin1 = new Espadachin(new Posicion(21,20));
+        Espadachin espadachin2 = new Espadachin(new Posicion(21,21));
+
+        jugador1.agregarAEjercito(espadachin1);
+        jugador1.agregarAEjercito(espadachin2);
+        jugador2.agregarAldeano(aldeano);
+
+        jugador1.atacar(espadachin1,aldeano);
+        jugador1.atacar(espadachin2,aldeano);
+
+        jugador2.limpiarEntidadesMuertas();
+
+        jugador2.devolverAldeanoEnPosicion(posicion);
+
+    }*/
 }

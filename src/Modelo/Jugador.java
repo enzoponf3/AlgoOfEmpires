@@ -271,9 +271,11 @@ public class Jugador {
     //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
 
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        verificarAtacantePropio(armaDeAsedio);
         this.estado.montarArmaDeAsedio(armaDeAsedio);
     }
     public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+        verificarAtacantePropio(armaDeAsedio);
         this.estado.desmontarArmaDeAsedio(armaDeAsedio);
     }
 

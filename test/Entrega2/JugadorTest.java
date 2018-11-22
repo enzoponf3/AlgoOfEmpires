@@ -781,9 +781,9 @@ public class JugadorTest {
         posicionesPlazaCentral.add(posicion2PlazaCentral);
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
-        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlazaCentral);
+        new PlazaCentral(posicionesPlazaCentral);
 
-        PlazaCentral plazaCentral1 = (PlazaCentral) jugador.removerEdificio(posicion1PlazaCentral);
+        jugador.removerEdificio(posicion1PlazaCentral);
     }
 
     @Test
@@ -828,5 +828,101 @@ public class JugadorTest {
 
     //No es necesario remover el castillo porque una vez que este se destruye dicho jugador pierde la partida.
 
+    // Realizar acciones fuera de turno
 
+    @Test (expected = TurnoDelOponenteException.class)
+    public void desmontarArmaDeAsedioEnTunoOponente(){
+        Jugador jugador = new Jugador(5,14);
+        jugador.inactivar();
+        ArmaDeAsedio arma = new ArmaDeAsedio(new Posicion(1,1));
+        arma.montar();
+        arma.desocupar();
+        jugador.agregarAEjercito(arma);
+        jugador.desmontarArmaDeAsedio(arma);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+     public void crearCuartelEnTurnoDelOponente() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.inactivar();
+        Aldeano aldeano = new Aldeano(new Posicion(1,1));
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        jugador.construirCuartel(aldeano, posiciones);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void continuarConstruccionCuartelTurnoOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+        Aldeano aldeano = new Aldeano(new Posicion(1,1));
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        Cuartel cuartel = new Cuartel(posiciones);
+        jugador.inactivar();
+        jugador.continuarConstruccionCuartel(aldeano, cuartel);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void continuarConstruccionPlazaCentralTurnoOponente(){
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+        Aldeano aldeano = new Aldeano(new Posicion(1,1));
+        Posicion posicion1 = new Posicion(1,2);
+        Posicion posicion2 = new Posicion(1,3);
+        Posicion posicion3 = new Posicion(2,2);
+        Posicion posicion4 = new Posicion(2,3);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        jugador.inactivar();
+        jugador.continuarConstruccionPlazaCentral(aldeano, plaza);
+    }
+
+    @Test (expected = TurnoDelOponenteException.class)
+    public void repararPlazaCentralTurnoOponente() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+        Aldeano aldeano = new Aldeano(new Posicion(1, 1));
+        Posicion posicion1 = new Posicion(1, 2);
+        Posicion posicion2 = new Posicion(1, 3);
+        Posicion posicion3 = new Posicion(2, 2);
+        Posicion posicion4 = new Posicion(2, 3);
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        posiciones.add(posicion1);
+        posiciones.add(posicion2);
+        posiciones.add(posicion3);
+        posiciones.add(posicion4);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.finalizarConstruccion();
+        jugador.inactivar();
+        plaza.reducirVida(45);
+        jugador.reparar(aldeano, plaza);
+    }
+
+    @Test
+    public void recolectarOroEnTurnoOponente(){
+        Jugador jugador = new Jugador(5,14);
+        jugador.inactivar();
+        Assert.assertEquals(100,jugador.getCantidadOro());
+        jugador.recolectarOro();
+        Assert.assertEquals(100, jugador.getCantidadOro());
+    }
 }

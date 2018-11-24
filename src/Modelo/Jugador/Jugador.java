@@ -2,11 +2,14 @@ package Modelo.Jugador;
 
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
+import javafx.geometry.Pos;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Jugador {
@@ -22,16 +25,7 @@ public class Jugador {
     private static final int CANTIDAD_ORO_INICIAL = 100;
     private static final int LIMITE_POBLACION = 50;
 
-    public Jugador( int seedCastillo, int seedPlazaCentral ){
-        this.cantidadOro = CANTIDAD_ORO_INICIAL;
-        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
-        this.ejercito = new ArrayList<>();
-        this.aldeanos = new ArrayList<>();
-        this.edificios = new ArrayList<>();
-        inicializarAldeanos();
-        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
-        // El estado se inicializa en el juego.
-    }
+    // Setters y Getters
 
     public void setOponente(Jugador jugadorOponente){
         this.oponente = jugadorOponente;
@@ -65,7 +59,38 @@ public class Jugador {
         return this.cantidadOro;
     }
 
+    // Constructor e Inicializadores
+
+    public Jugador( int seedCastillo, int seedPlazaCentral ){
+        this.cantidadOro = CANTIDAD_ORO_INICIAL;
+        this.ejercito = new ArrayList<>();
+        this.aldeanos = new ArrayList<>();
+        this.edificios = new ArrayList<>();
+        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
+        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
+        inicializarAldeanos();
+        // El estado se inicializa en el juego.
+    }
+
+    // EN DESARROLLO - Constructor con el mapa para poder inicializar correctamente los aldeanos
+    public Jugador( Mapa mapa, int seedCastillo, int seedPlazaCentral ){
+        this.cantidadOro = CANTIDAD_ORO_INICIAL;
+        this.ejercito = new ArrayList<>();
+        this.aldeanos = new ArrayList<>();
+        this.edificios = new ArrayList<>();
+        inicializarEdificios(mapa, seedCastillo,seedPlazaCentral);  // Primero inicializar los edificios, despues los aldeanos
+        inicializarAldeanos(mapa);
+        // El estado se inicializa en el juego.
+    }
+
     // Inicializacion del Jugador
+
+    private void inicializarEdificios(ArrayList<Posicion> posicionesPlaza ){
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
+        // Finalizo construccion automaticamente
+        plazaCentral.finalizarConstruccion();
+        edificios.add(plazaCentral);
+    }
 
     public ArrayList<Posicion> obtenerPosicionesInicialesCastillo(int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
@@ -83,18 +108,37 @@ public class Jugador {
         return posiciones;
     }
 
-    private void inicializarEdificios(ArrayList<Posicion> posicionesPlaza ){
-        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
-        // Finalizo construccion automaticamente
-        plazaCentral.finalizarConstruccion();
-        edificios.add(plazaCentral);
-    }
-
     private void inicializarAldeanos(){
         for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
             Aldeano aldeano = new Aldeano();
             Posicion posicion = new Posicion(i,i);
             aldeano.setPosicion(posicion);
+            aldeanos.add(aldeano);
+        }
+    }
+
+    // EN DESARROLLO
+    private void inicializarEdificios(Mapa mapa, int seedCastillo, int seedPlaza){
+        ArrayList<Posicion> posicionesCastillo = obtenerPosicionesInicialesCastillo(seedCastillo);
+        this.castillo = new Castillo(posicionesCastillo);
+        mapa.ocuparCasilleros(posicionesCastillo,castillo);     // Necesario ocupar al asignar posiciones
+        ArrayList<Posicion> posicionesPlaza = obtenerPosicionesInicialesPlazaCentral(seedPlaza, seedCastillo);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
+        plazaCentral.finalizarConstruccion();        // Finalizo construccion automaticamente
+        mapa.ocuparCasilleros(posicionesPlaza, plazaCentral);   // Necesario ocupar al asignar posiciones
+        edificios.add(plazaCentral);
+    }
+
+    // EN DESARROLLO - Inicializar pidiendo al mapa posicion donde colocarlo
+    private void inicializarAldeanos(Mapa mapa){
+        // Se que unico edificio en este momento es la plaza central
+        PlazaCentral plaza = (PlazaCentral) edificios.get(0);
+        for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
+            Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plaza);
+            Aldeano aldeano = new Aldeano(posicionAldeano);
+            // Es necesario el ocupar
+            // No me gusta mucho esto, pero si no los 3 podrian terminar en misma posicion
+            mapa.ocuparCasillero(posicionAldeano,aldeano);
             aldeanos.add(aldeano);
         }
     }
@@ -117,12 +161,10 @@ public class Jugador {
     // Agregar Entidades
 
     public void agregarAldeano(Aldeano aldeano){
-        verificarLimitePoblacion();
         this.aldeanos.add(aldeano);
     }
 
     public void agregarAEjercito(IAtacante atacante){
-        verificarLimitePoblacion();
         this.ejercito.add(atacante);
     }
 
@@ -205,7 +247,6 @@ public class Jugador {
     }
 
     // Devolver Entidad
-
 
     public IUnidadMovible devolverUnidadMovible(Posicion posicionUnidad){
         try {

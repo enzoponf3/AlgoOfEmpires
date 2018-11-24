@@ -1,5 +1,6 @@
 package Modelo;
 
+import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
 import Modelo.Unidades.IUnidadMovible;
@@ -144,4 +145,8 @@ public class Mapa {
         return posicionesAledanias;
     }
 
+    public void ocuparCasilleros(ArrayList<Posicion> posicionesEdificio, Edificio edificio) {
+        for (Posicion posicion : posicionesEdificio)
+            this.ocuparCasillero(posicion,edificio);
+    }
 }

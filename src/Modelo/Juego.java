@@ -1,10 +1,7 @@
 package Modelo;
 
-import Modelo.*;
-import Modelo.Unidades.*;
-import Modelo.Edificios.*;
+import Modelo.Jugador.Jugador;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Juego {

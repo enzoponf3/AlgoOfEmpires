@@ -5,7 +5,7 @@ import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Exceptions.LimiteDePoblacionException;
 import Modelo.Exceptions.TurnoDelOponenteException;
-import Modelo.Jugador;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicion;
 import org.junit.Assert;
 import org.junit.Test;

@@ -4,7 +4,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Exceptions.EntidadFueraDeRangoException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadDesarmadaException;
-import Modelo.Jugador;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;

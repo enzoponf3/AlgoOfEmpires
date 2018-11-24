@@ -1,6 +1,7 @@
-package Modelo;
+package Modelo.Jugador;
 
 import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Unidades.IUnidadMovible;
 import Modelo.Edificios.*;
@@ -46,12 +47,12 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void atacar(IAtacante atacante, Unidad unidadAAtacar){
+    public void atacar(Jugador jugador, IAtacante atacante, Unidad unidadAAtacar){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void atacar(IAtacante atacante, Edificio edificioAAtacar){
+    public void atacar(Jugador jugador, IAtacante atacante, Edificio edificioAAtacar){
         throw new TurnoDelOponenteException();
     }
 

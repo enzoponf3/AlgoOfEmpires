@@ -5,7 +5,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadNoPuedeConstruirException;
-import Modelo.Jugador;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.Espadachin;

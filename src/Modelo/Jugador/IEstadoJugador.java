@@ -1,6 +1,7 @@
-package Modelo;
+package Modelo.Jugador;
 
 import Modelo.Edificios.*;
+import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Unidades.IAtacante;
 import Modelo.Unidades.IUnidadMovible;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public interface IEstadoJugador {
 
-    void mover( IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador );
+    void mover(IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador );
 
     void crearAldeano(PlazaCentral plazaCentral, Jugador jugador);
 
@@ -23,9 +24,9 @@ public interface IEstadoJugador {
 
     void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
 
-    void atacar(IAtacante atacante, Unidad unidadAAtacar);
+    void atacar(Jugador jugador, IAtacante atacante, Unidad unidadAAtacar);
 
-    void atacar(IAtacante atacante, Edificio edificioAAtacar);
+    void atacar(Jugador jugador, IAtacante atacante, Edificio edificioAAtacar);
 
     Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 

@@ -1,7 +1,7 @@
 package Entrega2;
 
 import Modelo.Exceptions.*;
-import Modelo.Jugador;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;

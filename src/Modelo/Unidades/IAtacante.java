@@ -12,4 +12,6 @@ public interface IAtacante {
     void reducirVida(int danio);
 
     int getVida();
+
+    boolean estaMuerto();
 }

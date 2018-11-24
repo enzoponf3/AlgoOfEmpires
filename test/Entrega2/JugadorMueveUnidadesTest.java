@@ -1,7 +1,7 @@
 package Entrega2;
 
 import Modelo.Exceptions.TurnoDelOponenteException;
-import Modelo.Jugador;
+import Modelo.Jugador.Jugador;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;

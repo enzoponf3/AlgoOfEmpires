@@ -1,7 +1,8 @@
-package Modelo;
+package Modelo.Jugador;
 
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Posicion;
 import Modelo.Unidades.*;
 
 import java.lang.reflect.Array;
@@ -10,105 +11,110 @@ import java.util.Iterator;
 
 public class Jugador {
 
+    private Jugador oponente;
+    private IEstadoJugador estado;
     private Castillo castillo;
     private ArrayList<Edificio> edificios;
     private ArrayList<Aldeano> aldeanos;
-    private static final int CANTIDAD_ALDEANOS_INICIAL = 3;
-    private int cantidadOro;
-    private static final int CANTIDAD_ORO_INICIAL = 100;
     private ArrayList<IAtacante> ejercito;
+    private int cantidadOro;
+    private static final int CANTIDAD_ALDEANOS_INICIAL = 3;
+    private static final int CANTIDAD_ORO_INICIAL = 100;
     private static final int LIMITE_POBLACION = 50;
-    private Jugador oponente;
-
-    private IEstadoJugador estado;
-
 
     public Jugador( int seedCastillo, int seedPlazaCentral ){
-        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
-        this.edificios = new ArrayList<>();
-        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
-        this.aldeanos = new ArrayList<>();
-        inicializarAldeanos();
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
-        this.ejercito = new ArrayList<>(); // El estado se inicializa en el juego.
+        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
+        this.ejercito = new ArrayList<>();
+        this.aldeanos = new ArrayList<>();
+        this.edificios = new ArrayList<>();
+        inicializarAldeanos();
+        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
+        // El estado se inicializa en el juego.
     }
 
     public void setOponente(Jugador jugadorOponente){
         this.oponente = jugadorOponente;
     }
 
-    public Jugador getOponente(){
-        return this.oponente;
-    }
-
     public void setEstado(IEstadoJugador estado){
         this.estado = estado;
     }
 
-    public Castillo getCastillo(){
-        return this.castillo;
+    public Jugador getOponente(){
+        return this.oponente;
     }
 
     public ArrayList<Edificio> getEdificios(){
         return this.edificios;
     }
 
+    public ArrayList<IAtacante> getEjercito(){
+        return this.ejercito;
+    }
+
     public ArrayList<Aldeano> getAldeanos(){
         return this.aldeanos;
+    }
+
+    public Castillo getCastillo(){
+        return this.castillo;
     }
 
     public int getCantidadOro(){
         return this.cantidadOro;
     }
 
-    public ArrayList<IAtacante> getEjercito(){
-        return this.ejercito;
-    }
+    // Inicializacion del Jugador
 
-    //Inicializacion jugador1
-
-    public ArrayList<Posicion> obtenerPosicionesInicialesCastillo( int seedCastillo ){
+    public ArrayList<Posicion> obtenerPosicionesInicialesCastillo(int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=seedCastillo; i<seedCastillo+4; i++ ){
-            for(int j=seedCastillo; j<seedCastillo+4; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
+        for(int i = seedCastillo; i < seedCastillo + 4; i++)
+            for(int j = seedCastillo; j < seedCastillo + 4; j++)
+                posiciones.add(new Posicion(i,j));
         return posiciones;
     }
 
     public ArrayList<Posicion> obtenerPosicionesInicialesPlazaCentral(int seedPlaza, int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
-
-        for(int i=seedPlaza; i<seedPlaza+2; i++ ){
-            for(int j=seedCastillo; j<seedCastillo+2; j++){
-                Posicion posicion = new Posicion(i,j);
-                posiciones.add(posicion);
-            }
-        }
-
+        for(int i = seedPlaza; i < seedPlaza + 2; i++)
+            for(int j = seedCastillo; j < seedCastillo + 2; j++)
+                posiciones.add(new Posicion(i,j));
         return posiciones;
     }
 
-
     private void inicializarEdificios(ArrayList<Posicion> posicionesPlaza ){
-        PlazaCentral plazaCentral = new PlazaCentral( posicionesPlaza);
+        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
         // Finalizo construccion automaticamente
         plazaCentral.finalizarConstruccion();
         edificios.add(plazaCentral);
     }
 
     private void inicializarAldeanos(){
-        for(int i=0; i<CANTIDAD_ALDEANOS_INICIAL; i++) {
+        for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
             Aldeano aldeano = new Aldeano();
             Posicion posicion = new Posicion(i,i);
             aldeano.setPosicion(posicion);
             aldeanos.add(aldeano);
         }
     }
+
+    //  Funcionalidades Jugador
+
+    void verificarLimitePoblacion(){
+        if (llegoAlLimiteDePoblacion())
+            throw new LimiteDePoblacionException();
+    }
+
+    private boolean llegoAlLimiteDePoblacion(){
+        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
+    }
+
+    public void recolectarOro(){
+        cantidadOro += this.estado.recolectarOro(this);
+    }
+
+    // Agregar Entidades
 
     public void agregarAldeano(Aldeano aldeano){
         verificarLimitePoblacion();
@@ -120,13 +126,11 @@ public class Jugador {
         this.ejercito.add(atacante);
     }
 
-    private boolean llegoAlLimiteDePoblacion(){
-        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
-    }
-
     public void agregarEdificio(Edificio edificio){
         this.edificios.add(edificio);
     }
+
+    // Remover Entidades
 
     public Aldeano removerAldeano(Aldeano aldeanoARemover){
         if( !aldeanos.contains(aldeanoARemover) )
@@ -149,6 +153,8 @@ public class Jugador {
         this.edificios.remove(edificioARemover);
         return edificioARemover;
     }    //Aca los tres remover deberian ya mataer la referencia? o devolver lo que se remueve?
+
+    // Devolver Entidad a partir de Posicion
 
     public Aldeano devolverAldeanoEnPosicion(Posicion posicion){
         for( Aldeano aldeano : this.aldeanos ){
@@ -176,59 +182,43 @@ public class Jugador {
         throw new EdificioNoExisteException();
     }
 
-    
-    public void recolectarOro(){
-        cantidadOro += this.estado.recolectarOro(this);
-    }
+    // Verificar Entidad propia
 
-    private void verificarAtacantePropio(IAtacante atacante){
+    void verificarAtacantePropio(IAtacante atacante){
         if( !this.ejercito.contains(atacante) )
             throw new AtacanteNoExisteException();
     }
 
-    private void verificarUnidadEnemiga(Unidad unidad){
+    void verificarUnidadEnemiga(Unidad unidad){
         if( this.ejercito.contains(unidad) || this.aldeanos.contains(unidad) )
             throw new UnidadPropiaException();
     }
 
-    private void verificarEdificioPropio(Edificio edificio){
+    void verificarEdificioPropio(Edificio edificio){
         if( !this.edificios.contains(edificio) )
             throw new EdificioNoExisteException();
     }
 
-    private void verificarEdificioEnemigo(Edificio edificio){
+    void verificarEdificioEnemigo(Edificio edificio){
         if( this.edificios.contains(edificio) || this.castillo == edificio )
             throw new EdificioPropioException();
     }
 
-
-
+    // Devolver Entidad
 
 
     public IUnidadMovible devolverUnidadMovible(Posicion posicionUnidad){
         try {
-            IUnidadMovible unidad = (IUnidadMovible) devolverAldeanoEnPosicion(posicionUnidad);
-            return unidad;
-        } catch( AldeanoNoExisteException e){}
+            return (IUnidadMovible) devolverAldeanoEnPosicion(posicionUnidad);
+        } catch( AldeanoNoExisteException ignored){}
         try{
-            IUnidadMovible unidad = (IUnidadMovible) devolverAtacanteEnPosicion(posicionUnidad);
-            return unidad;
+            return (IUnidadMovible) devolverAtacanteEnPosicion(posicionUnidad);
         } catch( AtacanteNoExisteException e ){}
 
         throw new UnidadMovibleNoExisteException();
     }
 
-
-
-
-    private void verificarLimitePoblacion(){
-        if( llegoAlLimiteDePoblacion() )
-            throw new LimiteDePoblacionException();
-    }
-
-
-
-    //Aca empiexo a cambiar a estados...
+    // Cambio de estado
 
     public void activar(){
         this.estado = new EstadoJugadorActivo();
@@ -238,57 +228,53 @@ public class Jugador {
         this.estado = new EstadoJugadorInactivo();
     }
 
+    // Mover y cambios Arma Asedio
+
     public void mover( Posicion origen, Posicion destino ){
         IUnidadMovible unidad = devolverUnidadMovible(origen);
         this.estado.mover(unidad, origen, destino, this);
     }
 
-    public void crearAldeano(PlazaCentral plazaCentral){
-        verificarEdificioPropio(plazaCentral);
-        verificarLimitePoblacion();
-        this.estado.crearAldeano(plazaCentral, this);
-        //Hay que setearle las posiciones...
-    }//No se si las verificaciones se hacen aca o dentro del estado, porque si ya es turno del oponente tal vez no tiene sentido
-    //verificar.
-
-    public void crearArquero(Cuartel cuartel){
-        verificarEdificioPropio(cuartel);
-        verificarLimitePoblacion();
-        this.estado.crearArquero(cuartel, this);
-    }
-
-    public void crearEspadachin(Cuartel cuartel){
-        verificarEdificioPropio(cuartel);
-        verificarLimitePoblacion();
-        this.estado.crearEspadachin(cuartel, this);
-    }
-
-    public void crearArmaDeAsedio(){
-        verificarLimitePoblacion();
-        this.estado.crearArmaDeAsedio(this.castillo, this);
-    } //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
-    //en otro lado o como hacemos?
-    //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
-
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
         verificarAtacantePropio(armaDeAsedio);
         this.estado.montarArmaDeAsedio(armaDeAsedio);
     }
+
     public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
         verificarAtacantePropio(armaDeAsedio);
         this.estado.desmontarArmaDeAsedio(armaDeAsedio);
     }
 
+    // Creacion Unidades
+
+    public void crearAldeano(PlazaCentral plazaCentral){
+        this.estado.crearAldeano(plazaCentral, this);
+        //Hay que setearle las posiciones...
+    }
+
+    public void crearArquero(Cuartel cuartel){
+        this.estado.crearArquero(cuartel, this);
+    }
+
+    public void crearEspadachin(Cuartel cuartel){
+        this.estado.crearEspadachin(cuartel, this);
+    }
+
+    public void crearArmaDeAsedio(){
+        this.estado.crearArmaDeAsedio(this.castillo, this);
+    }
+    //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
+    //en otro lado o como hacemos?
+    //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
+
+    // Ataques
+
     public void atacar(IAtacante atacante, Unidad unidadAAtacar){
-        verificarAtacantePropio(atacante);
-        verificarUnidadEnemiga(unidadAAtacar);
-        this.estado.atacar(atacante, unidadAAtacar);
+        this.estado.atacar(this, atacante, unidadAAtacar);
     }
 
     public void atacar(IAtacante atacante, Edificio edificioAAtacar){
-        verificarAtacantePropio(atacante);
-        verificarEdificioEnemigo(edificioAAtacar);
-        this.estado.atacar(atacante, edificioAAtacar);
+        this.estado.atacar(this, atacante, edificioAAtacar);
     }
 
     public void castilloAtacar(ArrayList<Aldeano> aldeanos,ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito){
@@ -296,8 +282,10 @@ public class Jugador {
         this.castillo.atacarUnidades(aldeanos,ejercito);
     }
 
+    // Construccion y reparar
+
     public void construirPlazaCentral(Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
-        edificios.add( this.estado.construirPlazaCentral(aldeano, posicionesPlazaCentral) );
+        edificios.add(this.estado.construirPlazaCentral(aldeano, posicionesPlazaCentral) );
     }
 
     public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaEnConstruccion){
@@ -305,7 +293,7 @@ public class Jugador {
     }
 
     public void construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
-        edificios.add( this.estado.construirCuartel(aldeano, posicionesCuartel) );
+        edificios.add(this.estado.construirCuartel(aldeano, posicionesCuartel) );
     }
 
     public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartelEnConstruccion){
@@ -317,6 +305,8 @@ public class Jugador {
     }
 
 
+    // Borrar entidades sin vida
+
     public void limpiarEntidadesMuertas() {
         Iterator aldeanoIter = this.aldeanos.iterator();
         Iterator ejercitoIter = this.ejercito.iterator();
@@ -324,17 +314,17 @@ public class Jugador {
 
         while(aldeanoIter.hasNext()){
             Aldeano aldeano = (Aldeano) aldeanoIter.next();
-            if(aldeano.getVida() <= 0 )
+            if (aldeano.estaMuerto())
                 aldeanoIter.remove();
         }
         while(ejercitoIter.hasNext()){
             IAtacante atacante = (IAtacante) ejercitoIter.next();
-            if(atacante.getVida() <= 0 )
+            if (atacante.estaMuerto())
                 ejercitoIter.remove();
         }
         while(edificioIter.hasNext()){
             Edificio edificio = (Edificio) edificioIter.next();
-            if(edificio.getVida() <= 0 )
+            if (edificio.estaDestruido())
                 edificioIter.remove();
         }
     }

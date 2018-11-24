@@ -5,11 +5,11 @@ import Modelo.*;
 public abstract class Unidad implements IUnidadMovible, IEntidad {
 
     protected int vida;
-    protected int costo;
+    int costo;
     protected Posicion posicion;
-    protected int danioUnidad = 0;
-    protected int danioEdificio = 0;
-    protected int rango = 0;
+    int danioUnidad = 0;
+    int danioEdificio = 0;
+    int rango = 0;
 
 
     public int getVida(){
@@ -18,13 +18,13 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
     public int getCosto(){
         return costo;
     }
-    public int getDanioUnidad(){
+    int getDanioUnidad(){
         return danioUnidad;
     }
-    public int getDanioEdificio(){
+    int getDanioEdificio(){
         return danioEdificio;
     }
-    public int getRango(){ return rango;}
+    int getRango(){ return rango;}
 
     public boolean estaEnPosicion(Posicion posicionAComparar){
         return this.posicion.igualA(posicionAComparar);
@@ -47,5 +47,7 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
     }
 
 
-
+    public boolean estaMuerto() {
+        return this.vida <= 0;
+    }
 }

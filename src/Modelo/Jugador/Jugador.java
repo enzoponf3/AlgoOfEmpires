@@ -161,10 +161,12 @@ public class Jugador {
     // Agregar Entidades
 
     public void agregarAldeano(Aldeano aldeano){
+        verificarLimitePoblacion();
         this.aldeanos.add(aldeano);
     }
 
     public void agregarAEjercito(IAtacante atacante){
+        verificarLimitePoblacion();
         this.ejercito.add(atacante);
     }
 

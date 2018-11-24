@@ -3,6 +3,7 @@ package Entrega2;
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.AldeanoNoExisteException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadNoPuedeConstruirException;
 import Modelo.Jugador.Jugador;
@@ -437,7 +438,109 @@ public class JugadorControlaConstruccionYReparacionTest {
         Assert.assertEquals(1000, castillo.getVida() );
 
     }//refactorizar
-    
 
+    @Test (expected = AldeanoNoExisteException.class)
+    public void intentarConstruirPlazaCentralConAldeanoEnemigo() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
 
+        Posicion posicionAldeano = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+
+        jugador.agregarAldeano(aldeano);
+
+        Posicion posicionAldeanoEnemigo = new Posicion(8,0);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
+        jugador.construirPlazaCentral(aldeanoEnemigo, posicionesPlazaCentral);
+
+    }
+    @Test (expected = AldeanoNoExisteException.class)
+    public void intentarContinuarConstruccionPlazaCentralConAldeanoEnemigo() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicionAldeano = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+
+        jugador.agregarAldeano(aldeano);
+
+        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+
+        Posicion posicionAldeanoEnemigo = new Posicion(8,0);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
+        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        jugador.continuarConstruccionPlazaCentral(aldeanoEnemigo, plazaCentral);
+
+    }
+
+    @Test (expected = AldeanoNoExisteException.class)
+    public void intentarConstruirCuartelConAldeanoEnemigo() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicionAldeano = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+
+        jugador.agregarAldeano(aldeano);
+        Posicion posicionAldeanoEnemigo = new Posicion(8,0);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
+        jugador.construirCuartel(aldeanoEnemigo, posicionesCuartel);
+    }
+
+    @Test (expected = AldeanoNoExisteException.class)
+    public void intentarContinuarConstruccionCuartelConAldeanoEnemigo() {
+        Jugador jugador = new Jugador(5, 14);
+        jugador.activar();
+
+        Posicion posicionAldeano = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+
+        Posicion posicion1Cuartel = new Posicion(3,2);
+        Posicion posicion2Cuartel = new Posicion(3,1);
+        Posicion posicion3Cuartel = new Posicion(4,2);
+        Posicion posicion4Cuartel = new Posicion(4,1);
+        ArrayList<Posicion> posicionesCuartel = new ArrayList<>();
+        posicionesCuartel.add(posicion1Cuartel);
+        posicionesCuartel.add(posicion2Cuartel);
+        posicionesCuartel.add(posicion3Cuartel);
+        posicionesCuartel.add(posicion4Cuartel);
+
+        jugador.agregarAldeano(aldeano);
+        Posicion posicionAldeanoEnemigo = new Posicion(8,0);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
+        jugador.construirCuartel(aldeano, posicionesCuartel);
+        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        jugador.continuarConstruccionCuartel(aldeanoEnemigo, cuartel);
+
+    }
 }

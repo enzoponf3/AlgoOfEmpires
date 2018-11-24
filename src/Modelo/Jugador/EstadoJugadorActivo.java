@@ -1,12 +1,23 @@
 package Modelo.Jugador;
 
 import Modelo.Edificios.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 
 import java.util.ArrayList;
 
 public class EstadoJugadorActivo implements IEstadoJugador {
+
+    private void verificacionesCreacion(Jugador jugador, Edificio edificio){
+        jugador.verificarEdificioPropio(edificio);
+        jugador.verificarLimitePoblacion();
+    }
+
+    private void verificacionesConstruccion(Jugador jugador, Aldeano aldeano, Edificio edificio) {
+        jugador.verificarAldeanoPropio(aldeano);
+        jugador.verificarEdificioPropio(edificio);
+    }
 
     //MOVER
 
@@ -19,34 +30,43 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     //CREAR UNIDADES
 
     @Override
-    public void crearAldeano(PlazaCentral plazaCentral, Jugador jugador){
-        jugador.verificarEdificioPropio(plazaCentral);
-        jugador.verificarLimitePoblacion();
+    public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
+        verificacionesCreacion(jugador, plazaCentral);
+        Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plazaCentral);
         Aldeano aldeano = plazaCentral.crearAldeano();
+        aldeano.setPosicion(posicionAldeano);
         jugador.agregarAldeano(aldeano);
+        mapa.ocuparCasillero(posicionAldeano,aldeano);
     }
 
     @Override
-    public void crearArquero(Cuartel cuartel, Jugador jugador){
-        jugador.verificarEdificioPropio(cuartel);
-        jugador.verificarLimitePoblacion();
+    public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
+        verificacionesCreacion(jugador, cuartel);
+        Posicion posicionArquero = mapa.devolverPosicionAledaniaLibre(cuartel);
         Arquero arquero = cuartel.crearArquero();
+        arquero.setPosicion(posicionArquero);
         jugador.agregarAEjercito(arquero);
-    } //Lo hace desde aca o se lo devuelve y el jug lo agrega? Que es mejor?
-
-    @Override
-    public void crearEspadachin(Cuartel cuartel, Jugador jugador){
-        jugador.verificarEdificioPropio(cuartel);
-        jugador.verificarLimitePoblacion();
-        Espadachin espadachin = cuartel.crearEspadachin();
-        jugador.agregarAEjercito(espadachin);
+        mapa.ocuparCasillero(posicionArquero,arquero);
     }
 
     @Override
-    public void crearArmaDeAsedio(Castillo castillo, Jugador jugador){
+    public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
+        verificacionesCreacion(jugador, cuartel);
+        Posicion posicionEspadachin = mapa.devolverPosicionAledaniaLibre(cuartel);
+        Espadachin espadachin = cuartel.crearEspadachin();
+        espadachin.setPosicion(posicionEspadachin);
+        jugador.agregarAEjercito(espadachin);
+        mapa.ocuparCasillero(posicionEspadachin,espadachin);
+    }
+
+    @Override
+    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         jugador.verificarLimitePoblacion();
+        Posicion posicionArmaAsedio = mapa.devolverPosicionAledaniaLibre(castillo);
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        armaDeAsedio.setPosicion(posicionArmaAsedio);
         jugador.agregarAEjercito(armaDeAsedio);
+        mapa.ocuparCasillero(posicionArmaAsedio,armaDeAsedio);
     }
 
 
@@ -80,29 +100,35 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     //CONSTRUIR
     @Override
-    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public Cuartel construirCuartel(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        jugador.verificarAldeanoPropio(aldeano);
         return aldeano.construirCuartel(posicionesCuartel);
     }
 
     @Override
-    public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel){
+    public void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel){
+        verificacionesConstruccion(jugador,aldeano,cuartel);
         aldeano.continuarConstruccionCuartel(cuartel);
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public PlazaCentral construirPlazaCentral(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+        jugador.verificarAldeanoPropio(aldeano);
         return aldeano.construirPlazaCentral(posicionesPlazaCentral);
     }
 
     @Override
-    public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral){
+    public void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral){
+        verificacionesConstruccion(jugador,aldeano,plazaCentral);
         aldeano.continuarConstruccionPlazaCentral(plazaCentral);
     }
 
     @Override
-    public void reparar(Aldeano aldeano, Edificio edificio){
+    public void reparar(Jugador jugador, Aldeano aldeano, Edificio edificio){
+        verificacionesConstruccion(jugador,aldeano,edificio);
         aldeano.repararEdificio(edificio);
     }
+
     @Override
     public int recolectarOro(Jugador jugador){
         int oroExtra = 0;

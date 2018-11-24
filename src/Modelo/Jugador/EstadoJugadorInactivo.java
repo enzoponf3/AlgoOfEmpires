@@ -1,6 +1,7 @@
 package Modelo.Jugador;
 
 import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Unidades.IUnidadMovible;
@@ -17,22 +18,22 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void crearAldeano(PlazaCentral plazaCentral, Jugador jugador){
+    public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void crearArquero(Cuartel cuartel, Jugador jugador){
+    public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void crearEspadachin(Cuartel cuartel, Jugador jugador){
+    public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void crearArmaDeAsedio(Castillo castillo, Jugador jugador){
+    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
@@ -57,27 +58,27 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public Cuartel construirCuartel(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel){
+    public void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public PlazaCentral construirPlazaCentral(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral){
+    public void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void reparar(Aldeano aldeano, Edificio edificio){
+    public void reparar(Jugador jugador, Aldeano aldeano, Edificio edificio){
         throw new TurnoDelOponenteException();
     }
 

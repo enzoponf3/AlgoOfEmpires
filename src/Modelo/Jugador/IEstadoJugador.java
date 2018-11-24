@@ -1,6 +1,7 @@
 package Modelo.Jugador;
 
 import Modelo.Edificios.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Unidades.IAtacante;
@@ -12,13 +13,13 @@ public interface IEstadoJugador {
 
     void mover(IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador );
 
-    void crearAldeano(PlazaCentral plazaCentral, Jugador jugador);
+    void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador);
 
-    void crearArquero(Cuartel cuartel, Jugador jugador);
+    void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador);
 
-    void crearEspadachin(Cuartel cuartel, Jugador jugador);
+    void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador);
 
-    void crearArmaDeAsedio(Castillo castillo, Jugador jugador);
+    void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador);
 
     void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
 
@@ -28,15 +29,15 @@ public interface IEstadoJugador {
 
     void atacar(Jugador jugador, IAtacante atacante, Edificio edificioAAtacar);
 
-    Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
+    Cuartel construirCuartel(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 
-    void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartel);
+    void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel);
 
-    PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral);
+    PlazaCentral construirPlazaCentral(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral);
 
-    void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaCentral);
+    void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral);
 
-    void reparar(Aldeano aldeano, Edificio edificio);
+    void reparar(Jugador jugador, Aldeano aldeano, Edificio edificio);
 
     int recolectarOro(Jugador jugador);
 }

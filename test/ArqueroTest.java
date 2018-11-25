@@ -17,7 +17,6 @@ public class ArqueroTest {
     public void crearArqueroEnPosicionIndicada(){
         Posicion posicion = new Posicion(5,7);
         Arquero arquero = new Arquero(posicion);
-        arquero.setPosicion(posicion);
         Assert.assertTrue(arquero.estaEnPosicion(posicion));
     }
 
@@ -166,7 +165,6 @@ public class ArqueroTest {
         Aldeano aldeano = new Aldeano(posAldeano);
         Posicion posArquero = new Posicion(1,2);
         Arquero arquero = new Arquero(posArquero);
-        arquero.setPosicion(posArquero);
         Assert.assertEquals(50,aldeano.getVida());
         arquero.atacar(aldeano);
         Assert.assertEquals(35,aldeano.getVida());
@@ -177,7 +175,6 @@ public class ArqueroTest {
         Aldeano aldeano = new Aldeano(posAldeano);
         Posicion posArquero = new Posicion(1,2);
         Arquero arquero = new Arquero(posArquero);
-        arquero.setPosicion(posArquero);
         arquero.atacar(aldeano);
         arquero.atacar(aldeano);
     }
@@ -188,7 +185,6 @@ public class ArqueroTest {
         Arquero arquero = new Arquero(posArquero);
         Posicion posArquero2 = new Posicion(1,3);
         Arquero arquero2 = new Arquero(posArquero2);
-        arquero2.setPosicion(posArquero2);
         arquero.atacar(arquero2);
         Assert.assertEquals(60, arquero2.getVida());
     }

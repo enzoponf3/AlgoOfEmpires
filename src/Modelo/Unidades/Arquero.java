@@ -11,15 +11,6 @@ public class Arquero extends Unidad implements IAtacante {
     protected static int DANIO_UNIDAD = 15;
     protected static int DANIO_EDIFICIO = 10;
 
-    public Arquero() {
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.danioUnidad = DANIO_UNIDAD;
-        this.danioEdificio = DANIO_EDIFICIO;
-        this.rango = RANGO;
-        this.estado = new EstadoArqueroLibre();
-    }
-
     public Arquero(Posicion posicion) {
         this.vida = VIDA;
         this.costo = COSTO;

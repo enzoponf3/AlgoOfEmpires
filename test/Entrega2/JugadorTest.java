@@ -172,7 +172,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
 
         Jugador jugador = new Jugador(mapa, 5, 14);
-        Arquero arquero = new Arquero();
+        Posicion posicion = new Posicion(10,10);
+        Arquero arquero = new Arquero(posicion);
         jugador.agregarAEjercito(arquero);
         Assert.assertFalse( jugador.getEjercito().isEmpty() );
     }
@@ -194,7 +195,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
 
         Jugador jugador = new Jugador(mapa, 5, 14);
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+        Posicion posicion = new Posicion(10,10);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
 
         jugador.agregarAEjercito(armaDeAsedio);
         Assert.assertFalse( jugador.getEjercito().isEmpty() );
@@ -269,8 +271,11 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
+        int posNueva = 0;
         for(int i=0; i<47; i++){
-            Arquero arquero = new Arquero();
+            posNueva++;
+            Posicion posicion = new Posicion(10,posNueva);
+            Arquero arquero = new Arquero(posicion);
             jugador.agregarAEjercito(arquero);
         }
 
@@ -283,8 +288,11 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
+        int posNueva = 0;
         for(int i=0; i<48; i++){
-            Arquero arquero = new Arquero();
+            posNueva++;
+            Posicion posicion= new Posicion(10,posNueva);
+            Arquero arquero = new Arquero(posicion);
             jugador.agregarAEjercito(arquero);
         }
 
@@ -342,8 +350,11 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
+        int posNueva = 0;
         for(int i=0; i<48; i++){
-            ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
+            posNueva++;
+            Posicion posicion = new Posicion(10,posNueva);
+            ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
             jugador.agregarAEjercito(armaDeAsedio);
         }
 
@@ -461,9 +472,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(2,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
 
         jugador.agregarAEjercito(arquero);
         Arquero arqueroAComparar = (Arquero) jugador.devolverAtacanteEnPosicion(posicion);
@@ -476,9 +486,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(2,5);
-        arquero.setPosicion(posicion);
+        Arquero arquero = new Arquero(posicion);
 
         jugador.devolverAtacanteEnPosicion(posicion);
     }
@@ -511,9 +520,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
-        armaDeAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
 
         jugador.agregarAEjercito(armaDeAsedio);
         ArmaDeAsedio armaDeAsedioAComparar = (ArmaDeAsedio) jugador.devolverAtacanteEnPosicion(posicion);
@@ -526,9 +534,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
-        armaDeAsedio.setPosicion(posicion);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicion);
 
         jugador.devolverAtacanteEnPosicion(posicion);
     }
@@ -769,7 +776,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        Arquero arqueroARemover = new Arquero();
+        Posicion posicion = new Posicion(10,10);
+        Arquero arqueroARemover = new Arquero(posicion);
 
         jugador.agregarAEjercito(arqueroARemover);
         Arquero arquero = (Arquero) jugador.removerDeEjercito(arqueroARemover);
@@ -783,7 +791,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        Arquero arqueroARemover = new Arquero();
+        Posicion posicion = new Posicion(10,10);
+        Arquero arqueroARemover = new Arquero(posicion);
 
         Arquero arquero = (Arquero) jugador.removerDeEjercito(arqueroARemover);
 
@@ -796,7 +805,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+        Posicion posicion= new Posicion(10,10);
+        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio(posicion);
 
         jugador.agregarAEjercito(armaDeAsedioARemover);
         ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
@@ -810,7 +820,8 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
+        Posicion posicion= new Posicion(10,10);
+        ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio(posicion);
 
         ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
 

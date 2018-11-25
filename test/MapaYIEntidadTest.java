@@ -40,8 +40,8 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoArqueroEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(2,5);
+        IEntidad IEntidad = new Arquero(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -54,8 +54,8 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArqueroEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Arquero();
         Posicion posicion = new Posicion(15,5);
+        IEntidad IEntidad = new Arquero(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
     }
@@ -86,8 +86,8 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
+        IEntidad IEntidad = new ArmaDeAsedio(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -100,8 +100,8 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoArmaDeAsedioEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new ArmaDeAsedio();
         Posicion posicion = new Posicion(15,5);
+        IEntidad IEntidad = new ArmaDeAsedio(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
     }

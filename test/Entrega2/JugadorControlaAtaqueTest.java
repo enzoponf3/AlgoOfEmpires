@@ -26,9 +26,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
+        Arquero arquero = new Arquero(posicionArquero);
 
         Posicion posicionAldeano = new Posicion(3,3);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
@@ -239,9 +238,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(3,2);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -271,9 +269,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(3,2);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -303,9 +300,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -335,9 +331,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -368,9 +363,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(6,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -400,9 +394,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(6,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -433,9 +426,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(7,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -465,9 +457,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(7,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -498,9 +489,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(8,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -530,9 +520,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(8,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -562,9 +551,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(9,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -593,9 +581,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);
@@ -619,9 +606,8 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicionArmaDeAsedio = new Posicion(5,3);
-        armaDeAsedio.setPosicion(posicionArmaDeAsedio);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(2,3);

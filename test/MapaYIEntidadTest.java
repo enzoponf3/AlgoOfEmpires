@@ -63,8 +63,8 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoEspadachinEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(2,5);
+        IEntidad IEntidad = new Espadachin(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -77,8 +77,8 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoEspadachinEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Espadachin();
         Posicion posicion = new Posicion(15,5);
+        IEntidad IEntidad = new Espadachin(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
     }

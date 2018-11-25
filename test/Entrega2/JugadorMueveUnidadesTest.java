@@ -86,9 +86,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(2,5);
-        espadachin.setPosicion(origen);
+        Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(espadachin);
@@ -103,9 +102,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(2,5);
-        espadachin.setPosicion(origen);
+        Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(espadachin);

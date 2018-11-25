@@ -4,22 +4,12 @@ import Modelo.Exceptions.*;
 import Modelo.Edificios.Edificio;
 public class Espadachin extends Unidad implements IAtacante{
 
-   protected int VIDA = 100;
-   protected int COSTO = 50;
-   protected int DANIO_UNIDAD = 25;
-   protected int DANIO_EDIFICIO = 15;
-   protected IEstadoEspadachin estado;
-   protected int RANGO = 1;
-
-
-    public Espadachin(){
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.estado = new EstadoEspadachinLibre();
-        this.danioUnidad = DANIO_UNIDAD;
-        this.danioEdificio = DANIO_EDIFICIO;
-        this.rango = RANGO;
-    }
+   private final int VIDA = 100;
+   private final int COSTO = 50;
+   private final int DANIO_UNIDAD = 25;
+   private final int DANIO_EDIFICIO = 15;
+   protected  IEstadoEspadachin estado;
+   private final int RANGO = 1;
 
     public Espadachin(Posicion posicion){
         this.vida = VIDA;

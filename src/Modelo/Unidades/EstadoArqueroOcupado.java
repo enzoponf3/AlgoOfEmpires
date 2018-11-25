@@ -4,12 +4,17 @@ import Modelo.Posicion;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 
 public class EstadoArqueroOcupado implements IEstadoArquero {
+    Arquero arquero;
+    public EstadoArqueroOcupado(Arquero arquero){
+        this.arquero = arquero;
+    }
+
     @Override
-    public void mover(Posicion destino, Arquero arquero){
+    public void mover(Posicion destino){
         throw new UnidadEstaOcupadoException();
     }
 
-    public void atacar(Arquero arquero, Edificio edificio) { throw new UnidadEstaOcupadoException();}
+    public void atacar(Edificio edificio) { throw new UnidadEstaOcupadoException();}
 
-    public void atacar(Arquero arquero, Unidad unidad){ throw new UnidadEstaOcupadoException();}
+    public void atacar(Unidad unidad){ throw new UnidadEstaOcupadoException();}
 }

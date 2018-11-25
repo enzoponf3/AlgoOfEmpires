@@ -3,9 +3,9 @@ import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
 public interface IEstadoArmaDeAsedio {
-    void mover(Posicion destino, ArmaDeAsedio armaDeAsedio);
-    void desocupar(ArmaDeAsedio armaDeAsedio);
-    void montar (ArmaDeAsedio armaAsedio);
-    void desmontar (ArmaDeAsedio armaAsedio);
-    void atacar(ArmaDeAsedio armaDeAsedio, Edificio edificio);
+    void mover(Posicion destino);
+    void desocupar();
+    void montar ();
+    void desmontar ();
+    void atacar(Edificio edificio);
 }

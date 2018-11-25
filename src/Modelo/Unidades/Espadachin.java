@@ -14,19 +14,19 @@ public class Espadachin extends Unidad implements IAtacante{
     public Espadachin(Posicion posicion){
         this.vida = VIDA;
         this.costo = COSTO;
-        this.estado = new EstadoEspadachinLibre();
+        this.estado = new EstadoEspadachinLibre(this);
         this.danioUnidad = DANIO_UNIDAD;
         this.danioEdificio = DANIO_EDIFICIO;
         this.rango = RANGO;
         this.posicion = posicion;
     }
 
-    public void desocupar(){ this.estado = new EstadoEspadachinLibre();}
-    public void ocupar(){ this.estado = new EstadoEspadachinOcupado();}
+    public void desocupar(){ this.estado = new EstadoEspadachinLibre(this);}
+    public void ocupar(){ this.estado = new EstadoEspadachinOcupado(this);}
 
     @Override
     public void mover(Posicion destino){
-        this.estado.mover(destino, this);
+        this.estado.mover(destino);
     }
 
     @Override
@@ -36,9 +36,9 @@ public class Espadachin extends Unidad implements IAtacante{
     }
 
     @Override
-    public void atacar(Unidad unidad){ this.estado.atacar(this,unidad);}
+    public void atacar(Unidad unidad){ this.estado.atacar(unidad);}
 
 
     @Override
-    public void atacar(Edificio edificio){this.estado.atacar(this,edificio);}
+    public void atacar(Edificio edificio){this.estado.atacar(edificio);}
 }

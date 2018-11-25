@@ -8,6 +8,10 @@ import Modelo.Posicion;
 import java.util.ArrayList;
 
 public class EstadoAldeanoLibre implements IEstadoAldeano {
+    Aldeano aldeano;
+    public EstadoAldeanoLibre(Aldeano aldeano){
+        this.aldeano = aldeano;
+    }
 
     @Override
     public int generaOro(){
@@ -15,19 +19,19 @@ public class EstadoAldeanoLibre implements IEstadoAldeano {
     }
 
     @Override
-    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posiciones){
+    public Cuartel construirCuartel(ArrayList<Posicion> posiciones){
         aldeano.ocupar();
         return new Cuartel(posiciones);
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posiciones){
+    public PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones){
         aldeano.ocupar();
         return new PlazaCentral(posiciones);
     }
 
     @Override
-    public void repararEdificio(Edificio edificio, Aldeano aldeano){
+    public void repararEdificio(Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
             if (aldeano.posicion.estaEnRango(pos, aldeano.getRango())){
@@ -40,14 +44,14 @@ public class EstadoAldeanoLibre implements IEstadoAldeano {
     }
 
     @Override
-    public void continuarConstruccion(Edificio edificio, Aldeano aldeano){
+    public void continuarConstruccion(Edificio edificio){
         edificio.construir();
         aldeano.ocupar();
     }
 
 
     @Override
-    public void mover(Posicion destino, Aldeano aldeano){
+    public void mover(Posicion destino){
         aldeano.cambiarPosicion(destino);
         aldeano.movio();
     }

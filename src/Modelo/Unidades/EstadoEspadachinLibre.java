@@ -6,14 +6,19 @@ import Modelo.Edificios.Edificio;
 import java.util.ArrayList;
 
 public class EstadoEspadachinLibre implements IEstadoEspadachin {
+
+    Espadachin espadachin;
+    public EstadoEspadachinLibre(Espadachin espadachin){
+        this.espadachin = espadachin;
+    }
     @Override
-    public void mover(Posicion destino, Espadachin espadachin){
+    public void mover(Posicion destino){
         espadachin.cambiarPosicion(destino);
         espadachin.ocupar();
     }
 
     @Override
-    public void atacar(Espadachin espadachin, Unidad unidad){
+    public void atacar(Unidad unidad){
         if (!espadachin.posicion.estaEnRango(unidad.getPosicion(), espadachin.getRango())) {
            throw new EntidadFueraDeRangoException();
         }
@@ -21,7 +26,7 @@ public class EstadoEspadachinLibre implements IEstadoEspadachin {
         espadachin.ocupar();
     }
     @Override
-    public void atacar(Espadachin espadachin, Edificio edificio){
+    public void atacar(Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
             if (espadachin.posicion.estaEnRango(pos, espadachin.getRango())){

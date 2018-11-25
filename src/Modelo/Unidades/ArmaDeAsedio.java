@@ -16,19 +16,19 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
         this.costo = COSTO;
         this.rango = RANGO;
         this.danioEdificio = DANIO_EDIFICIO;
-        this.estado = new EstadoArmaDeAsedioDesarmado();
+        this.estado = new EstadoArmaDeAsedioDesarmado(this);
         this.posicion = posicion;
     }
 
-    public void montar(){ this.estado.montar(this);}
+    public void montar(){ this.estado.montar();}
 
-    public void desmontar(){ this.estado.desmontar(this);}
+    public void desmontar(){ this.estado.desmontar();}
 
-    public void desocupar(){this.estado.desocupar(this);}
+    public void desocupar(){this.estado.desocupar();}
 
     @Override
     public void mover(Posicion destino){
-        this.estado.mover(destino, this);
+        this.estado.mover(destino);
     }
 
     @Override
@@ -38,6 +38,6 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
 
     public void atacar(Unidad unidad){ throw new ArmaDeAsedioNoAtacaUnidadException();}
 
-    public void atacar(Edificio edificio) {this.estado.atacar(this,edificio);}
+    public void atacar(Edificio edificio) {this.estado.atacar(edificio);}
 
 }

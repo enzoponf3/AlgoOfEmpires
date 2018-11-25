@@ -32,11 +32,8 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         verificacionesCreacion(jugador, plazaCentral);
-        Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plazaCentral);
-        Aldeano aldeano = plazaCentral.crearAldeano();
-        aldeano.setPosicion(posicionAldeano);
+        Aldeano aldeano = plazaCentral.crearAldeano(mapa);
         jugador.agregarAldeano(aldeano);
-        mapa.ocuparCasillero(posicionAldeano,aldeano);
     }
 
     @Override

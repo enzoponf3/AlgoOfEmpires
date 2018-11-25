@@ -2,13 +2,19 @@ package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioEnReparacionException;
 import Modelo.Exceptions.EdificioYaConstruidoException;
+import Modelo.Mapa;
+import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 
 public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
 
     @Override
-    public Aldeano crearAldeano() {
-        return new Aldeano();
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral) {
+        Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plazaCentral);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+        mapa.ocuparCasillero(posicionAldeano,aldeano);
+
+        return aldeano;
     }
 
     @Override

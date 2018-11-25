@@ -1,5 +1,6 @@
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
@@ -268,8 +269,10 @@ public class PlazaCentralTest {
 
     @Test (expected = EdificioDestruidoException.class)
     public void crearAldeanoTrasDestruirPlazaCentral() {
+        Mapa mapa = new Mapa(10, 20);
+
         plazaConstruida.reducirVida(450);
-        plazaConstruida.crearAldeano();
+        plazaConstruida.crearAldeano(mapa);
     }
 
     @Test (expected = EdificioDestruidoException.class)

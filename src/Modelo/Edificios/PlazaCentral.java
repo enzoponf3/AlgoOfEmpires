@@ -1,6 +1,7 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 
@@ -33,8 +34,8 @@ public class PlazaCentral extends Edificio {
         return this.costo;
     }
 
-    public Aldeano crearAldeano() {
-        return this.estado.crearAldeano();
+    public Aldeano crearAldeano(Mapa mapa) {
+        return this.estado.crearAldeano(mapa, this);
     }
 
     @Override

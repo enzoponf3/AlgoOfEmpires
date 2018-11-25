@@ -3,6 +3,7 @@ package Entrega1;
 
 import Modelo.Edificios.*;
 import Modelo.Exceptions.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import org.junit.Assert;
@@ -15,6 +16,8 @@ public class PlazaCentralYUnidadesTest {
 
     @Test(expected = EdificioNoConstruidoException.class)
     public void crearAldeanoTrasUnTurnoConstruccion() {
+        Mapa mapa = new Mapa(10,20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -27,11 +30,14 @@ public class PlazaCentralYUnidadesTest {
         PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
         plaza.volverAEstadoOriginal();
-        plaza.crearAldeano();
+
+        plaza.crearAldeano(mapa);
     }
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasUnTurnoConstruccionSinVolverAEstadoOriginal() {
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -43,11 +49,13 @@ public class PlazaCentralYUnidadesTest {
         posiciones.add(posicion4);
         PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.construir();
-        plaza.crearAldeano();
+        plaza.crearAldeano(mapa);
     }
 
     @Test(expected = EdificioNoConstruidoException.class)
     public void crearAldeanoTrasDosTurnosConstruccion() {
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -62,11 +70,14 @@ public class PlazaCentralYUnidadesTest {
         plaza.volverAEstadoOriginal();
         plaza.construir();
         plaza.volverAEstadoOriginal();
-        plaza.crearAldeano();
+
+        plaza.crearAldeano(mapa);
     }
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasDosTurnosConstruccionSinVolverAEstadoOriginal() {
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -80,11 +91,13 @@ public class PlazaCentralYUnidadesTest {
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
-        plaza.crearAldeano();
+        plaza.crearAldeano(mapa);
     }
 
     @Test(expected = EdificioEnConstruccionException.class)
     public void crearAldeanoTrasTresTurnosConstruccion() {
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -100,11 +113,13 @@ public class PlazaCentralYUnidadesTest {
         plaza.construir();
         plaza.volverAEstadoOriginal();
         plaza.construir();
-        plaza.crearAldeano();
+        plaza.crearAldeano(mapa);
     }
 
     @Test
     public void crearAldeanoTrasTresTurnosConstruccionYFinalizarConstruccion() {
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -121,12 +136,14 @@ public class PlazaCentralYUnidadesTest {
         plaza.volverAEstadoOriginal();
         plaza.construir();
         plaza.volverAEstadoOriginal();
-        Aldeano espadachin = plaza.crearAldeano();
+        Aldeano espadachin = plaza.crearAldeano(mapa);
         Assert.assertEquals(espadachin.getVida(), 50);
     }
 
     @Test
     public void plazaCentralEnReparacionCreaAldeano(){
+        Mapa mapa = new Mapa(10, 20);
+
         Posicion posicion1 = new Posicion(2, 5);
         Posicion posicion2 = new Posicion(2, 4);
         Posicion posicion3 = new Posicion(3, 5);
@@ -145,7 +162,7 @@ public class PlazaCentralYUnidadesTest {
         plaza.volverAEstadoOriginal();
         plaza.reducirVida(100);
         plaza.reparar();
-        Aldeano aldeano = plaza.crearAldeano();
+        Aldeano aldeano = plaza.crearAldeano(mapa);
         Assert.assertNotNull(aldeano);
     }
 }

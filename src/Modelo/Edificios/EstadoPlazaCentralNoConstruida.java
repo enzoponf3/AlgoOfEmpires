@@ -1,6 +1,7 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioNoConstruidoException;
+import Modelo.Mapa;
 import Modelo.Unidades.Aldeano;
 
 public class EstadoPlazaCentralNoConstruida implements IEstadoPlazaCentral {
@@ -12,7 +13,7 @@ public class EstadoPlazaCentralNoConstruida implements IEstadoPlazaCentral {
     }
 
     @Override
-    public Aldeano crearAldeano() {
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral) {
         throw new EdificioNoConstruidoException();
     }
 

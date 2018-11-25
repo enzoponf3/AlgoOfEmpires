@@ -1,13 +1,14 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Unidades.Aldeano;
 
 
 public class EstadoPlazaCentralDestruida implements IEstadoPlazaCentral {
 
     @Override
-    public Aldeano crearAldeano() {
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral) {
         throw new EdificioDestruidoException();
     }
 

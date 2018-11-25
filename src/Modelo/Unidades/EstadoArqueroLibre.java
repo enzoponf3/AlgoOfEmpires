@@ -20,7 +20,7 @@ public class EstadoArqueroLibre implements IEstadoArquero {
 
     @Override
     public void atacar(Unidad unidad){
-        if (!arquero.posicion.estaEnRango(unidad.getPosicion(), arquero.getRango())) {
+        if (!arquero.enRangoDeAtaque(unidad.getPosicion())) {
             throw new EntidadFueraDeRangoException();
         }
         unidad.reducirVida(arquero.getDanioUnidad());
@@ -31,7 +31,7 @@ public class EstadoArqueroLibre implements IEstadoArquero {
     public void atacar(Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
-            if (arquero.posicion.estaEnRango(pos, arquero.getRango())){
+            if (arquero.enRangoDeAtaque(pos)){
                 edificio.reducirVida(arquero.getDanioEdificio());
                 arquero.ocupar();
                 return;

@@ -24,7 +24,7 @@ public class EstadoArmaDeAsedioArmado implements IEstadoArmaDeAsedio {
     public void atacar(Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
-            if (armaDeAsedio.posicion.estaEnRango(pos, armaDeAsedio.getRango())){
+            if (armaDeAsedio.enRangoDeAtaque(pos)){
                 edificio.reducirVida(armaDeAsedio.getDanioEdificio());
                 armaDeAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado(armaDeAsedio);
                 return;

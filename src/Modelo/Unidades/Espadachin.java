@@ -32,7 +32,6 @@ public class Espadachin extends Unidad implements IAtacante{
     @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
-        this.ocupar();
     }
 
     @Override
@@ -41,4 +40,9 @@ public class Espadachin extends Unidad implements IAtacante{
 
     @Override
     public void atacar(Edificio edificio){this.estado.atacar(edificio);}
+
+    @Override
+    public boolean enRangoDeAtaque(Posicion posAtacado){
+        return this.posicion.estaEnRango(posAtacado,this.rango);
+    }
 }

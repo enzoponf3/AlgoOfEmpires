@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Mapa;
 import Modelo.Unidades.ArmaDeAsedio;
 
 public interface IEstadoCastillo {
@@ -8,5 +9,5 @@ public interface IEstadoCastillo {
 
     void volverAEstadoOriginal(Castillo castillo);
 
-    ArmaDeAsedio crearArmaDeAsedio();
+    ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo);
 }

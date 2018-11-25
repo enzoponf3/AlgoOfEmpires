@@ -5,6 +5,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import org.junit.Assert;
@@ -58,28 +59,36 @@ public class CastilloUnidadesYAtaqueTest {
 
     @Test
     public void creacionDeArmaDeAsedio() {
-        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        Mapa mapa = new Mapa(10, 20);
+
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         Assert.assertEquals(armaDeAsedio.getVida(), 150);
         Assert.assertEquals(armaDeAsedio.getCosto(),200);
     }
 
     @Test (expected = EdificioDestruidoException.class)
     public void crearArmaDeAsedioTrasDestruirCastillo() {
+        Mapa mapa = new Mapa(10, 20);
+
         castillo.reducirVida(1000);
-        castillo.crearArmaDeAsedio();
+        castillo.crearArmaDeAsedio(mapa);
     }
 
     @Test
     public void castilloCrearArmaAsedioExitosamente(){
-        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        Mapa mapa = new Mapa(10, 20);
+
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         Assert.assertNotNull(armaDeAsedio);
     }
 
     @Test
     public void castilloEnReparacionCreaArmaDeAsedio(){
+        Mapa mapa = new Mapa(10, 20);
+
         castillo.reducirVida(50);
         castillo.reparar();
-        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         Assert.assertNotNull(armaDeAsedio);
     }
 

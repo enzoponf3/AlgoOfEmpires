@@ -1,7 +1,9 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Unidades.ArmaDeAsedio;
+import jdk.nashorn.internal.ir.CatchNode;
 
 public class EstadoCastilloDestruido implements IEstadoCastillo {
 
@@ -16,7 +18,7 @@ public class EstadoCastilloDestruido implements IEstadoCastillo {
     }
 
     @Override
-    public ArmaDeAsedio crearArmaDeAsedio() {
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo) {
         throw new EdificioDestruidoException();
     }
 }

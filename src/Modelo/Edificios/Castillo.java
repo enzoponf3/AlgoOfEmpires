@@ -1,6 +1,7 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -49,8 +50,8 @@ public class Castillo extends Edificio {
             this.estado = new EstadoCastilloDestruido();
     }
 
-    public ArmaDeAsedio crearArmaDeAsedio() {
-        return this.estado.crearArmaDeAsedio();
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa) {
+        return this.estado.crearArmaDeAsedio(mapa, this);
     }
 
     @Override

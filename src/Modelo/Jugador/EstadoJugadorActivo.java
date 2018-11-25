@@ -53,11 +53,8 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         jugador.verificarLimitePoblacion();
-        Posicion posicionArmaAsedio = mapa.devolverPosicionAledaniaLibre(castillo);
-        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio();
-        armaDeAsedio.setPosicion(posicionArmaAsedio);
+        ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         jugador.agregarAEjercito(armaDeAsedio);
-        mapa.ocuparCasillero(posicionArmaAsedio,armaDeAsedio);
     }
 
 

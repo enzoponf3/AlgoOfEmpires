@@ -1,6 +1,8 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioEnReparacionException;
+import Modelo.Mapa;
+import Modelo.Posicion;
 import Modelo.Unidades.ArmaDeAsedio;
 
 public class EstadoCastilloEnReparacion implements IEstadoCastillo {
@@ -17,7 +19,10 @@ public class EstadoCastilloEnReparacion implements IEstadoCastillo {
     }
 
     @Override
-    public ArmaDeAsedio crearArmaDeAsedio() {
-        return new ArmaDeAsedio();
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo) {
+        Posicion posicionArmaAsedio = mapa.devolverPosicionAledaniaLibre(castillo);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaAsedio);
+        mapa.ocuparCasillero(posicionArmaAsedio,armaDeAsedio);
+        return armaDeAsedio;
     }
 }

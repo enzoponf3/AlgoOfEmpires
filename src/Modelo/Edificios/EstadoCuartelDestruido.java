@@ -1,18 +1,19 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
 public class EstadoCuartelDestruido implements IEstadoCuartel {
 
     @Override
-    public Espadachin crearEspadachin() {
+    public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel) {
         throw new EdificioDestruidoException();
     }
 
     @Override
-    public Arquero crearArquero() {
+    public Arquero crearArquero(Mapa mapa, Cuartel cuartel) {
         throw new EdificioDestruidoException();
     }
 

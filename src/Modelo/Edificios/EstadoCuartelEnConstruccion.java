@@ -1,8 +1,11 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioEnConstruccionException;
+import Modelo.Mapa;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
+
+import java.util.Map;
 
 public class EstadoCuartelEnConstruccion implements IEstadoCuartel {
 
@@ -13,12 +16,12 @@ public class EstadoCuartelEnConstruccion implements IEstadoCuartel {
     }
 
     @Override
-    public Espadachin crearEspadachin() {
+    public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel) {
         throw new EdificioEnConstruccionException();
     }
 
     @Override
-    public Arquero crearArquero() {
+    public Arquero crearArquero(Mapa mapa, Cuartel cuartel) {
         throw new EdificioEnConstruccionException();
     }
 

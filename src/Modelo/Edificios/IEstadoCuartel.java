@@ -1,13 +1,14 @@
 package Modelo.Edificios;
 
+import Modelo.Mapa;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 
 public interface IEstadoCuartel {
 
-    Espadachin crearEspadachin();
+    Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel);
 
-    Arquero crearArquero();
+    Arquero crearArquero(Mapa mapa, Cuartel cuartel);
 
     void reparar(Cuartel cuartel);
 

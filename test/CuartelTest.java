@@ -1,5 +1,6 @@
 import Modelo.Edificios.Cuartel;
 import Modelo.Exceptions.*;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
@@ -270,14 +271,18 @@ public class CuartelTest {
 
     @Test (expected = EdificioDestruidoException.class)
     public void crearEspadachinTrasDestruirCuartel() {
+        Mapa mapa = new Mapa(10, 20);
+
         cuartelConstruido.reducirVida(250);
-        cuartelConstruido.crearEspadachin();
+        cuartelConstruido.crearEspadachin(mapa);
     }
 
     @Test (expected = EdificioDestruidoException.class)
     public void crearArqueroTrasDestruirCuartel() {
+        Mapa mapa = new Mapa(10, 20);
+
         cuartelConstruido.reducirVida(250);
-        cuartelConstruido.crearArquero();
+        cuartelConstruido.crearArquero(mapa);
     }
 
     @Test (expected = EdificioDestruidoException.class)

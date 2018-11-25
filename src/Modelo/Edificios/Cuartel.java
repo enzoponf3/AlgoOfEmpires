@@ -1,6 +1,7 @@
 package Modelo.Edificios;
 
 import Modelo.Exceptions.EdificioDestruidoException;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
@@ -33,12 +34,12 @@ public class Cuartel extends Edificio {
         return this.costo;
     }
 
-    public Espadachin crearEspadachin() {
-        return this.estado.crearEspadachin();
+    public Espadachin crearEspadachin(Mapa mapa) {
+        return this.estado.crearEspadachin(mapa, this);
     }
 
-    public Arquero crearArquero() {
-        return this.estado.crearArquero();
+    public Arquero crearArquero(Mapa mapa) {
+        return this.estado.crearArquero(mapa, this);
     }
 
     @Override

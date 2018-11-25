@@ -39,21 +39,15 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
-        Posicion posicionArquero = mapa.devolverPosicionAledaniaLibre(cuartel);
-        Arquero arquero = cuartel.crearArquero();
-        arquero.setPosicion(posicionArquero);
+        Arquero arquero = cuartel.crearArquero(mapa);
         jugador.agregarAEjercito(arquero);
-        mapa.ocuparCasillero(posicionArquero,arquero);
     }
 
     @Override
     public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
-        Posicion posicionEspadachin = mapa.devolverPosicionAledaniaLibre(cuartel);
-        Espadachin espadachin = cuartel.crearEspadachin();
-        espadachin.setPosicion(posicionEspadachin);
+        Espadachin espadachin = cuartel.crearEspadachin(mapa);
         jugador.agregarAEjercito(espadachin);
-        mapa.ocuparCasillero(posicionEspadachin,espadachin);
     }
 
     @Override

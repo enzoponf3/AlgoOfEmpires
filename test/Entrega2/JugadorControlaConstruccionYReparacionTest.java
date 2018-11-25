@@ -7,6 +7,7 @@ import Modelo.Exceptions.AldeanoNoExisteException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadNoPuedeConstruirException;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.Espadachin;
@@ -22,7 +23,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoConstruyeUnaPlazaCentralCorrectamenteEnTurnoPropio(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -47,7 +49,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void aldeanoConstruyeUnaPlazaCentralEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -69,10 +72,14 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoContinuaConstruccionDeUnaPlazaCentralCorrectamenteEnTurnoPropio(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(2,2);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+        jugador.agregarAldeano(aldeano);
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -82,12 +89,11 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion2PlazaCentral);
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
-        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
 
-        jugador.construirPlazaCentral(aldeano2, posicionesPlazaCentral);
-        aldeano2.desocupar();
+        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        aldeano.desocupar();
         PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
-        jugador.continuarConstruccionPlazaCentral(aldeano2, plazaCentral);
+        jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
 
@@ -95,10 +101,14 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void aldeanoContinuaConstruccionDeUnaPlazaCentralEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         Posicion posicionAldeano = new Posicion(2,2);
+        Aldeano aldeano = new Aldeano(posicionAldeano);
+        jugador.agregarAldeano(aldeano);
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -109,12 +119,11 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        Aldeano aldeano2 = jugador.devolverAldeanoEnPosicion(posicionAldeano);
-        jugador.construirPlazaCentral(aldeano2, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
 
-        aldeano2.desocupar();
+        aldeano.desocupar();
         PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
-        jugador.continuarConstruccionPlazaCentral(aldeano2, plazaCentral);
+        jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
 
@@ -122,7 +131,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoConstruyeUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -148,7 +158,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoContinuaConstruccionDeUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -178,7 +189,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class)
     public void aldeanoNoPuedeConstruirSiNoFueDesocupado(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -206,7 +218,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoEnConstruccionNoGeneraOro(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -238,7 +251,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = UnidadNoPuedeConstruirException.class )
     public void dosAldeanosIntentanConstruirAlMismoTiempoLanzaExcepcion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -272,7 +286,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaPlazaCentralCorrectamenteEnTurnoPropio(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Espadachin espadachinEnemigo = new Espadachin();
@@ -321,7 +336,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void aldeanoReparaPlazaCentralEnTurnoOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         Espadachin espadachinEnemigo = new Espadachin();
@@ -368,7 +384,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaCuartelCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Espadachin espadachinEnemigo = new Espadachin();
@@ -418,7 +435,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test
     public void aldeanoReparaCastilloCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionEspadachin = new Posicion(4,5);
@@ -441,7 +459,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = AldeanoNoExisteException.class)
     public void intentarConstruirPlazaCentralConAldeanoEnemigo() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -466,7 +485,8 @@ public class JugadorControlaConstruccionYReparacionTest {
     }
     @Test (expected = AldeanoNoExisteException.class)
     public void intentarContinuarConstruccionPlazaCentralConAldeanoEnemigo() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -495,7 +515,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = AldeanoNoExisteException.class)
     public void intentarConstruirCuartelConAldeanoEnemigo() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa,5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);
@@ -519,7 +540,8 @@ public class JugadorControlaConstruccionYReparacionTest {
 
     @Test (expected = AldeanoNoExisteException.class)
     public void intentarContinuarConstruccionCuartelConAldeanoEnemigo() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Posicion posicionAldeano = new Posicion(4,0);

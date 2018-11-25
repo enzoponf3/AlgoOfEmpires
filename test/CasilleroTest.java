@@ -20,7 +20,7 @@ public class CasilleroTest {
     public void colocarUnObjetoEnUnCasilleroVacio(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero  = new Casillero(posicion);
-        IEntidad IEntidad = new Aldeano();
+        IEntidad IEntidad = new Aldeano(posicion);
 
         casillero.colocarObjeto(IEntidad);
 
@@ -31,8 +31,8 @@ public class CasilleroTest {
     public void colocarUnObjetoEnUnCasilleroOcupadoLanzaCasilleroOcupadoException(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        IEntidad unIEntidad = new Aldeano();
-        IEntidad otroIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(posicion);
+        IEntidad otroIEntidad = new Aldeano(posicion);
 
         casillero.colocarObjeto(unIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );
@@ -43,7 +43,7 @@ public class CasilleroTest {
     public void colocarUnObjetoEnUnCasilleroYLuegoDesocuparloDevuelveElMismoObjeto(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        IEntidad unIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(posicion);
         IEntidad otroIEntidad;
 
         casillero.colocarObjeto(unIEntidad);
@@ -56,8 +56,8 @@ public class CasilleroTest {
     public void colocarUnObjetoEnUnCasilleroDesocuparloYColocarOtro(){
         Posicion posicion = new Posicion(5, 2);
         Casillero casillero = new Casillero(posicion);
-        IEntidad unIEntidad = new Aldeano();
-        IEntidad otroIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(posicion);
+        IEntidad otroIEntidad = new Aldeano(posicion);
 
         casillero.colocarObjeto(unIEntidad);
         Assert.assertTrue( casillero.estaOcupado() );

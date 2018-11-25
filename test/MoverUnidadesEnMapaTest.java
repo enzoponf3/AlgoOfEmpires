@@ -19,8 +19,10 @@ public class MoverUnidadesEnMapaTest {
     @Test
     public void moverAldeanoAUnCasilleroAledanioDesocupadoDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Aldeano aldeano = new Aldeano();
+
         Posicion origen = new Posicion(2,5);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(2,6);
 
         mapa.ocuparCasillero(origen, aldeano);
@@ -97,10 +99,12 @@ public class MoverUnidadesEnMapaTest {
     @Test (expected = PosicionOcupadaException.class)
     public void moverAldeanoAUnCasilleroAledanioOcupadoDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Aldeano aldeano = new Aldeano();
-        Aldeano aldeano2 = new Aldeano();
+
         Posicion origen = new Posicion(2,5);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(2,6);
+        Aldeano aldeano2 = new Aldeano(destino);
 
         mapa.ocuparCasillero(origen, aldeano);
         mapa.ocuparCasillero(destino, aldeano2);
@@ -156,8 +160,10 @@ public class MoverUnidadesEnMapaTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void moverAldeanoAUnCasilleroAledanioFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Aldeano aldeano = new Aldeano();
+
         Posicion origen = new Posicion(10,20);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(10,21);
 
         mapa.ocuparCasillero(origen, aldeano);
@@ -206,8 +212,10 @@ public class MoverUnidadesEnMapaTest {
     @Test (expected = PosicionInvalidaException.class)
     public void moverAldeanoAUnCasilleroNoAledanioDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Aldeano aldeano = new Aldeano();
+
         Posicion origen = new Posicion(2,5);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(4,8);
 
         mapa.ocuparCasillero(origen, aldeano);

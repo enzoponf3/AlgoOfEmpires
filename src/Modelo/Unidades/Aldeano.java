@@ -14,12 +14,6 @@ public class Aldeano extends Unidad {
     public static final int RANGO = 1;
     public IEstadoAldeano estado;
 
-    public Aldeano() {
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.rango = RANGO;
-        this.estado = new EstadoAldeanoLibre();
-    }
 
     public Aldeano(Posicion posicion) {
         this.vida = VIDA;

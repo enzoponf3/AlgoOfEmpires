@@ -2,6 +2,7 @@ package Entrega2;
 
 import Modelo.Exceptions.*;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
@@ -9,11 +10,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
 
+import static javafx.scene.input.KeyCode.M;
+
 public class JugadorTest {
 
     @Test
     public void obtenerPosicionesInicialesCastilloJugador1Correctamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(5,5);
@@ -61,7 +65,9 @@ public class JugadorTest {
 
     @Test
     public void obtenerPosicionesInicialesPlazaCentralCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         ArrayList<Posicion> posiciones = new ArrayList<>();
         Posicion posicion1 = new Posicion(14,5);
         Posicion posicion2 = new Posicion(14,6);
@@ -86,20 +92,26 @@ public class JugadorTest {
 
     @Test
     public void verificarQueIniciaConUnCastillo(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Castillo castillo = jugador.getCastillo();
         Assert.assertEquals(castillo.getVida(), 1000);
     }
 
     @Test
     public void verificarQueIniciaConUnaPlazaCentral(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Assert.assertEquals( 1, jugador.getEdificios().size() );
     }
 
     @Test
     public void verificarQueIniciaConUnaPlazaCentralCorrectamenteCreada(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         ArrayList<Edificio> edificios = jugador.getEdificios();
         Edificio plaza = edificios.get(0);
         Assert.assertEquals(plaza.getVida(), 450);
@@ -107,14 +119,18 @@ public class JugadorTest {
 
     @Test
     public void verificarQueIniciaConTresAldeanos(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
         Assert.assertEquals(3, aldeanos.size());
     }
 
     @Test
     public void verificarQueIniciaConTresAldeanosCorrectamenteCreados(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
         for (Aldeano aldeano : aldeanos)
             Assert.assertEquals(aldeano.getVida(),50);
@@ -122,13 +138,17 @@ public class JugadorTest {
 
     @Test
     public void verificarQueIniciaConCienDeOro(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Assert.assertEquals(100, jugador.getCantidadOro());
     }
 
     @Test
     public void verificarTodasLasCondicionesEnSimultaneo(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Assert.assertNotNull( jugador.getCastillo() );
         Assert.assertEquals( 1, jugador.getEdificios().size() );
         ArrayList<Aldeano> aldeanos = jugador.getAldeanos();
@@ -138,7 +158,9 @@ public class JugadorTest {
 
     @Test
     public void verificarQueIniciaConEjercitoVacio(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Assert.assertTrue( jugador.getEjercito().isEmpty() );
     }
 
@@ -147,7 +169,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnArqueroAlEjercitoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Arquero arquero = new Arquero();
         jugador.agregarAEjercito(arquero);
         Assert.assertFalse( jugador.getEjercito().isEmpty() );
@@ -155,7 +179,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnEspadachinAlEjercitoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Espadachin espadachin = new Espadachin();
 
         jugador.agregarAEjercito(espadachin);
@@ -164,7 +190,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnArmaDeAsedioAlEjercitoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
 
         jugador.agregarAEjercito(armaDeAsedio);
@@ -173,7 +201,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnoDeCadaUnoAlEjercitoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
         Arquero arquero = new Arquero();
         Espadachin espadachin = new Espadachin();
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -192,8 +222,11 @@ public class JugadorTest {
 
     @Test
     public void agregarAldeanoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeano = new Aldeano();
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador = new Jugador(mapa, 5, 14);
+        Posicion posicion = new Posicion(2,2);
+        Aldeano aldeano = new Aldeano(posicion);
 
         jugador.agregarAldeano(aldeano);
         Assert.assertFalse( jugador.getAldeanos().isEmpty() );
@@ -202,10 +235,12 @@ public class JugadorTest {
 
     @Test
     public void agregarAldeanosSobreElLimiteYVerificarPoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<47; i++){
-            Aldeano aldeano = new Aldeano();
+            Posicion posicion = new Posicion(i,i);
+            Aldeano aldeano = new Aldeano(posicion);
             jugador.agregarAldeano(aldeano);
         }
 
@@ -214,10 +249,12 @@ public class JugadorTest {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void agregarAldeanosPasandoElLimiteDePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<48; i++){
-            Aldeano aldeano = new Aldeano();
+            Posicion posicion = new Posicion(i,i);
+            Aldeano aldeano = new Aldeano(posicion);
             jugador.agregarAldeano(aldeano);
         }
 
@@ -225,7 +262,8 @@ public class JugadorTest {
 
     @Test
     public void agregarArqueroSobreElLimiteYVerificarPoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<47; i++){
             Arquero arquero = new Arquero();
@@ -238,7 +276,8 @@ public class JugadorTest {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void agregarArquerosPasandoElLimiteDePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<48; i++){
             Arquero arquero = new Arquero();
@@ -249,7 +288,8 @@ public class JugadorTest {
 
     @Test
     public void agregarEspadachinSobreElLimiteYVerificarPoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<47; i++){
             Espadachin espadachin = new Espadachin();
@@ -261,7 +301,8 @@ public class JugadorTest {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void agregarEspadachinesPasandoElLimiteDePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<48; i++){
             Espadachin espadachin = new Espadachin();
@@ -272,7 +313,8 @@ public class JugadorTest {
 
     @Test
     public void agregarArmaDeAsedioSobreElLimiteYVerificarPoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<47; i++){
             ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -284,7 +326,8 @@ public class JugadorTest {
 
     @Test (expected = LimiteDePoblacionException.class)
     public void agregarArmaDeAsedioPasandoElLimiteDePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         for(int i=0; i<48; i++){
             ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -297,7 +340,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnaPlazacentralCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
@@ -316,7 +361,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
@@ -335,7 +382,9 @@ public class JugadorTest {
 
     @Test
     public void agregarUnaPlazaYUnCuartelCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1 = new Posicion(1,2);
         Posicion posicion2 = new Posicion(1,3);
         Posicion posicion3 = new Posicion(2,2);
@@ -371,10 +420,11 @@ public class JugadorTest {
 
     @Test
     public void devolverAldeanoEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeano = new Aldeano();
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion = new Posicion(2,5);
-        aldeano.setPosicion(posicion);
+        Aldeano aldeano = new Aldeano(posicion);
 
         jugador.agregarAldeano(aldeano);
         Aldeano aldeanoAComparar = jugador.devolverAldeanoEnPosicion(posicion);
@@ -382,19 +432,12 @@ public class JugadorTest {
         Assert.assertEquals( aldeano, aldeanoAComparar );
     }
 
-    @Test
-    public void devolverAldeanoInicialCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
-        Posicion posicionAldeano = new Posicion(1,1);
-
-        Aldeano aldeanoInicial = jugador.devolverAldeanoEnPosicion(posicionAldeano);
-
-        Assert.assertEquals( aldeanoInicial, jugador.getAldeanos().get(1) );
-    }
 
     @Test (expected = AldeanoNoExisteException.class)
     public void devolverAldeanoQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicionAldeano = new Posicion(1,6);
 
         jugador.devolverAldeanoEnPosicion(posicionAldeano);
@@ -402,7 +445,9 @@ public class JugadorTest {
 
     @Test
     public void devolverArqueroEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(2,5);
         arquero.setPosicion(posicion);
@@ -415,7 +460,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void devolverArqueroQueNoEsDelJugadorEnPosicion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Arquero arquero = new Arquero();
         Posicion posicion = new Posicion(2,5);
         arquero.setPosicion(posicion);
@@ -425,7 +472,9 @@ public class JugadorTest {
 
     @Test
     public void devolverEspadachinEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(2,5);
         espadachin.setPosicion(posicion);
@@ -438,7 +487,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void devolverEspadachinQueNoEsDelJugadorEnPosicion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Espadachin espadachin = new Espadachin();
         Posicion posicion = new Posicion(2,5);
         espadachin.setPosicion(posicion);
@@ -448,7 +499,9 @@ public class JugadorTest {
 
     @Test
     public void devolverArmaDeAsedioEnPosicionCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
         armaDeAsedio.setPosicion(posicion);
@@ -461,7 +514,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void devolverArmaDeAsedioQueNoEsDelJugadorEnPosicion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion posicion = new Posicion(2,5);
         armaDeAsedio.setPosicion(posicion);
@@ -470,10 +525,12 @@ public class JugadorTest {
     }
 
     //Unidad movible
-
+/*
     @Test
     public void devolverAldeanoInicialComoUnidadMovibleCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicionAldeano = new Posicion(1,1);
 
         Aldeano aldeanoInicial = jugador.devolverAldeanoEnPosicion(posicionAldeano);
@@ -621,15 +678,16 @@ public class JugadorTest {
         PlazaCentral plaza = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
     }
 
-
+*/
     //Remover aldeanos
 
     @Test
     public void removerUnAldeano(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeanoARemover = new Aldeano();
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion = new Posicion(3,5);
-        aldeanoARemover.setPosicion(posicion);
+        Aldeano aldeanoARemover = new Aldeano(posicion);
 
         jugador.agregarAldeano(aldeanoARemover);
         Aldeano aldeano = jugador.removerAldeano(aldeanoARemover);
@@ -640,10 +698,11 @@ public class JugadorTest {
 
     @Test (expected = AldeanoNoExisteException.class)
     public void removerUnAldeanoQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeanoARemover = new Aldeano();
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion = new Posicion(3,5);
-        aldeanoARemover.setPosicion(posicion);
+        Aldeano aldeanoARemover = new Aldeano(posicion);
 
         Aldeano aldeano = jugador.removerAldeano(aldeanoARemover);
 
@@ -652,8 +711,11 @@ public class JugadorTest {
 
     @Test
     public void removerUnAldeanoDisminuyeLaPoblacionEnUno(){
-        Jugador jugador = new Jugador(5, 14);
-        Aldeano aldeanoARemover = new Aldeano();
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
+        Posicion posicion = new Posicion(2,5);
+        Aldeano aldeanoARemover = new Aldeano(posicion);
 
         jugador.agregarAldeano(aldeanoARemover);
         Assert.assertEquals(4, jugador.getAldeanos().size() );
@@ -667,7 +729,9 @@ public class JugadorTest {
 
     @Test
     public void removerUnEspadachinCorrectamenteDisminuyePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Espadachin espadachinARemover = new Espadachin();
 
         jugador.agregarAEjercito(espadachinARemover);
@@ -679,7 +743,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void removerUnEspadachinQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Espadachin espadachinARemover = new Espadachin();
 
         Espadachin espadachin = (Espadachin) jugador.removerDeEjercito(espadachinARemover);
@@ -689,7 +755,9 @@ public class JugadorTest {
 
     @Test
     public void removerUnArqueroCorrectamenteDisminuyePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Arquero arqueroARemover = new Arquero();
 
         jugador.agregarAEjercito(arqueroARemover);
@@ -701,7 +769,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void removerUnArqueroQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Arquero arqueroARemover = new Arquero();
 
         Arquero arquero = (Arquero) jugador.removerDeEjercito(arqueroARemover);
@@ -712,7 +782,9 @@ public class JugadorTest {
 
     @Test
     public void removerUnArmaDeAsedioCorrectamenteDisminuyePoblacion(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
 
         jugador.agregarAEjercito(armaDeAsedioARemover);
@@ -724,7 +796,9 @@ public class JugadorTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void removerUnArmaDeAsedioQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         ArmaDeAsedio armaDeAsedioARemover = new ArmaDeAsedio();
 
         ArmaDeAsedio armaDeAsedio = (ArmaDeAsedio) jugador.removerDeEjercito(armaDeAsedioARemover);
@@ -737,7 +811,9 @@ public class JugadorTest {
 
     @Test
     public void removerUnaPlazaCentralQueFueAgregadaCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -758,7 +834,9 @@ public class JugadorTest {
 
     @Test
     public void removerLaPlazaCentralConLaQueSeInicializaElJuegoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1 = new Posicion(14, 5);
 
         PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1);
@@ -771,7 +849,9 @@ public class JugadorTest {
 
     @Test (expected = EdificioNoExisteException.class)
     public void removerUnaPlazaCentralQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
         Posicion posicion3PlazaCentral = new Posicion(4,2);
@@ -788,7 +868,8 @@ public class JugadorTest {
 
     @Test
     public void removerUnaCuartelQueFueAgregadaCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -810,7 +891,8 @@ public class JugadorTest {
 
     @Test (expected = EdificioNoExisteException.class)
     public void removerUnCuartelQueNoEsDelJugador(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -832,7 +914,9 @@ public class JugadorTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void desmontarArmaDeAsedioEnTunoOponente(){
-        Jugador jugador = new Jugador(5,14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.inactivar();
         ArmaDeAsedio arma = new ArmaDeAsedio(new Posicion(1,1));
         arma.montar();
@@ -843,7 +927,9 @@ public class JugadorTest {
 
     @Test (expected = TurnoDelOponenteException.class)
      public void crearCuartelEnTurnoDelOponente() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.inactivar();
         Aldeano aldeano = new Aldeano(new Posicion(1,1));
         Posicion posicion1 = new Posicion(1,2);
@@ -860,7 +946,9 @@ public class JugadorTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void continuarConstruccionCuartelTurnoOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.activar();
         Aldeano aldeano = new Aldeano(new Posicion(1,1));
         Posicion posicion1 = new Posicion(1,2);
@@ -879,7 +967,9 @@ public class JugadorTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void continuarConstruccionPlazaCentralTurnoOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.activar();
         Aldeano aldeano = new Aldeano(new Posicion(1,1));
         Posicion posicion1 = new Posicion(1,2);
@@ -898,7 +988,9 @@ public class JugadorTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void repararPlazaCentralTurnoOponente() {
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.activar();
         Aldeano aldeano = new Aldeano(new Posicion(1, 1));
         Posicion posicion1 = new Posicion(1, 2);
@@ -919,7 +1011,9 @@ public class JugadorTest {
 
     @Test
     public void recolectarOroEnTurnoOponente(){
-        Jugador jugador = new Jugador(5,14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+
         jugador.inactivar();
         Assert.assertEquals(100,jugador.getCantidadOro());
         jugador.recolectarOro();

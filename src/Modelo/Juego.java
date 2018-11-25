@@ -16,11 +16,13 @@ public class Juego {
 
     private Jugador jugador1;
     private Jugador jugador2;
+    private Mapa mapa;
 
     public void inicializar() {
 
-        jugador1 = new Jugador( SEED_CASTILLO_J1, SEED_PLAZA_CENTRAL_J1 );
-        jugador2 = new Jugador( SEED_CASTILLO_J2, SEED_PLAZA_CENTRAL_J2 );
+
+        jugador1 = new Jugador( mapa, SEED_CASTILLO_J1, SEED_PLAZA_CENTRAL_J1 );
+        jugador2 = new Jugador( mapa, SEED_CASTILLO_J2, SEED_PLAZA_CENTRAL_J2 );
         int turnoInicial = new Random().nextInt(2);
         if (turnoInicial == 0) {
 //            jugador1.turnoActivo();

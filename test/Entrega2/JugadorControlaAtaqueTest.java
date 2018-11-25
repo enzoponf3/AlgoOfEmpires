@@ -5,6 +5,7 @@ import Modelo.Exceptions.EntidadFueraDeRangoException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadDesarmadaException;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -21,16 +22,16 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
         arquero.setPosicion(posicionArquero);
 
-        Aldeano aldeanoEnemigo = new Aldeano();
         Posicion posicionAldeano = new Posicion(3,3);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -40,16 +41,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
+        Arquero arquero = new Arquero(posicionArquero);
 
-        Aldeano aldeanoEnemigo = new Aldeano();
         Posicion posicionAldeano = new Posicion(3,3);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -60,15 +60,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoADosUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(5,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -78,15 +78,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoADosUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(5,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -96,15 +96,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoATresUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(6,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -114,15 +114,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArqueroDelJugadorAtacaAAldeanoEnemigoATresUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(6,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -132,15 +132,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistanciaDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(7,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -148,15 +148,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArqueroDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeTresUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Arquero arquero = new Arquero();
         Posicion posicionArquero = new Posicion(3,2);
-        arquero.setPosicion(posicionArquero);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Arquero arquero = new Arquero(posicionArquero);
+
         Posicion posicionAldeano = new Posicion(7,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(arquero);
         jugador.atacar(arquero, aldeanoEnemigo);
@@ -165,15 +165,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
-        espadachin.setPosicion(posicionEspadachin);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
+
         Posicion posicionAldeano = new Posicion(3,3);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(espadachin);
         jugador.atacar(espadachin, aldeanoEnemigo);
@@ -183,15 +183,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void EspadachinDelJugadorAtacaAAldeanoEnemigoAUnaUnidadDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
-        espadachin.setPosicion(posicionEspadachin);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
+
         Posicion posicionAldeano = new Posicion(3,3);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(espadachin);
         jugador.atacar(espadachin, aldeanoEnemigo);
@@ -202,15 +202,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistanciaDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
-        espadachin.setPosicion(posicionEspadachin);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
+
         Posicion posicionAldeano = new Posicion(7,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(espadachin);
         jugador.atacar(espadachin, aldeanoEnemigo);
@@ -218,15 +218,15 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void EspadachinDelJugadorNoPuedeAtacarAAldeanoEnemigoAMasDeUnaUnidadDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion posicionEspadachin = new Posicion(3,2);
-        espadachin.setPosicion(posicionEspadachin);
-        Aldeano aldeanoEnemigo = new Aldeano();
+        Espadachin espadachin = new Espadachin(posicionEspadachin);
+
         Posicion posicionAldeano = new Posicion(7,2);
-        aldeanoEnemigo.setPosicion(posicionAldeano);
+        Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
         jugador.agregarAEjercito(espadachin);
         jugador.atacar(espadachin, aldeanoEnemigo);
@@ -235,7 +235,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -266,7 +267,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAUnaUnidadDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -297,7 +299,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoADosUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -328,7 +331,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoADosUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -360,7 +364,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoATresUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -391,7 +396,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoATresUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -423,7 +429,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACuatroUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -454,7 +461,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACuatroUnidadesDeDistanciaduranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -486,7 +494,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACincoUnidadesDeDistanciaCorrectamenteDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -517,7 +526,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoACincoUnidadesDeDistanciaDuranteTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -548,7 +558,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = EntidadFueraDeRangoException.class)
     public void ArmaDeAsedioDelJugadorAtacaAEdificioEnemigoAMasDeCincoUnidadesDeDistanciaNoPuedeAtacarDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -578,7 +589,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void ArmaDeAsedioDelJugadorDesarmadaNoPuedeAtacarDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -603,7 +615,8 @@ public class JugadorControlaAtaqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void montarArmaDeAsediodesmontarArmaDeAsedioYVerificarQueNoPuedeAtacarDuranteSuTurno(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();

@@ -2,6 +2,7 @@ package Entrega2;
 
 import Modelo.Exceptions.*;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
@@ -14,8 +15,9 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void crearDosJugadoresOponentesCorrectamente(){
-        Jugador jugador1 = new Jugador(5, 14);
-        Jugador jugador2 = new Jugador(41, 35);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
 
         jugador1.setOponente(jugador2);
         jugador2.setOponente(jugador1);
@@ -34,9 +36,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioAtacaAldeanoEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -56,9 +59,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioAtacaArqueroEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -78,9 +82,11 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioAtacaEspadachinEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -100,9 +106,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioAtacaArmaDeAsedioEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -124,9 +131,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioCuartelEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -154,9 +162,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioPlazaCentralEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -184,9 +193,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void arqueroPropioCastilloEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -207,9 +217,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioAtacaAldeanoEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -227,9 +238,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioAtacaArqueroEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -247,9 +259,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioAtacaEspadachinEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -267,9 +280,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioAtacaArmaDeAsedioEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -289,9 +303,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioCuartelEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -317,9 +332,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioPlazaCentralEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -345,9 +361,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void arqueroPropioCastilloEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -366,9 +383,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = UnidadPropiaException.class)
     public void arqueroPropioAtacaAldeanoPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -387,9 +405,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = UnidadPropiaException.class)
     public void arqueroPropioAtacaArqueroPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -408,9 +427,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = UnidadPropiaException.class)
     public void arqueroPropioAtacaEspadachinPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -429,9 +449,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = UnidadPropiaException.class)
     public void arqueroPropioAtacaArmaDeAsedioPropiaEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa,41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -452,9 +473,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = EdificioPropioException.class)
     public void arqueroPropioCuartelPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -480,9 +502,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = EdificioPropioException.class)
     public void arqueroPropioPlazaCentralPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -508,9 +531,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = EdificioPropioException.class)
     public void arqueroPropioCastilloPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -534,9 +558,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void armaDeAsedioMontadaPropiaAtacaEdificioEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -557,9 +582,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = UnidadDesarmadaException.class)
     public void armaDeAsedioDesmontadaPropiaAtacaEdificioEnemigoEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -576,9 +602,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = EdificioPropioException.class)
     public void armaDeAsedioMontadaPropiaAtacaEdificioPropioEnTurnoPropio(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -595,9 +622,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void armaDeAsedioMontadaPropiaAtacaEdificioEnemigoEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -616,9 +644,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void armaDeAsedioMontadaPropiaAtacaEdificioPropioEnTurnoDelOponente(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -637,9 +666,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void castilloJugadorAtacaUnidadesEnemigas(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -666,9 +696,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void castilloJugadorAtacaEdificiosEnemigos(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.inactivar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.activar();
 
         jugador1.setOponente(jugador2);
@@ -712,9 +743,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test
     public void castilloJugadorNoAtacaUnidadYEdificioFueraDerango(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -747,9 +779,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = AldeanoNoExisteException.class)
     public void limpiarUnidadMoridaPorAtaque(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -773,9 +806,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = AtacanteNoExisteException.class)
     public void limpiarAtacanteMuertoPorAtaque(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);
@@ -800,9 +834,10 @@ public class Jugador1YJugador2ataqueTest {
 
     @Test (expected = EdificioNoExisteException.class)
     public void limpiarEdificioExplotadoPorAtaque(){
-        Jugador jugador1 = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
         jugador1.activar();
-        Jugador jugador2 = new Jugador(41, 35);
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
         jugador2.inactivar();
 
         jugador1.setOponente(jugador2);

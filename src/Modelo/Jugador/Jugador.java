@@ -61,14 +61,14 @@ public class Jugador {
 
     // Constructor e Inicializadores
 
-    public Jugador( int seedCastillo, int seedPlazaCentral ){
+    public Jugador( int seedCastillo, int seedPlazaCentral, Mapa mapa){
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
         this.aldeanos = new ArrayList<>();
         this.edificios = new ArrayList<>();
         this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
-        inicializarEdificios( obtenerPosicionesInicialesPlazaCentral(seedPlazaCentral, seedCastillo) );
-        inicializarAldeanos();
+        inicializarEdificios( mapa, seedCastillo, seedPlazaCentral );
+        inicializarAldeanos(mapa);
         // El estado se inicializa en el juego.
     }
 
@@ -84,13 +84,6 @@ public class Jugador {
     }
 
     // Inicializacion del Jugador
-
-    private void inicializarEdificios(ArrayList<Posicion> posicionesPlaza ){
-        PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
-        // Finalizo construccion automaticamente
-        plazaCentral.finalizarConstruccion();
-        edificios.add(plazaCentral);
-    }
 
     public ArrayList<Posicion> obtenerPosicionesInicialesCastillo(int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
@@ -108,14 +101,6 @@ public class Jugador {
         return posiciones;
     }
 
-    private void inicializarAldeanos(){
-        for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
-            Aldeano aldeano = new Aldeano();
-            Posicion posicion = new Posicion(i,i);
-            aldeano.setPosicion(posicion);
-            aldeanos.add(aldeano);
-        }
-    }
 
     // EN DESARROLLO
     private void inicializarEdificios(Mapa mapa, int seedCastillo, int seedPlaza){

@@ -16,8 +16,9 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoAldeanoEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Aldeano();
+
         Posicion posicion = new Posicion(2,5);
+        IEntidad IEntidad = new Aldeano(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -30,8 +31,8 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoAldeanoEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        IEntidad IEntidad = new Aldeano();
         Posicion posicion = new Posicion(15,5);
+        IEntidad IEntidad = new Aldeano(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
     }
@@ -287,70 +288,71 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionesAledaniasOcupadasException.class)
     public void obtenerPosicionAledaniaLibreConTodasOcupadasAlrededor() {
         Mapa mapa = new Mapa(3, 4);
-        Posicion posicion1 = new Posicion(0,0);
-        Posicion posicion2 = new Posicion(1,0);
-        Posicion posicion3 = new Posicion(0,1);
-        Posicion posicion4 = new Posicion(1,1);
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
-        posiciones.add(posicion4);
+
+        for( int i=0; i<2; i++){
+            for( int j=0; j<2; j++){
+                Posicion posicion = new Posicion(i,j);
+                posiciones.add(posicion);
+            }
+        }
+
         Cuartel cuartel = new Cuartel(posiciones);
+
         Posicion posicionAldeano1 = new Posicion(2,0);
         Posicion posicionAldeano2 = new Posicion(2,1);
         Posicion posicionAldeano3 = new Posicion(2,2);
         Posicion posicionAldeano4 = new Posicion(1,2);
         Posicion posicionAldeano5 = new Posicion(0,2);
-        Aldeano aldeano1 = new Aldeano();
-        Aldeano aldeano2 = new Aldeano();
-        Aldeano aldeano3 = new Aldeano();
-        Aldeano aldeano4 = new Aldeano();
-        Aldeano aldeano5 = new Aldeano();
-        aldeano1.setPosicion(posicionAldeano1);
-        aldeano2.setPosicion(posicionAldeano2);
-        aldeano3.setPosicion(posicionAldeano3);
-        aldeano4.setPosicion(posicionAldeano4);
-        aldeano5.setPosicion(posicionAldeano5);
+        Aldeano aldeano1 = new Aldeano(posicionAldeano1);
+        Aldeano aldeano2 = new Aldeano(posicionAldeano2);
+        Aldeano aldeano3 = new Aldeano(posicionAldeano3);
+        Aldeano aldeano4 = new Aldeano(posicionAldeano4);
+        Aldeano aldeano5 = new Aldeano(posicionAldeano5);
+
         for (Posicion posicion : posiciones) mapa.ocuparCasillero(posicion, cuartel);
+
         mapa.ocuparCasillero(posicionAldeano1,aldeano1);
         mapa.ocuparCasillero(posicionAldeano2,aldeano2);
         mapa.ocuparCasillero(posicionAldeano3,aldeano3);
         mapa.ocuparCasillero(posicionAldeano4,aldeano4);
         mapa.ocuparCasillero(posicionAldeano5,aldeano5);
-        Posicion posicionLibre = mapa.devolverPosicionAledaniaLibre(cuartel);
+
+        mapa.devolverPosicionAledaniaLibre(cuartel);
     }
 
     @Test
     public void obtenerPosicionAledaniaLibreConUnaSolaLibreAlrededor() {
         Mapa mapa = new Mapa(3, 4);
-        Posicion posicion1 = new Posicion(0,0);
-        Posicion posicion2 = new Posicion(1,0);
-        Posicion posicion3 = new Posicion(0,1);
-        Posicion posicion4 = new Posicion(1,1);
+
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
-        posiciones.add(posicion4);
+
+        for( int i=0; i<2; i++){
+            for( int j=0; j<2; j++){
+                Posicion posicion = new Posicion(i,j);
+                posiciones.add(posicion);
+            }
+        }
+
         Cuartel cuartel = new Cuartel(posiciones);
+
         Posicion posicionAldeano1 = new Posicion(2,0);
         Posicion posicionAldeano2 = new Posicion(2,1);
         Posicion posicionAldeano3 = new Posicion(2,2);
         Posicion posicionAldeano4 = new Posicion(1,2);
-        Aldeano aldeano1 = new Aldeano();
-        Aldeano aldeano2 = new Aldeano();
-        Aldeano aldeano3 = new Aldeano();
-        Aldeano aldeano4 = new Aldeano();
-        aldeano1.setPosicion(posicionAldeano1);
-        aldeano2.setPosicion(posicionAldeano2);
-        aldeano3.setPosicion(posicionAldeano3);
-        aldeano4.setPosicion(posicionAldeano4);
+
+        Aldeano aldeano1 = new Aldeano(posicionAldeano1);
+        Aldeano aldeano2 = new Aldeano(posicionAldeano2);
+        Aldeano aldeano3 = new Aldeano(posicionAldeano3);
+        Aldeano aldeano4 = new Aldeano(posicionAldeano4);
+
         for (Posicion posicion : posiciones) mapa.ocuparCasillero(posicion, cuartel);
+
         mapa.ocuparCasillero(posicionAldeano1,aldeano1);
         mapa.ocuparCasillero(posicionAldeano2,aldeano2);
         mapa.ocuparCasillero(posicionAldeano3,aldeano3);
         mapa.ocuparCasillero(posicionAldeano4,aldeano4);
+
         Posicion posicionAledaniaLibre = new Posicion(0,2);
         Posicion posicionLibre = mapa.devolverPosicionAledaniaLibre(cuartel);
         Assert.assertTrue(posicionLibre.igualA(posicionAledaniaLibre));

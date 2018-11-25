@@ -72,7 +72,7 @@ public class MapaTest {
     public void ocuparUnCasilleroVacio() {
         Mapa mapa = new Mapa(3,2);
         Posicion posicion = new Posicion(0,0);
-        IEntidad IEntidad = new Aldeano();
+        IEntidad IEntidad = new Aldeano(posicion);
 
         mapa.ocuparCasillero(posicion, IEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -83,9 +83,10 @@ public class MapaTest {
     @Test (expected = CasilleroOcupadoException.class)
     public void ocuparUnCasilleroYaOcupado() {
         Mapa mapa = new Mapa(3,2);
+
         Posicion posicion = new Posicion(0,0);
-        IEntidad unIEntidad = new Aldeano();
-        IEntidad otroIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(posicion);
+        IEntidad otroIEntidad = new Aldeano(posicion);
 
         mapa.ocuparCasillero(posicion, unIEntidad);
         Casillero casillero = mapa.seleccionarCasillero(posicion);
@@ -97,10 +98,12 @@ public class MapaTest {
     @Test
     public void ocuparCasillerosDistintosConObjetosDistintos() {
         Mapa mapa = new Mapa(10,20);
+
         Posicion unaPosicion = new Posicion(0,0);
+        IEntidad unIEntidad = new Aldeano(unaPosicion);
+
         Posicion otraPosicion = new Posicion(4,5);
-        IEntidad unIEntidad = new Aldeano();
-        IEntidad otroIEntidad = new Aldeano();
+        IEntidad otroIEntidad = new Aldeano(otraPosicion);
 
         mapa.ocuparCasillero(unaPosicion, unIEntidad);
         Casillero casillero = mapa.seleccionarCasillero(unaPosicion);
@@ -116,7 +119,7 @@ public class MapaTest {
         Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
-        IEntidad unIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(unaPosicion);
 
         mapa.ocuparCasillero(unaPosicion, unIEntidad);
         Casillero casillero = mapa.seleccionarCasillero(unaPosicion);
@@ -134,7 +137,7 @@ public class MapaTest {
         Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
         Posicion otraPosicion = new Posicion(4,5);
-        IEntidad unIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(unaPosicion);
 
         mapa.ocuparCasillero(unaPosicion, unIEntidad);
         Casillero casillero = mapa.seleccionarCasillero(unaPosicion);
@@ -149,8 +152,8 @@ public class MapaTest {
     public void ocuparUnCasilleroOcupadoLanzaCasilleroOcupadoException() {
         Mapa mapa = new Mapa(3,2);
         Posicion unaPosicion = new Posicion(0,0);
-        IEntidad unIEntidad = new Aldeano();
-        IEntidad otroIEntidad = new Aldeano();
+        IEntidad unIEntidad = new Aldeano(unaPosicion);
+        IEntidad otroIEntidad = new Aldeano(unaPosicion);
 
         mapa.ocuparCasillero(unaPosicion, unIEntidad);
         Casillero casillero = mapa.seleccionarCasillero(unaPosicion);
@@ -173,9 +176,9 @@ public class MapaTest {
         Posicion posicion1 = new Posicion(0,0);
         Posicion posicion2 = new Posicion(4,5);
         Posicion posicion3 = new Posicion(4,6);
-        IEntidad IEntidad1 = new Aldeano();
-        IEntidad IEntidad2 = new Aldeano();
-        IEntidad IEntidad3 = new Aldeano();
+        IEntidad IEntidad1 = new Aldeano(posicion1);
+        IEntidad IEntidad2 = new Aldeano(posicion2);
+        IEntidad IEntidad3 = new Aldeano(posicion3);
 
         mapa.ocuparCasillero(posicion1, IEntidad1);
         Casillero casillero1 = mapa.seleccionarCasillero(posicion1);
@@ -199,7 +202,7 @@ public class MapaTest {
         Mapa mapa = new Mapa(5,2);
 
         Posicion posicion1 = new Posicion(10,0);
-        IEntidad IEntidad1 = new Aldeano();
+        IEntidad IEntidad1 = new Aldeano(posicion1);
 
         mapa.ocuparCasillero(posicion1, IEntidad1);
 
@@ -209,7 +212,7 @@ public class MapaTest {
     public void desocuparCasilleroFueraDelAnchoDelMapa() {
         Mapa mapa = new Mapa(5,2);
         Posicion posicion1 = new Posicion(10,0);
-        IEntidad IEntidad1 = new Aldeano();
+        IEntidad IEntidad1 = new Aldeano(posicion1);
 
         mapa.ocuparCasillero(posicion1, IEntidad1);
     }

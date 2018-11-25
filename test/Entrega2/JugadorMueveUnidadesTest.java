@@ -2,6 +2,7 @@ package Entrega2;
 
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -16,12 +17,14 @@ public class JugadorMueveUnidadesTest {
 
     @Test
     public void moverAldeanoInicialCorrectamenteEnTurnoActivo(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
         Posicion origen = new Posicion(1,1);
         Posicion destino = new Posicion(2,1);
+        Aldeano aldeano = new Aldeano(origen);
+        jugador.agregarAldeano(aldeano);
 
-        Aldeano aldeano = jugador.devolverAldeanoEnPosicion(origen);
         jugador.mover(origen, destino);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
@@ -29,12 +32,15 @@ public class JugadorMueveUnidadesTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void moverAldeanoInicialEnTurnoInactivo(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa,5, 14);
         jugador.inactivar();
+
         Posicion origen = new Posicion(1,1);
+        Aldeano aldeano = new Aldeano(origen);
+        jugador.agregarAldeano(aldeano);
         Posicion destino = new Posicion(2,1);
 
-        Aldeano aldeano = jugador.devolverAldeanoEnPosicion(origen);
         jugador.mover(origen, destino);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
@@ -42,12 +48,13 @@ public class JugadorMueveUnidadesTest {
 
     @Test
     public void moverAldeanoAgregadoCorrectamenteEnTurnoActivo(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa,5, 14);
         jugador.activar();
 
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,5);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAldeano(aldeano);
@@ -58,12 +65,13 @@ public class JugadorMueveUnidadesTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void moverAldeanoAgregadoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Aldeano aldeano = new Aldeano();
         Posicion origen = new Posicion(2,5);
-        aldeano.setPosicion(origen);
+        Aldeano aldeano = new Aldeano(origen);
+
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAldeano(aldeano);
@@ -74,7 +82,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test
     public void moverEspadachinAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         Espadachin espadachin = new Espadachin();
@@ -90,7 +99,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void moverEspadachinAgregadoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         Espadachin espadachin = new Espadachin();
@@ -106,7 +116,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test
     public void moverArqueroAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa,5, 14);
         jugador.activar();
 
         Arquero arquero = new Arquero();
@@ -122,7 +133,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void moverArqueroAgregadoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         Arquero arquero = new Arquero();
@@ -138,7 +150,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test
     public void moverArmaDeAsedioAgregadoCorrectamente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
@@ -154,7 +167,8 @@ public class JugadorMueveUnidadesTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void moverArmaDeAsedioAgregadoEnTurnoDelOponente(){
-        Jugador jugador = new Jugador(5, 14);
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();

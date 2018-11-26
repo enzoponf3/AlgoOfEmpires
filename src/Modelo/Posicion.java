@@ -3,6 +3,7 @@ package Modelo;
 import Modelo.Exceptions.EntidadFueraDeRangoException;
 
 import java.lang.Math;
+import java.util.ArrayList;
 
 public class Posicion {
 
@@ -37,5 +38,12 @@ public class Posicion {
         return false;
     }
 
+    public boolean estaEnRango(ArrayList<Posicion> posiciones,int rango) {
+        for (Posicion pos : posiciones) {
+            if (this.estaEnRango(pos, rango))
+                return true;
+        }
+        return false;
+    }
 
 }

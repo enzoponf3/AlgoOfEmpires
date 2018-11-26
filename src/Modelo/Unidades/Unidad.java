@@ -5,11 +5,11 @@ import Modelo.*;
 public abstract class Unidad implements IUnidadMovible, IEntidad {
 
     protected int vida;
-    int costo;
+    protected int costo;
     protected Posicion posicion;
-    int danioUnidad = 0;
-    int danioEdificio = 0;
-    int rango = 0;
+    protected int danioUnidad = 0;
+    protected int danioEdificio = 0;
+    protected int rango = 0;
 
 
     public int getVida(){
@@ -17,12 +17,6 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
     }
     public int getCosto(){
         return costo;
-    }
-    int getDanioUnidad(){
-        return danioUnidad;
-    }
-    int getDanioEdificio(){
-        return danioEdificio;
     }
     int getRango(){ return rango;}
 

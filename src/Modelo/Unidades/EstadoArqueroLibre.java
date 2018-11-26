@@ -5,38 +5,8 @@ import Modelo.Posicion;
 
 import java.util.ArrayList;
 
-public class EstadoArqueroLibre implements IEstadoArquero {
-
-    Arquero arquero;
+public class EstadoArqueroLibre extends EstadoAtacante implements IEstadoArquero {
     public EstadoArqueroLibre(Arquero arquero){
-        this.arquero = arquero;
-    }
-
-    @Override
-    public void mover(Posicion destino){
-        arquero.cambiarPosicion(destino);
-        arquero.ocupar();
-    }
-
-    @Override
-    public void atacar(Unidad unidad){
-        if (!arquero.enRangoDeAtaque(unidad.getPosicion())) {
-            throw new EntidadFueraDeRangoException();
-        }
-        unidad.reducirVida(arquero.getDanioUnidad());
-        arquero.ocupar();
-    }
-
-    @Override
-    public void atacar(Edificio edificio){
-        ArrayList<Posicion> posiciones = edificio.getPosiciones();
-        for (Posicion pos : posiciones ){
-            if (arquero.enRangoDeAtaque(pos)){
-                edificio.reducirVida(arquero.getDanioEdificio());
-                arquero.ocupar();
-                return;
-            }
-        }
-        throw new EntidadFueraDeRangoException();
+        super(arquero);
     }
 }

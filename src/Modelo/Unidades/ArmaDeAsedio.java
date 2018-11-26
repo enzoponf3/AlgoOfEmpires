@@ -3,12 +3,14 @@ import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
 import Modelo.Posicion;
 
+import java.util.ArrayList;
+
 public class ArmaDeAsedio extends Unidad implements IAtacante {
 
-    private int VIDA = 150;
+    private final int VIDA = 150;
     private int COSTO = 200;
-    protected static int RANGO = 5;
-    protected static int DANIO_EDIFICIO = 75;
+    private final int RANGO = 5;
+    private final int DANIO_EDIFICIO = 75;
     protected IEstadoArmaDeAsedio estado;
 
     public ArmaDeAsedio(Posicion posicion){
@@ -20,11 +22,11 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
         this.posicion = posicion;
     }
 
-    public void montar(){ this.estado.montar();}
+    public void montar(){ this.estado = this.estado.montar(this);}
 
-    public void desmontar(){ this.estado.desmontar();}
+    public void desmontar(){ this.estado = this.estado.desmontar(this);}
 
-    public void desocupar(){this.estado.desocupar();}
+    public void desocupar(){this.estado = this.estado.desocupar(this);}
 
     @Override
     public void mover(Posicion destino){
@@ -42,6 +44,26 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
 
     @Override
     public boolean enRangoDeAtaque(Posicion posAtacado){
-        return this.posicion.estaEnRango(posAtacado,this.rango);
+        throw new ArmaDeAsedioNoAtacaUnidadException();
+    }
+
+    @Override
+    public boolean enRangoDeAtaque(ArrayList<Posicion> posiciones){
+        return this.posicion.estaEnRango(posiciones,this.rango);
+    }
+
+    @Override
+    public void ocupar(){
+        this.estado = this.estado.ocupar(this);
+    }
+
+    @Override
+    public int getDanioUnidad(){
+        throw new ArmaDeAsedioNoAtacaUnidadException();
+    }
+
+    @Override
+    public int getDanioEdificio(){
+        return this.danioEdificio;
     }
 }

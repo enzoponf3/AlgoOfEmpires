@@ -2,14 +2,16 @@ package Modelo.Unidades;
 import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
+import java.util.ArrayList;
+
 public class Arquero extends Unidad implements IAtacante {
 
-    protected static int VIDA = 75;
-    protected static int COSTO= 75;
-    protected IEstadoArquero estado;
-    protected  int RANGO = 3;
-    protected static int DANIO_UNIDAD = 15;
-    protected static int DANIO_EDIFICIO = 10;
+    private final int VIDA = 75;
+    private final int COSTO= 75;
+    private IEstadoArquero estado;
+    private final  int RANGO = 3;
+    private final int DANIO_UNIDAD = 15;
+    private final int DANIO_EDIFICIO = 10;
 
     public Arquero(Posicion posicion) {
         this.vida = VIDA;
@@ -50,4 +52,17 @@ public class Arquero extends Unidad implements IAtacante {
         return this.posicion.estaEnRango(posAtacado,this.rango);
     }
 
+    @Override
+    public boolean enRangoDeAtaque(ArrayList<Posicion> posiciones){
+        return this.posicion.estaEnRango(posiciones,this.rango);
+    }
+    @Override
+    public int getDanioUnidad(){
+        return this.danioUnidad;
+    }
+
+    @Override
+    public int getDanioEdificio(){
+        return this.danioEdificio;
+    }
 }

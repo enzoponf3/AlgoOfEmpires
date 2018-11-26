@@ -3,10 +3,10 @@ import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 
-public class EstadoArqueroOcupado implements IEstadoArquero {
-    Arquero arquero;
+public class EstadoArqueroOcupado extends EstadoAtacante implements IEstadoArquero {
+
     public EstadoArqueroOcupado(Arquero arquero){
-        this.arquero = arquero;
+        super(arquero);
     }
 
     @Override

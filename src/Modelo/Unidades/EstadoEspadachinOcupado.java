@@ -2,11 +2,11 @@ package Modelo.Unidades;
 import Modelo.Posicion;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
-public class EstadoEspadachinOcupado implements IEstadoEspadachin {
+public class EstadoEspadachinOcupado extends EstadoAtacante implements IEstadoEspadachin {
 
-    Espadachin espadachin;
+
     public EstadoEspadachinOcupado(Espadachin espadachin){
-        this.espadachin = espadachin;
+        super(espadachin);
     }
     @Override
     public void mover(Posicion destino){

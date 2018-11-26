@@ -3,7 +3,9 @@ package Modelo.Unidades;
 import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
 
-public interface IAtacante {
+import java.util.ArrayList;
+
+public interface IAtacante extends IUnidadMovible{
 
     void atacar(Unidad unidad);
 
@@ -16,4 +18,12 @@ public interface IAtacante {
     boolean estaMuerto();
 
     boolean enRangoDeAtaque(Posicion posAtacado);
+
+    boolean enRangoDeAtaque(ArrayList<Posicion> posiciones);
+
+    int getDanioUnidad();
+
+    int getDanioEdificio();
+
+    void ocupar();
 }

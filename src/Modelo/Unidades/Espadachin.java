@@ -2,13 +2,16 @@ package Modelo.Unidades;
 import Modelo.Posicion;
 import Modelo.Exceptions.*;
 import Modelo.Edificios.Edificio;
+
+import java.util.ArrayList;
+
 public class Espadachin extends Unidad implements IAtacante{
 
    private final int VIDA = 100;
    private final int COSTO = 50;
    private final int DANIO_UNIDAD = 25;
    private final int DANIO_EDIFICIO = 15;
-   protected  IEstadoEspadachin estado;
+   private  IEstadoEspadachin estado;
    private final int RANGO = 1;
 
     public Espadachin(Posicion posicion){
@@ -44,5 +47,20 @@ public class Espadachin extends Unidad implements IAtacante{
     @Override
     public boolean enRangoDeAtaque(Posicion posAtacado){
         return this.posicion.estaEnRango(posAtacado,this.rango);
+    }
+
+    @Override
+    public boolean enRangoDeAtaque(ArrayList<Posicion> posiciones){
+        return this.posicion.estaEnRango(posiciones,this.rango);
+    }
+
+    @Override
+    public int getDanioUnidad(){
+        return this.danioUnidad;
+    }
+
+    @Override
+    public int getDanioEdificio(){
+        return this.danioEdificio;
     }
 }

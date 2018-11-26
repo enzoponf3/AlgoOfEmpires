@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class Aldeano extends Unidad {
 
-    public static final int VIDA = 50;
-    public static final int COSTO = 25;
-    public static final int RANGO = 1;
-    public IEstadoAldeano estado;
+    private final int VIDA = 50;
+    private final int COSTO = 25;
+    private final int RANGO = 1;
+    private IEstadoAldeano estado;
 
 
     public Aldeano(Posicion posicion) {

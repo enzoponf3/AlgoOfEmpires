@@ -9,24 +9,30 @@ import java.util.ArrayList;
 
 public class EstadoAldeanoOcupado implements IEstadoAldeano{
 
+    Aldeano aldeano;
+
+    public EstadoAldeanoOcupado(Aldeano aldeano){
+        this.aldeano = aldeano;
+    }
+
     @Override
-    public PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posiciones){
+    public PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones){
         throw new UnidadNoPuedeConstruirException();
     }
 
     @Override
-    public Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posiciones){
+    public Cuartel construirCuartel(ArrayList<Posicion> posiciones){
         throw new UnidadNoPuedeConstruirException();
     }
 
 
     @Override
-    public void repararEdificio(Edificio edificio, Aldeano aldeano) {
+    public void repararEdificio(Edificio edificio) {
         throw new UnidadNoPuedeRepararException();
     }
 
     @Override
-    public void continuarConstruccion(Edificio edificio, Aldeano aldeano){
+    public void continuarConstruccion(Edificio edificio){
         throw new UnidadNoPuedeConstruirException();
     }
 
@@ -36,7 +42,7 @@ public class EstadoAldeanoOcupado implements IEstadoAldeano{
     }
 
     @Override
-    public void mover(Posicion destino, Aldeano aldeano){
+    public void mover(Posicion destino){
         throw new UnidadEstaOcupadoException();
     }
 }

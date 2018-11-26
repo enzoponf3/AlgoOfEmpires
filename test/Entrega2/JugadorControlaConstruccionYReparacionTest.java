@@ -290,9 +290,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachinEnemigo = new Espadachin();
         Posicion posicionEspadachin = new Posicion(5,1);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
+        Espadachin espadachinEnemigo = new Espadachin(posicionEspadachin);
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
@@ -340,9 +339,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Espadachin espadachinEnemigo = new Espadachin();
         Posicion posicionEspadachin = new Posicion(5,1);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
+        Espadachin espadachinEnemigo = new Espadachin(posicionEspadachin);
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
@@ -388,9 +386,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachinEnemigo = new Espadachin();
         Posicion posicionEspadachin = new Posicion(5,1);
-        espadachinEnemigo.setPosicion(posicionEspadachin);
+        Espadachin espadachinEnemigo = new Espadachin(posicionEspadachin);
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);

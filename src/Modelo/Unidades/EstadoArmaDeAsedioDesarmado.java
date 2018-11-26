@@ -4,25 +4,31 @@ import Modelo.Posicion;
 import Modelo.Exceptions.*;
 
 public class EstadoArmaDeAsedioDesarmado implements IEstadoArmaDeAsedio {
+
+    ArmaDeAsedio armaDeAsedio;
+    public EstadoArmaDeAsedioDesarmado(ArmaDeAsedio arma){
+        this.armaDeAsedio = arma;
+    }
+
     @Override
-    public void mover(Posicion destino, ArmaDeAsedio armaDeAsedio){
+    public void mover(Posicion destino){
         armaDeAsedio.cambiarPosicion(destino);
-        armaDeAsedio.estado = new EstadoArmaDeAsedioDesarmadoOcupado();
+        armaDeAsedio.estado = new EstadoArmaDeAsedioDesarmadoOcupado(armaDeAsedio);
     }
 
-    public void desocupar(ArmaDeAsedio armaDeAsedio){
-    }
-
-    @Override
-    public void montar(ArmaDeAsedio armaAsedio) {
-        armaAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado();
+    public void desocupar(){
     }
 
     @Override
-    public void desmontar(ArmaDeAsedio armaAsedio) {
+    public void montar() {
+        armaDeAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado(armaDeAsedio);
+    }
+
+    @Override
+    public void desmontar() {
         throw new UnidadDesarmadaException();
     }
 
     @Override
-    public void atacar(ArmaDeAsedio armaDeAsedio, Edificio edificio){ throw new UnidadDesarmadaException();}
+    public void atacar(Edificio edificio){ throw new UnidadDesarmadaException();}
 }

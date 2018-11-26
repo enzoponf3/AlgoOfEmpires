@@ -19,46 +19,46 @@ public class Aldeano extends Unidad {
         this.vida = VIDA;
         this.costo = COSTO;
         this.rango = RANGO;
-        this.estado = new EstadoAldeanoLibre();
+        this.estado = new EstadoAldeanoLibre(this);
         this.posicion = posicion;
     }
 
     public Cuartel construirCuartel(ArrayList<Posicion> posiciones){
-        return this.estado.construirCuartel(this, posiciones);
+        return this.estado.construirCuartel(posiciones);
     }
 
     public PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones){
-        return this.estado.construirPlazaCentral(this, posiciones);
+        return this.estado.construirPlazaCentral(posiciones);
     }
 
     public void repararEdificio(Edificio edificio){
-        this.estado.repararEdificio(edificio,this);
+        this.estado.repararEdificio(edificio);
     }
 
     public void continuarConstruccionPlazaCentral(PlazaCentral plaza){
-        this.estado.continuarConstruccion(plaza, this);
+        this.estado.continuarConstruccion(plaza);
     }
 
     public void continuarConstruccionCuartel(Cuartel cuartel){
-        this.estado.continuarConstruccion(cuartel, this);
+        this.estado.continuarConstruccion(cuartel);
     }
 
     public void ocupar(){
-        this.estado = new EstadoAldeanoOcupado();
+        this.estado = new EstadoAldeanoOcupado(this);
     }
 
     public void desocupar() {
-        this.estado = new EstadoAldeanoLibre();
+        this.estado = new EstadoAldeanoLibre(this);
     }
 
     public int generaOro(){
         return this.estado.generaOro();
     }
 
-    public void movio(){this.estado = new EstadoAldeanoMovio();}
+    public void movio(){this.estado = new EstadoAldeanoMovio(this);}
     @Override
     public void mover(Posicion destino){
-        this.estado.mover(destino, this);
+        this.estado.mover(destino);
     }
 
     @Override

@@ -11,28 +11,19 @@ public class Arquero extends Unidad implements IAtacante {
     protected static int DANIO_UNIDAD = 15;
     protected static int DANIO_EDIFICIO = 10;
 
-    public Arquero() {
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.danioUnidad = DANIO_UNIDAD;
-        this.danioEdificio = DANIO_EDIFICIO;
-        this.rango = RANGO;
-        this.estado = new EstadoArqueroLibre();
-    }
-
     public Arquero(Posicion posicion) {
         this.vida = VIDA;
         this.costo = COSTO;
         this.danioUnidad = DANIO_UNIDAD;
         this.danioEdificio = DANIO_EDIFICIO;
         this.rango = RANGO;
-        this.estado = new EstadoArqueroLibre();
+        this.estado = new EstadoArqueroLibre(this);
         this.posicion = posicion;
     }
 
     @Override
     public void mover(Posicion destino){
-        this.estado.mover(destino, this);
+        this.estado.mover(destino);
     }
 
     @Override
@@ -41,17 +32,22 @@ public class Arquero extends Unidad implements IAtacante {
     }
 
     public void ocupar(){
-        this.estado = new EstadoArqueroOcupado();
+        this.estado = new EstadoArqueroOcupado(this);
     }
 
     public void desocupar(){
-        this.estado = new EstadoArqueroLibre();
+        this.estado = new EstadoArqueroLibre(this);
     }
 
     @Override
-    public void atacar(Unidad unidad){ this.estado.atacar(this,unidad);}
+    public void atacar(Unidad unidad){ this.estado.atacar(unidad);}
 
     @Override
-    public void atacar(Edificio edificio) {this.estado.atacar(this,edificio);}
+    public void atacar(Edificio edificio) {this.estado.atacar(edificio);}
+
+    @Override
+    public boolean enRangoDeAtaque(Posicion posAtacado){
+        return this.posicion.estaEnRango(posAtacado,this.rango);
+    }
 
 }

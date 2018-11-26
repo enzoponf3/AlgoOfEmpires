@@ -86,9 +86,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(2,5);
-        espadachin.setPosicion(origen);
+        Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(espadachin);
@@ -103,9 +102,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Espadachin espadachin = new Espadachin();
         Posicion origen = new Posicion(2,5);
-        espadachin.setPosicion(origen);
+        Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(espadachin);
@@ -120,9 +118,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa,5, 14);
         jugador.activar();
 
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(2,5);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(arquero);
@@ -137,9 +134,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Arquero arquero = new Arquero();
         Posicion origen = new Posicion(2,5);
-        arquero.setPosicion(origen);
+        Arquero arquero = new Arquero(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(arquero);
@@ -154,9 +150,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(2,5);
-        armaDeAsedio.setPosicion(origen);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(armaDeAsedio);
@@ -171,9 +166,8 @@ public class JugadorMueveUnidadesTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio();
         Posicion origen = new Posicion(2,5);
-        armaDeAsedio.setPosicion(origen);
+        ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(2,6);
 
         jugador.agregarAEjercito(armaDeAsedio);

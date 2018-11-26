@@ -30,10 +30,6 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
         return this.posicion.igualA(posicionAComparar);
     }
 
-    public void setPosicion(Posicion posicion){
-        this.posicion = posicion;
-    }
-
     public Posicion getPosicion(){
         return this.posicion;
     }

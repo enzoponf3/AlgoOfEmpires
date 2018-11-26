@@ -10,14 +10,14 @@ public interface IEstadoAldeano{
 
     int generaOro();
 
-    Cuartel construirCuartel(Aldeano aldeano, ArrayList<Posicion> posiciones);
+    Cuartel construirCuartel(ArrayList<Posicion> posiciones);
 
-    PlazaCentral construirPlazaCentral(Aldeano aldeano, ArrayList<Posicion> posiciones);
+    PlazaCentral construirPlazaCentral(ArrayList<Posicion> posiciones);
 
-    void repararEdificio(Edificio edificio, Aldeano aldeano);
+    void repararEdificio(Edificio edificio);
 
-    void continuarConstruccion(Edificio edificio, Aldeano aldeano);
+    void continuarConstruccion(Edificio edificio);
 
-    void mover(Posicion destino, Aldeano aldeano);
+    void mover(Posicion destino);
 
 }

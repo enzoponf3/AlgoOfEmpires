@@ -7,21 +7,26 @@ import java.util.ArrayList;
 
 public class EstadoArmaDeAsedioArmado implements IEstadoArmaDeAsedio {
 
-    @Override
-    public void mover(Posicion destino, ArmaDeAsedio armaDeAsedio){
-        throw new UnidadEstaMontadaException();
+    ArmaDeAsedio armaDeAsedio;
+    public EstadoArmaDeAsedioArmado(ArmaDeAsedio arma){
+       this.armaDeAsedio = arma;
     }
-    public void desocupar(ArmaDeAsedio armaDeAsedio){ }
-    public void montar (ArmaDeAsedio armaAsedio){ throw new UnidadEstaMontadaException();}
-    public void desmontar (ArmaDeAsedio armaAsedio){ armaAsedio.estado = new EstadoArmaDeAsedioDesarmadoOcupado();}
 
     @Override
-    public void atacar(ArmaDeAsedio armaDeAsedio,  Edificio edificio){
+    public void mover(Posicion destino){
+        throw new UnidadEstaMontadaException();
+    }
+    public void desocupar(){}
+    public void montar (){ throw new UnidadEstaMontadaException();}
+    public void desmontar (){ armaDeAsedio.estado = new EstadoArmaDeAsedioDesarmadoOcupado(armaDeAsedio);}
+
+    @Override
+    public void atacar(Edificio edificio){
         ArrayList<Posicion> posiciones = edificio.getPosiciones();
         for (Posicion pos : posiciones ){
-            if (armaDeAsedio.posicion.estaEnRango(pos, armaDeAsedio.getRango())){
+            if (armaDeAsedio.enRangoDeAtaque(pos)){
                 edificio.reducirVida(armaDeAsedio.getDanioEdificio());
-                armaDeAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado();
+                armaDeAsedio.estado = new EstadoArmaDeAsedioArmadoOcupado(armaDeAsedio);
                 return;
             }
         }

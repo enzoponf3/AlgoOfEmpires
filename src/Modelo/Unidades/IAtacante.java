@@ -14,4 +14,6 @@ public interface IAtacante {
     int getVida();
 
     boolean estaMuerto();
+
+    boolean enRangoDeAtaque(Posicion posAtacado);
 }

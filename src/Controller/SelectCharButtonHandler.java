@@ -8,10 +8,10 @@ import javafx.scene.image.ImageView;
 
 import java.awt.*;
 
-public class SelectCharButton implements EventHandler<ActionEvent> {
+public class SelectCharButtonHandler implements EventHandler<ActionEvent> {
     ImageView figSelected;
     JugadorView jugador;
-    public  SelectCharButton (ImageView fig, JugadorView jugador){
+    public  SelectCharButtonHandler (ImageView fig, JugadorView jugador){
         this.figSelected = fig;
         this.jugador = jugador;
 

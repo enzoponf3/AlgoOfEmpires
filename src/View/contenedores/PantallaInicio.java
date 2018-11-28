@@ -10,9 +10,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 
-public class pantallaInicio extends Pane {
+public class PantallaInicio extends Pane {
     Stage stage;
-    public pantallaInicio(Stage stage) {
+    public PantallaInicio(Stage stage) {
 
         this.stage = stage;
         this.setPrefSize(720,480);

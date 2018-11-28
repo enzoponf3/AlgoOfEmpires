@@ -8,11 +8,13 @@ import javafx.stage.Screen;
 
 
 
-public class displayIconJugador extends Pane {
+public class DisplayIconJugador extends Pane {
 
-    public displayIconJugador(ImageView figura){
+    public DisplayIconJugador(ImageView figura){
         ImageView icono = new ImageView(figura.getImage());
-        icono.relocate(-27,-20);
+        Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
+        icono.setPreserveRatio(true);
+        icono.relocate(limitesPantalla.getWidth()/5,limitesPantalla.getHeight()/5);
         this.getChildren().add(icono);
     }
 }

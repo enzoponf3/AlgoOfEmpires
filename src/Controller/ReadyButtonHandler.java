@@ -1,7 +1,7 @@
 package Controller;
 
 import View.JugadorView;
-import View.contenedores.pantallaGanador;
+import View.contenedores.PantallaGanador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -34,23 +34,7 @@ public class ReadyButtonHandler implements EventHandler<ActionEvent> {
         }else {
             this.jugador.setNombre(nombre.getText().trim());
 
-            /*Scene ayuda = new Scene(new pantallaGanador(jugador));
-            Stage stage = new Stage();
-            stage.setScene(ayuda);
-            stage.setResizable(false);
-            stage.show();*/
+            //jugador.mostrarQueGane(); Descomentar esto para ver pantalla win
         }
-        /*Popup pop = new Popup();
-        Stage stage = new Stage();
-        VBox box = new VBox(20);
-        Label label = new Label();
-        label.setText(this.nombre.getText().trim());
-        box.getChildren().add(label);
-        System.out.println(this.nombre);
-        box.getChildren().add(this.jugador.getFigura());
-        Scene scene = new Scene(box, 200, 300);
-        stage.setScene(scene);
-        stage.show();
-*/
     }
 }

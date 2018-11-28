@@ -32,8 +32,10 @@ public class BeginButtonHandler implements EventHandler<ActionEvent> {
             Scene scene = new Scene(new PantallaJuego());
 
             Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
-            this.stage.setHeight(limitesPantalla.getHeight()/5);
-            this.stage.setWidth(limitesPantalla.getHeight()/5);
+            this.stage.setHeight(limitesPantalla.getHeight());
+            this.stage.setWidth(limitesPantalla.getWidth());
+            this.stage.setX((limitesPantalla.getWidth() - stage.getWidth()) / 2);
+            this.stage.setY((limitesPantalla.getHeight() - stage.getHeight()) / 4);
             this.stage.setScene(scene);
             this.stage.show();
         }

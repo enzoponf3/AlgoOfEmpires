@@ -11,10 +11,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class pantallaAyuda extends Pane{
+public class PantallaAyuda extends Pane{
 
     Stage stage;
-    public pantallaAyuda(Stage stage){
+    public PantallaAyuda(Stage stage){
         this.stage = stage;
         this.setPrefSize(720,480);
 
@@ -36,6 +36,7 @@ public class pantallaAyuda extends Pane{
         objetivoText.setFont(Font.font("Century Schoolbook",FontWeight.SEMI_BOLD,FontPosture.REGULAR,20));
 
         Boton volver = new Boton("Volver", new BackButtonHandler(stage));
+        volver.getStyleClass().add("menu-button");
         volver.relocate(330,250);
         Image fondo = new Image("View/img/fondoAyuda.png", 1500, 500, true, false);
         ImageView im = new ImageView(fondo);

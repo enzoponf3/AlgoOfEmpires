@@ -1,12 +1,14 @@
 package Controller;
 
 import View.JugadorView;
-import View.contenedores.displayIconJugador;
+import View.contenedores.DisplayIconJugador;
+import View.contenedores.PantallaJuego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -27,7 +29,7 @@ public class BeginButtonHandler implements EventHandler<ActionEvent> {
             faltanDatos.setContentText("FALTAN DATOS!");
             faltanDatos.show();
         }else{
-            Scene scene = new Scene(new displayIconJugador(this.jugador1.getFigura()));
+            Scene scene = new Scene(new PantallaJuego());
 
             Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
             this.stage.setHeight(limitesPantalla.getHeight()/5);

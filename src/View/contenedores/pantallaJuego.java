@@ -5,9 +5,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 
-public class pantallaJuego extends Pane {
+public class PantallaJuego extends Pane {
 
-    public  pantallaJuego(){
+    Log log = new Log();
+
+    public  PantallaJuego(){
+
+        this.getChildren().add(new DisplayLog(this.log));
+
     }
-
 }

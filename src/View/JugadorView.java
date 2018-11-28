@@ -1,7 +1,10 @@
 package View;
 
+import View.contenedores.PantallaGanador;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 
 public class JugadorView {
@@ -22,6 +25,11 @@ public class JugadorView {
         return this.nombre;
     }
     public void mostrarQueGane(){
+        Scene ayuda = new Scene(new PantallaGanador(this));        //Display de pantalla ganador
+        Stage stage = new Stage();
+        stage.setScene(ayuda);
+        stage.setResizable(false);
+        stage.show();
 
     }
 }

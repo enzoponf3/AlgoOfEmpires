@@ -1,9 +1,9 @@
 package View.contenedores;
 
+import Controller.SelectCharButtonHandler;
 import View.Boton;
 import View.JugadorView;
 import Controller.BeginButtonHandler;
-import Controller.SelectCharButton;
 import Controller.ReadyButtonHandler;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -16,11 +16,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-public class configJugador extends Pane {
+public class PantallaConfigJugador extends Pane {
 
     Stage stage;
 
-    public configJugador(Stage stage, JugadorView jugador1, JugadorView jugador2){
+    public PantallaConfigJugador(Stage stage, JugadorView jugador1, JugadorView jugador2){
         this.stage = stage;
         this.setPrefSize(1080,680);
         this.setStyle("-fx-background-color: black");
@@ -48,11 +48,11 @@ public class configJugador extends Pane {
         ImageView fig1 = new ImageView(new Image("View/img/charMujer.png",500,355,true,false));
         ImageView fig2 = new ImageView(new Image("View/img/charHombre.png",500,355,true,false));
 
-        Boton im1 = new Boton("", new SelectCharButton(fig1,jugador));
+        Boton im1 = new Boton("", new SelectCharButtonHandler(fig1,jugador));
         im1.setGraphic(fig1);
         im1.getStyleClass().add("selection-button");
 
-        Boton im2 = new Boton("", new SelectCharButton(fig2,jugador));
+        Boton im2 = new Boton("", new SelectCharButtonHandler(fig2,jugador));
         im2.setGraphic(fig2);
         im2.getStyleClass().add("selection-button");
 

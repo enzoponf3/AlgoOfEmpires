@@ -1,7 +1,6 @@
 package Controller;
 
-import View.contenedores.configJugador;
-import View.contenedores.pantallaAyuda;
+import View.contenedores.PantallaConfigJugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
@@ -22,7 +21,7 @@ public class PlayButtonHandler implements EventHandler<ActionEvent> {
     }
     public void handle(ActionEvent event){
 
-        Scene pantallaSeleccion = new Scene(new configJugador(stage,jugador1,jugador2));
+        Scene pantallaSeleccion = new Scene(new PantallaConfigJugador(stage,jugador1,jugador2));
         stage.setScene(pantallaSeleccion);
         stage.setResizable(false);
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

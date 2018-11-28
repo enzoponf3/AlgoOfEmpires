@@ -12,9 +12,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 
-public class pantallaGanador extends Pane {
+public class PantallaGanador extends Pane {
 
-    public  pantallaGanador (JugadorView jugador){
+    public  PantallaGanador (JugadorView jugador){
 
         this.setPrefSize(1080,680);
 

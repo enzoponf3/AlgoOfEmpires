@@ -1,13 +1,8 @@
 package Vista;
 
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-
-import static javafx.scene.layout.BackgroundRepeat.NO_REPEAT;
 
 
 public class CasilleroView extends StackPane {
@@ -24,15 +19,15 @@ public class CasilleroView extends StackPane {
     }
 
     public CasilleroView(int x, int y){
-        setWidth(MainView.TAMANIO_CASILLERO);
-        setHeight(MainView.TAMANIO_CASILLERO);
+        setWidth(Main2View.TAMANIO_CASILLERO);
+        setHeight(Main2View.TAMANIO_CASILLERO);
 
-        relocate(x*MainView.TAMANIO_CASILLERO,y*MainView.TAMANIO_CASILLERO);
+        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
 
         Image newPic = new Image("aoeGrass.jpeg");
         laImagen = new ImageView(newPic);
-        laImagen.setFitHeight(MainView.TAMANIO_CASILLERO);
-        laImagen.setFitWidth(MainView.TAMANIO_CASILLERO);
+        laImagen.setFitHeight(Main2View.TAMANIO_CASILLERO);
+        laImagen.setFitWidth(Main2View.TAMANIO_CASILLERO);
 
 
         this.setOnMouseClicked(new ControladorCasillero(this));

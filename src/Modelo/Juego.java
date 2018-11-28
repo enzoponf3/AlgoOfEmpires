@@ -19,8 +19,6 @@ public class Juego {
     private Mapa mapa;
 
     public void inicializar() {
-
-
         jugador1 = new Jugador( mapa, SEED_CASTILLO_J1, SEED_PLAZA_CENTRAL_J1 );
         jugador2 = new Jugador( mapa, SEED_CASTILLO_J2, SEED_PLAZA_CENTRAL_J2 );
         int turnoInicial = new Random().nextInt(2);
@@ -39,4 +37,6 @@ public class Juego {
 //        jugador1.cambiarTurno();
 //        jugador2.cambiarTurno();
     }
+
+
 }

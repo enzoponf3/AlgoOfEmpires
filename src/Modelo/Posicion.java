@@ -15,6 +15,14 @@ public class Posicion {
         this.vertical = vertical;
     }
 
+    public int getHorizontal(){
+        return this.horizontal;
+    }//Para la vista
+
+    public int getVertical(){
+        return this.vertical;
+    }//Para la vista
+
     public boolean igualA(Posicion unaposicion){
         return ( (this.horizontal == unaposicion.horizontal) && (this.vertical == unaposicion.vertical) );
     }

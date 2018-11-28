@@ -1,5 +1,7 @@
 package View;
 
+import Modelo.Edificios.Castillo;
+import Modelo.Jugador.Jugador;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -24,4 +26,10 @@ public class JugadorView {
     public void mostrarQueGane(){
 
     }
+
+    public void inicializar(Jugador jugador){
+
+
+    }
+
 }

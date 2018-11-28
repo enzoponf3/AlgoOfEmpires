@@ -11,17 +11,19 @@ public class PiezaView extends StackPane {
     private ImageView imagenPieza;
 
     public PiezaView(int x, int y){
-        setWidth(MainView.TAMANIO_CASILLERO);
-        setHeight(MainView.TAMANIO_CASILLERO);
+        setWidth(Main2View.TAMANIO_CASILLERO);
+        setHeight(Main2View.TAMANIO_CASILLERO);
 
-        relocate(x*MainView.TAMANIO_CASILLERO,y*MainView.TAMANIO_CASILLERO);
+        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
 
         Image newPic = new Image("castle.png");
         imagenPieza = new ImageView(newPic);
-        imagenPieza.setFitHeight(MainView.TAMANIO_CASILLERO);
-        imagenPieza.setFitWidth(MainView.TAMANIO_CASILLERO);
+        imagenPieza.setFitHeight(Main2View.TAMANIO_CASILLERO);
+        imagenPieza.setFitWidth(Main2View.TAMANIO_CASILLERO);
 
         getChildren().addAll(imagenPieza);
     }
+
+
 
 }

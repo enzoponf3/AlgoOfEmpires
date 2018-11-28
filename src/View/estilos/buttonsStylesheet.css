@@ -1,0 +1,53 @@
+.menu-button{
+    -fx-text-fill: white;
+    -fx-background-color: #3F3F3F;
+    -fx-border-color: #A2A2A4;
+    -fx-border-width: 4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 15;
+    -fx-padding: 8;
+}
+.menu-button:hover{
+    -fx-background-color: #A2A2A4;
+    -fx-border-color: #3F3F3F;
+    -fx-text-fill: black;
+    -fx-border-width: 4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 15;
+}
+
+.ready-button{
+    -fx-min-width: 200;
+    -fx-text-fill: white;
+    -fx-background-color: #3F3F3F;
+    -fx-border-color: #A2A2A4;
+    -fx-border-width: 4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 15;
+    -fx-padding: 8;
+}
+
+.ready-button:hover{
+    -fx-background-color: #A2A2A4;
+    -fx-border-color: #3F3F3F;
+    -fx-text-fill: black;
+    -fx-border-width: 4;
+    -fx-border-radius: 4;
+    -fx-background-radius: 15;
+}
+.selection-button{
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+
+}
+
+.selection-button:focused{
+    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+
+}
+
+.selection-button:hover{
+    -fx-border-color: lightblue;
+    -fx-border-radius: 10;
+    -fx-border-width: 4;
+}

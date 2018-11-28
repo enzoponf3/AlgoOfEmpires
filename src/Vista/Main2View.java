@@ -75,13 +75,20 @@ public class Main2View extends Application {
         //Piezas jug 1
         CastilloView castilloView1 = new CastilloView(jugador1.getCastillo());
         PlazaCentralView plazaView1 = new PlazaCentralView((PlazaCentral) jugador1.getEdificios().get(0));
-        AldeanoView aldeano1uno = new AldeanoView(jugador1.getAldeanos().get(0));
+        for(int i=0; i<3; i++) {
+            AldeanoView aldeano = new AldeanoView(jugador1.getAldeanos().get(i));
+            this.piezas.getChildren().add(aldeano);
+        }
 
         //Piezas jug 2
         CastilloView castilloView2 = new CastilloView(jugador2.getCastillo());
         PlazaCentralView plazaView2 = new PlazaCentralView((PlazaCentral) jugador2.getEdificios().get(0));
+        for(int i=0; i<3; i++) {
+            AldeanoView aldeano = new AldeanoView(jugador2.getAldeanos().get(i));
+            this.piezas.getChildren().add(aldeano);
+        }
 
-        this.piezas.getChildren().addAll(castilloView1, plazaView1, aldeano1uno, castilloView2, plazaView2);
+        this.piezas.getChildren().addAll(castilloView1, plazaView1, castilloView2, plazaView2);
     }
 
     public void agregarPieza(PiezaView pieza){

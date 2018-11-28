@@ -34,9 +34,6 @@ public class JugadorView {
 
     }
 
-    public void inicializar(Jugador jugador){
 
-
-    }
 
 }

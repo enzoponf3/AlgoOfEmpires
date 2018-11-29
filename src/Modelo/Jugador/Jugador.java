@@ -60,7 +60,7 @@ public class Jugador {
     }
 
     // Constructor e Inicializadores
-
+/*
     public Jugador( int seedCastillo, int seedPlazaCentral, Mapa mapa){
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
@@ -71,7 +71,7 @@ public class Jugador {
         inicializarAldeanos(mapa);
         // El estado se inicializa en el juego.
     }
-
+*/
     // EN DESARROLLO - Constructor con el mapa para poder inicializar correctamente los aldeanos
     public Jugador( Mapa mapa, int seedCastillo, int seedPlazaCentral ){
         this.cantidadOro = CANTIDAD_ORO_INICIAL;

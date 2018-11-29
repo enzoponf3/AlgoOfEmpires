@@ -1,8 +1,13 @@
 package Vista;
 
+import javafx.event.EventHandler;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 
 public class CasilleroView extends StackPane {
@@ -29,10 +34,20 @@ public class CasilleroView extends StackPane {
         laImagen.setFitHeight(Main2View.TAMANIO_CASILLERO);
         laImagen.setFitWidth(Main2View.TAMANIO_CASILLERO);
 
+        Rectangle borde = new Rectangle();
+        borde.setStroke(Color.rgb(0, 0, 0, 0.2));
+        borde.setVisible(true);
 
         this.setOnMouseClicked(new ControladorCasillero(this));
 
-        getChildren().addAll(laImagen);
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                setEffect(new Glow(0.5));
+            }
+        });
+
+        getChildren().addAll(laImagen, borde);
     }
 
 

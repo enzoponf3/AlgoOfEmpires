@@ -26,7 +26,7 @@ public class Main2View extends Application {
     public VBox unaCaja;
 
     public static final int TAMANIO_CASILLERO = 30;
-    public static final int ANCHO = 25;
+    public static final int ANCHO = 20;
     public static final int ALTO = 20;
 
     private Group casilleros;
@@ -56,8 +56,9 @@ public class Main2View extends Application {
         barra.getMenus().add(acciones);
 
         //CONTENIDO------------------
-        Jugador jugador1 = new Jugador(0, 7, mapaModelo);
-        Jugador jugador2 = new Jugador(13, 17, mapaModelo);
+        Jugador jugador1 = new Jugador(mapaModelo, 0, 6);
+        Jugador jugador2 = new Jugador(mapaModelo, 16, 13);
+
 
         colocarPiezasIniciales(jugador1, jugador2);
 

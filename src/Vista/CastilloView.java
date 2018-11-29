@@ -30,12 +30,12 @@ public class CastilloView extends StackPane {
 
         ArrayList<Posicion> posiciones = unModelo.getPosiciones();
         Posicion unaPosicion = posiciones.get(0);
-        x = unaPosicion.getHorizontal();
-        y = unaPosicion.getVertical();
+        x = unaPosicion.getVertical();
+        y = unaPosicion.getHorizontal();
 
 
         if( x < Main2View.ANCHO/2 ){
-            Image castilloADerecha = new Image("Castle3.png");
+            Image castilloADerecha = new Image("castilloVerticalInvertido.png");
             imagenCastillo = new ImageView(castilloADerecha);
             imagenCastillo.setFitHeight(ALTURA_CASTILLO* Main2View.TAMANIO_CASILLERO);
             imagenCastillo.setFitWidth(ANCHO_CASTILLO* Main2View.TAMANIO_CASILLERO);
@@ -51,7 +51,6 @@ public class CastilloView extends StackPane {
         this.setOnMouseClicked(new ControladorCastillo(this));
 
         getChildren().addAll(imagenCastillo);
-
 
         menu = new ContextMenu();
         MenuItem crearArmaDeAsedio = new MenuItem("Crear ArmaDeAsedio");

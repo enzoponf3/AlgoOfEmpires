@@ -2,10 +2,12 @@ package Vista;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
+import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
@@ -50,6 +52,20 @@ public class PlazaCentralView extends StackPane {
         menu = new ContextMenu();
         MenuItem crearAldeano = new MenuItem("Crear Aldeano");
         menu.getItems().add(crearAldeano);
+
+
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                devolverMenu();
+            }
+        });
+
+    }
+
+
+    public ContextMenu devolverMenu(){
+        return menu;
     }
 
 }

@@ -2,11 +2,14 @@ package Vista;
 
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
@@ -48,6 +51,21 @@ public class AldeanoView extends StackPane {
         this.menu = new ContextMenu();
         MenuItem construir = new MenuItem("Construir");
         this.menu.getItems().add(construir);
+
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                devolverMenu();
+            }
+        });
+
+        this.setOnMouseClicked(new ControladorAldeano(this));
+
     }
+
+    public ContextMenu devolverMenu(){
+        return this.menu;
+    }
+
 
 }

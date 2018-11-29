@@ -1,21 +1,23 @@
 package View.contenedores;
 
 import View.JugadorView;
+import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class DisplayIconJugador extends Pane implements Observer {
+public class DisplayIconJugador extends BorderPane implements Observer {
     private ImageView icono;
     private ActualizarView vista;
 
+
     public DisplayIconJugador(ActualizarView vista){
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
-
         this.vista = vista;
         vista.addObserver(this);
         setStyle("-fx-background-color: #ad6c11");
@@ -30,7 +32,8 @@ public class DisplayIconJugador extends Pane implements Observer {
 
         this.icono = new ImageView(this.vista.getJugadorView().getFigura().getImage());
         this.icono.setPreserveRatio(true);
-        icono.relocate(0,0);
+        this.icono.setLayoutX((Screen.getPrimary().getVisualBounds().getWidth())/32);
+        this.icono.setLayoutY(-5);
         this.getChildren().set(0,this.icono);
     }
 }

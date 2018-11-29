@@ -29,7 +29,7 @@ public class BeginButtonHandler implements EventHandler<ActionEvent> {
             faltanDatos.setContentText("FALTAN DATOS!");
             faltanDatos.show();
         }else{
-            Scene scene = new Scene(new PantallaJuego(jugador1,jugador2));
+            Scene scene = new Scene(new PantallaJuego(this.stage,this.jugador1,this.jugador2));
 
             Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
             this.stage.setHeight(limitesPantalla.getHeight());

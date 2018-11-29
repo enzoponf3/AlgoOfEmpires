@@ -1,6 +1,7 @@
 package View.contenedores;
 
 
+import Modelo.Juego;
 import View.JugadorView;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -9,12 +10,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.scene.layout.*;
 import javafx.geometry.Insets;
+import javafx.stage.Stage;
 
 import javax.swing.text.html.ImageView;
 
 
 public class PantallaJuego extends Pane {
 
+    private DisplayBarraDatos barraDatos;
+    private Stage stage;
     private Log log;
     private DisplayLog displayLog;
     private double altoPantalla;
@@ -23,8 +27,12 @@ public class PantallaJuego extends Pane {
     private JugadorView jugador2;
     private DisplayIconJugador icono;
     private ActualizarView iconoActualizar;
+    private DisplayBotoneraOpciones botonera;
+    private Juego juego;
 
-    public  PantallaJuego(JugadorView j1, JugadorView j2){
+    public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2){
+        this.juego = new Juego();
+        this.stage = stage;
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.altoPantalla = limitesPantalla.getHeight();
         this.anchoPantalla = limitesPantalla.getWidth();
@@ -34,13 +42,15 @@ public class PantallaJuego extends Pane {
         this.jugador1 = j1;
         this.jugador2 = j2;
         this.log = new Log();
-        this.iconoActualizar = new ActualizarView();
         this.displayLog = dibujarLog();
+        this.iconoActualizar = new ActualizarView();
         this.icono = dibujarIcono();
+        this.botonera = dibujarBotones();
+        this.barraDatos = dibujarBarraDatosJugador();
 
 
 
-        this.getChildren().addAll(displayLog,icono);
+        this.getChildren().addAll(this.icono,this.displayLog,this.botonera,this.barraDatos);
 
     }
 
@@ -58,5 +68,17 @@ public class PantallaJuego extends Pane {
         return icono;
     }
 
-    //private dibujarBarraDatosJugador(){}
+    private DisplayBarraDatos dibujarBarraDatosJugador(){
+        DisplayBarraDatos barraDatos = new DisplayBarraDatos();
+        barraDatos.setLayoutX(0);
+        barraDatos.setLayoutY(0);
+        return barraDatos;
+    }
+
+    private DisplayBotoneraOpciones dibujarBotones(){
+        DisplayBotoneraOpciones botonera = new DisplayBotoneraOpciones(this.stage,this.juego,this.iconoActualizar);
+        botonera.setLayoutX((5*anchoPantalla)/6);
+        botonera.setLayoutY((4*altoPantalla)/5);
+        return botonera;
+    }
 }

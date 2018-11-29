@@ -11,9 +11,9 @@ public class ActualizarView extends Observable {
     private Jugador jugador;
     private JugadorView jugadorView;
 
-    public void enviarJugador(/*Jugador jugador, */JugadorView jugadorView) {
+    public void enviarJugador(/*Jugador jugador,*/ JugadorView jugadorView) {
         this.jugadorView = jugadorView;
-       /* this.jugador = jugador;*/
+        /*this.jugador = jugador;*/
         setChanged();
         notifyObservers();
     }

@@ -1,5 +1,6 @@
-package Vista;
+package Controller;
 
+import View.CasilleroView;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 

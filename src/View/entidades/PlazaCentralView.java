@@ -1,7 +1,8 @@
-package Vista;
+package View.entidades;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
+import Vista.Main2View;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;

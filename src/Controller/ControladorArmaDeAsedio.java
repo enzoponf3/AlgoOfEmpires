@@ -1,4 +1,4 @@
-package Vista;
+package Controller;
 
 import Modelo.Edificios.Castillo;
 import Modelo.Mapa;

@@ -1,5 +1,8 @@
-package Vista;
+package View;
 
+import Controller.ControladorCasillero;
+import Vista.Main2View;
+import Vista.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;

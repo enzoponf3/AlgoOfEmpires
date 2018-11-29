@@ -1,7 +1,9 @@
-package Vista;
+package View.entidades;
 
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
+import Controller.ControladorCastillo;
+import Vista.Main2View;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;

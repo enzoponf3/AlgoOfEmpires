@@ -2,23 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0642580a-196d-45cb-b7f6-dcceebcb92de" name="Default Changelist" comment="Nuevo paquete, metodos eliminacion y reubicacion metodos Jugador">
-      <change afterPath="$PROJECT_DIR$/src/Castle3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/University2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Villagerwalk001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/AldeanoView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/ControladorArmaDeAsedio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/ControladorCastillo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/ControladorMapa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/MapaView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vista/PlazaCentralView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ControladorConstruir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/MapaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/Posicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Posicion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/JugadorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/JugadorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/CasilleroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/CasilleroView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/CastilloView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/CastilloView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Main2View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vista/PiezaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/PiezaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/contenedores/PantallaJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/contenedores/PantallaJuego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/AldeanoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/entidades/AldeanoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/CasilleroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/CasilleroView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/CastilloView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/entidades/CastilloView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/ControladorAldeano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ControladorAldeano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/ControladorArmaDeAsedio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ControladorArmaDeAsedio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/ControladorCasillero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ControladorCasillero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/ControladorCastillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ControladorCastillo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/ControladorMapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ControladorMapa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/Main2View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/Main2View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/MapaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vista/MapaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vista/PlazaCentralView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/entidades/PlazaCentralView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,10 +35,10 @@
     <session id="-1118664763">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="34" />
+          <entry key="project.closed" value="35" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="6" />
-          <entry key="project.open.time.11" value="16" />
+          <entry key="project.open.time.11" value="18" />
           <entry key="project.open.time.12" value="4" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.18" value="1" />
@@ -48,31 +47,31 @@
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="37" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="13" />
-          <entry key="java" value="385" />
+          <entry key="java" value="431" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="13" />
-          <entry key="JAVA" value="385" />
+          <entry key="JAVA" value="431" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="56" />
-          <entry key="java" value="49463" />
+          <entry key="dummy" value="75" />
+          <entry key="java" value="52252" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="49463" />
-          <entry key="PLAIN_TEXT" value="56" />
+          <entry key="JAVA" value="52252" />
+          <entry key="PLAIN_TEXT" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -119,67 +118,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vista/CastilloView.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ControladorConstruir.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="347">
+              <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ControladorAldeano.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state relative-caret-position="228">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Vista/Main2View.java">
+        <entry file="file://$PROJECT_DIR$/src/View/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vista/AldeanoView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Vista/PlazaCentralView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador/Jugador.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-28">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="68">
+              <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -187,17 +154,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="149" selection-start-line="149" selection-end-line="149" />
+            <state relative-caret-position="296">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
+        <entry file="file://$PROJECT_DIR$/src/View/contenedores/PantallaJuego.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="190">
+              <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/MapaView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -236,17 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralConstruida.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralEnConstruccion.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralDestruida.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralEnReparacion.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralNoConstruida.java" />
-        <option value="$PROJECT_DIR$/test/Entrega1/PlazaCentralYUnidadesTest.java" />
-        <option value="$PROJECT_DIR$/test/PlazaCentralTest.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/Cuartel.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCuartel.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelEnConstruccion.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelDestruido.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelConstruido.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelEnReparacion.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelNoConstruido.java" />
@@ -272,21 +240,32 @@
         <option value="$PROJECT_DIR$/test/Entrega2/JugadorTest.java" />
         <option value="$PROJECT_DIR$/src/Vista/ControladorCasillero.java" />
         <option value="$PROJECT_DIR$/src/Vista/PiezaView.java" />
-        <option value="$PROJECT_DIR$/src/Vista/ControladorCastillo.java" />
         <option value="$PROJECT_DIR$/src/Vista/ControladorMapa.java" />
         <option value="$PROJECT_DIR$/src/Vista/ControladorArmaDeAsedio.java" />
-        <option value="$PROJECT_DIR$/src/Vista/CasilleroView.java" />
         <option value="$PROJECT_DIR$/src/Vista/MapaView.java" />
-        <option value="$PROJECT_DIR$/src/View/JugadorView.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Juego.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Jugador/Jugador.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Posicion.java" />
         <option value="$PROJECT_DIR$/src/Vista/ControladorJuego.java" />
         <option value="$PROJECT_DIR$/src/Vista/MainView.java" />
-        <option value="$PROJECT_DIR$/src/Vista/PlazaCentralView.java" />
-        <option value="$PROJECT_DIR$/src/Vista/CastilloView.java" />
+        <option value="$PROJECT_DIR$/src/View/JugadorView.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Jugador/Jugador.java" />
         <option value="$PROJECT_DIR$/src/Vista/Main2View.java" />
+        <option value="$PROJECT_DIR$/src/Vista/ControladorCastillo.java" />
+        <option value="$PROJECT_DIR$/src/Vista/CasilleroView.java" />
+        <option value="$PROJECT_DIR$/src/Vista/EntidadView.java" />
+        <option value="$PROJECT_DIR$/src/Vista/CastilloView.java" />
+        <option value="$PROJECT_DIR$/src/Vista/IEntidadView.java" />
+        <option value="$PROJECT_DIR$/src/Vista/ControladorEntidad.java" />
+        <option value="$PROJECT_DIR$/src/Vista/ControladorAldeano.java" />
+        <option value="$PROJECT_DIR$/src/Vista/PlazaCentralView.java" />
         <option value="$PROJECT_DIR$/src/Vista/AldeanoView.java" />
+        <option value="$PROJECT_DIR$/src/View/Main.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Mapa.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ControladorConstruir.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ControladorAldeano.java" />
+        <option value="$PROJECT_DIR$/src/View/entidades/AldeanoView.java" />
+        <option value="$PROJECT_DIR$/src/View/MapaView.java" />
+        <option value="$PROJECT_DIR$/src/View/contenedores/PantallaJuego.java" />
       </list>
     </option>
   </component>
@@ -311,6 +290,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TP Algoritmos 3" type="58d84e3e:PackageViewProjectNode" />
+              <item name="AlgoOfEmpires" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -327,7 +318,14 @@
               <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
               <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Modelo" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlgoOfEmpires" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="contenedores" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AlgoOfEmpires" type="b2602c69:ProjectViewProjectNode" />
@@ -339,18 +337,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TP Algoritmos 3" type="58d84e3e:PackageViewProjectNode" />
-              <item name="AlgoOfEmpires" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -387,7 +373,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main2View">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="View.Main" />
       <module name="AlgoOfEmpires" />
@@ -435,8 +421,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main2View" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main2View" />
         <item itemvalue="JUnit.All in AlgoOfEmpires" />
         <item itemvalue="JUnit.JugadorTest" />
         <item itemvalue="JUnit.JugadorMueveUnidadesTest" />
@@ -505,6 +491,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21093148" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -515,9 +502,9 @@
       <window_info id="Learn" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32569557" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.23584905" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.254717" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3254717" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.24213837" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -602,90 +589,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Nuevo paquete, booleanos muerto y reubicacion metodos Jugador" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralConstruida.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralEnReparacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoPlazaCentralNoConstruida.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="68" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Entrega1/PlazaCentralYUnidadesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/PlazaCentralTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="274" column="41" selection-start-line="274" selection-start-column="41" selection-end-line="274" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/IEstadoCuartel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelEnConstruccion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelDestruido.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="58" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelEnReparacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelConstruido.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Edificios/EstadoCuartelNoConstruido.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Entrega1/CuartelYUnidadesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4794">
-          <caret line="291" selection-start-line="291" selection-end-line="291" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/CuartelTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4556">
@@ -746,13 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="53" column="55" selection-start-line="53" selection-start-column="55" selection-end-line="53" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -840,83 +736,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/ControladorMapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/ControladorCastillo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/ControladorArmaDeAsedio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/ControladorCasillero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/CasilleroView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/JugadorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/ControladorJuego.java" />
-    <entry file="file://$PROJECT_DIR$/src/View/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/MapaView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
         </state>
       </provider>
     </entry>
@@ -927,50 +751,235 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/PlazaCentralView.java">
+    <entry file="file://$PROJECT_DIR$/src/View/JugadorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador/Jugador.java">
+    <entry file="file://$PROJECT_DIR$/src/Vista/IEntidadView.java" />
+    <entry file="file://$PROJECT_DIR$/src/Vista/ControladorEntidad.java" />
+    <entry file="file://$PROJECT_DIR$/src/View/contenedores/PantallaConfigJugador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="-527">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/CastilloView.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/PlayButtonHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vista/AldeanoView.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/BeginButtonHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-136">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ReadyButtonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vista/Main2View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="136">
+          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/contenedores/DisplayBotoneraOpciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vista/MapaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/CasilleroView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorArmaDeAsedio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorCasillero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorMapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorCastillo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/entidades/PlazaCentralView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidades/Aldeano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1309">
+          <caret line="73" column="2" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="2" />
+          <folding>
+            <element signature="e#4902#4903#0" expanded="true" />
+            <element signature="e#4964#4965#0" expanded="true" />
+            <element signature="e#5184#5185#0" expanded="true" />
+            <element signature="e#5245#5246#0" expanded="true" />
+            <element signature="e#5307#5308#0" expanded="true" />
+            <element signature="e#5371#5372#0" expanded="true" />
+            <element signature="e#5418#5419#0" expanded="true" />
+            <element signature="e#5490#5491#0" expanded="true" />
+            <element signature="e#6601#6602#0" expanded="true" />
+            <element signature="e#6661#6662#0" expanded="true" />
+            <element signature="e#7002#7003#0" expanded="true" />
+            <element signature="e#7046#7047#0" expanded="true" />
+            <element signature="e#10415#10416#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10500#10501#0" expanded="true" />
+            <element signature="e#10557#10558#0" expanded="true" />
+            <element signature="e#11212#11213#0" expanded="true" />
+            <element signature="e#11277#11278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorConstruir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/entidades/CastilloView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/entidades/AldeanoView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="58" column="66" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1696#1697#0" expanded="true" />
+            <element signature="e#1742#1743#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
+            <element signature="e#1908#1909#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControladorAldeano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/contenedores/DisplayLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/MapaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/contenedores/PantallaJuego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="87" column="42" selection-start-line="87" selection-start-column="42" selection-end-line="87" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
         </state>
       </provider>
     </entry>

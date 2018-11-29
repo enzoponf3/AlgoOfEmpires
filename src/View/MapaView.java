@@ -1,4 +1,4 @@
-package Vista;
+package View;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
@@ -6,20 +6,12 @@ import Modelo.Mapa;
 import View.entidades.AldeanoView;
 import View.entidades.CastilloView;
 import View.entidades.PlazaCentralView;
-import javafx.application.Application;
+import Vista.*;
 import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class Main2View extends Application {
 
-    public VBox unaCaja;
+public class MapaView extends Pane {
 
     public static final int TAMANIO_CASILLERO = 30;
     public static final int ANCHO = 20;
@@ -28,28 +20,33 @@ public class Main2View extends Application {
     private Group casilleros;
     private Group piezas;
 
-    private Parent crearContenido(){
-        //Un grupo de casilleros
+    private Mapa mapaModelo;
+
+    public MapaView(Mapa mapa, int anchoMapa, int altoMapa){
         casilleros = new Group();
-        piezas = new Group();
+        this.mapaModelo = mapa;
 
-        //El cuadro general
-        Pane root = new Pane();
-        root.setPrefSize(ANCHO*TAMANIO_CASILLERO,(ALTO+1)*TAMANIO_CASILLERO);
+        //this.setPrefSize(anchoMapa*TAMANIO_CASILLERO, altoMapa*TAMANIO_CASILLERO);
+        this.setPrefSize(anchoMapa, altoMapa);
 
-        //Quiero un VBox que separe un pane de un menu
-        unaCaja  = new VBox();
+        //creo los casilleros para poner en el Pane
+        for(int y = 0; y< ALTO ; y++){
+            for(int x = 0; x< ANCHO; x++){
+                CasilleroView unCasillero = new CasilleroView(x,y);
+                casilleros.getChildren().add(unCasillero);
+            }
+        }
 
-        //MAPA-----------
-        Mapa mapaModelo = new Mapa(ANCHO, ALTO);
-        MapaView mapaView = new MapaView(mapaModelo);
+        getChildren().addAll(casilleros);
 
-        //BOTONERA------------
-        MenuBar barra = new MenuBar();
-        Menu acciones = new Menu("Acciones");
-        MenuItem unItem = new MenuItem("AlgunaAccion");
-        acciones.getItems().add(unItem);
-        barra.getMenus().add(acciones);
+        crearContenido(this);
+    }
+
+
+    private void crearContenido(MapaView mapaView){
+        //Un grupo de casilleros
+        this.casilleros = new Group();
+        this.piezas = new Group();
 
         //CONTENIDO------------------
         Jugador jugador1 = new Jugador(mapaModelo, 0, 6);
@@ -60,12 +57,6 @@ public class Main2View extends Application {
 
         //-------------------
         mapaView.getChildren().add(piezas);
-
-        unaCaja.getChildren().addAll(mapaView, barra);
-
-        root.getChildren().addAll(unaCaja);
-
-        return root;
     }
 
     public void colocarPiezasIniciales(Jugador jugador1, Jugador jugador2){
@@ -88,23 +79,6 @@ public class Main2View extends Application {
         this.piezas.getChildren().addAll(castilloView1, plazaView1, castilloView2, plazaView2);
     }
 
-    public void agregarPieza(PiezaView pieza){
-        this.piezas.getChildren().add(pieza);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Scene scene = new Scene(crearContenido());
-        primaryStage.setTitle("AlgoEmpires");
-        //primaryStage.setMaximized(true);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
 
-    }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

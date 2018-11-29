@@ -1,6 +1,7 @@
 package Vista;
 
 import Modelo.Mapa;
+import View.CasilleroView;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 

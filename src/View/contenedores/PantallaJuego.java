@@ -2,17 +2,13 @@ package View.contenedores;
 
 
 import Modelo.Juego;
+import Modelo.Mapa;
 import View.JugadorView;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.Pane;
 
 import javafx.stage.Screen;
-import javafx.scene.layout.*;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
-
-import javax.swing.text.html.ImageView;
 
 
 public class PantallaJuego extends Pane {
@@ -29,6 +25,10 @@ public class PantallaJuego extends Pane {
     private ActualizarView iconoActualizar;
     private DisplayBotoneraOpciones botonera;
     private Juego juego;
+
+    private View.MapaView mapa;
+    private int anchoMapa;
+    private int altoMapa;
 
     public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2){
         this.juego = new Juego();
@@ -48,9 +48,9 @@ public class PantallaJuego extends Pane {
         this.botonera = dibujarBotones();
         this.barraDatos = dibujarBarraDatosJugador();
 
+        this.mapa = dibujarMapa();
 
-
-        this.getChildren().addAll(this.icono,this.displayLog,this.botonera,this.barraDatos);
+        this.getChildren().addAll(this.icono,this.displayLog, this.mapa, this.botonera,this.barraDatos);
 
     }
 
@@ -81,4 +81,17 @@ public class PantallaJuego extends Pane {
         botonera.setLayoutY((4*altoPantalla)/5);
         return botonera;
     }
+
+    private View.MapaView dibujarMapa(){
+        this.anchoMapa = (int) anchoPantalla;
+        //this.altoMapa = (int) (altoPantalla-3*(4*altoPantalla)/5);
+        this.altoMapa = (int) altoPantalla;
+
+        Mapa mapaModelo = new Mapa(anchoMapa, altoMapa);
+        View.MapaView mapaView = new View.MapaView(mapaModelo, anchoMapa, altoMapa);
+
+        return mapaView;
+    }
+
+
 }

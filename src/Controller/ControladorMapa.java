@@ -1,4 +1,4 @@
-package Vista;
+package Controller;
 
 import Modelo.Mapa;
 import javafx.event.EventHandler;

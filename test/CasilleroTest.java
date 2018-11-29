@@ -76,4 +76,22 @@ public class CasilleroTest {
         casillero.removerObjeto();
     }
 
+    @Test
+    public void colocarUnObjetoEnUnCasilleroVacioYRecuperarElObjeto(){
+        Posicion posicion = new Posicion(5, 2);
+        Casillero casillero  = new Casillero(posicion);
+        IEntidad IEntidad = new Aldeano(posicion);
+
+        casillero.colocarObjeto(IEntidad);
+        IEntidad entidad = (IEntidad) casillero.obtenerObjeto();
+        Assert.assertEquals(entidad,IEntidad);
+    }
+
+    @Test (expected = CasilleroDesocupadoException.class)
+    public void obtenerObjetoCasilleroVacio(){
+        Posicion posicion = new Posicion(5, 2);
+        Casillero casillero  = new Casillero(posicion);
+        IEntidad entidad = (IEntidad) casillero.obtenerObjeto();
+    }
+
 }

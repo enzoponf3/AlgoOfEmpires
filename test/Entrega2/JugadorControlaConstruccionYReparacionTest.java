@@ -40,8 +40,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.agregarAldeano(aldeano);
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.agregarAldeano(aldeano, mapa);
+        jugador.construirPlazaCentral(mapa, aldeano, posicionesPlazaCentral);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
 
@@ -66,8 +66,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.agregarAldeano(aldeano);
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.agregarAldeano(aldeano, mapa);
+        jugador.construirPlazaCentral(mapa, aldeano, posicionesPlazaCentral);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(2,2);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -90,9 +90,9 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(mapa, aldeano, posicionesPlazaCentral);
         aldeano.desocupar();
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
@@ -107,7 +107,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(2,2);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -119,10 +119,10 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(mapa, aldeano, posicionesPlazaCentral);
 
         aldeano.desocupar();
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
@@ -137,7 +137,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -149,7 +149,7 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.construirCuartel(aldeano, posicionesCuartel);
+        jugador.construirCuartel(mapa,aldeano, posicionesCuartel);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
 
@@ -164,7 +164,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -176,9 +176,9 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.construirCuartel(aldeano, posicionesCuartel);
+        jugador.construirCuartel(mapa,aldeano, posicionesCuartel);
         aldeano.desocupar();
-        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        Cuartel cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
         jugador.continuarConstruccionCuartel(aldeano, cuartel);
 
         Assert.assertEquals(2, jugador.getEdificios().size() );
@@ -195,7 +195,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -207,8 +207,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        jugador.construirPlazaCentral(mapa, aldeano, posicionesPlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
 
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
 
@@ -224,7 +224,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -237,10 +237,10 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
         Assert.assertEquals(100, jugador.getCantidadOro() );
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeano, posicionesPlazaCentral);
         aldeano.desocupar();
 
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
         jugador.recolectarOro();
 
@@ -257,11 +257,11 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicionOtroAldeano = new Posicion(2,1);
         Aldeano otroAldeano = new Aldeano(posicionOtroAldeano);
-        jugador.agregarAldeano(otroAldeano);
+        jugador.agregarAldeano(otroAldeano, mapa);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -273,9 +273,9 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.construirCuartel(aldeano, posicionesCuartel);
+        jugador.construirCuartel(mapa,aldeano, posicionesCuartel);
 
-        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        Cuartel cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
 
         jugador.continuarConstruccionCuartel(otroAldeano, cuartel);
         jugador.continuarConstruccionCuartel(aldeano, cuartel);
@@ -295,7 +295,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -307,8 +307,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeano, posicionesPlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
 
         aldeano.desocupar();
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
@@ -344,7 +344,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1PlazaCentral = new Posicion(3,2);
         Posicion posicion2PlazaCentral = new Posicion(3,1);
@@ -356,8 +356,8 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeano, posicionesPlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
 
         aldeano.desocupar();
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
@@ -391,7 +391,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(4,0);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicion1Cuartel = new Posicion(3,2);
         Posicion posicion2Cuartel = new Posicion(3,1);
@@ -403,9 +403,9 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.construirCuartel(aldeano, posicionesCuartel);
+        jugador.construirCuartel(mapa,aldeano, posicionesCuartel);
 
-        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        Cuartel cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
         aldeano.desocupar();
         jugador.continuarConstruccionCuartel(aldeano, cuartel);
 
@@ -419,7 +419,7 @@ public class JugadorControlaConstruccionYReparacionTest {
         cuartel.volverAEstadoOriginal();
         aldeano.desocupar();
 
-        cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
         Assert.assertEquals(250, cuartel.getVida() );
 
         espadachinEnemigo.atacar(cuartel);
@@ -441,7 +441,7 @@ public class JugadorControlaConstruccionYReparacionTest {
 
         Posicion posicionAldeano = new Posicion(5,4);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Castillo castillo = jugador.getCastillo();
         Assert.assertEquals(1000, castillo.getVida() );
@@ -473,11 +473,11 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
         Posicion posicionAldeanoEnemigo = new Posicion(8,0);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
-        jugador.construirPlazaCentral(aldeanoEnemigo, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeanoEnemigo, posicionesPlazaCentral);
 
     }
     @Test (expected = AldeanoNoExisteException.class)
@@ -499,13 +499,13 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesPlazaCentral.add(posicion3PlazaCentral);
         posicionesPlazaCentral.add(posicion4PlazaCentral);
 
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
 
-        jugador.construirPlazaCentral(aldeano, posicionesPlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeano, posicionesPlazaCentral);
 
         Posicion posicionAldeanoEnemigo = new Posicion(8,0);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
-        PlazaCentral plazaCentral = (PlazaCentral) jugador.devolverEdificioEnPosicion(posicion1PlazaCentral);
+        PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1PlazaCentral);
         jugador.continuarConstruccionPlazaCentral(aldeanoEnemigo, plazaCentral);
 
     }
@@ -529,10 +529,10 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
         Posicion posicionAldeanoEnemigo = new Posicion(8,0);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
-        jugador.construirCuartel(aldeanoEnemigo, posicionesCuartel);
+        jugador.construirCuartel(mapa,aldeanoEnemigo, posicionesCuartel);
     }
 
     @Test (expected = AldeanoNoExisteException.class)
@@ -554,11 +554,11 @@ public class JugadorControlaConstruccionYReparacionTest {
         posicionesCuartel.add(posicion3Cuartel);
         posicionesCuartel.add(posicion4Cuartel);
 
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
         Posicion posicionAldeanoEnemigo = new Posicion(8,0);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeanoEnemigo);
-        jugador.construirCuartel(aldeano, posicionesCuartel);
-        Cuartel cuartel = (Cuartel) jugador.devolverEdificioEnPosicion(posicion1Cuartel);
+        jugador.construirCuartel(mapa,aldeano, posicionesCuartel);
+        Cuartel cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
         jugador.continuarConstruccionCuartel(aldeanoEnemigo, cuartel);
 
     }

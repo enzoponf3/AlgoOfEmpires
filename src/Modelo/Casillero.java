@@ -50,4 +50,9 @@ public class Casillero<T>{
         return this.posicion.igualA(posicion);
     }
 
+    public T obtenerObjeto() {
+        T objeto = this.entidad;
+        this.estado.obtenerObjeto();
+        return objeto;
+    }
 }

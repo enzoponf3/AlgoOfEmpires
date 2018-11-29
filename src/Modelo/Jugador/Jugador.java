@@ -5,11 +5,8 @@ import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
-import javafx.geometry.Pos;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class Jugador {
@@ -60,25 +57,14 @@ public class Jugador {
     }
 
     // Constructor e Inicializadores
-/*
-    public Jugador( int seedCastillo, int seedPlazaCentral, Mapa mapa){
-        this.cantidadOro = CANTIDAD_ORO_INICIAL;
-        this.ejercito = new ArrayList<>();
-        this.aldeanos = new ArrayList<>();
-        this.edificios = new ArrayList<>();
-        this.castillo = new Castillo( obtenerPosicionesInicialesCastillo(seedCastillo) );
-        inicializarEdificios( mapa, seedCastillo, seedPlazaCentral );
-        inicializarAldeanos(mapa);
-        // El estado se inicializa en el juego.
-    }
-*/
-    // EN DESARROLLO - Constructor con el mapa para poder inicializar correctamente los aldeanos
+
     public Jugador( Mapa mapa, int seedCastillo, int seedPlazaCentral ){
         this.cantidadOro = CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
         this.aldeanos = new ArrayList<>();
         this.edificios = new ArrayList<>();
-        inicializarEdificios(mapa, seedCastillo,seedPlazaCentral);  // Primero inicializar los edificios, despues los aldeanos
+        // Primero inicializar edificios, despues aldeanos
+        inicializarEdificios(mapa, seedCastillo,seedPlazaCentral);
         inicializarAldeanos(mapa);
         // El estado se inicializa en el juego.
     }
@@ -101,40 +87,37 @@ public class Jugador {
         return posiciones;
     }
 
-
-    // EN DESARROLLO
     private void inicializarEdificios(Mapa mapa, int seedCastillo, int seedPlaza){
-        ArrayList<Posicion> posicionesCastillo = obtenerPosicionesInicialesCastillo(seedCastillo);
-        this.castillo = new Castillo(posicionesCastillo);
-        mapa.ocuparCasilleros(posicionesCastillo,castillo);
         ArrayList<Posicion> posicionesPlaza = obtenerPosicionesInicialesPlazaCentral(seedPlaza, seedCastillo);
+        ArrayList<Posicion> posicionesCastillo = obtenerPosicionesInicialesCastillo(seedCastillo);
         PlazaCentral plazaCentral = new PlazaCentral(posicionesPlaza);
+        this.castillo = new Castillo(posicionesCastillo);
         plazaCentral.finalizarConstruccion();        // Finalizo construccion automaticamente
-        mapa.ocuparCasilleros(posicionesPlaza, plazaCentral);
         edificios.add(plazaCentral);
+        mapa.ocuparCasilleros(posicionesPlaza, plazaCentral);
+        mapa.ocuparCasilleros(posicionesCastillo,castillo);
     }
 
-    // EN DESARROLLO - Inicializar pidiendo al mapa posicion donde colocarlo
     private void inicializarAldeanos(Mapa mapa){
-        // Se que unico edificio en este momento es la plaza central
+        // Unico edificio al inicio es la plaza central
         PlazaCentral plaza = (PlazaCentral) edificios.get(0);
         for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
             Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plaza);
             Aldeano aldeano = new Aldeano(posicionAldeano);
-            mapa.ocuparCasillero(posicionAldeano,aldeano);
             aldeanos.add(aldeano);
+            mapa.ocuparCasillero(posicionAldeano,aldeano);
         }
     }
 
     //  Funcionalidades Jugador
 
+    private boolean llegoAlLimiteDePoblacion(){
+        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
+    }
+
     void verificarLimitePoblacion(){
         if (llegoAlLimiteDePoblacion())
             throw new LimiteDePoblacionException();
-    }
-
-    private boolean llegoAlLimiteDePoblacion(){
-        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
     }
 
     public void recolectarOro(){
@@ -155,25 +138,22 @@ public class Jugador {
         this.estado.crearEspadachin(mapa, cuartel, this);
     }
 
-    public void crearArmaDeAsedio(Mapa mapa){
-        this.estado.crearArmaDeAsedio(mapa, this.castillo, this);
+    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo){
+        this.estado.crearArmaDeAsedio(mapa, castillo, this);
     }
-    //Ojo que aca no verifica que es el suyo porque no le paso un castillo. Aca la verificacion se hace
-    //en otro lado o como hacemos?
-    //De ultima para este caso particular le puede pasar las posiciones y se verifica por posicion.
 
     // Construccion y reparar
 
-    public void construirPlazaCentral(Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
-        edificios.add(this.estado.construirPlazaCentral(this, aldeano, posicionesPlazaCentral) );
+    public void construirPlazaCentral(Mapa mapa, Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
+        this.estado.construirPlazaCentral(this, mapa, aldeano, posicionesPlazaCentral);
     }
 
     public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaEnConstruccion){
         this.estado.continuarConstruccionPlazaCentral(this, aldeano, plazaEnConstruccion);
     }
 
-    public void construirCuartel(Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
-        edificios.add(this.estado.construirCuartel(this, aldeano, posicionesCuartel) );
+    public void construirCuartel(Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        this.estado.construirCuartel(this, mapa, aldeano, posicionesCuartel);
     }
 
     public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartelEnConstruccion){
@@ -186,81 +166,47 @@ public class Jugador {
 
     // Agregar Entidades
 
-    public void agregarAldeano(Aldeano aldeano){
+    public void agregarAldeano(Aldeano aldeano, Mapa mapa){
         verificarLimitePoblacion();
         this.aldeanos.add(aldeano);
+        mapa.ocuparCasillero(aldeano.getPosicion(),aldeano);
     }
 
-    public void agregarAEjercito(IAtacante atacante){
+    public void agregarAEjercito(IAtacante atacante, Mapa mapa){
         verificarLimitePoblacion();
         this.ejercito.add(atacante);
+        mapa.ocuparCasillero(atacante.getPosicion(),atacante);
     }
 
-    public void agregarEdificio(Edificio edificio){
+    public void agregarEdificio(Edificio edificio, Mapa mapa){
         this.edificios.add(edificio);
+        mapa.ocuparCasilleros(edificio.getPosiciones(),edificio);
     }
 
     // Remover Entidades
 
-    public Aldeano removerAldeano(Aldeano aldeanoARemover){
+    public Aldeano removerAldeano(Aldeano aldeanoARemover, Mapa mapa){
         if( !aldeanos.contains(aldeanoARemover) )
             throw new AldeanoNoExisteException();
         this.aldeanos.remove(aldeanoARemover);
+        mapa.desocuparCasillero(aldeanoARemover.getPosicion());
         return aldeanoARemover;
     }
 
-    public IAtacante removerDeEjercito(IAtacante atacanteARemover){
+    public IAtacante removerDeEjercito(IAtacante atacanteARemover, Mapa mapa){
         if( !ejercito.contains(atacanteARemover) )
             throw new AtacanteNoExisteException();
         this.ejercito.remove(atacanteARemover);
+        mapa.desocuparCasillero(atacanteARemover.getPosicion());
         return atacanteARemover;
     }
 
-    public Edificio removerEdificio(Posicion posicionEdificioARemover){
-        Edificio edificioARemover = devolverEdificioEnPosicion(posicionEdificioARemover);
+    public Edificio removerEdificio(Edificio edificioARemover, Mapa mapa){
         if( !this.edificios.contains(edificioARemover) )
             throw new EdificioNoExisteException();
         this.edificios.remove(edificioARemover);
+        mapa.desocuparCasilleros(edificioARemover.getPosiciones());
         return edificioARemover;
-    }    //Aca los tres remover deberian ya mataer la referencia? o devolver lo que se remueve?
-
-    // Devolver Entidad a partir de Posicion
-
-    public Aldeano devolverAldeanoEnPosicion(Posicion posicion){
-        for( Aldeano aldeano : this.aldeanos ){
-            if( aldeano.enPosicion(posicion) )
-                return aldeano;
-        }
-        throw new AldeanoNoExisteException();
-    }
-
-    //Aca hay un problema que hay que preguntar, porque es un IAtacante y no entiende el enPosicion de Unidad
-    public IAtacante devolverAtacanteEnPosicion(Posicion posicion){
-        for( IAtacante atacante : this.ejercito ){
-            Unidad atacanteU = (Unidad) atacante;
-            if( atacanteU.enPosicion(posicion) )
-                return atacante;
-        }
-        throw new AtacanteNoExisteException();
-    }
-
-    public Edificio devolverEdificioEnPosicion(Posicion posicion){
-        for( Edificio edificio : this.edificios ){
-            if( edificio.contienePosicion(posicion) )//Rompe encaps...
-                return edificio;
-        }
-        throw new EdificioNoExisteException();
-    }
-
-    public IUnidadMovible devolverUnidadMovible(Posicion posicionUnidad){
-        try {
-            return (IUnidadMovible) devolverAldeanoEnPosicion(posicionUnidad);
-        } catch( AldeanoNoExisteException ignored){}
-        try{
-            return (IUnidadMovible) devolverAtacanteEnPosicion(posicionUnidad);
-        } catch( AtacanteNoExisteException e ){}
-
-        throw new UnidadMovibleNoExisteException();
     }
 
     // Verificar Entidad propia
@@ -301,9 +247,8 @@ public class Jugador {
 
     // Mover y cambios Arma Asedio
 
-    public void mover( Posicion origen, Posicion destino ){
-        IUnidadMovible unidad = devolverUnidadMovible(origen);
-        this.estado.mover(unidad, origen, destino, this);
+    public void mover(Unidad unidad, Posicion destino, Mapa mapa){
+        this.estado.mover(unidad, destino, mapa, this);
     }
 
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
@@ -333,25 +278,32 @@ public class Jugador {
 
     // Borrar entidades sin vida
 
-    public void limpiarEntidadesMuertas() {
+    public void limpiarEntidadesMuertas(Mapa mapa) {
         Iterator aldeanoIter = this.aldeanos.iterator();
         Iterator ejercitoIter = this.ejercito.iterator();
         Iterator edificioIter = this.edificios.iterator();
 
         while(aldeanoIter.hasNext()){
             Aldeano aldeano = (Aldeano) aldeanoIter.next();
-            if (aldeano.estaMuerto())
+            if (aldeano.estaMuerto()) {
                 aldeanoIter.remove();
+                mapa.desocuparCasillero(aldeano.getPosicion());
+            }
+
         }
         while(ejercitoIter.hasNext()){
             IAtacante atacante = (IAtacante) ejercitoIter.next();
-            if (atacante.estaMuerto())
+            if (atacante.estaMuerto()) {
                 ejercitoIter.remove();
+                mapa.desocuparCasillero(atacante.getPosicion());
+            }
         }
         while(edificioIter.hasNext()){
             Edificio edificio = (Edificio) edificioIter.next();
-            if (edificio.estaDestruido())
+            if (edificio.estaDestruido()) {
                 edificioIter.remove();
+                mapa.desocuparCasilleros(edificio.getPosiciones());
+            }
         }
     }
 }

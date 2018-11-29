@@ -199,15 +199,22 @@ public class MapaYIEntidadTest {
     @Test
     public void colocarUnObjetoCastilloEnUnaPosicionDeterminadaDentroDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Castillo castillo = new Castillo();
-        Posicion posicion1 = new Posicion(2,5);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,5);
-        Posicion posicion4 = new Posicion(3,4);
-        Posicion posicion5 = new Posicion(4,5);
-        Posicion posicion6 = new Posicion(4,4);
-        Posicion posicion7 = new Posicion(5,5);
-        Posicion posicion8 = new Posicion(5,4);
+        Posicion posicion1 = new Posicion(1, 1);
+        Posicion posicion2 = new Posicion(1, 2);
+        Posicion posicion3 = new Posicion(1, 3);
+        Posicion posicion4 = new Posicion(1, 4);
+        Posicion posicion5 = new Posicion(2, 1);
+        Posicion posicion6 = new Posicion(2, 2);
+        Posicion posicion7 = new Posicion(2, 3);
+        Posicion posicion8 = new Posicion(2, 4);
+        Posicion posicion9 = new Posicion(3, 1);
+        Posicion posicion10 = new Posicion(3, 2);
+        Posicion posicion11 = new Posicion(3, 3);
+        Posicion posicion12 = new Posicion(3, 4);
+        Posicion posicion13 = new Posicion(4, 1);
+        Posicion posicion14 = new Posicion(4, 2);
+        Posicion posicion15 = new Posicion(4, 3);
+        Posicion posicion16 = new Posicion(4, 4);
         ArrayList<Posicion> posiciones = new ArrayList<>();
         posiciones.add(posicion1);
         posiciones.add(posicion2);
@@ -217,7 +224,15 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion6);
         posiciones.add(posicion7);
         posiciones.add(posicion8);
-        castillo.setPosiciones(posiciones);
+        posiciones.add(posicion9);
+        posiciones.add(posicion10);
+        posiciones.add(posicion11);
+        posiciones.add(posicion12);
+        posiciones.add(posicion13);
+        posiciones.add(posicion14);
+        posiciones.add(posicion15);
+        posiciones.add(posicion16);
+        Castillo castillo = new Castillo(posiciones);
 
         for (Posicion posicion : posiciones) {
             mapa.ocuparCasillero(posicion, castillo);
@@ -230,15 +245,22 @@ public class MapaYIEntidadTest {
     @Test (expected = PosicionFueraDelMapaException.class)
     public void colocarUnObjetoCastilloEnUnaPosicionFueraDelMapa(){
         Mapa mapa = new Mapa(10, 20);
-        Castillo castillo = new Castillo();
-        Posicion posicion1 = new Posicion(-1,0);
-        Posicion posicion2 = new Posicion(0,0);
-        Posicion posicion3 = new Posicion(-1,1);
-        Posicion posicion4 = new Posicion(0,1);
-        Posicion posicion5 = new Posicion(1,0);
-        Posicion posicion6 = new Posicion(1,1);
-        Posicion posicion7 = new Posicion(2,0);
-        Posicion posicion8 = new Posicion(2,1);
+        Posicion posicion1 = new Posicion(-1, 1);
+        Posicion posicion2 = new Posicion(1, 2);
+        Posicion posicion3 = new Posicion(1, 3);
+        Posicion posicion4 = new Posicion(1, 4);
+        Posicion posicion5 = new Posicion(2, 1);
+        Posicion posicion6 = new Posicion(2, 2);
+        Posicion posicion7 = new Posicion(2, 3);
+        Posicion posicion8 = new Posicion(2, 4);
+        Posicion posicion9 = new Posicion(3, 1);
+        Posicion posicion10 = new Posicion(3, 2);
+        Posicion posicion11 = new Posicion(3, 3);
+        Posicion posicion12 = new Posicion(3, 4);
+        Posicion posicion13 = new Posicion(4, 1);
+        Posicion posicion14 = new Posicion(4, 2);
+        Posicion posicion15 = new Posicion(4, 3);
+        Posicion posicion16 = new Posicion(4, 4);
         ArrayList<Posicion> posiciones = new ArrayList<>();
         posiciones.add(posicion1);
         posiciones.add(posicion2);
@@ -248,7 +270,15 @@ public class MapaYIEntidadTest {
         posiciones.add(posicion6);
         posiciones.add(posicion7);
         posiciones.add(posicion8);
-        castillo.setPosiciones(posiciones);
+        posiciones.add(posicion9);
+        posiciones.add(posicion10);
+        posiciones.add(posicion11);
+        posiciones.add(posicion12);
+        posiciones.add(posicion13);
+        posiciones.add(posicion14);
+        posiciones.add(posicion15);
+        posiciones.add(posicion16);
+        Castillo castillo = new Castillo(posiciones);
 
         for (Posicion posicion : posiciones) {
             mapa.ocuparCasillero(posicion, castillo);

@@ -13,8 +13,6 @@ public class EstadoCuartelEnReparacion implements IEstadoCuartel {
     public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel) {
         Posicion posicionEspadachin = mapa.devolverPosicionAledaniaLibre(cuartel);
         Espadachin espadachin = new Espadachin(posicionEspadachin);
-        mapa.ocuparCasillero(posicionEspadachin,espadachin);
-
         return espadachin;
     }
 
@@ -22,8 +20,6 @@ public class EstadoCuartelEnReparacion implements IEstadoCuartel {
     public Arquero crearArquero(Mapa mapa, Cuartel cuartel) {
         Posicion posicionArquero = mapa.devolverPosicionAledaniaLibre(cuartel);
         Arquero arquero = new Arquero(posicionArquero);
-        mapa.ocuparCasillero(posicionArquero,arquero);
-
         return arquero;
     }
 

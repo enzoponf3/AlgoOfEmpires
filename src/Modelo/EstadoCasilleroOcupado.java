@@ -15,4 +15,7 @@ public class EstadoCasilleroOcupado implements IEstadoCasillero {
         casillero.desocupar();
     }
 
+    @Override
+    public void obtenerObjeto() {}
+
 }

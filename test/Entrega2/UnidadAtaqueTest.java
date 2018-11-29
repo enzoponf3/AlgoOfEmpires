@@ -515,7 +515,6 @@ public class UnidadAtaqueTest {
     public void arqueroAtacarCastilloEnRango(){
         Posicion posArquero = new Posicion(5,5);
         Arquero arquero = new Arquero(posArquero);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -549,7 +548,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         arquero.atacar(castillo);
         Assert.assertEquals(990, castillo.getVida());
@@ -558,7 +557,6 @@ public class UnidadAtaqueTest {
     public void arqueroAtacarCastilloEnRangoSeOcupa(){
         Posicion posArquero = new Posicion(5,5);
         Arquero arquero = new Arquero(posArquero);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -592,7 +590,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         arquero.atacar(castillo);
         Posicion pos = new Posicion(5,6);
@@ -854,7 +852,6 @@ public class UnidadAtaqueTest {
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -888,7 +885,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         armaAsedio.atacar(castillo);
         Assert.assertEquals(925, castillo.getVida());
@@ -899,7 +896,6 @@ public class UnidadAtaqueTest {
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posArmaDeAsedio);
         armaAsedio.montar();
         armaAsedio.desocupar();
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -933,7 +929,7 @@ public class UnidadAtaqueTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         armaAsedio.atacar(castillo);
         Posicion pos = new Posicion(5,6);

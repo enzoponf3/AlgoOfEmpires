@@ -341,7 +341,6 @@ public class EspadachinTest {
     public void espadachinAtacarCastilloEnRango(){
         Posicion posEspadachin = new Posicion(5,5);
         Espadachin espadachin = new Espadachin(posEspadachin);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -375,7 +374,7 @@ public class EspadachinTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         espadachin.atacar(castillo);
         Assert.assertEquals(985, castillo.getVida());
@@ -384,7 +383,6 @@ public class EspadachinTest {
     public void espadachinAtacarCastilloEnRangoSeOcupa(){
         Posicion posEspadachin = new Posicion(5,5);
         Espadachin espadachin = new Espadachin(posEspadachin);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -418,7 +416,7 @@ public class EspadachinTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         Assert.assertEquals(1000, castillo.getVida());
         espadachin.atacar(castillo);
         Posicion pos = new Posicion(5,6);

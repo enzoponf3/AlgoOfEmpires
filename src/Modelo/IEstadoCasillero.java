@@ -6,4 +6,5 @@ public interface IEstadoCasillero {
 
     void removerObjeto(Casillero casillero);
 
+    void obtenerObjeto();
 }

@@ -15,4 +15,9 @@ public class EstadoCasilleroDesocupado implements IEstadoCasillero {
         throw new CasilleroDesocupadoException();
     }
 
+    @Override
+    public void obtenerObjeto() {
+        throw new CasilleroDesocupadoException();
+    }
+
 }

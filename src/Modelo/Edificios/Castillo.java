@@ -31,16 +31,6 @@ public class Castillo extends Edificio {
         this.posiciones = posiciones;
     }
 
-    public Castillo() {
-        this.vidaMax = VIDA;
-        this.vida = VIDA;
-        this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.danio = DANIO;
-        this.estado = new EstadoCastilloConstruido();
-
-        this.posiciones = posiciones;
-    }
-
     @Override
     public void reducirVida(int cant) {
         if (this.vida <= 0)

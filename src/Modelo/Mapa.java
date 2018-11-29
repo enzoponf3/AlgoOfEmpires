@@ -47,23 +47,6 @@ public class Mapa {
         return this.casilleros;
     }
 
-    public boolean estaVacio(){
-        return casilleros.isEmpty();
-    }
-    /*
-    public Modelo.Casillero seleccionarCasillero(Modelo.Casillero casillero){
-
-        for (Iterator<Modelo.Casillero> iterator = casilleros.iterator(); iterator.hasNext();) {
-            Modelo.Casillero casilleroActual = iterator.next();
-            if( casilleroActual.esIgualA(casillero) )
-                return casilleroActual;
-        }
-
-        return null;
-
-    }*/ //El metodo esta repetido porque uno rompe el encapsulamiento pero necesita que se cree un objeto casillero
-        // que nunca se va a usar solo para efectuar la comparacion y el otro rompe el encapsulamiento.
-
     public Casillero seleccionarCasillero(Posicion posicion){
 
         for (Casillero casilleroActual : casilleros) {
@@ -89,6 +72,12 @@ public class Mapa {
         return IEntidad;
     }
 
+    public IEntidad obtenerEntidad(Posicion posicion) {
+        verificarPosicionValida(posicion);
+        Casillero casillero = seleccionarCasillero(posicion);
+        IEntidad IEntidad = (IEntidad) casillero.obtenerObjeto();
+        return IEntidad;
+    }
 
     public boolean posicionEnRango(Posicion posicion){
         return posicion.estaDentroDelMapa(this.ancho, this.alto);
@@ -145,8 +134,13 @@ public class Mapa {
         return posicionesAledanias;
     }
 
-    public void ocuparCasilleros(ArrayList<Posicion> posicionesEdificio, Edificio edificio) {
-        for (Posicion posicion : posicionesEdificio)
+    public void ocuparCasilleros(ArrayList<Posicion> posiciones, Edificio edificio) {
+        for (Posicion posicion : posiciones)
             this.ocuparCasillero(posicion,edificio);
+    }
+
+    public void desocuparCasilleros(ArrayList<Posicion> posiciones) {
+        for (Posicion posicion : posiciones)
+            this.desocuparCasillero(posicion);
     }
 }

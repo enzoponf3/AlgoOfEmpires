@@ -23,9 +23,8 @@ public class JugadorMueveUnidadesTest {
         Posicion origen = new Posicion(1,1);
         Posicion destino = new Posicion(2,1);
         Aldeano aldeano = new Aldeano(origen);
-        jugador.agregarAldeano(aldeano);
-
-        jugador.mover(origen, destino);
+        jugador.agregarAldeano(aldeano, mapa);
+        jugador.mover(aldeano,destino,mapa);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
     }
@@ -38,10 +37,10 @@ public class JugadorMueveUnidadesTest {
 
         Posicion origen = new Posicion(1,1);
         Aldeano aldeano = new Aldeano(origen);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
         Posicion destino = new Posicion(2,1);
 
-        jugador.mover(origen, destino);
+        jugador.mover(aldeano, destino, mapa);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
     }
@@ -57,8 +56,8 @@ public class JugadorMueveUnidadesTest {
 
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAldeano(aldeano);
-        jugador.mover(origen, destino);
+        jugador.agregarAldeano(aldeano, mapa);
+        jugador.mover(aldeano, destino, mapa);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
     }
@@ -74,8 +73,8 @@ public class JugadorMueveUnidadesTest {
 
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAldeano(aldeano);
-        jugador.mover(origen, destino);
+        jugador.agregarAldeano(aldeano, mapa);
+        jugador.mover(aldeano, destino, mapa);
 
         Assert.assertTrue( aldeano.enPosicion(destino) );
     }
@@ -90,8 +89,8 @@ public class JugadorMueveUnidadesTest {
         Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(espadachin);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(espadachin, mapa);
+        jugador.mover(espadachin, destino, mapa);
 
         Assert.assertTrue( espadachin.enPosicion(destino) );
     }
@@ -106,8 +105,8 @@ public class JugadorMueveUnidadesTest {
         Espadachin espadachin = new Espadachin(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(espadachin);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(espadachin, mapa);
+        jugador.mover(espadachin, destino, mapa);
 
         Assert.assertTrue( espadachin.enPosicion(destino) );
     }
@@ -122,8 +121,8 @@ public class JugadorMueveUnidadesTest {
         Arquero arquero = new Arquero(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(arquero);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(arquero, mapa);
+        jugador.mover(arquero, destino, mapa);
 
         Assert.assertTrue( arquero.enPosicion(destino) );
     }
@@ -138,8 +137,8 @@ public class JugadorMueveUnidadesTest {
         Arquero arquero = new Arquero(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(arquero);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(arquero, mapa);
+        jugador.mover(arquero, destino, mapa);
 
         Assert.assertTrue( arquero.enPosicion(destino) );
     }
@@ -154,8 +153,8 @@ public class JugadorMueveUnidadesTest {
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(armaDeAsedio);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
+        jugador.mover(armaDeAsedio, destino, mapa);
 
         Assert.assertTrue( armaDeAsedio.enPosicion(destino) );
     }
@@ -170,8 +169,8 @@ public class JugadorMueveUnidadesTest {
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(origen);
         Posicion destino = new Posicion(2,6);
 
-        jugador.agregarAEjercito(armaDeAsedio);
-        jugador.mover(origen, destino);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
+        jugador.mover(armaDeAsedio, destino, mapa);
 
         Assert.assertTrue( armaDeAsedio.enPosicion(destino) );
     }

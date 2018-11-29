@@ -22,7 +22,6 @@ public class EstadoCastilloEnReparacion implements IEstadoCastillo {
     public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo) {
         Posicion posicionArmaAsedio = mapa.devolverPosicionAledaniaLibre(castillo);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaAsedio);
-        mapa.ocuparCasillero(posicionArmaAsedio,armaDeAsedio);
         return armaDeAsedio;
     }
 }

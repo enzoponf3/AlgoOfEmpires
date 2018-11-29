@@ -9,15 +9,6 @@ import java.util.ArrayList;
 
 public class PosicionTest {
 
-    //@Test
-    //public void crearPosicionConCiertasCoordenadasYVerificarla(){
-    //    Posicion posicion = new Posicion(3, 4);
-    //    int[] posicionEsperada = {3, 4};
-
-    //    Assert.assertEquals(posicionEsperada, compararPosiciones(posicionEsperada, posicion));
-    //} // No se puede probar dado que tengo que crear un objeto posicion para eso y esto es lo que quiero probar.
-    // O bien dar a entender la implementacion, lo cual romperia con el encapsulamiento.
-
     @Test
     public void compararDosPosicionesIgualesDevuelveTrue(){
         Posicion unaPosicion = new Posicion(2,3);
@@ -150,4 +141,10 @@ public class PosicionTest {
         Assert.assertTrue( posicion.aledaniaA(otraPosicion) );
     }
 
+    @Test
+    public void verificarHorizontalYVerticalCorrecta() {
+        Posicion posicion = new Posicion(5,10);
+        Assert.assertEquals(posicion.getHorizontal(),5);
+        Assert.assertEquals(posicion.getVertical(),10);
+    }
 }

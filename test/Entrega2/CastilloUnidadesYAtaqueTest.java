@@ -20,7 +20,6 @@ public class CastilloUnidadesYAtaqueTest {
 
     @Before
     public void setUp() throws Exception {
-        castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -54,7 +53,7 @@ public class CastilloUnidadesYAtaqueTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        castillo = new Castillo(posiciones);
     }
 
     @Test
@@ -266,7 +265,6 @@ public class CastilloUnidadesYAtaqueTest {
         plaza.setPosiciones(posicionesPlaza);
         edificios.add(plaza);
 
-        Castillo castilloAtaque = new Castillo();
         Posicion posicionCastillo1 = new Posicion(10,1);
         Posicion posicionCastillo2 = new Posicion(10,2);
         Posicion posicionCastillo3 = new Posicion(10,3);
@@ -300,7 +298,7 @@ public class CastilloUnidadesYAtaqueTest {
         posicionesCastillo.add(posicionCastillo14);
         posicionesCastillo.add(posicionCastillo15);
         posicionesCastillo.add(posicionCastillo16);
-        castilloAtaque.setPosiciones(posicionesCastillo);
+        Castillo castilloAtaque = new Castillo(posicionesCastillo);
         edificios.add(castilloAtaque);
 
         castillo.atacarEdificios(edificios);

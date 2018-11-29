@@ -22,10 +22,12 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     //MOVER
 
     @Override
-    public void mover(IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador ){
+    public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
+        Posicion posicionOrigen = unidad.getPosicion();
         unidad.mover(destino);
+        mapa.desocuparCasillero(posicionOrigen);
+        mapa.ocuparCasillero(destino,unidad);
     }//Tengo que inactivar desp? refactorizar
-
 
     //CREAR UNIDADES
 
@@ -33,28 +35,28 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         verificacionesCreacion(jugador, plazaCentral);
         Aldeano aldeano = plazaCentral.crearAldeano(mapa);
-        jugador.agregarAldeano(aldeano);
+        jugador.agregarAldeano(aldeano, mapa);
     }
 
     @Override
     public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         Arquero arquero = cuartel.crearArquero(mapa);
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero,mapa);
     }
 
     @Override
     public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         Espadachin espadachin = cuartel.crearEspadachin(mapa);
-        jugador.agregarAEjercito(espadachin);
+        jugador.agregarAEjercito(espadachin, mapa);
     }
 
     @Override
     public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
-        jugador.verificarLimitePoblacion();
+        verificacionesCreacion(jugador, castillo);
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
     }
 
 
@@ -88,9 +90,10 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     //CONSTRUIR
     @Override
-    public Cuartel construirCuartel(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         jugador.verificarAldeanoPropio(aldeano);
-        return aldeano.construirCuartel(posicionesCuartel);
+        Cuartel cuartel = aldeano.construirCuartel(posicionesCuartel);
+        jugador.agregarEdificio(cuartel, mapa);
     }
 
     @Override
@@ -100,9 +103,10 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public void construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         jugador.verificarAldeanoPropio(aldeano);
-        return aldeano.construirPlazaCentral(posicionesPlazaCentral);
+        PlazaCentral plaza = aldeano.construirPlazaCentral(posicionesPlazaCentral);
+        jugador.agregarEdificio(plaza, mapa);
     }
 
     @Override

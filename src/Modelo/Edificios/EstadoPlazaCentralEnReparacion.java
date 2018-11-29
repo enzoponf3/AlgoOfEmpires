@@ -12,8 +12,6 @@ public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
     public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral) {
         Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plazaCentral);
         Aldeano aldeano = new Aldeano(posicionAldeano);
-        mapa.ocuparCasillero(posicionAldeano,aldeano);
-
         return aldeano;
     }
 

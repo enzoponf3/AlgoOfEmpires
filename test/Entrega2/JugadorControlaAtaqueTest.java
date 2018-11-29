@@ -32,7 +32,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(3,3);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -50,7 +50,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(3,3);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -69,7 +69,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(5,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -87,7 +87,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(5,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -105,7 +105,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(6,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -123,7 +123,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(6,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
 
         Assert.assertEquals(35 , aldeanoEnemigo.getVida() );
@@ -141,7 +141,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(7,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
     }
 
@@ -157,7 +157,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(7,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(arquero);
+        jugador.agregarAEjercito(arquero, mapa);
         jugador.atacar(arquero, aldeanoEnemigo);
     }
 
@@ -174,7 +174,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(3,3);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(espadachin);
+        jugador.agregarAEjercito(espadachin, mapa);
         jugador.atacar(espadachin, aldeanoEnemigo);
 
         Assert.assertEquals(25 , aldeanoEnemigo.getVida() );
@@ -192,7 +192,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(3,3);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(espadachin);
+        jugador.agregarAEjercito(espadachin, mapa);
         jugador.atacar(espadachin, aldeanoEnemigo);
 
         Assert.assertEquals(25 , aldeanoEnemigo.getVida() );
@@ -211,7 +211,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(7,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(espadachin);
+        jugador.agregarAEjercito(espadachin, mapa);
         jugador.atacar(espadachin, aldeanoEnemigo);
     }
 
@@ -227,7 +227,7 @@ public class JugadorControlaAtaqueTest {
         Posicion posicionAldeano = new Posicion(7,2);
         Aldeano aldeanoEnemigo = new Aldeano(posicionAldeano);
 
-        jugador.agregarAEjercito(espadachin);
+        jugador.agregarAEjercito(espadachin, mapa);
         jugador.atacar(espadachin, aldeanoEnemigo);
     }
 
@@ -253,7 +253,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -284,7 +284,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -315,7 +315,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -346,7 +346,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -378,7 +378,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -409,7 +409,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -441,7 +441,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -472,7 +472,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -504,7 +504,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -535,7 +535,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -566,7 +566,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();
@@ -596,7 +596,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.atacar(armaDeAsedio, edificioEnemigo);
     }
 
@@ -621,7 +621,7 @@ public class JugadorControlaAtaqueTest {
         Cuartel edificioEnemigo = new Cuartel(posiciones);
         edificioEnemigo.finalizarConstruccion();
 
-        jugador.agregarAEjercito(armaDeAsedio);
+        jugador.agregarAEjercito(armaDeAsedio, mapa);
         jugador.montarArmaDeAsedio(armaDeAsedio);
 
         armaDeAsedio.desocupar();

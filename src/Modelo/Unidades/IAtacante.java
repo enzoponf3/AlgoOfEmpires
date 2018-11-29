@@ -26,4 +26,6 @@ public interface IAtacante extends IUnidadMovible{
     int getDanioEdificio();
 
     void ocupar();
+
+    Posicion getPosicion();
 }

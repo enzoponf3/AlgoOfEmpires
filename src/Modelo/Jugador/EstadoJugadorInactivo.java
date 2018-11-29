@@ -4,7 +4,6 @@ import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
-import Modelo.Unidades.IUnidadMovible;
 import Modelo.Edificios.*;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
 
     @Override
-    public void mover(IUnidadMovible unidad, Posicion origen, Posicion destino, Jugador jugador){
+    public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
@@ -58,7 +57,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public Cuartel construirCuartel(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         throw new TurnoDelOponenteException();
     }
 
@@ -68,7 +67,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public PlazaCentral construirPlazaCentral(Jugador jugador, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public void construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         throw new TurnoDelOponenteException();
     }
 

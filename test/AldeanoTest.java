@@ -806,7 +806,6 @@ public class AldeanoTest {
     public void aldeanoRepararCastilloExitosamente(){
         Posicion origen = new Posicion(4,5);
         Aldeano aldeano = new Aldeano(origen);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -840,7 +839,7 @@ public class AldeanoTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         castillo.reducirVida(50);
         aldeano.repararEdificio(castillo);
         Assert.assertEquals(965,castillo.getVida());
@@ -850,7 +849,6 @@ public class AldeanoTest {
     public void aldeanoOcupadoRepararCastilloFalla(){
         Posicion origen = new Posicion(4,6);
         Aldeano aldeano = new Aldeano(origen);
-        Castillo castillo = new Castillo();
         Posicion posicion1 = new Posicion(1, 1);
         Posicion posicion2 = new Posicion(1, 2);
         Posicion posicion3 = new Posicion(1, 3);
@@ -884,7 +882,7 @@ public class AldeanoTest {
         posiciones.add(posicion14);
         posiciones.add(posicion15);
         posiciones.add(posicion16);
-        castillo.setPosiciones(posiciones);
+        Castillo castillo = new Castillo(posiciones);
         castillo.reducirVida(50);
         Posicion destino = new Posicion(4,5);
         aldeano.mover(destino);

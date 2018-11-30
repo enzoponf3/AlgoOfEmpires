@@ -1,6 +1,6 @@
 package View;
 
-import Controller.ControladorCasillero;
+import Controller.CasilleroHandler;
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
@@ -39,7 +39,7 @@ public class CasilleroView extends StackPane {
         borde.setStroke(Color.rgb(0, 0, 0, 0.2));
         borde.setVisible(true);
 
-        this.setOnMouseClicked(new ControladorCasillero(this));
+        this.setOnMousePressed(new CasilleroHandler(this));
 
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override

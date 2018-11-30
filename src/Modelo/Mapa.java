@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class Mapa {
 
+    private static Mapa INSTANCIA;
+
     private int ancho;
     private int alto;
     protected ArrayList<Casillero> casilleros = new ArrayList<>();
@@ -20,6 +22,11 @@ public class Mapa {
         this.alto = alto;
         this.inicializarCasilleros(ancho, alto);
     } 
+
+    public static Mapa getInstancia(){
+        return INSTANCIA;
+    }
+
 
     public void verificarDimensionesCorrectas(int ancho, int alto){
         if( ancho <= 0 || alto <= 0 )

@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 
 public class MapaView extends Pane {
 
+    private static MapaView INSTANCIA;
+
     private Group casilleros;
     private Group piezas;
     private JugadorView jugadorView1;
@@ -20,7 +22,7 @@ public class MapaView extends Pane {
     private Mapa mapaModelo;
 
     private CasilleroView casilleroSeleccionada;
-    private PiezaView piezaView;
+    private PiezaView piezaSeleccionada;
 
     public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2){
         this.casilleros = new Group();
@@ -29,8 +31,6 @@ public class MapaView extends Pane {
         this.jugadorView2 = jugadorView2;
 
         this.setPrefSize(anchoMapa*Constantes.TAMANIO_CASILLERO, altoMapa*Constantes.TAMANIO_CASILLERO);
-
-        //this.setPrefSize(anchoMapa, altoMapa);
 
         //creo los casilleros para poner en el Pane
         for(int y = 0; y< altoMapa ; y++){
@@ -43,6 +43,12 @@ public class MapaView extends Pane {
         colocarPiezasIniciales(jugadorView1, jugadorView2);
 
         getChildren().addAll(casilleros, piezas);
+
+        INSTANCIA = this;
+    }
+
+    public static MapaView getInstancia(){
+        return INSTANCIA;
     }
 
 
@@ -54,6 +60,12 @@ public class MapaView extends Pane {
         this.piezas.getChildren().addAll(piezasJ1, piezasJ2);
     }
 
+    public void seleccionarCasillero(CasilleroView casilleroView){
+        this.casilleroSeleccionada = casilleroView;
+    }
 
+    public void seleccionarPieza(PiezaView piezaView){
+        this.piezaSeleccionada = piezaView;
+    }
 
 }

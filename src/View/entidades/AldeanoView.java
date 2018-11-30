@@ -30,15 +30,19 @@ public class AldeanoView extends PiezaView {
         Posicion unaPosicion = aldeanoModelo.getPosicion();
         setPosicion(unaPosicion);
 
-        Image aldeano = new Image("Villagerwalk001.png");
-        ImageView imagenAldeano = new ImageView(aldeano);
-        agregarImagen(imagenAldeano, imagenAldeano);
+        Image aldeanoFrente = new Image("AldeanoFrente.png");
+        ImageView imagenAldeanoFrente = new ImageView(aldeanoFrente);
+
+        Image aldeanoEspalda = new Image("AldeanoEspalda.png");
+        ImageView imagenAldeanoEspalda = new ImageView(aldeanoEspalda);
+
+        agregarImagen(imagenAldeanoFrente, imagenAldeanoEspalda);
 
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 ContextMenu menu = this.crearMenu();
-                menu.show(imagenAldeano, event.getScreenX(), event.getScreenY());
+                menu.show(imagenAldeanoFrente, event.getScreenX(), event.getScreenY());
             }
 
             private ContextMenu crearMenu(){

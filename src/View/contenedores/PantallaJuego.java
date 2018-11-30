@@ -58,7 +58,8 @@ public class PantallaJuego extends Pane {
         this.icono = dibujarIcono();
         this.botonera = dibujarBotones();
         this.barraDatos = dibujarBarraDatosJugador();
-        this.log.enviarMensaje("\nHOLA!");
+        this.log.enviarMensaje("HOLA!");
+        this.log.enviarMensaje("CHAU!");
 
         this.dibujarMapa();
 

@@ -25,6 +25,11 @@ public class PantallaConfigJugador extends Pane {
         this.setPrefSize(1080,680);
         this.setStyle("-fx-background-color: black");
 
+        Label label1 = new Label("JUGADOR 1");
+        Label label2 = new Label("JUGADOR 2");
+        label1.getStyleClass().add("label");
+        label2.getStyleClass().add("label");
+
         Pane panel1 = setPersonaje(jugador1,"JUGADOR 1");
         Pane panel2 = setPersonaje(jugador2, "JUGADOR 2");
 

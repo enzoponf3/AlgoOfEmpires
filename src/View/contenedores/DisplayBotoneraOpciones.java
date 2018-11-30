@@ -35,7 +35,6 @@ public class DisplayBotoneraOpciones extends VBox {
         rendirse.getStyleClass().add("menu-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 
-        // hay que acoomodar los botones
         this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");//Ver si se deforma en la de enzo
 
         this.setSpacing(10);

@@ -1,10 +1,14 @@
 package View.contenedores;
 
+
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Screen;
 
 import java.util.Observable;
@@ -21,16 +25,18 @@ public class DisplayLog extends HBox implements Observer {
         log.addObserver(this);
         this.setPrefSize((2*limitesPantalla.getWidth())/3,limitesPantalla.getHeight()/5);
         System.out.println("LogWidth:" + this.getPrefWidth() + "\nLogHeight:" + this.getPrefHeight());
-        /*Image fondoLog = new Image("View/img/texturaLog.png",(2*limitesPantalla.getWidth())/3, limitesPantalla.getHeight()/5, false, true);
-        ImageView im = new ImageView(fondoLog);*/
-        this.setStyle("-fx-background-image: url(\"View/img/texturaLog.png\");\n -fx-background-size: cover");           //Ver si se deforma en la de enzo
+        this.setStyle("-fx-background-image: url(\"View/img/texturaLog.png\");\n -fx-background-size: cover");
         getChildren().addAll(new Label());
+        this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
+
     }
 
     @Override
     public void update(Observable o, Object arg) {
         if( o != log)
             return;
-        getChildren().set(0,new Label(log.getMensaje()));
+        Label label = new Label(log.getMensaje());
+        label.setTextFill(Color.SIENNA);
+        getChildren().set(0,label);
     }
 }

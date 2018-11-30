@@ -26,14 +26,11 @@ public class DisplayBarraDatos extends HBox {
         poblacion.setTranslateX((3*limitesPantalla.getWidth())/32);
         Label vida = new Label("376");
         vida.setStyle("-fx-text-fill: white");
-        vida.setTranslateX((6*limitesPantalla.getWidth())/32);
+        vida.setTranslateX((13*limitesPantalla.getWidth())/64);
         Label nombre = new Label("LeNombre");
-
-
         nombre.setStyle("-fx-text-fill: white;\n -fx-font-size: 15");
 
-
-        nombre.setPadding(new Insets(0,0,0,(11*limitesPantalla.getWidth())/16));
+        nombre.setPadding(new Insets(0,0,0,(23*limitesPantalla.getWidth())/32));
         HBox hbox = new HBox(oro,poblacion,vida,nombre);
 
 

@@ -17,15 +17,15 @@ public class MapaView extends Pane {
 
     private Group casilleros;
     private Group piezas;
-    private Jugador jugador1;
-    private Jugador jugador2;
+    private JugadorView jugadorView1;
+    private JugadorView jugadorView2;
     private Mapa mapaModelo;
 
-    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, Jugador jugador1, Jugador jugador2){
-        casilleros = new Group();
+    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2){
+        this.casilleros = new Group();
         this.mapaModelo = mapa;
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+        this.jugadorView1 = jugadorView1;
+        this.jugadorView2 = jugadorView2;
 
         this.setPrefSize(anchoMapa*TAMANIO_CASILLERO, altoMapa*TAMANIO_CASILLERO);
 
@@ -39,43 +39,18 @@ public class MapaView extends Pane {
             }
         }
 
-        getChildren().addAll(casilleros);
-        crearContenido(this);
+        colocarPiezasIniciales(jugadorView1, jugadorView2);
 
+        getChildren().addAll(casilleros, piezas);
     }
 
 
-    private void crearContenido(MapaView mapaView){
-        //Un grupo de casilleros
-        this.casilleros = new Group();
+    public void colocarPiezasIniciales(JugadorView jugadorView1, JugadorView jugadorView2){
+        Group piezasJ1 = jugadorView1.getPiezas();
+        Group piezasJ2 = jugadorView2.getPiezas();
+
         this.piezas = new Group();
-
-        //CONTENIDO------------------
-
-        colocarPiezasIniciales(jugador1, jugador2);
-
-        //-------------------
-        mapaView.getChildren().add(piezas);
-    }
-
-    public void colocarPiezasIniciales(Jugador jugador1, Jugador jugador2){
-        //Piezas jug 1
-        CastilloView castilloView1 = new CastilloView(jugador1.getCastillo());
-        PlazaCentralView plazaView1 = new PlazaCentralView((PlazaCentral) jugador1.getEdificios().get(0));
-        for(int i=0; i<3; i++) {
-            AldeanoView aldeano = new AldeanoView(jugador1.getAldeanos().get(i));
-            this.piezas.getChildren().add(aldeano);
-        }
-
-        //Piezas jug 2
-        CastilloView castilloView2 = new CastilloView(jugador2.getCastillo());
-        PlazaCentralView plazaView2 = new PlazaCentralView((PlazaCentral) jugador2.getEdificios().get(0));
-        for(int i=0; i<3; i++) {
-            AldeanoView aldeano = new AldeanoView(jugador2.getAldeanos().get(i));
-            this.piezas.getChildren().add(aldeano);
-        }
-
-        this.getChildren().addAll(castilloView1, plazaView1, castilloView2, plazaView2);
+        this.piezas.getChildren().addAll(piezasJ1, piezasJ2);
     }
 
 

@@ -11,7 +11,9 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class PantallaInicio extends Pane {
+
     Stage stage;
+
     public PantallaInicio(Stage stage) {
 
         this.stage = stage;

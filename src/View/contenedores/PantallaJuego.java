@@ -5,6 +5,7 @@ import Modelo.Juego;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import View.JugadorView;
+import View.MapaView;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
@@ -24,10 +25,13 @@ public class PantallaJuego extends Pane {
     private DisplayLog displayLog;
     private double altoPantalla;
     private double anchoPantalla;
+
     private JugadorView jugadorView1;
     private JugadorView jugadorView2;
-    private Jugador jugador1;
-    private Jugador jugador2;
+
+    private Jugador jugadorModelo1;
+    private Jugador jugadorModelo2;
+
     private DisplayIconJugador icono;
     private ActualizarView iconoActualizar;
     private DisplayBotoneraOpciones botonera;
@@ -39,10 +43,13 @@ public class PantallaJuego extends Pane {
     private ScrollPane layout;
 
     public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2){
+
         this.mapaModelo = new Mapa(anchoMapa, altoMapa);
         this.juego = new Juego();
-        this.jugador1 = juego.getJugador1();
-        this.jugador2 = juego.getJugador2();
+
+        this.jugadorModelo1 = juego.getJugador1();
+        this.jugadorModelo2 = juego.getJugador2();
+
         this.stage = stage;
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.altoPantalla = limitesPantalla.getHeight();
@@ -52,6 +59,9 @@ public class PantallaJuego extends Pane {
 
         this.jugadorView1 = j1;
         this.jugadorView2 = j2;
+        this.jugadorView1.setJugadorModelo(jugadorModelo1);
+        this.jugadorView2.setJugadorModelo(jugadorModelo2);
+
         this.log = new Log();
         this.displayLog = dibujarLog();
         this.iconoActualizar = new ActualizarView();
@@ -105,7 +115,7 @@ public class PantallaJuego extends Pane {
 
     private void dibujarMapa(){
 
-        View.MapaView mapaView = new View.MapaView(this.mapaModelo,anchoMapa, altoMapa,jugador1,jugador2);
+        MapaView mapaView = new MapaView(this.mapaModelo,anchoMapa, altoMapa,jugadorView1,jugadorView2);
         ScrollPane layout = new ScrollPane(mapaView);
         layout.setLayoutX(0);
         layout.setLayoutY(((altoPantalla)/24));

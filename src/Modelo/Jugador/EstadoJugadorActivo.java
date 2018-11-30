@@ -130,4 +130,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
         return oroExtra;
     }
 
+    @Override
+    public void cambiarTurno(Jugador jugador) {
+        jugador.setEstado(new EstadoJugadorInactivo());
+    }
+
 }

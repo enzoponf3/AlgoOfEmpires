@@ -22,6 +22,6 @@ public class PasarTurnoButtonHandler implements EventHandler<ActionEvent> {
     }
 
     public void handle(ActionEvent event){
-
+        this.actualizarIcono.AlternarJugador();     //Esto cambia el JugadorView actual, no hace nada en el modelo, solo UI
     }
 }

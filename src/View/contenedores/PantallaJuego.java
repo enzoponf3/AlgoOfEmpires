@@ -18,6 +18,7 @@ import java.awt.*;
 
 public class PantallaJuego extends Pane {
 
+    private Jugador jugadorModeloActual;
     private Mapa mapaModelo;
     private DisplayBarraDatos barraDatos;
     private Stage stage;
@@ -64,19 +65,10 @@ public class PantallaJuego extends Pane {
 
         this.log = new Log();
         this.displayLog = dibujarLog();
-        this.iconoActualizar = new ActualizarView();
+        this.iconoActualizar = new ActualizarView(this.jugadorView1,this.jugadorView2);
         this.icono = dibujarIcono();
         this.botonera = dibujarBotones();
         this.barraDatos = dibujarBarraDatosJugador();
-        this.log.enviarMensaje("Hola!");
-        this.log.enviarMensaje("Que!");
-        this.log.enviarMensaje("Tal!");
-        this.log.enviarMensaje("Hasta!");
-        this.log.enviarMensaje("Luego!");
-        this.log.enviarMensaje("Puto we!");
-        this.log.enviarMensaje("Chau!");
-
-        this.log.enviarMensaje("Chau!");
 
         this.dibujarMapa();
 
@@ -95,12 +87,11 @@ public class PantallaJuego extends Pane {
         DisplayIconJugador icono = new DisplayIconJugador(this.iconoActualizar);
         icono.setLayoutX(0);
         icono.setLayoutY((4*altoPantalla)/5);
-        this.iconoActualizar.enviarJugador(this.jugadorView1);        //Esto cuando inicializa pantalla y cuando pasa turno, agregar el Jugador jugador para getear datos
         return icono;
     }
 
     private DisplayBarraDatos dibujarBarraDatosJugador(){
-        DisplayBarraDatos barraDatos = new DisplayBarraDatos();
+        DisplayBarraDatos barraDatos = new DisplayBarraDatos(this.jugadorView1);     //Inicia siempre el j1
         barraDatos.setLayoutX(0);
         barraDatos.setLayoutY(0);
         return barraDatos;

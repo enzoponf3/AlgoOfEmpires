@@ -82,5 +82,12 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public int recolectarOro(Jugador jugador){return 0;} //return 0 o exception?
+    public int recolectarOro(Jugador jugador){return 0;}
+
+    @Override
+    public void cambiarTurno(Jugador jugador) {
+        jugador.setEstado(new EstadoJugadorActivo());
+    }
+
+
 }

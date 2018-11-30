@@ -19,22 +19,16 @@ public class Juego {
         this.mapa = new Mapa(Constantes.ANCHO_MAPA, Constantes.ALTO_MAPA);
         jugador1 = new Jugador( mapa, Constantes.SEED_CASTILLO_J1, Constantes.SEED_PLAZA_CENTRAL_J1);
         jugador2 = new Jugador( mapa, Constantes.SEED_CASTILLO_J2, Constantes.SEED_PLAZA_CENTRAL_J2);
-        int turnoInicial = new Random().nextInt(2);
 
-        if (turnoInicial == 0) {
-//            jugador1.turnoActivo();
-//            jugador2.turnoInactivo();
-        }
-        else {
-//            jugador1.turnoInactivo();
-//            jugador2.turnoActivo();
-        }
+        jugador1.turnoActivo();
+        jugador2.turnoInactivo();
     }
 
 
     public void cambiarDeTurno() {
-//        jugador1.cambiarTurno();
-//        jugador2.cambiarTurno();
+        jugador1.cambiarTurno();
+        jugador2.cambiarTurno();
+
     }
 
 

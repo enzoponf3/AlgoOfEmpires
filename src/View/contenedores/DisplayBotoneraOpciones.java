@@ -10,7 +10,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -20,22 +19,22 @@ public class DisplayBotoneraOpciones extends VBox {
     private final Stage stage;
     private final Juego juego;
 
-    public DisplayBotoneraOpciones(Stage stage, Juego juego,ActualizarView actualizarIcono){
+    public DisplayBotoneraOpciones(Stage stage, Juego juego,ActualizarView actualizarUI){
         this.stage = stage;
         this.juego = juego;
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.setPrefSize(limitesPantalla.getWidth()/6,limitesPantalla.getHeight()/5);
         HBox hbox = new HBox();
 
-        Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarIcono));
+        Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarUI));
         pasarTurno.getStyleClass().add("menu-button");
         Boton salir = new Boton("Salir",new CerrarJuegoButtonHandler(this.stage));
         salir.getStyleClass().add("menu-button");
-        Boton rendirse = new Boton("Rendirse", new RendirseButtonHandler(this.stage));
+        Boton rendirse = new Boton("Rendirse", new RendirseButtonHandler());      //Esto deberia recibir un pasarTurnoHandler ?
         rendirse.getStyleClass().add("menu-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 
-        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");//Ver si se deforma en la de enzo
+        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");
 
         this.setSpacing(10);
         salir.setAlignment(Pos.CENTER);

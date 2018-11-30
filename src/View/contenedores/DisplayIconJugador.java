@@ -14,26 +14,26 @@ import java.util.Observer;
 
 public class DisplayIconJugador extends BorderPane implements Observer {
     private ImageView icono;
-    private ActualizarView vista;
+    private ActualizarView actualizador;
     private Rectangle2D limitesPantalla;
 
 
-    public DisplayIconJugador(ActualizarView vista){
+    public DisplayIconJugador(ActualizarView actualizador){
         this.limitesPantalla = Screen.getPrimary().getVisualBounds();
-        this.vista = vista;
-        vista.addObserver(this);
-        //setStyle("-fx-background-color: #ad6c11");
+        this.actualizador = actualizador;
+        actualizador.addObserver(this);
         this.setPrefSize((limitesPantalla.getWidth())/6,limitesPantalla.getHeight()/5);
         ImageView fondo = new ImageView(new Image("View/img/fondoDisplay.png",(limitesPantalla.getWidth()/6)+1,limitesPantalla.getHeight()/5,false,false));
         this.getChildren().addAll(fondo,new ImageView());
+        update(actualizador,actualizador);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        if(o != vista)
+        if(o != actualizador)
             return;
 
-        this.icono = new ImageView(this.vista.getJugadorView().getFigura().getImage());
+        this.icono = new ImageView(this.actualizador.getJugadorView().getFigura().getImage());
         this.icono.setPreserveRatio(true);
         this.icono.prefHeight(limitesPantalla.getWidth()/6);
         this.icono.prefWidth(limitesPantalla.getHeight()/5);

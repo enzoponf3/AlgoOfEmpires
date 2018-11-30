@@ -3,10 +3,10 @@ import java.util.Observable;
 
 public class Log extends Observable {
 
-    private String logText = "\n\n\n";
+    private String logText = "\n\n";
 
     public void enviarMensaje(String mensaje){
-        logText = "\t"  + mensaje + "\n" + logText ;
+        logText = "\n\t"  + mensaje + logText ;
         setChanged();
         notifyObservers();
     }

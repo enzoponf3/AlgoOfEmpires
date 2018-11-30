@@ -26,7 +26,6 @@ public class DisplayIconJugador extends BorderPane implements Observer {
         this.setPrefSize((limitesPantalla.getWidth())/6,limitesPantalla.getHeight()/5);
         System.out.println("IconWidth:" + this.getPrefWidth() + "\nIconHeight:" + this.getPrefHeight());
         ImageView fondo = new ImageView(new Image("View/img/fondoDisplay.png",(limitesPantalla.getWidth()/6)+1,limitesPantalla.getHeight()/5,false,false));
-        //this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");           //Ver si se deforma en la de enzo
         this.getChildren().addAll(fondo,new ImageView());
     }
 

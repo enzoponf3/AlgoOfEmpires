@@ -37,6 +37,7 @@ public class DisplayLog extends HBox implements Observer {
             return;
         Label label = new Label(log.getMensaje());
         label.setTextFill(Color.SIENNA);
+        label.setStyle("-fx-font-size: 16");
         getChildren().set(0,label);
     }
 }

@@ -6,6 +6,7 @@ import Controller.PasarTurnoButtonHandler;
 import Controller.RendirseButtonHandler;
 import Modelo.Juego;
 import View.Boton;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.Pane;
@@ -32,14 +33,15 @@ public class DisplayBotoneraOpciones extends VBox {
         rendirse.getStyleClass().add("ready-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 
-// hay que acoomodar los botones
-        setStyle("-fx-background-color: #ad6c11");
-        this.setSpacing(13);
+        // hay que acoomodar los botones
+        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");");           //Ver si se deforma en la de enzo
+        this.setSpacing(10);
         pasarTurno.setAlignment(Pos.TOP_CENTER);
         rendirse.setAlignment(Pos.CENTER);
         salir.setAlignment(Pos.BOTTOM_CENTER);
 
         this.setAlignment(Pos.BASELINE_CENTER);
+        this.setPadding(new Insets(13,0,0,0));
         this.getChildren().addAll(pasarTurno,rendirse,salir);
     }
 }

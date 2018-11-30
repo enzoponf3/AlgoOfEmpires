@@ -13,6 +13,7 @@ public class DisplayBarraDatos extends HBox {
         this.setPrefSize(limitesPantalla.getWidth(),limitesPantalla.getHeight()/24);
         Image fondoBarra = new Image("View/img/BarraDatos.png", limitesPantalla.getWidth(), limitesPantalla.getHeight()/24, false, true);
         ImageView im = new ImageView(fondoBarra);
+        //Ver de hacer con un setbackground
         this.getChildren().add(im);
     }
 }

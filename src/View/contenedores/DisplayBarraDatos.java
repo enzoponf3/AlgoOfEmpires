@@ -20,19 +20,22 @@ public class DisplayBarraDatos extends HBox {
         //ImageView im = new ImageView(fondoBarra);
         Label oro = new Label("1500");
         oro.setStyle("-fx-text-fill: white");
+        oro.setLayoutX(limitesPantalla.getWidth()/16);
         Label poblacion = new Label("43");
         poblacion.setStyle("-fx-text-fill: white");
+        poblacion.setTranslateX((3*limitesPantalla.getWidth())/32);
         Label vida = new Label("376");
         vida.setStyle("-fx-text-fill: white");
+        vida.setTranslateX((6*limitesPantalla.getWidth())/32);
         Label nombre = new Label("LeNombre");
 
 
         nombre.setStyle("-fx-text-fill: white;\n -fx-font-size: 15");
 
 
-        nombre.setPadding(new Insets(0,0,0,600));
+        nombre.setPadding(new Insets(0,0,0,(11*limitesPantalla.getWidth())/16));
         HBox hbox = new HBox(oro,poblacion,vida,nombre);
-        hbox.setSpacing(120);
+
 
         hbox.setTranslateX(limitesPantalla.getWidth()/16);
         hbox.setAlignment(Pos.CENTER);

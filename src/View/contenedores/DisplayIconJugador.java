@@ -24,7 +24,6 @@ public class DisplayIconJugador extends BorderPane implements Observer {
         vista.addObserver(this);
         //setStyle("-fx-background-color: #ad6c11");
         this.setPrefSize((limitesPantalla.getWidth())/6,limitesPantalla.getHeight()/5);
-        System.out.println("IconWidth:" + this.getPrefWidth() + "\nIconHeight:" + this.getPrefHeight());
         ImageView fondo = new ImageView(new Image("View/img/fondoDisplay.png",(limitesPantalla.getWidth()/6)+1,limitesPantalla.getHeight()/5,false,false));
         this.getChildren().addAll(fondo,new ImageView());
     }

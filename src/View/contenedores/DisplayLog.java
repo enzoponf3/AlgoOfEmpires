@@ -24,7 +24,6 @@ public class DisplayLog extends HBox implements Observer {
         this.log = log;
         log.addObserver(this);
         this.setPrefSize((2*limitesPantalla.getWidth())/3,limitesPantalla.getHeight()/5);
-        System.out.println("LogWidth:" + this.getPrefWidth() + "\nLogHeight:" + this.getPrefHeight());
         this.setStyle("-fx-background-image: url(\"View/img/texturaLog.png\");\n -fx-background-size: cover");
         getChildren().addAll(new Label());
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());

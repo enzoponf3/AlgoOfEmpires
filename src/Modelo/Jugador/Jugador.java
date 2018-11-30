@@ -109,6 +109,18 @@ public class Jugador {
         }
     }
 
+    public void turnoActivo(){
+        this.setEstado(new EstadoJugadorActivo());
+    }
+
+    public void turnoInactivo(){
+        this.setEstado(new EstadoJugadorInactivo());
+    }
+
+    public void cambiarTurno(){
+        this.estado.cambiarTurno(this);
+    }
+
     //  Funcionalidades Jugador
 
     private boolean llegoAlLimiteDePoblacion(){
@@ -276,6 +288,10 @@ public class Jugador {
         this.castillo.atacarUnidades(aldeanos,ejercito);
     }
 
+    public void rendirse(){
+        this.castillo.autodestruir();
+    }
+
     // Borrar entidades sin vida
 
     public void limpiarEntidadesMuertas(Mapa mapa) {
@@ -305,5 +321,13 @@ public class Jugador {
                 mapa.desocuparCasilleros(edificio.getPosiciones());
             }
         }
+    }
+
+    public int getCantidadPoblacion() {
+        return this.aldeanos.size() + this.ejercito.size();
+    }
+
+    public int getVida() {
+        return this.castillo.getVida();
     }
 }

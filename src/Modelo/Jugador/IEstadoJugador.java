@@ -39,4 +39,6 @@ public interface IEstadoJugador {
     void reparar(Jugador jugador, Aldeano aldeano, Edificio edificio);
 
     int recolectarOro(Jugador jugador);
+
+    void cambiarTurno(Jugador jugador);
 }

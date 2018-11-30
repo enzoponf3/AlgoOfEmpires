@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 
 public class JugadorView {
+
     private ImageView personaje;
     private String nombre = "";
 
@@ -35,9 +36,11 @@ public class JugadorView {
     public ImageView getFigura(){
         return this.personaje;
     }
+
     public String getNombre(){
         return this.nombre;
     }
+
     public void mostrarQueGane(){
         Scene ayuda = new Scene(new PantallaGanador(this));        //Display de pantalla ganador
         Stage stage = new Stage();
@@ -75,4 +78,19 @@ public class JugadorView {
         this.ejercitoView = new Group();
     }
 
+    public void esJugadorActual(Jugador jugador){
+
+    }
+
+    public String getOro() {
+        return Integer.toString(jugadorModelo.getCantidadOro());
+    }
+
+    public String getPoblacion() {
+        return Integer.toString(jugadorModelo.getCantidadPoblacion());
+    }
+
+    public String getVida() {
+        return Integer.toString(jugadorModelo.getVida()); //Este pregunta por vida castillo, le puse vida y no vidaCastillo para no revelar implementacion o la flasheo fuerte?
+    }
 }

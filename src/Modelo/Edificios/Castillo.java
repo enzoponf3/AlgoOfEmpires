@@ -99,4 +99,7 @@ public class Castillo extends Edificio {
         }
     }
 
+    public void autodestruir() {
+        this.vida = 0;
+    }
 }

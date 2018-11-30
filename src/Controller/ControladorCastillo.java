@@ -17,8 +17,8 @@ public class ControladorCastillo implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
-        ContextMenu menu = castillo.devolverMenu();
-        menu.show(castillo, event.getScreenX(), event.getScreenY());
+        //ContextMenu menu = castillo.devolverMenu();
+        //menu.show(castillo, event.getScreenX(), event.getScreenY());
     }
 
 

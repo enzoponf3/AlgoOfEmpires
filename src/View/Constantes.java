@@ -11,5 +11,13 @@ public class Constantes {
     public static int SEED_CASTILLO_J2 = 43;
     public static int SEED_PLAZA_CENTRAL_J2 = 40;
 
+    public static double ALTURA_UNIDAD = 1;
+    public static double ANCHO_UNIDAD = 0.5;
+
+    public static double ALTURA_CASTILLO = 4;
+    public static double ANCHO_CASTILLO = 4;
+
+    public static double ALTURA_EDIFICIO = 2;
+    public static double ANCHO_EDIFICIO = 2;
 
 }

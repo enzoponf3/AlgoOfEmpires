@@ -4,6 +4,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import View.JugadorView;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,11 +16,14 @@ public class ControladorConstruir implements EventHandler<ActionEvent> {
     AldeanoView aldeanoView;
     Aldeano aldeanoModelo;
     ArrayList<Posicion> posiciones;
+    JugadorView jugadorView;
 
-    public ControladorConstruir(AldeanoView aldeanoView, Aldeano aldeanoModelo, ArrayList<Posicion> posiciones){
-        this.aldeanoView = aldeanoView;
+    public ControladorConstruir(Aldeano aldeanoModelo){
         this.aldeanoModelo = aldeanoModelo;
-        this.posiciones = posiciones;
+    }
+
+    public void setJugadorActual(){
+
     }
 
     @Override

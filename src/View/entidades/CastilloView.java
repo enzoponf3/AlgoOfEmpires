@@ -3,66 +3,60 @@ package View.entidades;
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
 import Controller.ControladorCastillo;
+import View.Constantes;
 import View.MapaView;
+import View.PiezaView;
+import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 
 import java.util.ArrayList;
 
-public class CastilloView extends StackPane {
-
-    private Castillo modelo;
-
-    private ImageView imagenCastillo;
-    private static final int ALTURA_CASTILLO = 4;
-    private static final int ANCHO_CASTILLO = 4;
-    private int x;
-    private int y;
+public class CastilloView extends PiezaView {
 
     ContextMenu menu;
 
-    public CastilloView(Castillo unModelo){
-        modelo = unModelo;
+    public CastilloView(Castillo castilloModelo){
 
-        setWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
-        setHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
+        super(castilloModelo);
 
-        ArrayList<Posicion> posiciones = unModelo.getPosiciones();
+        ArrayList<Posicion> posiciones = castilloModelo.getPosiciones();
         Posicion unaPosicion = posiciones.get(0);
-        x = unaPosicion.getHorizontal();
-        y = unaPosicion.getVertical();
+        setPosicion(unaPosicion);
+
+        ajustarTamanio(Constantes.ALTURA_CASTILLO, Constantes.ANCHO_CASTILLO);
+
+        Image castilloADerecha = new Image("castilloVerticalInvertido.png");
+        ImageView imagenCastilloADerecha = new ImageView(castilloADerecha);
+
+        Image castilloAizquierda = new Image("castle.png");
+        ImageView imagenCastilloAIzquierda = new ImageView(castilloAizquierda);
+
+        agregarImagen(imagenCastilloADerecha, imagenCastilloAIzquierda);
+
+        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                ContextMenu menu = this.crearMenu();
+                menu.show(imagenCastilloADerecha, event.getScreenX(), event.getScreenY());
+            }
+
+            private ContextMenu crearMenu(){
+                ContextMenu menu = new ContextMenu();
+                MenuItem crearArmaDeAsedio = new MenuItem("Crear arma de asedio");
+
+                menu.getItems().addAll(crearArmaDeAsedio);
+                return menu;
+            }
+
+        });
 
 
-        if( x < Screen.getPrimary().getVisualBounds().getWidth() /2 ){
-            Image castilloADerecha = new Image("castilloVerticalInvertido.png");
-            imagenCastillo = new ImageView(castilloADerecha);
-            imagenCastillo.setFitHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
-            imagenCastillo.setFitWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
-        }else{
-            Image newPic = new Image("castle.png");
-            imagenCastillo = new ImageView(newPic);
-            imagenCastillo.setFitHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
-            imagenCastillo.setFitWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
-        }
-
-        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
-
-        this.setOnMouseClicked(new ControladorCastillo(this));
-
-        getChildren().addAll(imagenCastillo);
-
-        menu = new ContextMenu();
-        MenuItem crearArmaDeAsedio = new MenuItem("Crear ArmaDeAsedio");
-        menu.getItems().add(crearArmaDeAsedio);
-
-    }
-
-    public ContextMenu devolverMenu(){
-        return menu;
     }
 
 

@@ -2,7 +2,9 @@ package View.entidades;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
+import View.Constantes;
 import View.MapaView;
+import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -13,60 +15,44 @@ import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
-public class PlazaCentralView extends StackPane {
-
-    private PlazaCentral modelo;
-
-    private ImageView imagenPlaza;
-    private static final int ALTURA_PLAZA_CENTRAL = 2;
-    private static final int ANCHO_PLAZA_CENTRAL = 2;
-    private int x;
-    private int y;
+public class PlazaCentralView extends PiezaView {
 
     ContextMenu menu;
 
-    public PlazaCentralView(PlazaCentral unModelo){
-        modelo = unModelo;
+    public PlazaCentralView(PlazaCentral plazaModelo){
 
-        setWidth(ANCHO_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
-        setHeight(ALTURA_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
+        super(plazaModelo);
 
-        ArrayList<Posicion> posiciones = unModelo.getPosiciones();
+        ajustarTamanio(Constantes.ALTURA_EDIFICIO, Constantes.ANCHO_EDIFICIO);
+
+        ArrayList<Posicion> posiciones = plazaModelo.getPosiciones();
         Posicion unaPosicion = posiciones.get(0);
-        x = unaPosicion.getHorizontal();
-        y = unaPosicion.getVertical();
-
+        setPosicion(unaPosicion);
 
         Image plaza = new Image("University2.png");
-        imagenPlaza = new ImageView(plaza);
-        imagenPlaza.setFitHeight(ALTURA_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
-        imagenPlaza.setFitWidth(ANCHO_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
+        ImageView imagenPlaza = new ImageView(plaza);
 
-
-        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
-
-        //this.setOnMouseClicked(new ControladorCastillo(this));
-
-        getChildren().addAll(imagenPlaza);
-
-
-        menu = new ContextMenu();
-        MenuItem crearAldeano = new MenuItem("Crear Aldeano");
-        menu.getItems().add(crearAldeano);
-
+        agregarImagen(imagenPlaza, imagenPlaza);
 
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                devolverMenu();
+                ContextMenu menu = this.crearMenu();
+                menu.show(imagenPlaza, event.getScreenX(), event.getScreenY());
             }
+
+            private ContextMenu crearMenu(){
+                ContextMenu menu = new ContextMenu();
+                MenuItem crearAldeano = new MenuItem("Crear aldeano");
+
+                menu.getItems().addAll(crearAldeano);
+                return menu;
+            }
+
         });
 
+
     }
 
-
-    public ContextMenu devolverMenu(){
-        return menu;
-    }
 
 }

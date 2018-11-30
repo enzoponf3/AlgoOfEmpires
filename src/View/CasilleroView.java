@@ -25,15 +25,15 @@ public class CasilleroView extends StackPane {
     }
 
     public CasilleroView(int x, int y){
-        setWidth(MapaView.TAMANIO_CASILLERO);
-        setHeight(MapaView.TAMANIO_CASILLERO);
+        setWidth(Constantes.TAMANIO_CASILLERO);
+        setHeight(Constantes.TAMANIO_CASILLERO);
 
-        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
+        relocate(x* Constantes.TAMANIO_CASILLERO,y* Constantes.TAMANIO_CASILLERO);
 
         Image newPic = new Image("aoeGrass.jpeg");
         laImagen = new ImageView(newPic);
-        laImagen.setFitHeight(MapaView.TAMANIO_CASILLERO);
-        laImagen.setFitWidth(MapaView.TAMANIO_CASILLERO);
+        laImagen.setFitHeight(Constantes.TAMANIO_CASILLERO);
+        laImagen.setFitWidth(Constantes.TAMANIO_CASILLERO);
 
         Rectangle borde = new Rectangle();
         borde.setStroke(Color.rgb(0, 0, 0, 0.2));

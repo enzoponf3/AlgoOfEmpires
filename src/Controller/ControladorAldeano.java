@@ -30,7 +30,7 @@ public class ControladorAldeano implements EventHandler<MouseEvent>{
 
         ContextMenu menu = new ContextMenu();
         MenuItem construirPlazaCentral = new MenuItem("Construir PlazaCentral");
-        construirPlazaCentral.setOnAction(new ControladorConstruir(aldeanoView, aldeanoModelo, posiciones));
+        //construirPlazaCentral.setOnAction();
 
         MenuItem reparar = new MenuItem("Reparar");
         MenuItem mover = new MenuItem("Mover");

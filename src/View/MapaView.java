@@ -3,6 +3,7 @@ package View;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
+import Modelo.Posicion;
 import View.entidades.AldeanoView;
 import View.entidades.CastilloView;
 import View.entidades.PlazaCentralView;
@@ -66,6 +67,10 @@ public class MapaView extends Pane {
 
     public void seleccionarPieza(PiezaView piezaView){
         this.piezaSeleccionada = piezaView;
+    }
+
+    public Posicion getDestino(){
+        return this.casilleroSeleccionada.getPosicion();
     }
 
 }

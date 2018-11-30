@@ -9,6 +9,7 @@ import View.Boton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -24,24 +25,26 @@ public class DisplayBotoneraOpciones extends VBox {
         this.juego = juego;
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.setPrefSize(limitesPantalla.getWidth()/6,limitesPantalla.getHeight()/5);
+        HBox hbox = new HBox();
 
         Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarIcono));
-        pasarTurno.getStyleClass().add("ready-button");
+        pasarTurno.getStyleClass().add("menu-button");
         Boton salir = new Boton("Salir",new CerrarJuegoButtonHandler(this.stage));
-        salir.getStyleClass().add("ready-button");
+        salir.getStyleClass().add("menu-button");
         Boton rendirse = new Boton("Rendirse", new RendirseButtonHandler(this.stage));
-        rendirse.getStyleClass().add("ready-button");
+        rendirse.getStyleClass().add("menu-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 
         // hay que acoomodar los botones
-        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");");           //Ver si se deforma en la de enzo
-        this.setSpacing(10);
-        pasarTurno.setAlignment(Pos.TOP_CENTER);
-        rendirse.setAlignment(Pos.CENTER);
-        salir.setAlignment(Pos.BOTTOM_CENTER);
+        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");//Ver si se deforma en la de enzo
 
+        this.setSpacing(10);
+        salir.setAlignment(Pos.CENTER);
+        hbox.getChildren().addAll(pasarTurno,rendirse);
+        hbox.setAlignment(Pos.BASELINE_CENTER);
+        hbox.setSpacing(13);
         this.setAlignment(Pos.BASELINE_CENTER);
         this.setPadding(new Insets(13,0,0,0));
-        this.getChildren().addAll(pasarTurno,rendirse,salir);
+        this.getChildren().addAll(hbox,salir);
     }
 }

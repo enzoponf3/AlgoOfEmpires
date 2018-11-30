@@ -3,6 +3,7 @@ package View.contenedores;
 import View.JugadorView;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -21,11 +22,12 @@ public class DisplayIconJugador extends BorderPane implements Observer {
         this.limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.vista = vista;
         vista.addObserver(this);
-        setStyle("-fx-background-color: #ad6c11");
+        //setStyle("-fx-background-color: #ad6c11");
         this.setPrefSize((limitesPantalla.getWidth())/6,limitesPantalla.getHeight()/5);
         System.out.println("IconWidth:" + this.getPrefWidth() + "\nIconHeight:" + this.getPrefHeight());
-        this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");");           //Ver si se deforma en la de enzo
-        this.getChildren().add(new ImageView());
+        ImageView fondo = new ImageView(new Image("View/img/fondoDisplay.png",(limitesPantalla.getWidth()/6)+1,limitesPantalla.getHeight()/5,false,false));
+        //this.setStyle("-fx-background-image: url(\"View/img/fondoDisplay.png\");\n -fx-background-size: cover");           //Ver si se deforma en la de enzo
+        this.getChildren().addAll(fondo,new ImageView());
     }
 
     @Override

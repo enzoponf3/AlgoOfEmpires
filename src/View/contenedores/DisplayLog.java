@@ -23,7 +23,7 @@ public class DisplayLog extends HBox implements Observer {
         System.out.println("LogWidth:" + this.getPrefWidth() + "\nLogHeight:" + this.getPrefHeight());
         /*Image fondoLog = new Image("View/img/texturaLog.png",(2*limitesPantalla.getWidth())/3, limitesPantalla.getHeight()/5, false, true);
         ImageView im = new ImageView(fondoLog);*/
-        this.setStyle("-fx-background-image: url(\"View/img/texturaLog.png\");");           //Ver si se deforma en la de enzo
+        this.setStyle("-fx-background-image: url(\"View/img/texturaLog.png\");\n -fx-background-size: cover");           //Ver si se deforma en la de enzo
         getChildren().addAll(new Label());
     }
 

@@ -21,6 +21,8 @@ public class DisplayBotoneraOpciones extends VBox {
     public DisplayBotoneraOpciones(Stage stage, Juego juego,ActualizarView actualizarIcono){
         this.stage = stage;
         this.juego = juego;
+        Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
+        this.setPrefSize(limitesPantalla.getWidth()/6,limitesPantalla.getHeight()/5);
 
         Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarIcono));
         pasarTurno.getStyleClass().add("ready-button");
@@ -30,11 +32,13 @@ public class DisplayBotoneraOpciones extends VBox {
         rendirse.getStyleClass().add("ready-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 
-
-        Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
-        this.setPrefSize(limitesPantalla.getWidth()/6,limitesPantalla.getHeight()/5);
+// hay que acoomodar los botones
         setStyle("-fx-background-color: #ad6c11");
         this.setSpacing(13);
+        pasarTurno.setAlignment(Pos.TOP_CENTER);
+        rendirse.setAlignment(Pos.CENTER);
+        salir.setAlignment(Pos.BOTTOM_CENTER);
+
         this.setAlignment(Pos.BASELINE_CENTER);
         this.getChildren().addAll(pasarTurno,rendirse,salir);
     }

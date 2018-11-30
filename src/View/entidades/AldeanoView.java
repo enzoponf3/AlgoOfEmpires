@@ -1,14 +1,11 @@
 package View.entidades;
 
-import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Controller.ControladorAldeano;
-import Vista.Main2View;
-import javafx.event.ActionEvent;
+import View.MapaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -30,8 +27,8 @@ public class AldeanoView extends StackPane {
 
         this.modelo = unModelo;
 
-        setWidth(ANCHO_UNIDAD* Main2View.TAMANIO_CASILLERO);
-        setHeight(ALTURA_UNIDAD* Main2View.TAMANIO_CASILLERO);
+        setWidth(ANCHO_UNIDAD* MapaView.TAMANIO_CASILLERO);
+        setHeight(ALTURA_UNIDAD* MapaView.TAMANIO_CASILLERO);
 
         Posicion unaPosicion = unModelo.getPosicion();
         x = unaPosicion.getHorizontal();
@@ -39,10 +36,10 @@ public class AldeanoView extends StackPane {
 
         Image aldeano = new Image("Villagerwalk001.png");
         imagenAldeano = new ImageView(aldeano);
-        imagenAldeano.setFitHeight(ALTURA_UNIDAD* Main2View.TAMANIO_CASILLERO);
-        imagenAldeano.setFitWidth(ANCHO_UNIDAD* Main2View.TAMANIO_CASILLERO);
+        imagenAldeano.setFitHeight(ALTURA_UNIDAD* MapaView.TAMANIO_CASILLERO);
+        imagenAldeano.setFitWidth(ANCHO_UNIDAD* MapaView.TAMANIO_CASILLERO);
 
-        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
+        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
 
 
 

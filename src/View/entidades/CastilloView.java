@@ -3,12 +3,13 @@ package View.entidades;
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
 import Controller.ControladorCastillo;
-import Vista.Main2View;
+import View.MapaView;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 
 import java.util.ArrayList;
 
@@ -27,28 +28,28 @@ public class CastilloView extends StackPane {
     public CastilloView(Castillo unModelo){
         modelo = unModelo;
 
-        setWidth(ANCHO_CASTILLO* Main2View.TAMANIO_CASILLERO);
-        setHeight(ALTURA_CASTILLO* Main2View.TAMANIO_CASILLERO);
+        setWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
+        setHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
 
         ArrayList<Posicion> posiciones = unModelo.getPosiciones();
         Posicion unaPosicion = posiciones.get(0);
-        x = unaPosicion.getVertical();
-        y = unaPosicion.getHorizontal();
+        x = unaPosicion.getHorizontal();
+        y = unaPosicion.getVertical();
 
 
-        if( x < Main2View.ANCHO/2 ){
+        if( x < Screen.getPrimary().getVisualBounds().getWidth() /2 ){
             Image castilloADerecha = new Image("castilloVerticalInvertido.png");
             imagenCastillo = new ImageView(castilloADerecha);
-            imagenCastillo.setFitHeight(ALTURA_CASTILLO* Main2View.TAMANIO_CASILLERO);
-            imagenCastillo.setFitWidth(ANCHO_CASTILLO* Main2View.TAMANIO_CASILLERO);
+            imagenCastillo.setFitHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
+            imagenCastillo.setFitWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
         }else{
             Image newPic = new Image("castle.png");
             imagenCastillo = new ImageView(newPic);
-            imagenCastillo.setFitHeight(ALTURA_CASTILLO* Main2View.TAMANIO_CASILLERO);
-            imagenCastillo.setFitWidth(ANCHO_CASTILLO* Main2View.TAMANIO_CASILLERO);
+            imagenCastillo.setFitHeight(ALTURA_CASTILLO* MapaView.TAMANIO_CASILLERO);
+            imagenCastillo.setFitWidth(ANCHO_CASTILLO* MapaView.TAMANIO_CASILLERO);
         }
 
-        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
+        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
 
         this.setOnMouseClicked(new ControladorCastillo(this));
 

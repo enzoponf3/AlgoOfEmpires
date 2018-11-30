@@ -2,36 +2,47 @@ package View.contenedores;
 
 
 import Modelo.Juego;
+import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import View.JugadorView;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 public class PantallaJuego extends Pane {
 
+    private Mapa mapaModelo;
     private DisplayBarraDatos barraDatos;
     private Stage stage;
     private Log log;
     private DisplayLog displayLog;
     private double altoPantalla;
     private double anchoPantalla;
-    private JugadorView jugador1;
-    private JugadorView jugador2;
+    private JugadorView jugadorView1;
+    private JugadorView jugadorView2;
+    private Jugador jugador1;
+    private Jugador jugador2;
     private DisplayIconJugador icono;
     private ActualizarView iconoActualizar;
     private DisplayBotoneraOpciones botonera;
     private Juego juego;
 
+    private int anchoMapa = 50;
+    private int altoMapa = 25;
     private View.MapaView mapa;
-    private int anchoMapa;
-    private int altoMapa;
+    private ScrollPane layout;
 
     public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2){
+        this.mapaModelo = new Mapa(anchoMapa, altoMapa);
         this.juego = new Juego();
+        this.jugador1 = juego.getJugador1();
+        this.jugador2 = juego.getJugador2();
         this.stage = stage;
         Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.altoPantalla = limitesPantalla.getHeight();
@@ -39,8 +50,8 @@ public class PantallaJuego extends Pane {
         this.setPrefWidth(anchoPantalla);
         this.setPrefHeight(altoPantalla);
 
-        this.jugador1 = j1;
-        this.jugador2 = j2;
+        this.jugadorView1 = j1;
+        this.jugadorView2 = j2;
         this.log = new Log();
         this.displayLog = dibujarLog();
         this.iconoActualizar = new ActualizarView();
@@ -48,9 +59,9 @@ public class PantallaJuego extends Pane {
         this.botonera = dibujarBotones();
         this.barraDatos = dibujarBarraDatosJugador();
 
-        this.mapa = dibujarMapa();
+        this.dibujarMapa();
 
-        this.getChildren().addAll(this.icono,this.displayLog, this.mapa, this.botonera,this.barraDatos);
+        this.getChildren().addAll(this.icono,this.displayLog, this.botonera,this.barraDatos,this.layout);
 
     }
 
@@ -60,11 +71,12 @@ public class PantallaJuego extends Pane {
         dis.setLayoutY((4*altoPantalla)/5);
         return dis;
     }
+
     private DisplayIconJugador dibujarIcono(){
         DisplayIconJugador icono = new DisplayIconJugador(this.iconoActualizar);
         icono.setLayoutX(0);
         icono.setLayoutY((4*altoPantalla)/5);
-        this.iconoActualizar.enviarJugador(this.jugador1);        //Esto cuando inicializa pantalla y cuando pasa turno, agregar el Jugador jugador para getear datos
+        this.iconoActualizar.enviarJugador(this.jugadorView1);        //Esto cuando inicializa pantalla y cuando pasa turno, agregar el Jugador jugador para getear datos
         return icono;
     }
 
@@ -82,16 +94,15 @@ public class PantallaJuego extends Pane {
         return botonera;
     }
 
-    private View.MapaView dibujarMapa(){
-        this.anchoMapa = (int) anchoPantalla;
-        //this.altoMapa = (int) (altoPantalla-3*(4*altoPantalla)/5);
-        this.altoMapa = (int) altoPantalla;
+    private void dibujarMapa(){
 
-        Mapa mapaModelo = new Mapa(anchoMapa, altoMapa);
-        View.MapaView mapaView = new View.MapaView(mapaModelo, anchoMapa, altoMapa);
-
-        return mapaView;
+        View.MapaView mapaView = new View.MapaView(this.mapaModelo,anchoMapa, altoMapa,jugador1,jugador2);
+        ScrollPane layout = new ScrollPane(mapaView);
+        layout.setLayoutX(0);
+        layout.setLayoutY(((altoPantalla)/24));
+        layout.setPrefSize(anchoPantalla,(91*altoPantalla)/120);
+        this.layout = layout;
+        this.mapa =  mapaView;
     }
-
 
 }

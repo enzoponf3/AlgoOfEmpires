@@ -1,15 +1,12 @@
 package Modelo;
 
 import Modelo.Jugador.Jugador;
+import View.Constantes;
 
 import java.util.Random;
 
 public class Juego {
 
-    private static final int SEED_CASTILLO_J1 = 5;
-    private static final int SEED_PLAZA_CENTRAL_J1 = 14;
-    private static final int SEED_CASTILLO_J2 = 41;
-    private static final int SEED_PLAZA_CENTRAL_J2 = 35;
     //Esto es para que cada jugador, al inicializarse pueda generar las posiciones de inicio
     //de su castillo y su plaza central.
     //Elegi las constantes para que queden en extremos opuestos.
@@ -18,10 +15,12 @@ public class Juego {
     private Jugador jugador2;
     private Mapa mapa;
 
-    public void inicializar() {
-        jugador1 = new Jugador( mapa, SEED_CASTILLO_J1, SEED_PLAZA_CENTRAL_J1 );
-        jugador2 = new Jugador( mapa, SEED_CASTILLO_J2, SEED_PLAZA_CENTRAL_J2 );
+    public Juego() {
+        this.mapa = new Mapa(Constantes.ANCHO_MAPA, Constantes.ALTO_MAPA);
+        jugador1 = new Jugador( mapa, Constantes.SEED_CASTILLO_J1, Constantes.SEED_PLAZA_CENTRAL_J1);
+        jugador2 = new Jugador( mapa, Constantes.SEED_CASTILLO_J2, Constantes.SEED_PLAZA_CENTRAL_J2);
         int turnoInicial = new Random().nextInt(2);
+
         if (turnoInicial == 0) {
 //            jugador1.turnoActivo();
 //            jugador2.turnoInactivo();
@@ -39,4 +38,11 @@ public class Juego {
     }
 
 
+    public Jugador getJugador1() {
+        return this.jugador1;
+    }
+
+    public Jugador getJugador2() {
+        return this.jugador2;
+    }
 }

@@ -6,6 +6,7 @@ import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
+import View.Constantes;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -15,25 +16,25 @@ public class JugadorTest {
     @Test
     public void obtenerPosicionesInicialesCastilloJugador1Correctamente(){
         Mapa mapa = new Mapa(50, 50);
-        Jugador jugador = new Jugador(mapa, 5, 14);
+        Jugador jugador = new Jugador(mapa, Constantes.SEED_CASTILLO_J1, Constantes.SEED_PLAZA_CENTRAL_J1);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(5,5);
-        Posicion posicion2 = new Posicion(5,6);
-        Posicion posicion3 = new Posicion(5,7);
-        Posicion posicion4 = new Posicion(5,8);
-        Posicion posicion5 = new Posicion(6,5);
-        Posicion posicion6 = new Posicion(6,6);
-        Posicion posicion7 = new Posicion(6,7);
-        Posicion posicion8 = new Posicion(6,8);
-        Posicion posicion9 = new Posicion(7,5);
-        Posicion posicion10 = new Posicion(7,6);
-        Posicion posicion11 = new Posicion(7,7);
-        Posicion posicion12 = new Posicion(7,8);
-        Posicion posicion13 = new Posicion(8,5);
-        Posicion posicion14 = new Posicion(8,6);
-        Posicion posicion15 = new Posicion(8,7);
-        Posicion posicion16 = new Posicion(8,8);
+        Posicion posicion1 = new Posicion(Constantes.SEED_CASTILLO_J1,(Constantes.SEED_CASTILLO_J1/2));
+        Posicion posicion2 = new Posicion(Constantes.SEED_CASTILLO_J1,(Constantes.SEED_CASTILLO_J1/2) +1);
+        Posicion posicion3 = new Posicion(Constantes.SEED_CASTILLO_J1,(Constantes.SEED_CASTILLO_J1/2) +2);
+        Posicion posicion4 = new Posicion(Constantes.SEED_CASTILLO_J1,(Constantes.SEED_CASTILLO_J1/2) +3);
+        Posicion posicion5 = new Posicion(Constantes.SEED_CASTILLO_J1 + 1,(Constantes.SEED_CASTILLO_J1/2));
+        Posicion posicion6 = new Posicion(Constantes.SEED_CASTILLO_J1 + 1,(Constantes.SEED_CASTILLO_J1/2) +1);
+        Posicion posicion7 = new Posicion(Constantes.SEED_CASTILLO_J1 + 1,(Constantes.SEED_CASTILLO_J1/2) +2);
+        Posicion posicion8 = new Posicion(Constantes.SEED_CASTILLO_J1 + 1,(Constantes.SEED_CASTILLO_J1/2) +3);
+        Posicion posicion9 = new Posicion(Constantes.SEED_CASTILLO_J1 + 2,(Constantes.SEED_CASTILLO_J1/2));
+        Posicion posicion10 = new Posicion(Constantes.SEED_CASTILLO_J1 + 2,(Constantes.SEED_CASTILLO_J1/2) +1);
+        Posicion posicion11 = new Posicion(Constantes.SEED_CASTILLO_J1 + 2,(Constantes.SEED_CASTILLO_J1/2) +2);
+        Posicion posicion12 = new Posicion(Constantes.SEED_CASTILLO_J1 + 2,(Constantes.SEED_CASTILLO_J1/2) +3);
+        Posicion posicion13 = new Posicion(Constantes.SEED_CASTILLO_J1 +3,(Constantes.SEED_CASTILLO_J1/2));
+        Posicion posicion14 = new Posicion(Constantes.SEED_CASTILLO_J1 +3,(Constantes.SEED_CASTILLO_J1/2) +1);
+        Posicion posicion15 = new Posicion(Constantes.SEED_CASTILLO_J1 +3,(Constantes.SEED_CASTILLO_J1/2) +2);
+        Posicion posicion16 = new Posicion(Constantes.SEED_CASTILLO_J1 +3,(Constantes.SEED_CASTILLO_J1/2) +3);
 
         posiciones.add(posicion1);
         posiciones.add(posicion2);
@@ -52,7 +53,7 @@ public class JugadorTest {
         posiciones.add(posicion15);
         posiciones.add(posicion16);
 
-        ArrayList<Posicion> posicionesaAComparar = jugador.obtenerPosicionesInicialesCastillo(5);
+        ArrayList<Posicion> posicionesaAComparar = jugador.obtenerPosicionesInicialesCastillo(Constantes.SEED_CASTILLO_J1);
 
         int i=0;
         for( Posicion posicion : posicionesaAComparar){
@@ -65,19 +66,20 @@ public class JugadorTest {
     public void obtenerPosicionesInicialesPlazaCentralCorrectamente(){
         Mapa mapa = new Mapa(50, 50);
 
-        Jugador jugador = new Jugador(mapa, 5, 14);
+        Jugador jugador = new Jugador(mapa, Constantes.SEED_CASTILLO_J1, Constantes.SEED_PLAZA_CENTRAL_J1);
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(14,5);
-        Posicion posicion2 = new Posicion(14,6);
-        Posicion posicion3 = new Posicion(15,5);
-        Posicion posicion4 = new Posicion(15,6);
+        Posicion posicion1 = new Posicion(Constantes.SEED_PLAZA_CENTRAL_J1,Constantes.SEED_CASTILLO_J1/2);
+        Posicion posicion2 = new Posicion(Constantes.SEED_PLAZA_CENTRAL_J1 ,Constantes.SEED_CASTILLO_J1/2 + 1);
+        Posicion posicion3 = new Posicion(Constantes.SEED_PLAZA_CENTRAL_J1 + 1,Constantes.SEED_CASTILLO_J1/2);
+        Posicion posicion4 = new Posicion(Constantes.SEED_PLAZA_CENTRAL_J1 + 1,Constantes.SEED_CASTILLO_J1/2 + 1);
 
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
         posiciones.add(posicion4);
 
-        ArrayList<Posicion> posicionesaAComparar = jugador.obtenerPosicionesInicialesPlazaCentral(14, 5);
+        ArrayList<Posicion> posicionesaAComparar = jugador.obtenerPosicionesInicialesPlazaCentral(Constantes.SEED_PLAZA_CENTRAL_J1,Constantes.SEED_CASTILLO_J1);
+
 
         int i=0;
         for( Posicion posicion : posicionesaAComparar){
@@ -602,7 +604,7 @@ public class JugadorTest {
         Mapa mapa = new Mapa(50, 50);
         Jugador jugador = new Jugador(mapa, 5, 14);
 
-        Posicion posicion1 = new Posicion(14, 5);
+        Posicion posicion1 = new Posicion(14, 2);
 
         PlazaCentral plazaCentral = (PlazaCentral) mapa.obtenerEntidad(posicion1);
         PlazaCentral plazaCentral1 = (PlazaCentral) jugador.removerEdificio(plazaCentral,mapa);

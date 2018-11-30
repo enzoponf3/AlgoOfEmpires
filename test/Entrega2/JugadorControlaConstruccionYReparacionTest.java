@@ -439,7 +439,7 @@ public class JugadorControlaConstruccionYReparacionTest {
         Posicion posicionEspadachin = new Posicion(4,5);
         Espadachin espadachinEnemigo = new Espadachin(posicionEspadachin);
 
-        Posicion posicionAldeano = new Posicion(5,4);
+        Posicion posicionAldeano = new Posicion(5,1);
         Aldeano aldeano = new Aldeano(posicionAldeano);
         jugador.agregarAldeano(aldeano, mapa);
 

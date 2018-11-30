@@ -300,14 +300,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(5,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(12,13);
+        Posicion posicion2 = new Posicion(12,12);
+        Posicion posicion3 = new Posicion(13,13);
+        Posicion posicion4 = new Posicion(13,12);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -331,14 +331,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(5,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(12,13);
+        Posicion posicion2 = new Posicion(12,12);
+        Posicion posicion3 = new Posicion(13,13);
+        Posicion posicion4 = new Posicion(13,12);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -363,14 +363,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(6,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(13,13);
+        Posicion posicion2 = new Posicion(13,14);
+        Posicion posicion3 = new Posicion(14,13);
+        Posicion posicion4 = new Posicion(14,14);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -394,14 +394,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(6,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(13,13);
+        Posicion posicion2 = new Posicion(13,14);
+        Posicion posicion3 = new Posicion(14,13);
+        Posicion posicion4 = new Posicion(14,14);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -426,14 +426,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(7,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(14,14);
+        Posicion posicion2 = new Posicion(14,15);
+        Posicion posicion3 = new Posicion(15,15);
+        Posicion posicion4 = new Posicion(15,14);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -457,14 +457,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(7,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(14,14);
+        Posicion posicion2 = new Posicion(14,15);
+        Posicion posicion3 = new Posicion(15,14);
+        Posicion posicion4 = new Posicion(15,15);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -489,14 +489,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(8,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(11,11);
+        Posicion posicion2 = new Posicion(10,11);
+        Posicion posicion3 = new Posicion(10,10);
+        Posicion posicion4 = new Posicion(11,10);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -520,14 +520,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.inactivar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(8,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(15,10);
+        Posicion posicion2 = new Posicion(15,11);
+        Posicion posicion3 = new Posicion(16,10);
+        Posicion posicion4 = new Posicion(16,11);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);
@@ -581,7 +581,7 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(5,3);
+        Posicion posicionArmaDeAsedio = new Posicion(5,1);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
@@ -606,14 +606,14 @@ public class JugadorControlaAtaqueTest {
         Jugador jugador = new Jugador(mapa, 5, 14);
         jugador.activar();
 
-        Posicion posicionArmaDeAsedio = new Posicion(5,3);
+        Posicion posicionArmaDeAsedio = new Posicion(10,10);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
 
         ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(2,3);
-        Posicion posicion2 = new Posicion(2,4);
-        Posicion posicion3 = new Posicion(3,3);
-        Posicion posicion4 = new Posicion(3,4);
+        Posicion posicion1 = new Posicion(12,13);
+        Posicion posicion2 = new Posicion(12,12);
+        Posicion posicion3 = new Posicion(13,13);
+        Posicion posicion4 = new Posicion(13,12);
         posiciones.add(posicion1);
         posiciones.add(posicion2);
         posiciones.add(posicion3);

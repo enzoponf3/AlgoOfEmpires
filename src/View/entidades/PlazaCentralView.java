@@ -2,7 +2,7 @@ package View.entidades;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
-import Vista.Main2View;
+import View.MapaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -28,8 +28,8 @@ public class PlazaCentralView extends StackPane {
     public PlazaCentralView(PlazaCentral unModelo){
         modelo = unModelo;
 
-        setWidth(ANCHO_PLAZA_CENTRAL* Main2View.TAMANIO_CASILLERO);
-        setHeight(ALTURA_PLAZA_CENTRAL* Main2View.TAMANIO_CASILLERO);
+        setWidth(ANCHO_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
+        setHeight(ALTURA_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
 
         ArrayList<Posicion> posiciones = unModelo.getPosiciones();
         Posicion unaPosicion = posiciones.get(0);
@@ -39,11 +39,11 @@ public class PlazaCentralView extends StackPane {
 
         Image plaza = new Image("University2.png");
         imagenPlaza = new ImageView(plaza);
-        imagenPlaza.setFitHeight(ALTURA_PLAZA_CENTRAL* Main2View.TAMANIO_CASILLERO);
-        imagenPlaza.setFitWidth(ANCHO_PLAZA_CENTRAL* Main2View.TAMANIO_CASILLERO);
+        imagenPlaza.setFitHeight(ALTURA_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
+        imagenPlaza.setFitWidth(ANCHO_PLAZA_CENTRAL* MapaView.TAMANIO_CASILLERO);
 
 
-        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
+        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
 
         //this.setOnMouseClicked(new ControladorCastillo(this));
 

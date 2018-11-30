@@ -6,40 +6,42 @@ import Modelo.Mapa;
 import View.entidades.AldeanoView;
 import View.entidades.CastilloView;
 import View.entidades.PlazaCentralView;
-import Vista.*;
+
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 
 
 public class MapaView extends Pane {
 
-    public static final int TAMANIO_CASILLERO = 30;
-    public static final int ANCHO = 20;
-    public static final int ALTO = 20;
+    public static final int TAMANIO_CASILLERO = 40;
 
     private Group casilleros;
     private Group piezas;
-
+    private Jugador jugador1;
+    private Jugador jugador2;
     private Mapa mapaModelo;
 
-    public MapaView(Mapa mapa, int anchoMapa, int altoMapa){
+    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, Jugador jugador1, Jugador jugador2){
         casilleros = new Group();
         this.mapaModelo = mapa;
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
 
-        //this.setPrefSize(anchoMapa*TAMANIO_CASILLERO, altoMapa*TAMANIO_CASILLERO);
-        this.setPrefSize(anchoMapa, altoMapa);
+        this.setPrefSize(anchoMapa*TAMANIO_CASILLERO, altoMapa*TAMANIO_CASILLERO);
+
+        //this.setPrefSize(anchoMapa, altoMapa);
 
         //creo los casilleros para poner en el Pane
-        for(int y = 0; y< ALTO ; y++){
-            for(int x = 0; x< ANCHO; x++){
+        for(int y = 0; y< altoMapa ; y++){
+            for(int x = 0; x< anchoMapa; x++){
                 CasilleroView unCasillero = new CasilleroView(x,y);
                 casilleros.getChildren().add(unCasillero);
             }
         }
 
         getChildren().addAll(casilleros);
-
         crearContenido(this);
+
     }
 
 
@@ -49,9 +51,6 @@ public class MapaView extends Pane {
         this.piezas = new Group();
 
         //CONTENIDO------------------
-        Jugador jugador1 = new Jugador(mapaModelo, 0, 6);
-        Jugador jugador2 = new Jugador(mapaModelo, 16, 13);
-
 
         colocarPiezasIniciales(jugador1, jugador2);
 
@@ -76,7 +75,7 @@ public class MapaView extends Pane {
             this.piezas.getChildren().add(aldeano);
         }
 
-        this.piezas.getChildren().addAll(castilloView1, plazaView1, castilloView2, plazaView2);
+        this.getChildren().addAll(castilloView1, plazaView1, castilloView2, plazaView2);
     }
 
 

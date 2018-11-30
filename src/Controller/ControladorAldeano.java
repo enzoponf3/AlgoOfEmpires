@@ -36,14 +36,14 @@ public class ControladorAldeano implements EventHandler<MouseEvent>{
         MenuItem mover = new MenuItem("Mover");
         menu.getItems().addAll(construirPlazaCentral, reparar, mover);
 
-        aldeanoView.agregarMenu(menu);
+       // aldeanoView.agregarMenu(menu);
     }
 
 
     @Override
     public void handle(MouseEvent event) {
-        ContextMenu menu = this.aldeanoView.devolverMenu();
-        menu.show(aldeanoView, event.getScreenX(), event.getScreenY());
+       // ContextMenu menu = this.aldeanoView.devolverMenu();
+        //menu.show(aldeanoView, event.getScreenX(), event.getScreenY());
     }
 
 

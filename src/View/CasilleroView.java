@@ -1,8 +1,6 @@
 package View;
 
 import Controller.ControladorCasillero;
-import Vista.Main2View;
-import Vista.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
@@ -27,15 +25,15 @@ public class CasilleroView extends StackPane {
     }
 
     public CasilleroView(int x, int y){
-        setWidth(Main2View.TAMANIO_CASILLERO);
-        setHeight(Main2View.TAMANIO_CASILLERO);
+        setWidth(MapaView.TAMANIO_CASILLERO);
+        setHeight(MapaView.TAMANIO_CASILLERO);
 
-        relocate(x* Main2View.TAMANIO_CASILLERO,y* Main2View.TAMANIO_CASILLERO);
+        relocate(x* MapaView.TAMANIO_CASILLERO,y* MapaView.TAMANIO_CASILLERO);
 
         Image newPic = new Image("aoeGrass.jpeg");
         laImagen = new ImageView(newPic);
-        laImagen.setFitHeight(Main2View.TAMANIO_CASILLERO);
-        laImagen.setFitWidth(Main2View.TAMANIO_CASILLERO);
+        laImagen.setFitHeight(MapaView.TAMANIO_CASILLERO);
+        laImagen.setFitWidth(MapaView.TAMANIO_CASILLERO);
 
         Rectangle borde = new Rectangle();
         borde.setStroke(Color.rgb(0, 0, 0, 0.2));

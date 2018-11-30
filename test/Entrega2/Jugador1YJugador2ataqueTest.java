@@ -202,9 +202,9 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.setOponente(jugador2);
         jugador2.setOponente(jugador1);
 
-        Posicion posicionArquero = new Posicion(40,40);
+        Posicion posicionArquero = new Posicion(40,19);
         Arquero arquero = new Arquero(posicionArquero);
-        jugador1.agregarAEjercito(arquero, mapa);
+        jugador1.agregarAEjercito(arquero,mapa);
 
         Castillo castilloEnemigo = jugador2.getCastillo();
 
@@ -567,7 +567,7 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.setOponente(jugador2);
         jugador2.setOponente(jugador1);
 
-        Posicion posicionArmaDeAsedio = new Posicion(38,38);
+        Posicion posicionArmaDeAsedio = new Posicion(38,18);
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaDeAsedio);
         jugador1.agregarAEjercito(armaDeAsedio, mapa);
 
@@ -705,10 +705,10 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.setOponente(jugador2);
         jugador2.setOponente(jugador1);
 
-        Posicion posicion1 = new Posicion(40, 40);
-        Posicion posicion2 = new Posicion(39, 40);
-        Posicion posicion3 = new Posicion(39, 39);
-        Posicion posicion4 = new Posicion(40, 39);
+        Posicion posicion1 = new Posicion(39, 19);
+        Posicion posicion2 = new Posicion(39, 18);
+        Posicion posicion3 = new Posicion(38, 19);
+        Posicion posicion4 = new Posicion(38, 18);
         ArrayList<Posicion> posiciones = new ArrayList<>();
         posiciones.add(posicion1);
         posiciones.add(posicion2);
@@ -717,10 +717,10 @@ public class Jugador1YJugador2ataqueTest {
         PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.finalizarConstruccion();
 
-        Posicion posicion5 = new Posicion(38, 38);
-        Posicion posicion6 = new Posicion(37, 38);
-        Posicion posicion7 = new Posicion(38, 37);
-        Posicion posicion8 = new Posicion(37, 37);
+        Posicion posicion5 = new Posicion(39, 17);
+        Posicion posicion6 = new Posicion(39, 16);
+        Posicion posicion7 = new Posicion(38, 17);
+        Posicion posicion8 = new Posicion(38, 16);
         ArrayList<Posicion> posiciones2 = new ArrayList<>();
         posiciones2.add(posicion5);
         posiciones2.add(posicion6);
@@ -729,8 +729,8 @@ public class Jugador1YJugador2ataqueTest {
         Cuartel cuartel = new Cuartel(posiciones2);
         cuartel.finalizarConstruccion();
 
-        jugador1.agregarEdificio(cuartel, mapa);
-        jugador1.agregarEdificio(plaza, mapa);
+        jugador1.agregarEdificio(cuartel,mapa);
+        jugador1.agregarEdificio(plaza,mapa);
 
         ArrayList <Aldeano> aldeanosJug1 = jugador1.getAldeanos();
         ArrayList <IAtacante> ejercitoJug1 = jugador1.getEjercito();

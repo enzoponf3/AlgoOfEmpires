@@ -74,7 +74,7 @@ public class Jugador {
     public ArrayList<Posicion> obtenerPosicionesInicialesCastillo(int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
         for(int i = seedCastillo; i < seedCastillo + 4; i++)
-            for(int j = seedCastillo; j < seedCastillo + 4; j++)
+            for(int j = (seedCastillo/2); j < (seedCastillo/2) + 4; j++)
                 posiciones.add(new Posicion(i,j));
         return posiciones;
     }
@@ -82,7 +82,7 @@ public class Jugador {
     public ArrayList<Posicion> obtenerPosicionesInicialesPlazaCentral(int seedPlaza, int seedCastillo){
         ArrayList<Posicion> posiciones = new ArrayList<>();
         for(int i = seedPlaza; i < seedPlaza + 2; i++)
-            for(int j = seedCastillo; j < seedCastillo + 2; j++)
+            for(int j = (seedCastillo/2); j < (seedCastillo/2) + 2; j++)
                 posiciones.add(new Posicion(i,j));
         return posiciones;
     }

@@ -14,10 +14,11 @@ import java.util.Observer;
 public class DisplayIconJugador extends BorderPane implements Observer {
     private ImageView icono;
     private ActualizarView vista;
+    private Rectangle2D limitesPantalla;
 
 
     public DisplayIconJugador(ActualizarView vista){
-        Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
+        this.limitesPantalla = Screen.getPrimary().getVisualBounds();
         this.vista = vista;
         vista.addObserver(this);
         setStyle("-fx-background-color: #ad6c11");
@@ -32,8 +33,8 @@ public class DisplayIconJugador extends BorderPane implements Observer {
 
         this.icono = new ImageView(this.vista.getJugadorView().getFigura().getImage());
         this.icono.setPreserveRatio(true);
-        this.icono.setLayoutX((Screen.getPrimary().getVisualBounds().getWidth())/32);
-        this.icono.setLayoutY(-5);
-        this.getChildren().set(0,this.icono);
+        this.icono.prefHeight(limitesPantalla.getWidth()/6);
+        this.icono.prefWidth(limitesPantalla.getHeight()/5);
+        this.setCenter(this.icono);
     }
 }

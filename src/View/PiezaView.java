@@ -25,8 +25,6 @@ public class PiezaView extends StackPane {
     private double alto;
     private double ancho;
 
-
-
     private int x;
     private int y;
 

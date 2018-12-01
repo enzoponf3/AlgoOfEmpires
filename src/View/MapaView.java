@@ -1,5 +1,6 @@
 package View;
 
+import Modelo.Casillero;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
@@ -25,6 +26,7 @@ public class MapaView extends Pane {
     private CasilleroView casilleroSeleccionada;
     private PiezaView piezaSeleccionada;
 
+
     public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2){
         this.casilleros = new Group();
         this.mapaModelo = mapa;
@@ -36,7 +38,9 @@ public class MapaView extends Pane {
         //creo los casilleros para poner en el Pane
         for(int y = 0; y< altoMapa ; y++){
             for(int x = 0; x< anchoMapa; x++){
-                CasilleroView unCasillero = new CasilleroView(x,y);
+                Posicion posicion = new Posicion(x,y);
+                Casillero casillero = mapa.seleccionarCasillero(posicion);
+                CasilleroView unCasillero = new CasilleroView(x, y, casillero);
                 casilleros.getChildren().add(unCasillero);
             }
         }

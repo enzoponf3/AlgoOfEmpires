@@ -21,6 +21,8 @@ public class Mapa {
         this.ancho = ancho;
         this.alto = alto;
         this.inicializarCasilleros(ancho, alto);
+
+        INSTANCIA = this;
     } 
 
     public static Mapa getInstancia(){

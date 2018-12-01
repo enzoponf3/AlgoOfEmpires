@@ -3,6 +3,8 @@ package View;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
+import Modelo.Mapa;
+import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.contenedores.PantallaGanador;
 import View.entidades.AldeanoView;
@@ -106,5 +108,10 @@ public class JugadorView {
         else
             return false;
 
+    }
+
+    public void mover(Aldeano aldeanoModelo, Posicion destino){
+        Mapa mapaModelo = Mapa.getInstancia();
+        jugadorModelo.mover(aldeanoModelo, destino, mapaModelo);
     }
 }

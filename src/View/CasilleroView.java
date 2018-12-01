@@ -1,6 +1,7 @@
 package View;
 
 import Controller.CasilleroHandler;
+import Modelo.Casillero;
 import Modelo.Posicion;
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;
@@ -14,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 
 public class CasilleroView extends StackPane {
 
+    private Casillero casilleroModelo;
     private PiezaView pieza;
     private ImageView laImagen;
 
@@ -25,20 +27,19 @@ public class CasilleroView extends StackPane {
     }
 
     public Posicion getPosicion(){
-        Posicion posicion = new Posicion(this.i, this.j );
-        return posicion;
+        return this.casilleroModelo.getPosicion();
     }
 
     public void setPieza(PiezaView pieza){
         this.pieza = pieza;
     }
 
-    public CasilleroView(int x, int y){
+    public CasilleroView(int x, int y, Casillero casilleroModelo){
+
+        this.casilleroModelo = casilleroModelo;
+
         setWidth(Constantes.TAMANIO_CASILLERO);
         setHeight(Constantes.TAMANIO_CASILLERO);
-
-        this.i = (int) (x*Constantes.TAMANIO_CASILLERO);
-        this.j = (int) (y*Constantes.TAMANIO_CASILLERO);
 
         relocate(x* Constantes.TAMANIO_CASILLERO,y* Constantes.TAMANIO_CASILLERO);
 

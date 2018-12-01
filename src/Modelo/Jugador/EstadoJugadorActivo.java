@@ -23,10 +23,11 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     @Override
     public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
-        Posicion posicionOrigen = unidad.getPosicion();
-        unidad.mover(destino);
-        mapa.desocuparCasillero(posicionOrigen);
-        mapa.ocuparCasillero(destino,unidad);
+        //Posicion posicionOrigen = unidad.getPosicion();
+        //unidad.mover(destino);
+        //mapa.desocuparCasillero(posicionOrigen);
+        //mapa.ocuparCasillero(destino,unidad);
+        mapa.moverUnidadMovil(unidad.getPosicion(), destino);
     }//Tengo que inactivar desp? refactorizar
 
     //CREAR UNIDADES

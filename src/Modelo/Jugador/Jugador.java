@@ -330,4 +330,13 @@ public class Jugador {
     public int getVida() {
         return this.castillo.getVida();
     }
+
+    public void desocuparUnidades() {
+        for(Aldeano aldeano: this.aldeanos){
+            aldeano.desocupar();
+        }
+        for(IAtacante atacante: this.ejercito){
+            atacante.desocupar();
+        }
+    }
 }

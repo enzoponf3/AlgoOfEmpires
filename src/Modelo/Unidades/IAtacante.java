@@ -28,4 +28,6 @@ public interface IAtacante extends IUnidadMovible{
     void ocupar();
 
     Posicion getPosicion();
+
+    void desocupar();
 }

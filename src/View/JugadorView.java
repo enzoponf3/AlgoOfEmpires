@@ -93,4 +93,18 @@ public class JugadorView {
     public String getVida() {
         return Integer.toString(jugadorModelo.getVida()); //Este pregunta por vida castillo, le puse vida y no vidaCastillo para no revelar implementacion o la flasheo fuerte?
     }
+
+    public boolean contienePieza(PiezaView piezaView){
+        if( this.aldeanosView.getChildren().contains(piezaView) )
+            return true;
+        else if( this.ejercitoView.getChildren().contains(piezaView) )
+            return true;
+        else if( this.edificiosView.getChildren().contains(piezaView) )
+            return true;
+        else if( this.edificiosView.getChildren().contains(piezaView) )
+            return true;
+        else
+            return false;
+
+    }
 }

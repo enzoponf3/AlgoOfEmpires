@@ -1,6 +1,7 @@
 package View.entidades;
 
 import Controller.ConstruirHandler;
+import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.Constantes;
@@ -51,14 +52,21 @@ public class AldeanoView extends PiezaView {
 
             private ContextMenu crearMenu(){
 
-
                 ContextMenu menu = new ContextMenu();
                 MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
                 construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo));
 
                 MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-                MenuItem reparar = new MenuItem("Reparar");
+                construirCuartel.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        MapaView mapaView = MapaView.getInstancia();
 
+                    }
+                });
+
+                MenuItem reparar = new MenuItem("Reparar");
+                /*
                 MenuItem mover = new MenuItem("Mover");
                 mover.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
@@ -69,12 +77,12 @@ public class AldeanoView extends PiezaView {
                         double destinoX = destino.getHorizontal();
                         double destinoY = destino.getVertical();
 
-                        //if( (mouseX - destinoX)==Constantes.TAMANIO_CASILLERO && (mouseY-destinoY)==Constantes.TAMANIO_CASILLERO )
+                            //if( (mouseX - destinoX)==Constantes.TAMANIO_CASILLERO && (mouseY-destinoY)==Constantes.TAMANIO_CASILLERO
                         relocate(destino.getHorizontal(), destino.getVertical());
                     }
                 });
-
-                menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
+                */
+                menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar);
                 return menu;
             }
 
@@ -109,6 +117,7 @@ public class AldeanoView extends PiezaView {
         setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+
                 relocate(event.getSceneX() - mouseX + getPosX(), event.getSceneY() - mouseY + getPosY());
             }
         });

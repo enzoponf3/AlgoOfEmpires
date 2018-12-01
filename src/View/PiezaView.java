@@ -53,7 +53,7 @@ public class PiezaView extends StackPane {
 
     public void agregarImagen(ImageView imagenPiezaADerecha, ImageView imagenPiezaAIzquierda){
 
-        if( x < Screen.getPrimary().getVisualBounds().getWidth() /2 ){
+        if( this.x < Screen.getPrimary().getVisualBounds().getWidth() /2 ){
             imagenPieza = imagenPiezaADerecha;
             imagenPieza.setFitHeight(this.alto*Constantes.TAMANIO_CASILLERO);
             imagenPieza.setFitWidth(this.ancho*Constantes.TAMANIO_CASILLERO);
@@ -63,7 +63,7 @@ public class PiezaView extends StackPane {
             imagenPieza.setFitWidth(this.ancho*Constantes.TAMANIO_CASILLERO);
         }
 
-        getChildren().addAll(imagenPieza);
+        getChildren().add(imagenPieza);
     }
 
 

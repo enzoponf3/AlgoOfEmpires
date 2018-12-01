@@ -1,6 +1,7 @@
 package View.entidades;
 
 import Controller.ControladorConstruir;
+import Controller.MovimientoHandler;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Controller.ControladorAldeano;
@@ -59,12 +60,8 @@ public class AldeanoView extends PiezaView {
 
         });
 
-        this.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
 
-            }
-        });
+        setOnDragDropped(new MovimientoHandler(this, aldeanoModelo));
 
     }
 

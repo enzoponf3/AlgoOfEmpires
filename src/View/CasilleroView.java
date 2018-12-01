@@ -37,7 +37,7 @@ public class CasilleroView extends StackPane {
         setWidth(Constantes.TAMANIO_CASILLERO);
         setHeight(Constantes.TAMANIO_CASILLERO);
 
-        this.i = (int) ( x*Constantes.TAMANIO_CASILLERO);
+        this.i = (int) (x*Constantes.TAMANIO_CASILLERO);
         this.j = (int) (y*Constantes.TAMANIO_CASILLERO);
 
         relocate(x* Constantes.TAMANIO_CASILLERO,y* Constantes.TAMANIO_CASILLERO);

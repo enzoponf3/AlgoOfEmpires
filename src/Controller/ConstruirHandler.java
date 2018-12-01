@@ -5,20 +5,21 @@ import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.JugadorView;
+import View.MapaView;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 
-public class ControladorConstruir implements EventHandler<ActionEvent> {
+public class ConstruirHandler implements EventHandler<ActionEvent> {
 
     AldeanoView aldeanoView;
     Aldeano aldeanoModelo;
-    ArrayList<Posicion> posiciones;
+
     JugadorView jugadorView;
 
-    public ControladorConstruir(Aldeano aldeanoModelo){
+    public ConstruirHandler(Aldeano aldeanoModelo){
         this.aldeanoModelo = aldeanoModelo;
     }
 
@@ -28,7 +29,12 @@ public class ControladorConstruir implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        this.aldeanoModelo.construirPlazaCentral(this.posiciones);
+        MapaView mapaView = MapaView.getInstancia();
+        Posicion posicion = mapaView.getDestino();
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+
+
+        this.aldeanoModelo.construirPlazaCentral(posiciones);
     }
 
 }

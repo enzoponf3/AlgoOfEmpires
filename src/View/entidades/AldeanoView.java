@@ -1,26 +1,25 @@
 package View.entidades;
 
-import Controller.ControladorConstruir;
-import Controller.MovimientoHandler;
+import Controller.ConstruirHandler;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
-import Controller.ControladorAldeano;
 import View.Constantes;
 import View.MapaView;
 import View.PiezaView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 
 public class AldeanoView extends PiezaView {
 
     private ContextMenu menu;
+
+    private double mouseX;
+    private double mouseY;
 
     public AldeanoView(Aldeano aldeanoModelo){
 
@@ -40,29 +39,80 @@ public class AldeanoView extends PiezaView {
         agregarImagen(imagenAldeanoFrente, imagenAldeanoEspalda);
 
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
             @Override
             public void handle(MouseEvent event) {
+                mouseX = event.getScreenX();
+                mouseY = event.getSceneY();
+
                 ContextMenu menu = this.crearMenu();
                 menu.show(imagenAldeanoFrente, event.getScreenX(), event.getScreenY());
             }
 
             private ContextMenu crearMenu(){
+
+
                 ContextMenu menu = new ContextMenu();
                 MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-                construirPlazaCentral.setOnAction(new ControladorConstruir(aldeanoModelo));
+                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo));
 
                 MenuItem construirCuartel = new MenuItem("Construir Cuartel");
                 MenuItem reparar = new MenuItem("Reparar");
 
-                menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar);
+                MenuItem mover = new MenuItem("Mover");
+                mover.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        MapaView mapaView = MapaView.getInstancia();
+                        Posicion destino = mapaView.getDestino();
+
+                        double destinoX = destino.getHorizontal();
+                        double destinoY = destino.getVertical();
+
+                        //if( (mouseX - destinoX)==Constantes.TAMANIO_CASILLERO && (mouseY-destinoY)==Constantes.TAMANIO_CASILLERO )
+                        relocate(destino.getHorizontal(), destino.getVertical());
+                    }
+                });
+
+                menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
                 return menu;
             }
 
         });
 
 
-        setOnDragDropped(new MovimientoHandler(this, aldeanoModelo));
+        inicializarEventos();
 
     }
+
+
+    protected void inicializarEventos() {
+
+        setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mouseX = event.getSceneX();
+                mouseY = event.getSceneY();
+
+                MapaView mapaView = MapaView.getInstancia();
+                Posicion destino = mapaView.getDestino();
+
+                double destinoX = destino.getHorizontal();
+                double destinoY = destino.getVertical();
+
+                if( (mouseX - destinoX)==Constantes.TAMANIO_CASILLERO && (mouseY-destinoY)==Constantes.TAMANIO_CASILLERO )
+                    relocate(destino.getHorizontal(), destino.getVertical());
+
+            }
+        });
+
+        setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                relocate(event.getSceneX() - mouseX + getPosX(), event.getSceneY() - mouseY + getPosY());
+            }
+        });
+    }
+
 
 }

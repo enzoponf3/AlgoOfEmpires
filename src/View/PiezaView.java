@@ -25,6 +25,8 @@ public class PiezaView extends StackPane {
     private double alto;
     private double ancho;
 
+
+
     private int x;
     private int y;
 
@@ -66,8 +68,13 @@ public class PiezaView extends StackPane {
         getChildren().add(imagenPieza);
     }
 
+    public double getPosX(){
+        return this.x*Constantes.TAMANIO_CASILLERO;
+    }
 
-
+    public double getPosY(){
+        return this.y*Constantes.TAMANIO_CASILLERO;
+    }
 
 
 }

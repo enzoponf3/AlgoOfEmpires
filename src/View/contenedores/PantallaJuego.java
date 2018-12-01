@@ -91,7 +91,7 @@ public class PantallaJuego extends Pane {
     }
 
     private DisplayBarraDatos dibujarBarraDatosJugador(){
-        DisplayBarraDatos barraDatos = new DisplayBarraDatos(this.jugadorView1);     //Inicia siempre el j1
+        DisplayBarraDatos barraDatos = new DisplayBarraDatos(this.jugadorView1,this.iconoActualizar);     //Inicia siempre el j1
         barraDatos.setLayoutX(0);
         barraDatos.setLayoutY(0);
         return barraDatos;

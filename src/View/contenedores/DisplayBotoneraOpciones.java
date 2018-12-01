@@ -30,7 +30,7 @@ public class DisplayBotoneraOpciones extends VBox {
         pasarTurno.getStyleClass().add("menu-button");
         Boton salir = new Boton("Salir",new CerrarJuegoButtonHandler(this.stage));
         salir.getStyleClass().add("menu-button");
-        Boton rendirse = new Boton("Rendirse", new RendirseButtonHandler());      //Esto deberia recibir un pasarTurnoHandler ?
+        Boton rendirse = new Boton("Rendirse", new RendirseButtonHandler(actualizarUI,this.stage));      //Esto deberia recibir un pasarTurnoHandler ?
         rendirse.getStyleClass().add("menu-button");
         this.getStylesheets().add(getClass().getResource("/View/estilos/buttonsStylesheet.css").toString());
 

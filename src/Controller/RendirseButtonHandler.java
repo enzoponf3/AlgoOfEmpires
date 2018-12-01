@@ -8,16 +8,18 @@ import javafx.stage.Stage;
 
 public class RendirseButtonHandler implements EventHandler<ActionEvent> {
 
+    private ActualizarView actualizarUI;
     private Jugador jugador;
     Stage stage;
 
-    public RendirseButtonHandler(/*Stage stage, Jugador jugador*/) {
-        this.jugador = jugador;
+    public RendirseButtonHandler(ActualizarView actualizarUI,Stage stage) {
         this.stage = stage;
+        this.actualizarUI = actualizarUI;
     }
 
     @Override
     public void handle(ActionEvent event) {
-        jugador.rendirse();
+        this.actualizarUI.getJugadorViewInactivo().mostrarQueGane();
+        stage.close();
     }
 }

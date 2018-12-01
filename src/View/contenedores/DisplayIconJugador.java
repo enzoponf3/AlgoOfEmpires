@@ -33,7 +33,7 @@ public class DisplayIconJugador extends BorderPane implements Observer {
         if(o != actualizador)
             return;
 
-        this.icono = new ImageView(this.actualizador.getJugadorView().getFigura().getImage());
+        this.icono = new ImageView(this.actualizador.getJugadorViewActual().getFigura().getImage());
         this.icono.setPreserveRatio(true);
         this.icono.prefHeight(limitesPantalla.getWidth()/6);
         this.icono.prefWidth(limitesPantalla.getHeight()/5);

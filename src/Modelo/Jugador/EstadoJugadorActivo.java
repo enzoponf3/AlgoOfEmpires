@@ -4,6 +4,7 @@ import Modelo.Edificios.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
+import View.entidades.CuartelView;
 
 import java.util.ArrayList;
 
@@ -91,10 +92,11 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     //CONSTRUIR
     @Override
-    public void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         jugador.verificarAldeanoPropio(aldeano);
         Cuartel cuartel = aldeano.construirCuartel(posicionesCuartel);
         jugador.agregarEdificio(cuartel, mapa);
+        return cuartel;
     }
 
     @Override

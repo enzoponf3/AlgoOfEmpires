@@ -77,4 +77,8 @@ public class MapaView extends Pane {
         return this.casilleroSeleccionada.getPosicion();
     }
 
+    public void agregarPieza(PiezaView piezaView){
+        this.piezas.getChildren().add(piezaView);
+    }
+
 }

@@ -57,7 +57,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         throw new TurnoDelOponenteException();
     }
 

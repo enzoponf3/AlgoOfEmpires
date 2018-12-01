@@ -1,6 +1,7 @@
 package View;
 
 
+import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
@@ -9,12 +10,15 @@ import Modelo.Unidades.Aldeano;
 import View.contenedores.PantallaGanador;
 import View.entidades.AldeanoView;
 import View.entidades.CastilloView;
+import View.entidades.CuartelView;
 import View.entidades.PlazaCentralView;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 
 public class JugadorView {
@@ -114,4 +118,14 @@ public class JugadorView {
         Mapa mapaModelo = Mapa.getInstancia();
         jugadorModelo.mover(aldeanoModelo, destino, mapaModelo);
     }
+
+    public void construirCuartel(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones){
+        Mapa mapaModelo = Mapa.getInstancia();
+        Cuartel cuartelModelo = jugadorModelo.construirCuartel(mapaModelo, aldeanoModelo, posiciones);
+        CuartelView cuartelView = new CuartelView(cuartelModelo);
+        this.edificiosView.getChildren().add(cuartelView);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(cuartelView);
+    }
+
 }

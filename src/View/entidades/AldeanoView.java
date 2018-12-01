@@ -57,16 +57,10 @@ public class AldeanoView extends PiezaView {
 
                 ContextMenu menu = new ContextMenu();
                 MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo));
+                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
 
                 MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-                construirCuartel.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        MapaView mapaView = MapaView.getInstancia();
-
-                    }
-                });
+                construirCuartel.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
 
                 MenuItem reparar = new MenuItem("Reparar");
 

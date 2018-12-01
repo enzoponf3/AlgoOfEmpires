@@ -18,6 +18,7 @@ public class CasilleroHandler implements EventHandler<MouseEvent> {
     public void handle(MouseEvent event) {
         MapaView mapaView = MapaView.getInstancia();
         mapaView.seleccionarCasillero(this.casilleroView);
+        System.out.println("Casillero seleccionado");
     }
 
 }

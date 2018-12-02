@@ -20,9 +20,9 @@ public interface IEstadoJugador {
 
     void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador);
 
-    void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
+    void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio, Jugador jugador);
 
-    void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio);
+    void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio, Jugador jugador);
 
     void atacar(Jugador jugador, IAtacante atacante, Unidad unidadAAtacar);
 

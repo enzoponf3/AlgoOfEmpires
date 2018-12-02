@@ -5,7 +5,6 @@ import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
-import View.entidades.CuartelView;
 
 import java.util.ArrayList;
 
@@ -69,12 +68,14 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     //MONTAR Y DESMONTAR ARMA_DE_ASEDIO
 
     @Override
-    public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+    public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio, Jugador jugador){
+        jugador.verificarAtacantePropio(armaDeAsedio);
         armaDeAsedio.montar();
     }
 
     @Override
-    public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
+    public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio, Jugador jugador){
+        jugador.verificarAtacantePropio(armaDeAsedio);
         armaDeAsedio.desmontar();
     }
 

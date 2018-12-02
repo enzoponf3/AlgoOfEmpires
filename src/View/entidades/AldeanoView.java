@@ -2,6 +2,7 @@ package View.entidades;
 
 import Controller.ConstruirHandler;
 import Controller.Moverhandler;
+import Controller.RepararHandler;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
@@ -63,6 +64,7 @@ public class AldeanoView extends PiezaView {
                 construirCuartel.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
 
                 MenuItem reparar = new MenuItem("Reparar");
+                reparar.setOnAction(new RepararHandler(aldeanoModelo,getThis()));
 
                 MenuItem mover = new MenuItem("Mover");
                 mover.setOnAction(new Moverhandler(aldeanoModelo, getThis()));

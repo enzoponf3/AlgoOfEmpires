@@ -2,6 +2,7 @@ package View;
 
 
 import Modelo.Edificios.Cuartel;
+import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
@@ -128,4 +129,8 @@ public class JugadorView {
         mapaView.agregarPieza(cuartelView);
     }
 
+    // Seba
+    public void reparar(Aldeano aldeano, Edificio edificio) {
+        jugadorModelo.reparar(aldeano,edificio);
+    }
 }

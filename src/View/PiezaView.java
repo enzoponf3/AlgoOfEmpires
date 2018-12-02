@@ -74,5 +74,8 @@ public class PiezaView extends StackPane {
         return this.y*Constantes.TAMANIO_CASILLERO;
     }
 
-
+    // Seba
+    public IEntidad getEntidad() {
+        return this.entidadModelo;
+    }
 }

@@ -22,13 +22,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     //MOVER
 
     @Override
-    public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
-        //Posicion posicionOrigen = unidad.getPosicion();
-        //unidad.mover(destino);
-        //mapa.desocuparCasillero(posicionOrigen);
-        //mapa.ocuparCasillero(destino,unidad);
-        mapa.moverUnidadMovil(unidad.getPosicion(), destino);
-    }//Tengo que inactivar desp? refactorizar
+    public boolean mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
+        return mapa.moverUnidadMovil(unidad.getPosicion(), destino);
+    }
 
     //CREAR UNIDADES
 
@@ -133,7 +129,7 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     @Override
     public void cambiarTurno(Jugador jugador) {
-        jugador.setEstado(new EstadoJugadorInactivo());
+        jugador.inactivar();
     }
 
 }

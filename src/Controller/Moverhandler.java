@@ -1,5 +1,7 @@
 package Controller;
 
+import Modelo.Exceptions.CasilleroDesocupadoException;
+import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.Constantes;
@@ -9,6 +11,7 @@ import View.contenedores.ActualizarView;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 
 public class Moverhandler implements EventHandler<ActionEvent> {
 
@@ -26,15 +29,29 @@ public class Moverhandler implements EventHandler<ActionEvent> {
         Posicion destino = mapaView.getDestino();
 
         double destinoX = destino.getHorizontal();
-        System.out.println(destinoX);
         double destinoY = destino.getVertical();
-        System.out.println(destinoY);
 
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
-        jugadorViewActual.mover(aldeanoModelo, destino);
 
-        aldeanoView.relocate(destinoX* Constantes.TAMANIO_CASILLERO, destinoY*Constantes.TAMANIO_CASILLERO);
+        if(!jugadorViewActual.contienePieza(aldeanoView)){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("No es tuyo bobo");
+            alerta.show();
+        }else{
+            if(jugadorViewActual.mover(aldeanoModelo, destino)) {
+                aldeanoView.relocate(destinoX * Constantes.TAMANIO_CASILLERO, destinoY * Constantes.TAMANIO_CASILLERO);
+                System.out.println(destinoX);
+                System.out.println(destinoY);
+            }else{
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText(null);
+                alerta.setContentText("Ya se movio bobo");
+                alerta.show();
+            }
+        }
+
     }
 
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public interface IEstadoJugador {
 
-    void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador);
+    boolean mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador);
 
     void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador);
 

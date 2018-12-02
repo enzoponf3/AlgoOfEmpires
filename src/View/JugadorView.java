@@ -31,6 +31,7 @@ public class JugadorView {
     public void setPersonaje(ImageView figura){
         this.personaje = figura;
     }
+
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
@@ -80,10 +81,6 @@ public class JugadorView {
         this.ejercitoView = new Group();
     }
 
-    public void esJugadorActual(Jugador jugador){
-
-    }
-
     public String getOro() {
         return Integer.toString(jugadorModelo.getCantidadOro());
     }
@@ -110,8 +107,8 @@ public class JugadorView {
 
     }
 
-    public void mover(Aldeano aldeanoModelo, Posicion destino){
+    public boolean mover(Aldeano aldeanoModelo, Posicion destino){
         Mapa mapaModelo = Mapa.getInstancia();
-        jugadorModelo.mover(aldeanoModelo, destino, mapaModelo);
+        return jugadorModelo.mover(aldeanoModelo, destino, mapaModelo);
     }
 }

@@ -259,8 +259,8 @@ public class Jugador {
 
     // Mover y cambios Arma Asedio
 
-    public void mover(Unidad unidad, Posicion destino, Mapa mapa){
-        this.estado.mover(unidad, destino, mapa, this);
+    public boolean mover(Unidad unidad, Posicion destino, Mapa mapa){
+        return this.estado.mover(unidad, destino, mapa, this);
     }
 
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){

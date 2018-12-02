@@ -12,7 +12,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
 
     @Override
-    public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador){
+    public boolean mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
@@ -86,9 +86,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
     @Override
     public void cambiarTurno(Jugador jugador) {
-        jugador.setEstado(new EstadoJugadorActivo());
+        jugador.activar();
         jugador.desocuparUnidades();
     }
-
-
 }

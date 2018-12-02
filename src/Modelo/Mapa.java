@@ -111,13 +111,19 @@ public class Mapa {
     }
 
 
-    public void moverUnidadMovil( Posicion origen, Posicion destino ){
+    public boolean moverUnidadMovil( Posicion origen, Posicion destino ){
         verificarPosicionValida(destino);
         verificarPosicionesAledanias(origen, destino);
         verificarPosicionDesocupada(destino);
         IUnidadMovible unidad = (IUnidadMovible) this.desocuparCasillero(origen);
-        unidad.mover(destino);
+        try{
+            unidad.mover(destino);
+        }catch(UnidadEstaOcupadoException e){
+            ocuparCasillero(origen,unidad);
+            return false;
+        }
         ocuparCasillero(destino, unidad);
+        return true;
     }
 
     public Posicion devolverPosicionAledaniaLibre(Edificio edificio) {

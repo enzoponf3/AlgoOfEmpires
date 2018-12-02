@@ -43,7 +43,7 @@ public class CasilleroView extends StackPane {
 
         relocate(x* Constantes.TAMANIO_CASILLERO,y* Constantes.TAMANIO_CASILLERO);
 
-        Image newPic = new Image("aoeGrass.jpeg");
+        Image newPic = new Image("View/img/aoeGrass.jpeg");
         laImagen = new ImageView(newPic);
         laImagen.setFitHeight(Constantes.TAMANIO_CASILLERO);
         laImagen.setFitWidth(Constantes.TAMANIO_CASILLERO);

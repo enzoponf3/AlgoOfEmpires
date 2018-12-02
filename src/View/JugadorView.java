@@ -8,6 +8,7 @@ import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import Modelo.Unidades.Unidad;
 import View.contenedores.PantallaGanador;
 import View.entidades.AldeanoView;
 import View.entidades.CastilloView;
@@ -112,9 +113,9 @@ public class JugadorView {
 
     }
 
-    public boolean mover(Aldeano aldeanoModelo, Posicion destino){
+    public boolean mover(Unidad unidadModelo, Posicion destino){
         Mapa mapaModelo = Mapa.getInstancia();
-        return jugadorModelo.mover(aldeanoModelo, destino, mapaModelo);
+        return jugadorModelo.mover(unidadModelo, destino, mapaModelo);
     }
 
     public void construirCuartel(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones){

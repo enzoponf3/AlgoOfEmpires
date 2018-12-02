@@ -3,15 +3,10 @@ package View.entidades;
 import Controller.ConstruirHandler;
 import Controller.Moverhandler;
 import Controller.RepararHandler;
-import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.Constantes;
-import View.JugadorView;
-import View.MapaView;
 import View.PiezaView;
-import View.contenedores.ActualizarView;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -21,10 +16,10 @@ import javafx.scene.input.MouseEvent;
 
 public class AldeanoView extends PiezaView {
 
-    private ContextMenu menu;
+    /*private ContextMenu menu;                 //Revisar porque no se usan, si no saquenlas
 
     private double mouseX;
-    private double mouseY;
+    private double mouseY;*/
 
     public AldeanoView(Aldeano aldeanoModelo){
 
@@ -35,10 +30,11 @@ public class AldeanoView extends PiezaView {
         Posicion unaPosicion = aldeanoModelo.getPosicion();
         setPosicion(unaPosicion);
 
-        Image aldeanoFrente = new Image("AldeanoFrente.png");
+
+        Image aldeanoFrente = new Image("View/img/AldeanoFrente.png");
         ImageView imagenAldeanoFrente = new ImageView(aldeanoFrente);
 
-        Image aldeanoEspalda = new Image("AldeanoEspalda.png");
+        Image aldeanoEspalda = new Image("View/img/AldeanoEspalda.png");
         ImageView imagenAldeanoEspalda = new ImageView(aldeanoEspalda);
 
         agregarImagen(imagenAldeanoFrente, imagenAldeanoEspalda);
@@ -47,8 +43,8 @@ public class AldeanoView extends PiezaView {
 
             @Override
             public void handle(MouseEvent event) {
-                mouseX = event.getScreenX();
-                mouseY = event.getSceneY();
+                /*mouseX = event.getScreenX();
+                mouseY = event.getSceneY();*/           //esto tampoco se usa porque dsp hacen un event.getscreen en vez de usar estas varaibles
 
                 ContextMenu menu = this.crearMenu();
                 menu.show(imagenAldeanoFrente, event.getScreenX(), event.getScreenY());
@@ -74,45 +70,9 @@ public class AldeanoView extends PiezaView {
             }
 
         });
-
-
-        inicializarEventos();
-
     }
 
     private AldeanoView getThis(){
         return this;
     }
-
-    protected void inicializarEventos() {
-
-        setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                mouseX = event.getSceneX();
-                mouseY = event.getSceneY();
-
-                MapaView mapaView = MapaView.getInstancia();
-                Posicion destino = mapaView.getDestino();
-
-                double destinoX = destino.getHorizontal();
-                double destinoY = destino.getVertical();
-
-                if( (mouseX - destinoX)==Constantes.TAMANIO_CASILLERO && (mouseY-destinoY)==Constantes.TAMANIO_CASILLERO )
-                    relocate(destino.getHorizontal(), destino.getVertical());
-
-            }
-        });
-
-        setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-
-                relocate(event.getSceneX() - mouseX + getPosX(), event.getSceneY() - mouseY + getPosY());
-            }
-        });
-    }
-
-
-
 }

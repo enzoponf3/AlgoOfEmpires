@@ -26,7 +26,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(2,6);
 
         mapa.ocuparCasillero(origen, aldeano);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
         Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
         Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
@@ -45,7 +45,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(2,6);
 
         mapa.ocuparCasillero(origen, arquero);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
         Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
         Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
@@ -64,7 +64,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(2,6);
 
         mapa.ocuparCasillero(origen, espadachin);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
         Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
         Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
@@ -83,7 +83,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(2,6);
 
         mapa.ocuparCasillero(origen, armaDeAsedio);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
         Casillero casilleroOrigen = mapa.seleccionarCasillero(origen);;
         Casillero casilleroDestino = mapa.seleccionarCasillero(destino);
@@ -108,7 +108,7 @@ public class MoverUnidadesEnMapaTest {
 
         mapa.ocuparCasillero(origen, aldeano);
         mapa.ocuparCasillero(destino, aldeano2);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -122,7 +122,7 @@ public class MoverUnidadesEnMapaTest {
 
         mapa.ocuparCasillero(origen, arquero);
         mapa.ocuparCasillero(destino, arquero2);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -137,7 +137,7 @@ public class MoverUnidadesEnMapaTest {
 
         mapa.ocuparCasillero(origen, espadachin);
         mapa.ocuparCasillero(destino, espadachin2);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -151,7 +151,7 @@ public class MoverUnidadesEnMapaTest {
 
         mapa.ocuparCasillero(origen, armaDeAsedio);
         mapa.ocuparCasillero(destino, armaDeAsedio2);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -168,7 +168,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(10,21);
 
         mapa.ocuparCasillero(origen, aldeano);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -180,7 +180,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(10,21);
 
         mapa.ocuparCasillero(origen, arquero);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -192,7 +192,7 @@ public class MoverUnidadesEnMapaTest {
         Espadachin espadachin = new Espadachin(origen);
 
         mapa.ocuparCasillero(origen, espadachin);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -205,7 +205,7 @@ public class MoverUnidadesEnMapaTest {
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(origen);
 
         mapa.ocuparCasillero(origen, armaDeAsedio);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -221,7 +221,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(4,8);
 
         mapa.ocuparCasillero(origen, aldeano);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -233,7 +233,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(4,8);
 
         mapa.ocuparCasillero(origen, arquero);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -245,7 +245,7 @@ public class MoverUnidadesEnMapaTest {
         Espadachin espadachin = new Espadachin(origen);
 
         mapa.ocuparCasillero(origen, espadachin);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 
@@ -257,7 +257,7 @@ public class MoverUnidadesEnMapaTest {
         Posicion destino = new Posicion(4,8);
 
         mapa.ocuparCasillero(origen, armaDeAsedio);
-        mapa.moverUnidadMovil(origen, destino);
+        mapa.mover(origen, destino);
 
     }
 

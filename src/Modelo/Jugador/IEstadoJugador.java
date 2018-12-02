@@ -28,7 +28,7 @@ public interface IEstadoJugador {
 
     void atacar(Jugador jugador, IAtacante atacante, Edificio edificioAAtacar);
 
-    void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
+    Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 
     void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel);
 

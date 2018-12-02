@@ -104,26 +104,16 @@ public class Mapa {
             throw new PosicionOcupadaException();
     }
 
-
     public void verificarPosicionesAledanias(Posicion origen, Posicion destino) {
         if ( !origen.aledaniaA(destino) )
             throw new PosicionInvalidaException();
     }
 
-
-    public boolean moverUnidadMovil( Posicion origen, Posicion destino ){
+    public void mover(Posicion origen, Posicion destino ){
         verificarPosicionValida(destino);
         verificarPosicionesAledanias(origen, destino);
         verificarPosicionDesocupada(destino);
-        IUnidadMovible unidad = (IUnidadMovible) this.desocuparCasillero(origen);
-        try{
-            unidad.mover(destino);
-        }catch(UnidadEstaOcupadoException e){
-            ocuparCasillero(origen,unidad);
-            return false;
-        }
-        ocuparCasillero(destino, unidad);
-        return true;
+        ocuparCasillero(destino, this.desocuparCasillero(origen));
     }
 
     public Posicion devolverPosicionAledaniaLibre(Edificio edificio) {

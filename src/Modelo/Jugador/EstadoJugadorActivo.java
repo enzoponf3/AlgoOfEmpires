@@ -1,9 +1,11 @@
 package Modelo.Jugador;
 
 import Modelo.Edificios.*;
+import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
+import View.entidades.CuartelView;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,14 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     @Override
     public boolean mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
-        return mapa.moverUnidadMovil(unidad.getPosicion(), destino);
+        Posicion origen = unidad.getPosicion();
+        try{
+            unidad.mover(destino);
+        }catch(UnidadEstaOcupadoException e){
+            return false;
+        }
+        mapa.mover(origen,destino);
+        return true;
     }
 
     //CREAR UNIDADES
@@ -87,10 +96,11 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     //CONSTRUIR
     @Override
-    public void construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+    public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         jugador.verificarAldeanoPropio(aldeano);
         Cuartel cuartel = aldeano.construirCuartel(posicionesCuartel);
         jugador.agregarEdificio(cuartel, mapa);
+        return cuartel;
     }
 
     @Override

@@ -164,8 +164,8 @@ public class Jugador {
         this.estado.continuarConstruccionPlazaCentral(this, aldeano, plazaEnConstruccion);
     }
 
-    public void construirCuartel(Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
-        this.estado.construirCuartel(this, mapa, aldeano, posicionesCuartel);
+    public Cuartel construirCuartel(Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
+        return this.estado.construirCuartel(this, mapa, aldeano, posicionesCuartel);
     }
 
     public void continuarConstruccionCuartel(Aldeano aldeano, Cuartel cuartelEnConstruccion){

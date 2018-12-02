@@ -42,4 +42,7 @@ public class ActualizarView extends Observable {
     public static ActualizarView getInstancia(){
         return INSTANCIA;
     }
+
+
+
 }

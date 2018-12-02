@@ -42,11 +42,11 @@ public class DisplayBarraDatos extends HBox implements Observer {
 
         this.vida = new Label(jugadorView.getVida());
         vida.setStyle("-fx-text-fill: white");
-        vida.setTranslateX((13*limitesPantalla.getWidth())/64);
+        vida.setTranslateX((14*limitesPantalla.getWidth())/64);
 
         this.nombre = new Label(jugadorView.getNombre());
         nombre.setStyle("-fx-text-fill: white;\n -fx-font-size: 15");
-        nombre.setPadding(new Insets(0,0,0,(23*limitesPantalla.getWidth())/32));
+        nombre.setPadding(new Insets(0,0,0,(25*limitesPantalla.getWidth())/32));
 
         this.hbox = new HBox(oro,poblacion,vida,nombre);
         hbox.setTranslateX(limitesPantalla.getWidth()/16);

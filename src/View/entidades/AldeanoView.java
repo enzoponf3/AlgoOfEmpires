@@ -2,6 +2,7 @@ package View.entidades;
 
 import Controller.ConstruirHandler;
 import Controller.Moverhandler;
+import Controller.RepararHandler;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
@@ -57,18 +58,13 @@ public class AldeanoView extends PiezaView {
 
                 ContextMenu menu = new ContextMenu();
                 MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo));
+                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
 
                 MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-                construirCuartel.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        MapaView mapaView = MapaView.getInstancia();
-
-                    }
-                });
+                construirCuartel.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
 
                 MenuItem reparar = new MenuItem("Reparar");
+                reparar.setOnAction(new RepararHandler(aldeanoModelo,getThis()));
 
                 MenuItem mover = new MenuItem("Mover");
                 mover.setOnAction(new Moverhandler(aldeanoModelo, getThis()));

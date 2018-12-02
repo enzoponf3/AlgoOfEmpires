@@ -2,6 +2,7 @@ package View;
 
 import Modelo.Casillero;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.IEntidad;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -75,6 +76,15 @@ public class MapaView extends Pane {
 
     public Posicion getDestino(){
         return this.casilleroSeleccionada.getPosicion();
+    }
+
+    public void agregarPieza(PiezaView piezaView){
+        this.piezas.getChildren().add(piezaView);
+    }
+
+    // Seba
+    public IEntidad getEntidad() {
+        return this.piezaSeleccionada.getEntidad();
     }
 
 }

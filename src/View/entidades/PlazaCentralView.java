@@ -3,7 +3,6 @@ package View.entidades;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import View.Constantes;
-import View.MapaView;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
@@ -11,7 +10,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 
@@ -29,7 +27,7 @@ public class PlazaCentralView extends PiezaView {
         Posicion unaPosicion = posiciones.get(0);
         setPosicion(unaPosicion);
 
-        Image plaza = new Image("University2.png");
+        Image plaza = new Image("View/img/University2.png");
         ImageView imagenPlaza = new ImageView(plaza);
 
         agregarImagen(imagenPlaza, imagenPlaza);

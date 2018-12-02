@@ -64,3 +64,40 @@
 .label{
     -fx-font-size: 20px;
 }
+
+.radio-button > .radio {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-background-radius: 0px;
+  -fx-padding: 0.0em; /* 4 8 4 8 */
+}
+.radio-button:selected > .radio > .dot {
+  -fx-background-color: transparent;
+}
+
+.radio-button:selected {
+  -fx-background-color: red;
+  -fx-border-color: lightblue;
+  -fx-border-radius: 10;
+  -fx-border-width: 4;
+  -fx-background-radius: 15;
+}
+
+.radio-button-confirmed > .radio {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-background-radius: 0px;
+  -fx-padding: 0.0em; /* 4 8 4 8 */
+}
+.radio-button-confirmed:selected > .radio > .dot {
+  -fx-background-color: transparent;
+}
+
+.radio-button-confirmed:selected {
+  -fx-background-color: green;
+  -fx-border-color: lightblue;
+  -fx-border-radius: 10;
+  -fx-border-width: 4;
+  -fx-background-radius: 15;
+}
+

@@ -2,11 +2,11 @@ package View.contenedores;
 
 import Controller.SelectCharButtonHandler;
 import View.Boton;
+import View.BotonRadio;
 import View.JugadorView;
 import Controller.BeginButtonHandler;
 import Controller.ReadyButtonHandler;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -53,19 +53,24 @@ public class PantallaConfigJugador extends Pane {
         ImageView fig1 = new ImageView(new Image("View/img/charMujer.png",500,355,true,false));
         ImageView fig2 = new ImageView(new Image("View/img/charHombre.png",500,355,true,false));
 
-        Boton im1 = new Boton("", new SelectCharButtonHandler(fig1,jugador));
+        final ToggleGroup group = new ToggleGroup();
+        BotonRadio im1 = new BotonRadio("");
+        im1.setOnAction(new SelectCharButtonHandler(fig1,jugador,group,im1));
         im1.setGraphic(fig1);
-        im1.getStyleClass().add("selection-button");
+        im1.getStyleClass().add("radio-button");
+        im1.setToggleGroup(group);
 
-        Boton im2 = new Boton("", new SelectCharButtonHandler(fig2,jugador));
+        BotonRadio im2 = new BotonRadio("");
+        im2.setOnAction(new SelectCharButtonHandler(fig2,jugador,group,im2));
         im2.setGraphic(fig2);
-        im2.getStyleClass().add("selection-button");
+        im2.getStyleClass().add("radio-button");
+        im2.setToggleGroup(group);
 
         TextField nombre = new TextField();
         nombre.setPromptText("Ingresar Nombre");
         nombre.setPrefSize(200,40);
 
-        Boton listo = new Boton("Listo", new ReadyButtonHandler(jugador, nombre));
+        Boton listo = new Boton("Listo", new ReadyButtonHandler(jugador, nombre, group));
         listo.getStyleClass().add("ready-button");
         figura.relocate(210,60);
         im1.relocate(50,150);

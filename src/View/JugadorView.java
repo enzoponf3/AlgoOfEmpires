@@ -5,7 +5,6 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Exceptions.*;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -14,9 +13,9 @@ import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Unidad;
 import View.contenedores.PantallaGanador;
 import View.entidades.*;
+import javafx.beans.property.IntegerProperty;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -74,12 +73,12 @@ public class JugadorView {
         return piezas;
     }
 
-    public String getOro() {
-        return Integer.toString(jugadorModelo.getCantidadOro());
+    public IntegerProperty getOro() {
+        return jugadorModelo.getOroProperty();
     }
 
-    public String getPoblacion() {
-        return Integer.toString(jugadorModelo.getCantidadPoblacion());
+    public IntegerProperty getPoblacion() {
+        return jugadorModelo.getCantidadPoblacionProperty();
     }
 
     public String getVida() {

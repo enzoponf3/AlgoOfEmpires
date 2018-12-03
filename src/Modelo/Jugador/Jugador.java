@@ -5,6 +5,8 @@ import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,6 +23,8 @@ public class Jugador {
     private static final int CANTIDAD_ALDEANOS_INICIAL = 3;
     private static final int CANTIDAD_ORO_INICIAL = 100;
     private static final int LIMITE_POBLACION = 50;
+    private SimpleIntegerProperty oroProperty = new SimpleIntegerProperty(this,"oro");
+    private SimpleIntegerProperty cantidadPoblacionProperty = new SimpleIntegerProperty(this,"cantidadPoblacion");
 
     // Setters y Getters
 
@@ -182,12 +186,14 @@ public class Jugador {
     public void agregarAldeano(Aldeano aldeano, Mapa mapa){
         verificarLimitePoblacion();
         this.aldeanos.add(aldeano);
+        this.cantidadPoblacionProperty.set(this.getCantidadPoblacion());
         mapa.ocuparCasillero(aldeano.getPosicion(),aldeano);
     }
 
     public void agregarAEjercito(IAtacante atacante, Mapa mapa){
         verificarLimitePoblacion();
         this.ejercito.add(atacante);
+        this.cantidadPoblacionProperty.set(this.getCantidadPoblacion());
         mapa.ocuparCasillero(atacante.getPosicion(),atacante);
     }
 
@@ -325,6 +331,7 @@ public class Jugador {
                 mapa.desocuparCasilleros(edificio.getPosiciones());
             }
         }
+        this.cantidadPoblacionProperty.set(this.getCantidadPoblacion());
     }
 
     public int getCantidadPoblacion() {
@@ -351,6 +358,17 @@ public class Jugador {
 
     public void reducirOro(int costo) {
         this.cantidadOro -= costo;
+        this.oroProperty.set(this.cantidadOro);
     }
 
+    // Properties para actualizar display automaticamente
+    public IntegerProperty getCantidadPoblacionProperty() {
+        this.cantidadPoblacionProperty.set(this.getCantidadPoblacion());
+        return cantidadPoblacionProperty;
+    }
+
+    public IntegerProperty getOroProperty(){
+        this.oroProperty.set(this.cantidadOro);
+        return oroProperty;
+    }
 }

@@ -34,36 +34,36 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         verificacionesCreacion(jugador, plazaCentral);
         jugador.verificarOroSuficiente(Constantes.COSTO_ALDEANO);
-        jugador.reducirOro(Constantes.COSTO_ALDEANO);
         Aldeano aldeano = plazaCentral.crearAldeano(mapa);
         jugador.agregarAldeano(aldeano, mapa);
+        jugador.reducirOro(Constantes.COSTO_ALDEANO);
     }
 
     @Override
     public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         jugador.verificarOroSuficiente(Constantes.COSTO_ARQUERO);
-        jugador.reducirOro(Constantes.COSTO_ARQUERO);
         Arquero arquero = cuartel.crearArquero(mapa);
         jugador.agregarAEjercito(arquero,mapa);
+        jugador.reducirOro(Constantes.COSTO_ARQUERO);
     }
 
     @Override
     public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         jugador.verificarOroSuficiente(Constantes.COSTO_ESPADACHIN);
-        jugador.reducirOro(Constantes.COSTO_ESPADACHIN);
         Espadachin espadachin = cuartel.crearEspadachin(mapa);
         jugador.agregarAEjercito(espadachin, mapa);
+        jugador.reducirOro(Constantes.COSTO_ESPADACHIN);
     }
 
     @Override
     public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         verificacionesCreacion(jugador, castillo);
         jugador.verificarOroSuficiente(Constantes.COSTO_ARMA_ASEDIO);
-        jugador.reducirOro(Constantes.COSTO_ARMA_ASEDIO);
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         jugador.agregarAEjercito(armaDeAsedio, mapa);
+        jugador.reducirOro(Constantes.COSTO_ARMA_ASEDIO);
         return armaDeAsedio;
     }
 
@@ -104,9 +104,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
         jugador.verificarAldeanoPropio(aldeano);
         mapa.verificarPosicionesAledanias(aldeano.getPosicion(),posicionesCuartel);
         jugador.verificarOroSuficiente(Constantes.COSTO_CUARTEL);
-        jugador.reducirOro(Constantes.COSTO_CUARTEL);
         Cuartel cuartel = aldeano.construirCuartel(posicionesCuartel);
         jugador.agregarEdificio(cuartel, mapa);
+        jugador.reducirOro(Constantes.COSTO_CUARTEL);
         return cuartel;
     }
 
@@ -121,8 +121,8 @@ public class EstadoJugadorActivo implements IEstadoJugador {
         jugador.verificarAldeanoPropio(aldeano);
         mapa.verificarPosicionesAledanias(aldeano.getPosicion(),posicionesPlazaCentral);
         jugador.verificarOroSuficiente(Constantes.COSTO_PLAZA);
-        jugador.reducirOro(Constantes.COSTO_PLAZA);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicionesPlazaCentral);
+        jugador.reducirOro(Constantes.COSTO_PLAZA);
         jugador.agregarEdificio(plaza, mapa);
         return plaza;
     }

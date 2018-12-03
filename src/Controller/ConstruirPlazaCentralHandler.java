@@ -44,6 +44,8 @@ public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
             new Alerta().unidadEnemiga();
         } catch (PosicionOcupadaException e) {
             new Alerta().posicionOcupada();
+        } catch (UnidadNoPuedeConstruirException e) {
+            new Alerta().unidadOcupada();
         }
     }
 }

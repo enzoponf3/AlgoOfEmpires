@@ -150,8 +150,9 @@ public class Jugador {
         this.estado.crearEspadachin(mapa, cuartel, this);
     }
 
-    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo){
-        this.estado.crearArmaDeAsedio(mapa, castillo, this);
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo){
+        return this.estado.crearArmaDeAsedio(mapa, castillo, this);
+
     }
 
     // Construccion y reparar

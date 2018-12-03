@@ -19,9 +19,6 @@ public class CasilleroView extends StackPane {
     private PiezaView pieza;
     private ImageView laImagen;
 
-    private int i;
-    private int j;
-
     public PiezaView getPieza(){
         return this.pieza;
     }

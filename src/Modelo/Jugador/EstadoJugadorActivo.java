@@ -59,10 +59,11 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         verificacionesCreacion(jugador, castillo);
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         jugador.agregarAEjercito(armaDeAsedio, mapa);
+        return armaDeAsedio;
     }
 
 

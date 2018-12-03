@@ -115,7 +115,6 @@ public class JugadorView {
         try {
             PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
             PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
-            this.edificiosView.getChildren().add(cuartelView);
             MapaView mapaView = MapaView.getInstancia();
             mapaView.agregarPieza(cuartelView);
         } catch (Exception e) {

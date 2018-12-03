@@ -58,10 +58,11 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         verificacionesCreacion(jugador, castillo);
         ArmaDeAsedio armaDeAsedio = castillo.crearArmaDeAsedio(mapa);
         jugador.agregarAEjercito(armaDeAsedio, mapa);
+        return armaDeAsedio;
     }
 
 
@@ -99,6 +100,7 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         jugador.verificarAldeanoPropio(aldeano);
+        mapa.verificarPosicionesAledanias(aldeano.getPosicion(),posicionesCuartel);
         Cuartel cuartel = aldeano.construirCuartel(posicionesCuartel);
         jugador.agregarEdificio(cuartel, mapa);
         return cuartel;
@@ -113,7 +115,7 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public PlazaCentral construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         jugador.verificarAldeanoPropio(aldeano);
-
+        mapa.verificarPosicionesAledanias(aldeano.getPosicion(),posicionesPlazaCentral);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicionesPlazaCentral);
         jugador.agregarEdificio(plaza, mapa);
         return plaza;

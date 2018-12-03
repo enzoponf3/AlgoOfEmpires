@@ -1,15 +1,10 @@
 package View;
 
 import Modelo.Casillero;
-import Modelo.Edificios.PlazaCentral;
 import Modelo.IEntidad;
-import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
-import View.entidades.AldeanoView;
-import View.entidades.CastilloView;
-import View.entidades.PlazaCentralView;
-
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 
@@ -47,7 +42,6 @@ public class MapaView extends Pane {
         }
 
         colocarPiezasIniciales(jugadorView1, jugadorView2);
-
         getChildren().addAll(casilleros, piezas);
 
         INSTANCIA = this;
@@ -86,5 +80,9 @@ public class MapaView extends Pane {
     public IEntidad getEntidad() {
         return this.piezaSeleccionada.getEntidad();
     }
+
+    public Mapa getMapa (){ return this.mapaModelo;}
+
+
 
 }

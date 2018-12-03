@@ -32,7 +32,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
+    public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 

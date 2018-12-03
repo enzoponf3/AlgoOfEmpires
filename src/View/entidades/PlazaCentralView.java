@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 public class PlazaCentralView extends PiezaView {
 
-    ContextMenu menu;
-
     public PlazaCentralView(PlazaCentral plazaModelo){
 
         super(plazaModelo);

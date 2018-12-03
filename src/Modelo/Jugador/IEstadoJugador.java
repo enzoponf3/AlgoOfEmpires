@@ -18,7 +18,7 @@ public interface IEstadoJugador {
 
     void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador);
 
-    void crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador);
+    ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador);
 
     void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio, Jugador jugador);
 

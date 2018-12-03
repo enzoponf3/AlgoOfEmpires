@@ -109,6 +109,13 @@ public class Mapa {
             throw new PosicionInvalidaException();
     }
 
+    public void verificarPosicionesAledanias(Posicion origen, ArrayList<Posicion> posicionesDestino) {
+        for (Posicion destino: posicionesDestino)
+            if ( origen.aledaniaA(destino) )
+                return;
+        throw new PosicionInvalidaException();
+    }
+
     public void mover(Posicion origen, Posicion destino ){
         verificarPosicionValida(destino);
         verificarPosicionesAledanias(origen, destino);
@@ -147,5 +154,21 @@ public class Mapa {
     public void desocuparCasilleros(ArrayList<Posicion> posiciones) {
         for (Posicion posicion : posiciones)
             this.desocuparCasillero(posicion);
+    }
+
+    public ArrayList<Posicion> getBloque2x2(Posicion seed) {
+        ArrayList<Posicion> posiciones = new ArrayList<>();
+        Posicion pos2 = new Posicion(seed.getHorizontal(), seed.getVertical()+1);
+        Posicion pos3 = new Posicion(seed.getHorizontal()+1, seed.getVertical()+1);
+        Posicion pos4 = new Posicion(seed.getHorizontal()+1, seed.getVertical());
+        posiciones.add(seed);
+        posiciones.add(pos2);
+        posiciones.add(pos3);
+        posiciones.add(pos4);
+        for (Posicion posicion : posiciones) {
+            verificarPosicionValida(posicion);
+            verificarPosicionDesocupada(posicion);
+        }
+        return posiciones;
     }
 }

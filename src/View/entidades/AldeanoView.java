@@ -25,7 +25,6 @@ public class AldeanoView extends PiezaView {
     public AldeanoView(Aldeano aldeanoModelo){
 
         super(aldeanoModelo);
-
         ajustarTamanio(Constantes.ALTURA_UNIDAD, Constantes.ANCHO_UNIDAD);
 
         Posicion unaPosicion = aldeanoModelo.getPosicion();

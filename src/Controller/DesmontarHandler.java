@@ -1,15 +1,12 @@
 package Controller;
 
 import Modelo.Exceptions.UnidadDesarmadaException;
-import Modelo.Exceptions.UnidadEstaMontadaException;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.Unidades.ArmaDeAsedio;
-import View.Alerta;
+import View.contenedores.Alerta;
 import View.JugadorView;
 import View.contenedores.ActualizarView;
-import View.contenedores.Notificacion;
-import View.entidades.ArmaDeAsedioView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 

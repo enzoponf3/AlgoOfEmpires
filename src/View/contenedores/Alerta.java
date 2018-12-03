@@ -1,4 +1,4 @@
-package View;
+package View.contenedores;
 
 import javafx.scene.control.Alert;
 
@@ -62,6 +62,23 @@ public class Alerta {
 
     public void armaMontada() {
         alerta.setContentText("Esta arma ya esta montada");
+        alerta.show();
+    }
+
+    public void faltaNombre() {
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("Falta ingresar un nombre");
+        alerta.show();
+    }
+
+    public void faltaFigura() {
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("Falta seleccionar una figura");
+        alerta.show();
+    }
+
+    public void seleccionarCasilleroDestino() {
+        alerta.setContentText("Primero se debe seleccionar el casillero destino");
         alerta.show();
     }
 }

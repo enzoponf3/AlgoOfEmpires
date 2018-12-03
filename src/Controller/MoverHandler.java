@@ -5,15 +5,11 @@ import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.Posicion;
 import Modelo.Unidades.Unidad;
-import View.Constantes;
-import View.JugadorView;
-import View.MapaView;
-import View.PiezaView;
+import View.*;
 import View.contenedores.ActualizarView;
-import View.contenedores.Notificacion;
+import View.contenedores.Alerta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
 
 public class MoverHandler implements EventHandler<ActionEvent> {
 
@@ -33,7 +29,7 @@ public class MoverHandler implements EventHandler<ActionEvent> {
             destino = mapaView.getDestino();
 
         }catch (NullPointerException e){
-            new Notificacion("Primero debes seleccionar el casillero de destino");
+            new Alerta().seleccionarCasilleroDestino();
             return;
         }
         double destinoX = destino.getHorizontal();
@@ -48,12 +44,11 @@ public class MoverHandler implements EventHandler<ActionEvent> {
             System.out.println(destinoX);
             System.out.println(destinoY);
         }catch (UnidadEstaOcupadoException e){
-            new Notificacion("Ya movio bobo");
-
+            new Alerta().unidadOcupada();
         }catch (UnidadMovibleNoExisteException e1){
-            new Notificacion("No es tuyo bobo");
+            new Alerta().unidadEnemiga();
         }catch (PosicionInvalidaException e2){
-            new Notificacion("El destino seleccionado es muy lejos y a la unidad le da PAJA");
+            new Alerta().posicionNoAledania();
         }
     }
 

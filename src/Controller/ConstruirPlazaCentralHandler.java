@@ -4,15 +4,13 @@ import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
-import View.Alerta;
+import View.contenedores.Alerta;
 import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;
-import View.contenedores.Notificacion;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 

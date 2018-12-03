@@ -102,9 +102,9 @@ public class JugadorView {
     public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
         Mapa mapaModelo = Mapa.getInstancia();
         PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
-        PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
+        PlazaCentralView plazaCentralView = new PlazaCentralView(plazaCentral);
         MapaView mapaView = MapaView.getInstancia();
-        mapaView.agregarPieza(cuartelView);
+        mapaView.agregarPieza(plazaCentralView);
     }
 
     public void reparar(Aldeano aldeano, Edificio edificio) {

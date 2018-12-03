@@ -1,6 +1,6 @@
 package Controller;
 
-import View.Alerta;
+import View.contenedores.Alerta;
 import View.JugadorView;
 import View.contenedores.DisplayIconJugador;
 import View.contenedores.PantallaJuego;

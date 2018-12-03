@@ -1,5 +1,6 @@
 package Controller;
 
+import View.contenedores.Alerta;
 import View.BotonRadio;
 import View.JugadorView;
 import javafx.event.ActionEvent;
@@ -23,16 +24,10 @@ public class ReadyButtonHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event) {
         if (this.nombre.getText().trim().isEmpty()) {
-            Alert faltaNombre = new Alert(Alert.AlertType.ERROR);
-            faltaNombre.setHeaderText(null);
-            faltaNombre.setContentText("NO ESCRIBISTE UN NOMBRE!");
-            faltaNombre.show();
+            new Alerta().faltaNombre();
         }
         else if(this.grupoPersonajes.getSelectedToggle() == null){
-            Alert faltaImagen = new Alert(Alert.AlertType.ERROR);
-            faltaImagen.setHeaderText(null);
-            faltaImagen.setContentText("NO SELECCIONASTE UNA FIGURA!");
-            faltaImagen.show();
+            new Alerta().faltaFigura();
         }else {
             BotonRadio opcionSeleccionada = (BotonRadio) this.grupoPersonajes.getSelectedToggle();
             this.jugador.setPersonaje((ImageView) opcionSeleccionada.getGraphic());

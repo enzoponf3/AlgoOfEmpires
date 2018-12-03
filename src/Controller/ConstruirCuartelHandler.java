@@ -6,7 +6,7 @@ import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
-import View.Alerta;
+import View.contenedores.Alerta;
 import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;

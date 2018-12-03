@@ -5,10 +5,7 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Exceptions.EdificioNoExisteException;
-import Modelo.Exceptions.TurnoDelOponenteException;
-import Modelo.Exceptions.UnidadEstaOcupadoException;
-import Modelo.Exceptions.UnidadMovibleNoExisteException;
+import Modelo.Exceptions.*;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -19,7 +16,6 @@ import View.contenedores.PantallaGanador;
 import View.entidades.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -97,32 +93,18 @@ public class JugadorView {
 
     public void construirCuartel(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones){
         Mapa mapaModelo = Mapa.getInstancia();
-        try {
-            Cuartel cuartelModelo = jugadorModelo.construirCuartel(mapaModelo, aldeanoModelo, posiciones);
-            CuartelView cuartelView = new CuartelView(cuartelModelo);
-            MapaView mapaView = MapaView.getInstancia();
-            mapaView.agregarPieza(cuartelView);
-        } catch (Exception e) {
-            Alert errorConstruccion = new Alert(Alert.AlertType.WARNING);
-            errorConstruccion.setHeaderText(null);
-            errorConstruccion.setContentText("Construcción no permitida.");
-            errorConstruccion.show();
-        }
+        Cuartel cuartelModelo = jugadorModelo.construirCuartel(mapaModelo, aldeanoModelo, posiciones);
+        CuartelView cuartelView = new CuartelView(cuartelModelo);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(cuartelView);
     }
 
     public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
         Mapa mapaModelo = Mapa.getInstancia();
-        try {
-            PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
-            PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
-            MapaView mapaView = MapaView.getInstancia();
-            mapaView.agregarPieza(cuartelView);
-        } catch (Exception e) {
-            Alert errorConstruccion = new Alert(Alert.AlertType.WARNING);
-            errorConstruccion.setHeaderText(null);
-            errorConstruccion.setContentText("Construcción no permitida.");
-            errorConstruccion.show();
-        }
+        PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
+        PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(cuartelView);
     }
 
     public void reparar(Aldeano aldeano, Edificio edificio) {

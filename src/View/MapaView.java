@@ -60,6 +60,8 @@ public class MapaView extends Pane {
     }
 
     public void seleccionarCasillero(CasilleroView casilleroView){
+        if (this.casilleroSeleccionada != null)
+            this.casilleroSeleccionada.quitarEfecto();
         this.casilleroSeleccionada = casilleroView;
     }
 

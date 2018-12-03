@@ -5,6 +5,7 @@ import Modelo.Exceptions.UnidadEstaMontadaException;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.Unidades.ArmaDeAsedio;
+import View.Alerta;
 import View.JugadorView;
 import View.contenedores.ActualizarView;
 import View.contenedores.Notificacion;
@@ -27,11 +28,11 @@ public class MontarHandler implements EventHandler<ActionEvent> {
         try{
             jugadorViewActual.montarArma(arma);
         }catch (UnidadEstaOcupadoException e){
-            new Notificacion("Esta arma esta ocupada");
+            new Alerta().unidadOcupada();
         }catch (UnidadEstaMontadaException e1){
-            new Notificacion("Esta arma ya esta montada");
+            new Alerta().armaMontada();
         }catch (AtacanteNoExisteException e2) {
-            new Notificacion("ESTA ARMA NO ES TUYA BOBO");
+            new Alerta().unidadEnemiga();
         }
     }
 }

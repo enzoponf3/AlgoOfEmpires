@@ -5,6 +5,7 @@ import Modelo.Exceptions.UnidadEstaMontadaException;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.Unidades.ArmaDeAsedio;
+import View.Alerta;
 import View.JugadorView;
 import View.contenedores.ActualizarView;
 import View.contenedores.Notificacion;
@@ -26,11 +27,11 @@ public class DesmontarHandler implements EventHandler<ActionEvent> {
         try{
             jugadorViewActual.desmontarArma(arma);
         }catch (UnidadEstaOcupadoException e){
-            new Notificacion("Este arma esta ocupada");
+            new Alerta().unidadOcupada();
         }catch (UnidadDesarmadaException e1){
-            new Notificacion("Este arma ya esta desmontada");
+            new Alerta().armaDesmontada();
         }catch (UnidadMovibleNoExisteException e2) {
-            new Notificacion("ESTE ARMA NO ES TUYA BOBO");
+            new Alerta().unidadEnemiga();
         }
     }
 }

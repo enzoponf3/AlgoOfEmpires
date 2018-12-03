@@ -20,4 +20,11 @@ public class Constantes {
     public static double ALTURA_EDIFICIO = 2;
     public static double ANCHO_EDIFICIO = 2;
 
+    public static int COSTO_CUARTEL = 50;
+    public static int COSTO_PLAZA = 100;
+    public static int COSTO_ALDEANO = 25;
+    public static int COSTO_ESPADACHIN = 50;
+    public static int COSTO_ARQUERO = 75;
+    public static int COSTO_ARMA_ASEDIO = 200;
+
 }

@@ -343,4 +343,14 @@ public class Jugador {
             atacante.desocupar();
         }
     }
+
+    public void verificarOroSuficiente(int costo) {
+        if (this.cantidadOro < costo)
+            throw new OroInsuficienteException();
+    }
+
+    public void reducirOro(int costo) {
+        this.cantidadOro -= costo;
+    }
+
 }

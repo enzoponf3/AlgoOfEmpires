@@ -61,5 +61,7 @@ public class CasilleroView extends StackPane {
         getChildren().addAll(laImagen, borde);
     }
 
-
+    public void quitarEfecto(){
+        this.setEffect(new Glow(0));
+    }
 }

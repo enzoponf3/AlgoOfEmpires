@@ -4,6 +4,7 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.AldeanoNoExisteException;
+import Modelo.Exceptions.OroInsuficienteException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Exceptions.UnidadNoPuedeConstruirException;
 import Modelo.Jugador.Jugador;
@@ -244,7 +245,7 @@ public class JugadorControlaConstruccionYReparacionTest {
         jugador.continuarConstruccionPlazaCentral(aldeano, plazaCentral);
         jugador.recolectarOro();
 
-        Assert.assertEquals(160, jugador.getCantidadOro() );
+        Assert.assertEquals(60, jugador.getCantidadOro() );
         Assert.assertEquals(2, jugador.getEdificios().size() );
 
     }
@@ -561,5 +562,47 @@ public class JugadorControlaConstruccionYReparacionTest {
         Cuartel cuartel = (Cuartel) mapa.obtenerEntidad(posicion1Cuartel);
         jugador.continuarConstruccionCuartel(aldeanoEnemigo, cuartel);
 
+    }
+
+    @Test
+    public void crearEdificioConOroSuficiente() {
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+        jugador.activar();
+        Posicion posicion = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicion);
+        jugador.agregarAldeano(aldeano,mapa);
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        jugador.construirPlazaCentral(mapa,aldeano,posicionesPlazaCentral);
+        Assert.assertEquals(jugador.getCantidadOro(),0);
+    }
+
+    @Test (expected = OroInsuficienteException.class)
+    public void crearEdificioConOroInsuficiente() {
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador = new Jugador(mapa, 5, 14);
+        jugador.activar();
+        Posicion posicion = new Posicion(4,0);
+        Aldeano aldeano = new Aldeano(posicion);
+        jugador.agregarAldeano(aldeano,mapa);
+        Posicion posicion1PlazaCentral = new Posicion(3,2);
+        Posicion posicion2PlazaCentral = new Posicion(3,1);
+        Posicion posicion3PlazaCentral = new Posicion(4,2);
+        Posicion posicion4PlazaCentral = new Posicion(4,1);
+        ArrayList<Posicion> posicionesPlazaCentral = new ArrayList<>();
+        posicionesPlazaCentral.add(posicion1PlazaCentral);
+        posicionesPlazaCentral.add(posicion2PlazaCentral);
+        posicionesPlazaCentral.add(posicion3PlazaCentral);
+        posicionesPlazaCentral.add(posicion4PlazaCentral);
+        jugador.reducirOro(100);
+        jugador.construirPlazaCentral(mapa,aldeano,posicionesPlazaCentral);
     }
 }

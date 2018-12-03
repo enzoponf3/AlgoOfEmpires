@@ -4,13 +4,11 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Exceptions.EdificioNoExisteException;
-import Modelo.Exceptions.LimiteDePoblacionException;
-import Modelo.Exceptions.PosicionesAledaniasOcupadasException;
-import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Exceptions.*;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
+import Modelo.Unidades.Aldeano;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -177,9 +175,10 @@ public class JugadorCreaUnidadesTest {
 
         jugador.agregarEdificio(plazaCentral,mapa);
         // Plaza Central tiene 12 posiciones aldeanias libres
-        for(int i = 0; i<13; i++)
-            jugador.crearAldeano(mapa,plazaCentral);
-
+        for(int i = 0; i<13; i++) {
+            jugador.recolectarOro(); //Aumento oro para que siempre sea suficiente
+            jugador.crearAldeano(mapa, plazaCentral);
+        }
         Assert.assertEquals(50, jugador.getAldeanos().size() );
     }
 
@@ -260,6 +259,8 @@ public class JugadorCreaUnidadesTest {
         jugador.agregarEdificio(cuartel,mapa);
         // Cuartel tiene 12 posiciones aldeanias libres
         for(int i = 0; i<12; i++){
+            jugador.recolectarOro();
+            jugador.recolectarOro();
             jugador.crearArquero(mapa,cuartel);
         }
 
@@ -282,8 +283,11 @@ public class JugadorCreaUnidadesTest {
         cuartel.finalizarConstruccion();
         jugador.agregarEdificio(cuartel,mapa);
         // Cuartel tiene 12 posiciones aldeanias libres
-        for(int i = 0; i<13; i++)
-            jugador.crearArquero(mapa,cuartel);
+        for(int i = 0; i<13; i++) {
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.crearArquero(mapa, cuartel);
+        }
     }
 
     @Test
@@ -354,8 +358,10 @@ public class JugadorCreaUnidadesTest {
         Cuartel cuartel = new Cuartel(posicionesCuartel);
         cuartel.finalizarConstruccion();
         jugador.agregarEdificio(cuartel,mapa);
-        for(int i = 0; i<12; i++)
-            jugador.crearEspadachin(mapa,cuartel);
+        for(int i = 0; i<12; i++) {
+            jugador.recolectarOro();
+            jugador.crearEspadachin(mapa, cuartel);
+        }
         Assert.assertEquals(12, jugador.getEjercito().size() );
 
     }
@@ -376,6 +382,7 @@ public class JugadorCreaUnidadesTest {
         jugador.agregarEdificio(cuartel,mapa);
         // Cuartel tiene 12 posiciones aldeanias libres
         for(int i = 0; i<13; i++){
+            jugador.recolectarOro();
             jugador.crearEspadachin(mapa,cuartel);
         }
 
@@ -385,6 +392,8 @@ public class JugadorCreaUnidadesTest {
 
     @Test
     public void castilloCreaArmaDeAsedioCorrectamenteDuranteSuTurnoConCastilloPropio(){
+        jugador.recolectarOro();
+        jugador.recolectarOro();
         jugador.crearArmaDeAsedio(mapa,castillo);
         Assert.assertEquals(1, jugador.getEjercito().size() );
     }
@@ -438,16 +447,44 @@ public class JugadorCreaUnidadesTest {
 
     @Test
     public void castilloCreaArmasDeAsedioHastaLlegarALimitePosicionesLibresDuranteSuTurno(){
-        for(int i=0; i<20; i++)
-            jugador.crearArmaDeAsedio(mapa,castillo);
+        for(int i=0; i<20; i++) {
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.crearArmaDeAsedio(mapa, castillo);
+        }
         Assert.assertEquals(20, jugador.getEjercito().size() );
     }
 
     @Test( expected = PosicionesAledaniasOcupadasException.class)
     public void castilloCreaArmasDeAsedioSuperandoLimitePosicionesLibresDuranteSuTurno(){
         // Castillo tiene 20 posiciones aledanias libres
-        for(int i=0; i < 21; i++)
-            jugador.crearArmaDeAsedio(mapa,castillo);
+        for(int i=0; i < 21; i++) {
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.recolectarOro();
+            jugador.crearArmaDeAsedio(mapa, castillo);
+        }
     }
+
+    @Test
+    public void crearUnidadConOroSuficiente() {
+//        Inicialmente solo esta la plaza
+        PlazaCentral plaza = (PlazaCentral) jugador.getEdificios().get(0);
+        jugador.crearAldeano(mapa,plaza);
+        Assert.assertEquals(jugador.getCantidadOro(),75);
+    }
+
+
+    @Test (expected = OroInsuficienteException.class)
+    public void crearUnidadConOroInsuficiente() {
+//        Inicialmente solo esta la plaza
+        PlazaCentral plaza = (PlazaCentral) jugador.getEdificios().get(0);
+        jugador.reducirOro(100);
+        jugador.crearAldeano(mapa,plaza);
+    }
+
 
 }

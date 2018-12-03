@@ -2,6 +2,7 @@ package Controller;
 
 import Modelo.Edificios.Castillo;
 import Modelo.Exceptions.EdificioNoExisteException;
+import Modelo.Exceptions.OroInsuficienteException;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -29,9 +30,14 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
         try {
             jugadorViewActual.crearArmaDeAsedio(castilloMod);
         }catch (EdificioNoExisteException e){
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
             alerta.setHeaderText(null);
             alerta.setContentText("ESTE EDIFICIO NO ES TUYO BOBO");
+            alerta.show();
+        }catch (OroInsuficienteException e) {
+            Alert alerta = new Alert(Alert.AlertType.WARNING);
+            alerta.setHeaderText(null);
+            alerta.setContentText("Oro insuficiente");
             alerta.show();
         }
     }

@@ -1,5 +1,6 @@
 package Controller;
 
+import View.Alerta;
 import View.JugadorView;
 import View.contenedores.DisplayIconJugador;
 import View.contenedores.PantallaJuego;
@@ -24,10 +25,7 @@ public class BeginButtonHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event){
         if(this.jugador1.getNombre() == "" || this.jugador2.getNombre() == "" || jugador1.getFigura() == null || jugador2.getFigura() == null){
-            Alert faltanDatos = new Alert(Alert.AlertType.ERROR);
-            faltanDatos.setHeaderText(null);
-            faltanDatos.setContentText("FALTAN DATOS!");
-            faltanDatos.show();
+            new Alerta().faltanDatos();
         }else{
             Scene scene = new Scene(new PantallaJuego(this.stage,this.jugador1,this.jugador2));
 

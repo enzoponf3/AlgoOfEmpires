@@ -1,13 +1,14 @@
 package Controller;
 
-import Modelo.Edificios.Cuartel;
-import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import View.Alerta;
 import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;
+import View.contenedores.Notificacion;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -35,11 +36,16 @@ public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
             ActualizarView actualizarView = ActualizarView.getInstancia();
             JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
             jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
-        } catch (Exception e) {
-            Alert errorPosicion = new Alert(Alert.AlertType.WARNING);
-            errorPosicion.setHeaderText(null);
-            errorPosicion.setContentText("No es posible construir en esta posición.");
-            errorPosicion.show();
+        }catch (OroInsuficienteException e) {
+            new Alerta().oroInsuficiente();
+        } catch (PosicionInvalidaException e) {
+            new Alerta().posicionNoAledania();
+        } catch (PosicionFueraDelMapaException e) {
+            new Alerta().posicionFueraDelMapa();
+        } catch (AldeanoNoExisteException e) {
+            new Alerta().unidadEnemiga();
+        } catch (PosicionOcupadaException e) {
+            new Alerta().posicionOcupada();
         }
     }
 }

@@ -1,6 +1,8 @@
 package View.contenedores;
 
 import View.JugadorView;
+import View.MapaView;
+
 import java.util.Observable;
 
 public class ActualizarView extends Observable {
@@ -21,6 +23,9 @@ public class ActualizarView extends Observable {
         JugadorView aux = this.jugadorViewActual;
         this.jugadorViewActual = this.jugadorViewInactivo;
         this.jugadorViewInactivo = aux;
+//      Deselecciono casillero del jugador actual
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.seleccionarCasillero(null);
 
         setChanged();
         notifyObservers();

@@ -1,21 +1,22 @@
 package View;
 
 
+import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
+import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Unidad;
 import View.contenedores.PantallaGanador;
-import View.entidades.AldeanoView;
-import View.entidades.CastilloView;
-import View.entidades.CuartelView;
-import View.entidades.PlazaCentralView;
+import View.entidades.*;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -154,12 +155,22 @@ public class JugadorView {
         jugadorModelo.reparar(aldeano,edificio);
     }
 
-    public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
+    public void crearArmaDeAsedio(Castillo castilloMod) {
         Mapa mapaModelo = Mapa.getInstancia();
-        PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
-        PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
-        this.edificiosView.getChildren().add(cuartelView);
-        MapaView mapaView = MapaView.getInstancia();
-        mapaView.agregarPieza(cuartelView);
+        ArmaDeAsedio arma;
+        try{
+            arma = jugadorModelo.crearArmaDeAsedio(mapaModelo, castilloMod);
+            ArmaDeAsedioView armaView = new ArmaDeAsedioView(arma);
+            MapaView mapaView = MapaView.getInstancia();
+            mapaView.agregarPieza(armaView);
+            this.ejercitoView.getChildren().add(armaView);
+
+        }catch (EdificioNoExisteException e){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("ESTE EDIFICIO  NO ES TUYO BOBO");
+            alerta.show();
+        }
+
     }
 }

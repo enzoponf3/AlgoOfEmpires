@@ -1,5 +1,6 @@
 package View.entidades;
 
+import Controller.CrearArmaHandler;
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
 import View.Constantes;
@@ -45,11 +46,19 @@ public class CastilloView extends PiezaView {
         });
     }
 
-    private ContextMenu crearMenu() {
+
+    private ContextMenu crearMenu(){
         ContextMenu menu = new ContextMenu();
         MenuItem crearArmaDeAsedio = new MenuItem("Crear arma de asedio");
+        crearArmaDeAsedio.setOnAction( new CrearArmaHandler(getThis()));
         menu.getItems().addAll(crearArmaDeAsedio);
         return menu;
     }
+
+
+    public  CastilloView getThis(){
+        return this;
+    }
+
 
 }

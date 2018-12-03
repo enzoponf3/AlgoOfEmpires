@@ -6,6 +6,9 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.EdificioNoExisteException;
+import Modelo.Exceptions.TurnoDelOponenteException;
+import Modelo.Exceptions.UnidadEstaOcupadoException;
+import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -28,12 +31,9 @@ public class JugadorView {
 
     private ImageView personaje;
     private String nombre = "";
-
     private Jugador jugadorModelo;
-    private Group aldeanosView;
-    private Group ejercitoView;
-    private Group edificiosView;
     private CastilloView castilloView;
+    private Mapa mapaModelo;
 
     public void setPersonaje(ImageView figura){
         this.personaje = figura;
@@ -62,30 +62,20 @@ public class JugadorView {
 
     public void setJugadorModelo(Jugador jugadorModelo){
         this.jugadorModelo = jugadorModelo;
-        inicializarPiezas();
+        this.mapaModelo = Mapa.getInstancia();
+
     }
 
-    public Group getPiezas(){
+    public Group inicializarPiezas(){
         Group piezas = new Group();
-        piezas.getChildren().addAll(castilloView, aldeanosView, ejercitoView, edificiosView);
-
-        return piezas;
-    }
-
-    public void inicializarPiezas(){
         this.castilloView = new CastilloView(this.jugadorModelo.getCastillo());
-
         PlazaCentralView plazaCentralView = new PlazaCentralView((PlazaCentral) this.jugadorModelo.getEdificios().get(0));
-        this.edificiosView = new Group();
-        this.edificiosView.getChildren().add(plazaCentralView);
-
-        this.aldeanosView = new Group();
+        piezas.getChildren().addAll(castilloView,plazaCentralView);
         for(Aldeano aldeanoModelo : jugadorModelo.getAldeanos()){
             AldeanoView aldeanoView = new AldeanoView(aldeanoModelo);
-            this.aldeanosView.getChildren().add(aldeanoView);
+            piezas.getChildren().add(aldeanoView);
         }
-
-        this.ejercitoView = new Group();
+        return piezas;
     }
 
     public String getOro() {
@@ -100,23 +90,9 @@ public class JugadorView {
         return Integer.toString(jugadorModelo.getVida()); //Este pregunta por vida castillo, le puse vida y no vidaCastillo para no revelar implementacion o la flasheo fuerte?
     }
 
-    public boolean contienePieza(PiezaView piezaView){
-        if( this.aldeanosView.getChildren().contains(piezaView) )
-            return true;
-        else if( this.ejercitoView.getChildren().contains(piezaView) )
-            return true;
-        else if( this.edificiosView.getChildren().contains(piezaView) )
-            return true;
-        else if( this.edificiosView.getChildren().contains(piezaView) )
-            return true;
-        else
-            return false;
 
-    }
-
-    public boolean mover(Unidad unidadModelo, Posicion destino){
-        Mapa mapaModelo = Mapa.getInstancia();
-        return jugadorModelo.mover(unidadModelo, destino, mapaModelo);
+    public void mover(Unidad unidadModelo, Posicion destino){
+        jugadorModelo.mover(unidadModelo, destino, mapaModelo);
     }
 
     public void construirCuartel(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones){
@@ -124,7 +100,6 @@ public class JugadorView {
         try {
             Cuartel cuartelModelo = jugadorModelo.construirCuartel(mapaModelo, aldeanoModelo, posiciones);
             CuartelView cuartelView = new CuartelView(cuartelModelo);
-            this.edificiosView.getChildren().add(cuartelView);
             MapaView mapaView = MapaView.getInstancia();
             mapaView.agregarPieza(cuartelView);
         } catch (Exception e) {
@@ -156,21 +131,18 @@ public class JugadorView {
     }
 
     public void crearArmaDeAsedio(Castillo castilloMod) {
-        Mapa mapaModelo = Mapa.getInstancia();
         ArmaDeAsedio arma;
-        try{
-            arma = jugadorModelo.crearArmaDeAsedio(mapaModelo, castilloMod);
-            ArmaDeAsedioView armaView = new ArmaDeAsedioView(arma);
-            MapaView mapaView = MapaView.getInstancia();
-            mapaView.agregarPieza(armaView);
-            this.ejercitoView.getChildren().add(armaView);
+        arma = jugadorModelo.crearArmaDeAsedio(mapaModelo, castilloMod);
+        ArmaDeAsedioView armaView = new ArmaDeAsedioView(arma);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(armaView);
+    }
 
-        }catch (EdificioNoExisteException e){
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText(null);
-            alerta.setContentText("ESTE EDIFICIO  NO ES TUYO BOBO");
-            alerta.show();
-        }
+    public void montarArma(ArmaDeAsedio arma) {
+        jugadorModelo.montarArmaDeAsedio(arma);
+    }
 
+    public void desmontarArma(ArmaDeAsedio arma) {
+        jugadorModelo.desmontarArmaDeAsedio(arma);
     }
 }

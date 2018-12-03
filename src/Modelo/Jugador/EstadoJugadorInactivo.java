@@ -12,7 +12,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
 
     @Override
-    public boolean mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador){
+    public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 

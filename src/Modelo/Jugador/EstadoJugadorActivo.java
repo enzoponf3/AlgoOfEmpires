@@ -111,10 +111,12 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public void construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public PlazaCentral construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         jugador.verificarAldeanoPropio(aldeano);
+
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicionesPlazaCentral);
         jugador.agregarEdificio(plaza, mapa);
+        return plaza;
     }
 
     @Override

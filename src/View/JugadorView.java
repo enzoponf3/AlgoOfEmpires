@@ -131,4 +131,13 @@ public class JugadorView {
     public void reparar(Aldeano aldeano, Edificio edificio) {
         jugadorModelo.reparar(aldeano,edificio);
     }
+
+    public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
+        Mapa mapaModelo = Mapa.getInstancia();
+        PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
+        PlazaCentralView cuartelView = new PlazaCentralView(plazaCentral);
+        this.edificiosView.getChildren().add(cuartelView);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(cuartelView);
+    }
 }

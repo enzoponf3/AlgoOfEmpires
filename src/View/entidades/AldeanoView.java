@@ -1,6 +1,7 @@
 package View.entidades;
 
-import Controller.ConstruirHandler;
+import Controller.ConstruirCuartelHandler;
+import Controller.ConstruirPlazaCentralHandler;
 import Controller.Moverhandler;
 import Controller.RepararHandler;
 import Modelo.Posicion;
@@ -38,6 +39,7 @@ public class AldeanoView extends PiezaView {
         ImageView imagenAldeanoEspalda = new ImageView(aldeanoEspalda);
 
         agregarImagen(imagenAldeanoFrente, imagenAldeanoEspalda);
+        ContextMenu menu = this.crearMenu(aldeanoModelo);
 
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
@@ -45,31 +47,27 @@ public class AldeanoView extends PiezaView {
             public void handle(MouseEvent event) {
                 /*mouseX = event.getScreenX();
                 mouseY = event.getSceneY();*/           //esto tampoco se usa porque dsp hacen un event.getscreen en vez de usar estas varaibles
-
-                ContextMenu menu = this.crearMenu();
                 menu.show(imagenAldeanoFrente, event.getScreenX(), event.getScreenY());
             }
-
-            private ContextMenu crearMenu(){
-
-                ContextMenu menu = new ContextMenu();
-                MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-                construirPlazaCentral.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
-
-                MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-                construirCuartel.setOnAction(new ConstruirHandler(aldeanoModelo, getThis()));
-
-                MenuItem reparar = new MenuItem("Reparar");
-                reparar.setOnAction(new RepararHandler(aldeanoModelo,getThis()));
-
-                MenuItem mover = new MenuItem("Mover");
-                mover.setOnAction(new Moverhandler(aldeanoModelo, getThis()));
-
-                menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
-                return menu;
-            }
-
         });
+    }
+
+    private ContextMenu crearMenu(Aldeano aldeanoModelo){
+        ContextMenu menu = new ContextMenu();
+        MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
+        construirPlazaCentral.setOnAction(new ConstruirPlazaCentralHandler(aldeanoModelo, getThis()));
+
+        MenuItem construirCuartel = new MenuItem("Construir Cuartel");
+        construirCuartel.setOnAction(new ConstruirCuartelHandler(aldeanoModelo, getThis()));
+
+        MenuItem reparar = new MenuItem("Reparar");
+        reparar.setOnAction(new RepararHandler(aldeanoModelo,getThis()));
+
+        MenuItem mover = new MenuItem("Mover");
+        mover.setOnAction(new Moverhandler(aldeanoModelo, getThis()));
+
+        menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
+        return menu;
     }
 
     private AldeanoView getThis(){

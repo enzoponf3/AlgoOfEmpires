@@ -67,7 +67,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
+    public PlazaCentral construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         throw new TurnoDelOponenteException();
     }
 

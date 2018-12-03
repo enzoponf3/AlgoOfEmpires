@@ -31,26 +31,20 @@ public class PlazaCentralView extends PiezaView {
         ImageView imagenPlaza = new ImageView(plaza);
 
         agregarImagen(imagenPlaza, imagenPlaza);
+        ContextMenu menu = this.crearMenu();
 
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        this.setOnMouseClicked(new  EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                ContextMenu menu = this.crearMenu();
                 menu.show(imagenPlaza, event.getScreenX(), event.getScreenY());
             }
-
-            private ContextMenu crearMenu(){
-                ContextMenu menu = new ContextMenu();
-                MenuItem crearAldeano = new MenuItem("Crear aldeano");
-
-                menu.getItems().addAll(crearAldeano);
-                return menu;
-            }
-
         });
-
-
     }
 
-
+    private ContextMenu crearMenu(){
+        ContextMenu menu = new ContextMenu();
+        MenuItem crearAldeano = new MenuItem("Crear aldeano");
+        menu.getItems().addAll(crearAldeano);
+        return menu;
+    }
 }

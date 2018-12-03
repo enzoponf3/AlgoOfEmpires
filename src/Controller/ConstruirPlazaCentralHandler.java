@@ -14,12 +14,12 @@ import javafx.event.EventHandler;
 
 import java.util.ArrayList;
 
-public class ConstruirHandler implements EventHandler<ActionEvent> {
+public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
 
-    AldeanoView aldeanoView;
-    Aldeano aldeanoModelo;
+    private AldeanoView aldeanoView;
+    private Aldeano aldeanoModelo;
 
-    public ConstruirHandler(Aldeano aldeanoModelo, AldeanoView aldeanoView){
+    public ConstruirPlazaCentralHandler(Aldeano aldeanoModelo, AldeanoView aldeanoView){
         this.aldeanoModelo = aldeanoModelo;
         this.aldeanoView = aldeanoView;
     }
@@ -32,8 +32,8 @@ public class ConstruirHandler implements EventHandler<ActionEvent> {
 
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
-        System.out.println("A construir");
-        jugadorViewActual.construirCuartel(aldeanoModelo, posiciones);
+        System.out.println("A construir plaza");
+        jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
         System.out.println("Se construyo");
     }
 

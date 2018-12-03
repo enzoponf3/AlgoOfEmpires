@@ -35,26 +35,21 @@ public class CastilloView extends PiezaView {
 
         agregarImagen(imagenCastilloADerecha, imagenCastilloAIzquierda);
 
+        ContextMenu menu = this.crearMenu();
+
         this.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                ContextMenu menu = this.crearMenu();
                 menu.show(imagenCastilloADerecha, event.getScreenX(), event.getScreenY());
             }
-
-            private ContextMenu crearMenu(){
-                ContextMenu menu = new ContextMenu();
-                MenuItem crearArmaDeAsedio = new MenuItem("Crear arma de asedio");
-
-
-                menu.getItems().addAll(crearArmaDeAsedio);
-                return menu;
-            }
-
         });
-
-
     }
 
+    private ContextMenu crearMenu() {
+        ContextMenu menu = new ContextMenu();
+        MenuItem crearArmaDeAsedio = new MenuItem("Crear arma de asedio");
+        menu.getItems().addAll(crearArmaDeAsedio);
+        return menu;
+    }
 
 }

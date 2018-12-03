@@ -156,8 +156,8 @@ public class Jugador {
 
     // Construccion y reparar
 
-    public void construirPlazaCentral(Mapa mapa, Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
-        this.estado.construirPlazaCentral(this, mapa, aldeano, posicionesPlazaCentral);
+    public PlazaCentral construirPlazaCentral(Mapa mapa, Aldeano aldeano,ArrayList<Posicion> posicionesPlazaCentral ){
+        return this.estado.construirPlazaCentral(this, mapa, aldeano, posicionesPlazaCentral);
     }
 
     public void continuarConstruccionPlazaCentral(Aldeano aldeano, PlazaCentral plazaEnConstruccion){

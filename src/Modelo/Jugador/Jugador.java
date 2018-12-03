@@ -265,13 +265,11 @@ public class Jugador {
     }
 
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
-        verificarAtacantePropio(armaDeAsedio);
-        this.estado.montarArmaDeAsedio(armaDeAsedio);
+        this.estado.montarArmaDeAsedio(armaDeAsedio,this);
     }
 
     public void desmontarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){
-        verificarAtacantePropio(armaDeAsedio);
-        this.estado.desmontarArmaDeAsedio(armaDeAsedio);
+        this.estado.desmontarArmaDeAsedio(armaDeAsedio, this);
     }
 
     // Ataques

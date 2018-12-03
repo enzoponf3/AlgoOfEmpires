@@ -4,7 +4,6 @@ import Modelo.Casillero;
 import Modelo.IEntidad;
 import Modelo.Mapa;
 import Modelo.Posicion;
-import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 
@@ -53,8 +52,8 @@ public class MapaView extends Pane {
 
 
     public void colocarPiezasIniciales(JugadorView jugadorView1, JugadorView jugadorView2){
-        Group piezasJ1 = jugadorView1.getPiezas();
-        Group piezasJ2 = jugadorView2.getPiezas();
+        Group piezasJ1 = jugadorView1.inicializarPiezas();
+        Group piezasJ2 = jugadorView2.inicializarPiezas();
 
         this.piezas = new Group();
         this.piezas.getChildren().addAll(piezasJ1, piezasJ2);

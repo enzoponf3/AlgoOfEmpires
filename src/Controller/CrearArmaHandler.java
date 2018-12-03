@@ -1,6 +1,7 @@
 package Controller;
 
 import Modelo.Edificios.Castillo;
+import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -10,6 +11,7 @@ import View.contenedores.ActualizarView;
 import View.entidades.CastilloView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 
 public class CrearArmaHandler implements EventHandler <ActionEvent> {
 
@@ -17,8 +19,6 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
 
     public CrearArmaHandler(CastilloView castillo) {
         this.castillo  = castillo;
-
-
     }
 
     @Override
@@ -26,6 +26,13 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
         Castillo castilloMod = (Castillo) castillo.getEntidad();
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
-        jugadorViewActual.crearArmaDeAsedio(castilloMod);
+        try {
+            jugadorViewActual.crearArmaDeAsedio(castilloMod);
+        }catch (EdificioNoExisteException e){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("ESTE EDIFICIO NO ES TUYO BOBO");
+            alerta.show();
+        }
     }
 }

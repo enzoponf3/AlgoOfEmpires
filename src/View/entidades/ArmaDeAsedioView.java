@@ -3,7 +3,7 @@ package View.entidades;
 import Controller.ConstruirHandler;
 import Controller.DesmontarHandler;
 import Controller.MontarHandler;
-import Controller.Moverhandler;
+import Controller.MoverHandler;
 import Controller.AtacarHandler;
 import Modelo.Posicion;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.PickResult;
 
 public class ArmaDeAsedioView extends PiezaView {
 
@@ -44,16 +45,16 @@ public class ArmaDeAsedioView extends PiezaView {
 
                 ContextMenu menu = new ContextMenu();
                 MenuItem montar = new MenuItem("Montar");
-                montar.setOnAction(new MontarHandler(arma, getThis()));
+                montar.setOnAction(new MontarHandler(arma));
 
                 MenuItem desmontar = new MenuItem("Desmontar");
-                desmontar.setOnAction(new DesmontarHandler(arma, getThis()));
+                desmontar.setOnAction(new DesmontarHandler(arma));
 
                 MenuItem atacar = new MenuItem("Atacar");
                 atacar.setOnAction(new AtacarHandler(arma,getThis()));
 
                 MenuItem mover = new MenuItem("Mover");
-                mover.setOnAction(new Moverhandler(arma, getThis()));
+                mover.setOnAction(new MoverHandler(arma, getThis()));
 
                 menu.getItems().addAll(montar, desmontar, atacar, mover);
                 return menu;

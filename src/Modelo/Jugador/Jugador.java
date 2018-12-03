@@ -247,6 +247,10 @@ public class Jugador {
         if( this.edificios.contains(edificio) || this.castillo == edificio )
             throw new EdificioPropioException();
     }
+    void verificarUnidadPropia(Unidad unidad){
+        if(!this.aldeanos.contains(unidad) && !this.ejercito.contains(unidad))
+            throw new UnidadMovibleNoExisteException();
+    }
 
     // Cambio de estado
 
@@ -260,8 +264,9 @@ public class Jugador {
 
     // Mover y cambios Arma Asedio
 
-    public boolean mover(Unidad unidad, Posicion destino, Mapa mapa){
-        return this.estado.mover(unidad, destino, mapa, this);
+    public void mover(Unidad unidad, Posicion destino, Mapa mapa){
+        this.verificarUnidadPropia(unidad);
+        this.estado.mover(unidad, destino, mapa, this);
     }
 
     public void montarArmaDeAsedio(ArmaDeAsedio armaDeAsedio){

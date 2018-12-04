@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Constantes;
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -11,21 +12,14 @@ import java.util.ArrayList;
 
 public class Cuartel extends Edificio {
 
-    private static final int VIDA = 250;
-    private static final int COSTO = 50;
-    private static final int VELOCIDAD_REPARACION = 50;
-    private static final int ANCHO = 2;
-    private static final int ALTO = 2;
-    private static final int TURNOS_CONSTRUCCION = 3;
-
     private IEstadoCuartel estado;
 
     public Cuartel(ArrayList<Posicion> posiciones) {
-        this.vidaMax = VIDA;
+        this.vidaMax = Constantes.VIDA_CUARTEL;
         this.vida = 0;
-        this.costo = COSTO;
-        this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.estado = new EstadoCuartelNoConstruido(TURNOS_CONSTRUCCION);
+        this.costo = Constantes.COSTO_CUARTEL;
+        this.velocidadReparacion = Constantes.VELOCIDAD_REPARACION_CUARTEL;
+        this.estado = new EstadoCuartelNoConstruido(Constantes.TURNOS_CONSTRUCCION_CUARTEL);
 
         this.posiciones = posiciones;
     }
@@ -72,7 +66,7 @@ public class Cuartel extends Edificio {
     }
 
     public void finalizarConstruccion() {
-        this.vida = VIDA;
+        this.vida = Constantes.VIDA_CUARTEL;
         this.estado = new EstadoCuartelConstruido();
     }
 

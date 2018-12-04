@@ -1,4 +1,5 @@
 package Modelo.Unidades;
+import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
 import Modelo.Posicion;
@@ -7,17 +8,13 @@ import java.util.ArrayList;
 
 public class ArmaDeAsedio extends Unidad implements IAtacante {
 
-    private final int VIDA = 150;
-    private int COSTO = 200;
-    private final int RANGO = 5;
-    private final int DANIO_EDIFICIO = 75;
     protected IEstadoArmaDeAsedio estado;
 
     public ArmaDeAsedio(Posicion posicion){
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.rango = RANGO;
-        this.danioEdificio = DANIO_EDIFICIO;
+        this.vida = Constantes.VIDA_ARMA_ASEDIO;
+        this.costo = Constantes.COSTO_ARMA_ASEDIO;
+        this.rango = Constantes.RANGO_ARMA_ASEDIO;
+        this.danioEdificio = Constantes.DANIO_EDIFICIO_ARMA_ASEDIO;
         this.estado = new EstadoArmaDeAsedioDesarmado(this);
         this.posicion = posicion;
     }

@@ -119,9 +119,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     public PlazaCentral construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral){
         jugador.verificarAldeanoPropio(aldeano);
         mapa.verificarPosicionesAledanias(aldeano.getPosicion(),posicionesPlazaCentral);
-        jugador.verificarOroSuficiente(Constantes.COSTO_PLAZA);
+        jugador.verificarOroSuficiente(Constantes.COSTO_PLAZA_CENTRAL);
         PlazaCentral plaza = aldeano.construirPlazaCentral(posicionesPlazaCentral);
-        jugador.reducirOro(Constantes.COSTO_PLAZA);
+        jugador.reducirOro(Constantes.COSTO_PLAZA_CENTRAL);
         jugador.agregarEdificio(plaza, mapa);
         return plaza;
     }

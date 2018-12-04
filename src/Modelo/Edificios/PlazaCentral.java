@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Constantes;
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -9,23 +10,15 @@ import java.util.ArrayList;
 
 public class PlazaCentral extends Edificio {
 
-    private static final int VIDA = 450;
-    private static final int COSTO = 100;
-    private static final int VELOCIDAD_REPARACION = 25;
-    private static final int ANCHO = 2;
-    private static final int ALTO = 2;
-    private static final int TURNOS = 3;
-
-
     private IEstadoPlazaCentral estado;
 
     public PlazaCentral(ArrayList<Posicion> posiciones) {
-        this.vidaMax = VIDA;
+        this.vidaMax = Constantes.VIDA_PLAZA_CENTRAL;
         // Inicializo con vida negativa en funcion del reducirVida
         this.vida = 0;
-        this.costo = COSTO;
-        this.velocidadReparacion = VELOCIDAD_REPARACION;
-        this.estado = new EstadoPlazaCentralNoConstruida(TURNOS);
+        this.costo = Constantes.COSTO_PLAZA_CENTRAL;
+        this.velocidadReparacion = Constantes.VELOCIDAD_REPARACION_PLAZA_CENTRAL;
+        this.estado = new EstadoPlazaCentralNoConstruida(Constantes.TURNOS_CONSTRUCCION_PLAZA_CENTRAL);
 
         this.posiciones = posiciones;
     }
@@ -60,7 +53,7 @@ public class PlazaCentral extends Edificio {
     }
 
     public void finalizarConstruccion() {
-        this.vida = VIDA;
+        this.vida = Constantes.VIDA_PLAZA_CENTRAL;
         this.estado = new EstadoPlazaCentralConstruida();
     }
 

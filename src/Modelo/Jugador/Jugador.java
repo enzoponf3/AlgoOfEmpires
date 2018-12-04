@@ -7,6 +7,7 @@ import Modelo.Posicion;
 import Modelo.Unidades.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import Modelo.Constantes;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,9 +21,6 @@ public class Jugador {
     private ArrayList<Aldeano> aldeanos;
     private ArrayList<IAtacante> ejercito;
     private int cantidadOro;
-    private static final int CANTIDAD_ALDEANOS_INICIAL = 3;
-    private static final int CANTIDAD_ORO_INICIAL = 100;
-    private static final int LIMITE_POBLACION = 50;
     private SimpleIntegerProperty oroProperty = new SimpleIntegerProperty(this,"oro");
     private SimpleIntegerProperty cantidadPoblacionProperty = new SimpleIntegerProperty(this,"cantidadPoblacion");
 
@@ -63,7 +61,7 @@ public class Jugador {
     // Constructor e Inicializadores
 
     public Jugador( Mapa mapa, int seedCastillo, int seedPlazaCentral ){
-        this.cantidadOro = CANTIDAD_ORO_INICIAL;
+        this.cantidadOro = Constantes.CANTIDAD_ORO_INICIAL;
         this.ejercito = new ArrayList<>();
         this.aldeanos = new ArrayList<>();
         this.edificios = new ArrayList<>();
@@ -105,7 +103,7 @@ public class Jugador {
     private void inicializarAldeanos(Mapa mapa){
         // Unico edificio al inicio es la plaza central
         PlazaCentral plaza = (PlazaCentral) edificios.get(0);
-        for(int i = 0; i < CANTIDAD_ALDEANOS_INICIAL; i++) {
+        for(int i = 0; i < Constantes.CANTIDAD_ALDEANOS_INICIAL; i++) {
             Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plaza);
             Aldeano aldeano = new Aldeano(posicionAldeano);
             aldeanos.add(aldeano);
@@ -128,7 +126,7 @@ public class Jugador {
     //  Funcionalidades Jugador
 
     private boolean llegoAlLimiteDePoblacion(){
-        return (this.aldeanos.size() + this.ejercito.size()) == LIMITE_POBLACION ;
+        return (this.aldeanos.size() + this.ejercito.size()) == Constantes.LIMITE_POBLACION ;
     }
 
     void verificarLimitePoblacion(){
@@ -351,7 +349,7 @@ public class Jugador {
         }
     }
 
-    public void verificarOroSuficiente(int costo) {
+    void verificarOroSuficiente(int costo) {
         if (this.cantidadOro < costo)
             throw new OroInsuficienteException();
     }

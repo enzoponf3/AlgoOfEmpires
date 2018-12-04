@@ -1,7 +1,7 @@
 package Modelo.Unidades;
+import Modelo.Constantes;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
-import Modelo.Unidades.*;
 import Modelo.Edificios.*;
 import Modelo.Posicion;
 
@@ -9,16 +9,13 @@ import java.util.ArrayList;
 
 public class Aldeano extends Unidad {
 
-    private final int VIDA = 50;
-    private final int COSTO = 25;
-    private final int RANGO = 1;
     private IEstadoAldeano estado;
 
 
     public Aldeano(Posicion posicion) {
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.rango = RANGO;
+        this.vida = Constantes.VIDA_ALDEANO;
+        this.costo = Constantes.COSTO_ALDEANO;
+        this.rango = Constantes.RANGO_ALDEANO;
         this.estado = new EstadoAldeanoLibre(this);
         this.posicion = posicion;
     }
@@ -55,7 +52,7 @@ public class Aldeano extends Unidad {
         return this.estado.generaOro();
     }
 
-    public void movio(){this.estado = new EstadoAldeanoMovio(this);}
+    void movio(){this.estado = new EstadoAldeanoMovio(this);}
     @Override
     public void mover(Posicion destino){
         this.estado.mover(destino);

@@ -1,26 +1,21 @@
 package Modelo.Unidades;
+import Modelo.Constantes;
 import Modelo.Posicion;
-import Modelo.Exceptions.*;
 import Modelo.Edificios.Edificio;
 
 import java.util.ArrayList;
 
 public class Espadachin extends Unidad implements IAtacante{
 
-   private final int VIDA = 100;
-   private final int COSTO = 50;
-   private final int DANIO_UNIDAD = 25;
-   private final int DANIO_EDIFICIO = 15;
-   private  IEstadoEspadachin estado;
-   private final int RANGO = 1;
+    private  IEstadoEspadachin estado;
 
     public Espadachin(Posicion posicion){
-        this.vida = VIDA;
-        this.costo = COSTO;
+        this.vida = Constantes.VIDA_ESPADACHIN;
+        this.costo = Constantes.COSTO_ESPADACHIN;
         this.estado = new EstadoEspadachinLibre(this);
-        this.danioUnidad = DANIO_UNIDAD;
-        this.danioEdificio = DANIO_EDIFICIO;
-        this.rango = RANGO;
+        this.danioUnidad = Constantes.DANIO_UNIDAD_ESPADACHIN;
+        this.danioEdificio = Constantes.DANIO_EDIFICIO_ESPADACHIN;
+        this.rango = Constantes.RANGO_ESPADACHIN;
         this.posicion = posicion;
     }
 

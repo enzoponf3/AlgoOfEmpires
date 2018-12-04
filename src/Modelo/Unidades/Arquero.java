@@ -1,24 +1,19 @@
 package Modelo.Unidades;
+import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
 import Modelo.Posicion;
-
 import java.util.ArrayList;
 
 public class Arquero extends Unidad implements IAtacante {
 
-    private final int VIDA = 75;
-    private final int COSTO= 75;
     private IEstadoArquero estado;
-    private final  int RANGO = 3;
-    private final int DANIO_UNIDAD = 15;
-    private final int DANIO_EDIFICIO = 10;
 
     public Arquero(Posicion posicion) {
-        this.vida = VIDA;
-        this.costo = COSTO;
-        this.danioUnidad = DANIO_UNIDAD;
-        this.danioEdificio = DANIO_EDIFICIO;
-        this.rango = RANGO;
+        this.vida = Constantes.VIDA_ARQUERO;
+        this.costo = Constantes.COSTO_ARQUERO;
+        this.danioUnidad = Constantes.DANIO_UNIDAD_ARQUERO;
+        this.danioEdificio = Constantes.DANIO_EDIFICIO_ARQUERO;
+        this.rango = Constantes.RANGO_ARQUERO;
         this.estado = new EstadoArqueroLibre(this);
         this.posicion = posicion;
     }

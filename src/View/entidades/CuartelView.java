@@ -5,6 +5,7 @@ import Modelo.Posicion;
 import Modelo.Constantes;
 import View.PiezaView;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -28,6 +29,20 @@ public class CuartelView extends PiezaView {
 
         agregarImagen(imagenPlaza, imagenPlaza);
 
+    }
+
+
+    @Override
+    public ContextMenu crearMenu(){
+        ContextMenu menu = new ContextMenu();
+
+        MenuItem crearEspadachin = new MenuItem("Crear Espadachin");
+
+        MenuItem crearArquero = new MenuItem("Crear Arquero");
+
+        menu.getItems().addAll(crearArquero, crearEspadachin);
+
+        return menu;
     }
 
 }

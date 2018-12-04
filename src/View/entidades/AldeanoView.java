@@ -8,19 +8,12 @@ import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Constantes;
 import View.PiezaView;
-import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class AldeanoView extends PiezaView {
-
-    /*private ContextMenu menu;                 //Revisar porque no se usan, si no saquenlas
-
-    private double mouseX;
-    private double mouseY;*/
 
     public AldeanoView(Aldeano aldeanoModelo){
 
@@ -38,32 +31,23 @@ public class AldeanoView extends PiezaView {
         ImageView imagenAldeanoEspalda = new ImageView(aldeanoEspalda);
 
         agregarImagen(imagenAldeanoFrente, imagenAldeanoEspalda);
-        ContextMenu menu = this.crearMenu(aldeanoModelo);
 
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                /*mouseX = event.getScreenX();
-                mouseY = event.getSceneY();*/           //esto tampoco se usa porque dsp hacen un event.getscreen en vez de usar estas varaibles
-                menu.show(imagenAldeanoFrente, event.getScreenX(), event.getScreenY());
-            }
-        });
     }
 
-    private ContextMenu crearMenu(Aldeano aldeanoModelo){
+    @Override
+    public ContextMenu crearMenu(){
         ContextMenu menu = new ContextMenu();
         MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-        construirPlazaCentral.setOnAction(new ConstruirPlazaCentralHandler(aldeanoModelo, getThis()));
+        construirPlazaCentral.setOnAction(new ConstruirPlazaCentralHandler((Aldeano) this.entidadModelo, getThis()));
 
         MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-        construirCuartel.setOnAction(new ConstruirCuartelHandler(aldeanoModelo, getThis()));
+        construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo, getThis()));
 
         MenuItem reparar = new MenuItem("Reparar");
-        reparar.setOnAction(new RepararHandler(aldeanoModelo,getThis()));
+        reparar.setOnAction(new RepararHandler((Aldeano) this.entidadModelo,getThis()));
 
         MenuItem mover = new MenuItem("Mover");
-        mover.setOnAction(new MoverHandler(aldeanoModelo, getThis()));
+        mover.setOnAction(new MoverHandler(this.entidadModelo, getThis()));
 
         menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
         return menu;

@@ -47,18 +47,20 @@ public class CastilloView extends PiezaView {
     }
 
 
-    private ContextMenu crearMenu(){
-        ContextMenu menu = new ContextMenu();
-        MenuItem crearArmaDeAsedio = new MenuItem("Crear arma de asedio");
-        crearArmaDeAsedio.setOnAction( new CrearArmaHandler(getThis()));
-        menu.getItems().addAll(crearArmaDeAsedio);
-        return menu;
-    }
-
-
     public  CastilloView getThis(){
         return this;
     }
 
 
+    @Override
+    public ContextMenu crearMenu(){
+        ContextMenu menu = new ContextMenu();
+
+        MenuItem crearArmaDeAsedio = new MenuItem("Crear Arma de asedio");
+        crearArmaDeAsedio.setOnAction( new CrearArmaHandler(getThis()));
+
+        menu.getItems().addAll(crearArmaDeAsedio);
+
+        return menu;
+    }
 }

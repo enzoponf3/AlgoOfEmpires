@@ -14,7 +14,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.PickResult;
 
 public class ArmaDeAsedioView extends PiezaView {
 
@@ -64,6 +63,23 @@ public class ArmaDeAsedioView extends PiezaView {
 
     private ArmaDeAsedioView getThis(){
         return this;
+    }
+
+    @Override
+    public ContextMenu crearMenu(){
+        ContextMenu menu = new ContextMenu();
+
+        MenuItem montar = new MenuItem("Montar");
+
+        MenuItem atacar = new MenuItem("Atacar");
+
+        MenuItem desmontar = new MenuItem("Desmontar");
+
+        MenuItem mover = new MenuItem("Mover");
+
+        menu.getItems().addAll(montar, atacar, desmontar, mover);
+
+        return menu;
     }
 
 }

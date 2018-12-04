@@ -39,10 +39,14 @@ public class PlazaCentralView extends PiezaView {
         });
     }
 
-    private ContextMenu crearMenu(){
+
+    @Override
+    public ContextMenu crearMenu(){
         ContextMenu menu = new ContextMenu();
+
         MenuItem crearAldeano = new MenuItem("Crear aldeano");
         menu.getItems().addAll(crearAldeano);
+
         return menu;
     }
 }

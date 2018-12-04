@@ -4,24 +4,26 @@ import Controller.PiezaHandler;
 import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Constantes;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 
-public class PiezaView extends StackPane {
+public abstract class PiezaView extends StackPane {
 
     private ImageView imagenPieza;
-    private IEntidad entidadModelo;
+    protected IEntidad entidadModelo;
     private double alto;
     private double ancho;
 
     private int x;
     private int y;
 
+    private ContextMenu menu;
+
     public PiezaView(IEntidad entidadModelo){
 
         this.entidadModelo = entidadModelo;
-
         setOnMousePressed(new PiezaHandler(this));
 
     }
@@ -67,5 +69,13 @@ public class PiezaView extends StackPane {
     // Seba
     public IEntidad getEntidad() {
         return this.entidadModelo;
+    }
+
+    //Tati
+
+    public abstract ContextMenu crearMenu();
+
+    public ImageView getImagen(){
+        return this.imagenPieza;
     }
 }

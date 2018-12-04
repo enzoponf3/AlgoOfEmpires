@@ -1,7 +1,9 @@
 package View;
 
 import Modelo.*;
+import Modelo.Exceptions.CasilleroNoSeleccionadoException;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 
@@ -40,6 +42,8 @@ public class MapaView extends Pane {
         colocarPiezasIniciales(jugadorView1, jugadorView2);
         getChildren().addAll(casilleros, piezas);
 
+        this.casilleroSeleccionada = null;
+
         INSTANCIA = this;
     }
 
@@ -67,6 +71,8 @@ public class MapaView extends Pane {
     }
 
     public Posicion getDestino(){
+        if( casilleroSeleccionada == null)
+            throw new CasilleroNoSeleccionadoException();
         return this.casilleroSeleccionada.getPosicion();
     }
 
@@ -80,7 +86,6 @@ public class MapaView extends Pane {
     }
 
     public Mapa getMapa (){ return this.mapaModelo;}
-
 
 
 }

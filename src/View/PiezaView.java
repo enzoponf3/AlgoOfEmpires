@@ -2,21 +2,11 @@ package View;
 
 import Controller.PiezaHandler;
 import Modelo.IEntidad;
-import Modelo.Mapa;
 import Modelo.Posicion;
-import Modelo.Unidades.Unidad;
-import View.Constantes;
-import View.entidades.AldeanoView;
-import javafx.event.EventHandler;
-import javafx.scene.image.Image;
+import Modelo.Constantes;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
-
-import static View.Constantes.ALTURA_CASTILLO;
-
 
 public class PiezaView extends StackPane {
 

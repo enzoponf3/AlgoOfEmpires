@@ -2,6 +2,7 @@ package View;
 
 import Controller.CasilleroHandler;
 import Modelo.Casillero;
+import Modelo.Constantes;
 import Modelo.Posicion;
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;

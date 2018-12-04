@@ -1,4 +1,4 @@
-package View;
+package Modelo;
 
 
 public class Constantes {

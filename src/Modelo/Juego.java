@@ -1,7 +1,6 @@
 package Modelo;
 
 import Modelo.Jugador.Jugador;
-import View.Constantes;
 
 import java.util.Random;
 

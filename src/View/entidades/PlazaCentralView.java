@@ -2,7 +2,7 @@ package View.entidades;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
-import View.Constantes;
+import Modelo.Constantes;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;

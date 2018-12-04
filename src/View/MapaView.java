@@ -1,9 +1,6 @@
 package View;
 
-import Modelo.Casillero;
-import Modelo.IEntidad;
-import Modelo.Mapa;
-import Modelo.Posicion;
+import Modelo.*;
 import javafx.scene.Group;
 import javafx.scene.layout.Pane;
 
@@ -28,7 +25,7 @@ public class MapaView extends Pane {
         this.jugadorView1 = jugadorView1;
         this.jugadorView2 = jugadorView2;
 
-        this.setPrefSize(anchoMapa*Constantes.TAMANIO_CASILLERO, altoMapa*Constantes.TAMANIO_CASILLERO);
+        this.setPrefSize(anchoMapa* Constantes.TAMANIO_CASILLERO, altoMapa*Constantes.TAMANIO_CASILLERO);
 
         //creo los casilleros para poner en el Pane
         for(int y = 0; y< altoMapa ; y++){

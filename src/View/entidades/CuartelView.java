@@ -2,7 +2,7 @@ package View.entidades;
 
 import Modelo.Edificios.Cuartel;
 import Modelo.Posicion;
-import View.Constantes;
+import Modelo.Constantes;
 import View.PiezaView;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.image.Image;

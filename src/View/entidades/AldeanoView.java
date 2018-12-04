@@ -6,7 +6,7 @@ import Controller.MoverHandler;
 import Controller.RepararHandler;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
-import View.Constantes;
+import Modelo.Constantes;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;

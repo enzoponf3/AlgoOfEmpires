@@ -6,7 +6,7 @@ import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
 import Modelo.Edificios.*;
-import View.Constantes;
+import Modelo.Constantes;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;

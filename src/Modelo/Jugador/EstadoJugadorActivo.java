@@ -1,11 +1,10 @@
 package Modelo.Jugador;
 
 import Modelo.Edificios.*;
-import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
-import View.Constantes;
+import Modelo.Constantes;
 import java.util.ArrayList;
 
 public class EstadoJugadorActivo implements IEstadoJugador {

@@ -3,7 +3,7 @@ package View.entidades;
 import Controller.CrearArmaHandler;
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
-import View.Constantes;
+import Modelo.Constantes;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;

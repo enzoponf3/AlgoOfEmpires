@@ -1,5 +1,6 @@
 package Controller;
 
+import Modelo.Constantes;
 import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;

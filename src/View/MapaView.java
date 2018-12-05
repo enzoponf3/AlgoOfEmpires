@@ -11,9 +11,13 @@ import View.entidades.ArmaDeAsedioView;
 import View.entidades.ArqueroView;
 import View.entidades.EspadachinView;
 import View.entidades.PlazaCentralView;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
@@ -32,6 +36,7 @@ public class MapaView extends Pane {
     private CasilleroView casilleroSeleccionada;
     private PiezaView piezaSeleccionada;
 
+    Rectangle bordeConstruir = new Rectangle();
 
     public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2, Log log){
         this.casilleros = new Group();
@@ -122,4 +127,34 @@ public class MapaView extends Pane {
     public void enviarMensaje(String msj){
         log.enviarMensaje(msj);
     }
+
+
+    public void settearBorde(){
+        bordeConstruir.setFill(Color.TRANSPARENT);
+        bordeConstruir.setWidth(Constantes.TAMANIO_CASILLERO*2);
+        bordeConstruir.setHeight(Constantes.TAMANIO_CASILLERO*2);
+        bordeConstruir.setStroke(Color.DARKGREEN);
+        bordeConstruir.setStrokeWidth(3);
+
+        bordeConstruir.setVisible(false);
+        getChildren().add(bordeConstruir);
+
+        bordeConstruir.setMouseTransparent(true);
+
+        setOnMouseMoved(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                bordeConstruir.setX(event.getX());
+                bordeConstruir.setY(event.getY());
+
+                bordeConstruir.setVisible(true);
+            }
+        });
+    }
+
+    public void quitarBorde(){
+        bordeConstruir.setVisible(false);
+    }
+
+
 }

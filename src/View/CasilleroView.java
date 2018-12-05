@@ -21,6 +21,8 @@ public class CasilleroView extends StackPane {
     private ImageView laImagen;
     private Rectangle borde;
 
+    private Rectangle bordeConstruir;
+
     public PiezaView getPieza(){
         return this.pieza;
     }
@@ -63,6 +65,16 @@ public class CasilleroView extends StackPane {
                 borde.setVisible(true);
             }
         });
+        //Prueba
+        bordeConstruir = new Rectangle();
+        bordeConstruir.setFill(Color.TRANSPARENT);
+        bordeConstruir.setHeight(Constantes.TAMANIO_CASILLERO);
+        bordeConstruir.setWidth(Constantes.TAMANIO_CASILLERO);
+        bordeConstruir.setStroke(Color.DARKGREEN);
+        bordeConstruir.setStrokeWidth(3);
+
+        bordeConstruir.setVisible(false);
+        getChildren().add(bordeConstruir);
 
         getChildren().addAll(laImagen, borde);
     }
@@ -70,4 +82,6 @@ public class CasilleroView extends StackPane {
     public void quitarEfecto(){
         this.borde.setVisible(false);
     }
+
+
 }

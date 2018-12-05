@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class JugadorView {
@@ -101,7 +102,8 @@ public class JugadorView {
     }
 
     public void continuarConstruccionCuartel(Aldeano aldeanoModelo, Cuartel cuartelAConstruir){
-        jugadorModelo.continuarConstruccionCuartel(aldeanoModelo, cuartelAConstruir);
+        Mapa mapaModelo = Mapa.getInstancia();
+        jugadorModelo.continuarConstruccionCuartel(mapaModelo, aldeanoModelo, cuartelAConstruir);
     }
 
     public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
@@ -113,7 +115,8 @@ public class JugadorView {
     }
 
     public void continuarConstruccionPlazaCentral(Aldeano aldeanoModelo, PlazaCentral plazaCentralAConstruir){
-        jugadorModelo.continuarConstruccionPlazaCentral(aldeanoModelo, plazaCentralAConstruir);
+        Mapa mapaModelo = Mapa.getInstancia();
+        jugadorModelo.continuarConstruccionPlazaCentral(mapaModelo, aldeanoModelo, plazaCentralAConstruir);
     }
 
 

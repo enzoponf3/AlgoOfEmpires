@@ -54,6 +54,7 @@ public class ContinuarConstruccionHandler implements EventHandler<ActionEvent> {
 
             try {
                 jugadorViewActual.continuarConstruccionCuartel(aldeanoModelo, edificioModelo);
+                edificioView.construir();
             } catch (OroInsuficienteException e) {
                 new Alerta().oroInsuficiente();
             } catch (PosicionInvalidaException e) {
@@ -71,7 +72,7 @@ public class ContinuarConstruccionHandler implements EventHandler<ActionEvent> {
             }
 
             mapaView.quitarBorde();
-            edificioView.construir();
+
 
         }catch(java.lang.NullPointerException e){
             new Alerta().edifcioEnConstNoSeleccionado();

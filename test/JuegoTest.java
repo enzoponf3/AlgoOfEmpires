@@ -34,4 +34,12 @@ public class JuegoTest {
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         jugador.montarArmaDeAsedio(armaAsedio);
     }
+
+    @Test
+    public void verificarJugadorGanador() {
+        juego.getJugador2().getCastillo().reducirVida(2000);
+        if (juego.esGanador(juego.getJugador1()))
+            juego.finalizarJuego(juego.getJugador1());
+        Assert.assertEquals(juego.getJugador1(),juego.getGanador());
+    }
 }

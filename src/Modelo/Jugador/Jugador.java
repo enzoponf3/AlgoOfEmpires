@@ -372,4 +372,8 @@ public class Jugador {
         this.oroProperty.set(this.cantidadOro);
         return oroProperty;
     }
+
+    public boolean derrotado() {
+        return this.getVida() <= 0;
+    }
 }

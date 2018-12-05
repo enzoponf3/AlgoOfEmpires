@@ -63,6 +63,19 @@ public class MapaView extends Pane {
 
         this.casilleroSeleccionada = null;
 
+        //
+        bordeConstruir.setFill(Color.TRANSPARENT);
+        bordeConstruir.setWidth(Constantes.TAMANIO_CASILLERO*2);
+        bordeConstruir.setHeight(Constantes.TAMANIO_CASILLERO*2);
+        bordeConstruir.setStroke(Color.DARKGREEN);
+        bordeConstruir.setStrokeWidth(3);
+
+        bordeConstruir.setVisible(false);
+        getChildren().add(bordeConstruir);
+
+        bordeConstruir.setMouseTransparent(true);
+        //
+
         INSTANCIA = this;
     }
 
@@ -130,31 +143,27 @@ public class MapaView extends Pane {
 
 
     public void settearBorde(){
-        bordeConstruir.setFill(Color.TRANSPARENT);
-        bordeConstruir.setWidth(Constantes.TAMANIO_CASILLERO*2);
-        bordeConstruir.setHeight(Constantes.TAMANIO_CASILLERO*2);
-        bordeConstruir.setStroke(Color.DARKGREEN);
-        bordeConstruir.setStrokeWidth(3);
-
-        bordeConstruir.setVisible(false);
-        getChildren().add(bordeConstruir);
-
-        bordeConstruir.setMouseTransparent(true);
 
         setOnMouseMoved(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                bordeConstruir.setX(event.getX());
-                bordeConstruir.setY(event.getY());
+                bordeConstruir.setX(event.getX()-25);
+                bordeConstruir.setY(event.getY()-25);
 
                 bordeConstruir.setVisible(true);
             }
         });
+
     }
 
     public void quitarBorde(){
-        bordeConstruir.setVisible(false);
+        this.bordeConstruir.setVisible(false);
+        setOnMouseMoved(null);
+        System.out.println("Sin borde");
     }
 
+    public PiezaView getPiezaSeleccionada(){
+        return this.piezaSeleccionada;
+    }
 
 }

@@ -1,9 +1,6 @@
 package View.entidades;
 
-import Controller.ConstruirCuartelHandler;
-import Controller.ConstruirPlazaCentralHandler;
-import Controller.MoverHandler;
-import Controller.RepararHandler;
+import Controller.*;
 import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import Modelo.Constantes;
@@ -43,13 +40,16 @@ public class AldeanoView extends PiezaView {
         MenuItem construirCuartel = new MenuItem("Construir Cuartel");
         construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo, getThis()));
 
+        MenuItem continuarConstruccionCuartel = new MenuItem("Continuar construccion cuartel");
+        continuarConstruccionCuartel.setOnAction(new ContinuarConstruccionHandler((Aldeano) this.entidadModelo, getThis()));
+
         MenuItem reparar = new MenuItem("Reparar");
         reparar.setOnAction(new RepararHandler((Aldeano) this.entidadModelo,getThis()));
 
         MenuItem mover = new MenuItem("Mover");
         mover.setOnAction(new MoverHandler(this.entidadModelo, getThis()));
 
-        menu.getItems().addAll(construirPlazaCentral, construirCuartel, reparar, mover);
+        menu.getItems().addAll(construirPlazaCentral, construirCuartel, continuarConstruccionCuartel, reparar, mover);
         return menu;
     }
 

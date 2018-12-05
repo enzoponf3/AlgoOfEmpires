@@ -98,6 +98,10 @@ public class JugadorView {
         mapaView.agregarPieza(cuartelView);
     }
 
+    public void continuarConstruccionCuartel(Aldeano aldeanoModelo, Cuartel cuartelAConstruir){
+        jugadorModelo.continuarConstruccionCuartel(aldeanoModelo, cuartelAConstruir);
+    }
+
     public void construirPlazaCentral(Aldeano aldeanoModelo, ArrayList<Posicion> posiciones) {
         Mapa mapaModelo = Mapa.getInstancia();
         PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
@@ -105,6 +109,11 @@ public class JugadorView {
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(plazaCentralView);
     }
+
+    public void continuarConstruccionPlazaCentral(Aldeano aldeanoModelo, PlazaCentral plazaCentralAConstruir){
+        jugadorModelo.continuarConstruccionPlazaCentral(aldeanoModelo, plazaCentralAConstruir);
+    }
+
 
     public void reparar(Aldeano aldeano, Edificio edificio) {
         jugadorModelo.reparar(aldeano,edificio);
@@ -139,6 +148,8 @@ public class JugadorView {
     public Jugador getJugadorModeloParaTest(){              //Metodo solo para test
         return jugadorModelo;
     }
+
+
 
 
 }

@@ -42,8 +42,6 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
                 mapaView.setOnMouseClicked(null);
             }
         });
-
-        mapaView.quitarBorde();
     }
 
     public void construir(MapaView mapaView){
@@ -76,6 +74,8 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
         } catch (UnidadNoPuedeConstruirException e) {
             new Alerta().unidadOcupada();
         }
+
+        mapaView.quitarBorde();
 
     }
 

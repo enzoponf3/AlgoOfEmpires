@@ -15,6 +15,8 @@ public class CuartelView extends PiezaView {
 
     private ContextMenu menu;
 
+    private int turnos_faltantes;
+
     public CuartelView(Cuartel cuartelModelo){
         super(cuartelModelo);
 
@@ -24,10 +26,12 @@ public class CuartelView extends PiezaView {
         Posicion unaPosicion = posiciones.get(0);
         setPosicion(unaPosicion);
 
-        Image plaza = new Image("View/img/Cuartel.png");
-        ImageView imagenCuartel = new ImageView(plaza);
+        Image cuartelNoConstruido = new Image("View/img/rubble2.png");
+        ImageView imagenNoConstruido = new ImageView(cuartelNoConstruido);
 
-        agregarImagen(imagenCuartel, imagenCuartel);
+        agregarImagen(imagenNoConstruido);
+
+        this.turnos_faltantes = cuartelModelo.getVelocidadReparacion();
 
     }
 
@@ -43,6 +47,14 @@ public class CuartelView extends PiezaView {
         menu.getItems().addAll(crearArquero, crearEspadachin);
 
         return menu;
+    }
+
+    public void construir(){
+        if(turnos_faltantes == 0){
+            Image cuartelConstruido = new Image("View/img/Cuartel.png");
+            ImageView imagenCuartel = new ImageView(cuartelConstruido);
+            setImagenConstruido(imagenCuartel);
+        }
     }
 
 }

@@ -56,6 +56,18 @@ public abstract class PiezaView extends StackPane {
         getChildren().add(imagenPieza);
     }
 
+    public void agregarImagen(ImageView imagenPieza){
+        this.imagenPieza = imagenPieza;
+        this.imagenPieza.setFitHeight(this.alto*Constantes.TAMANIO_CASILLERO);
+        this.imagenPieza.setFitWidth(this.ancho*Constantes.TAMANIO_CASILLERO);
+
+        getChildren().add(imagenPieza);
+    }
+
+    public void setImagenConstruido(ImageView imagen){
+        this.imagenPieza = imagen;
+    }
+
     public double getPosX(){
         return this.x*Constantes.TAMANIO_CASILLERO;
     }

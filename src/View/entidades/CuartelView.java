@@ -33,7 +33,7 @@ public class CuartelView extends PiezaView {
 
         agregarImagen(imagenNoConstruido);
 
-        this.turnos_faltantes = 3;
+        this.turnos_faltantes = Constantes.TURNOS_CONSTRUCCION_CUARTEL;
 
     }
 

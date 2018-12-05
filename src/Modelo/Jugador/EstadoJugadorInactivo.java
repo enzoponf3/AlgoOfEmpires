@@ -62,7 +62,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel){
+    public void continuarConstruccionCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, Cuartel cuartel){
         throw new TurnoDelOponenteException();
     }
 
@@ -72,7 +72,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral){
+    public void continuarConstruccionPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, PlazaCentral plazaCentral){
         throw new TurnoDelOponenteException();
     }
 

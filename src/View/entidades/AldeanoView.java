@@ -40,7 +40,7 @@ public class AldeanoView extends PiezaView {
         MenuItem construirCuartel = new MenuItem("Construir Cuartel");
         construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo, getThis()));
 
-        MenuItem continuarConstruccionCuartel = new MenuItem("Continuar construccion cuartel");
+        MenuItem continuarConstruccionCuartel = new MenuItem("Continuar Construcción Cuartel");
         continuarConstruccionCuartel.setOnAction(new ContinuarConstruccionHandler((Aldeano) this.entidadModelo, getThis()));
 
         MenuItem reparar = new MenuItem("Reparar");

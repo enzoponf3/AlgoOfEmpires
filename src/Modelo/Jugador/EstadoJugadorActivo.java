@@ -113,8 +113,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel){
+    public void continuarConstruccionCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, Cuartel cuartel){
         verificacionesConstruccion(jugador,aldeano,cuartel);
+        mapa.verificarPosicionesAledanias(aldeano.getPosicion(),cuartel.getPosiciones());
         aldeano.continuarConstruccionCuartel(cuartel);
     }
 
@@ -130,8 +131,9 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     }
 
     @Override
-    public void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral){
+    public void continuarConstruccionPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, PlazaCentral plazaCentral){
         verificacionesConstruccion(jugador,aldeano,plazaCentral);
+        mapa.verificarPosicionesAledanias(aldeano.getPosicion(),plazaCentral.getPosiciones());
         aldeano.continuarConstruccionPlazaCentral(plazaCentral);
     }
 

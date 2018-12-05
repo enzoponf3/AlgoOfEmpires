@@ -30,11 +30,11 @@ public interface IEstadoJugador {
 
     Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 
-    void continuarConstruccionCuartel(Jugador jugador, Aldeano aldeano, Cuartel cuartel);
+    void continuarConstruccionCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, Cuartel cuartel);
 
     PlazaCentral construirPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesPlazaCentral);
 
-    void continuarConstruccionPlazaCentral(Jugador jugador, Aldeano aldeano, PlazaCentral plazaCentral);
+    void continuarConstruccionPlazaCentral(Jugador jugador, Mapa mapa, Aldeano aldeano, PlazaCentral plazaCentral);
 
     void reparar(Jugador jugador, Aldeano aldeano, Edificio edificio);
 

@@ -730,7 +730,7 @@ public class JugadorTest {
         posiciones.add(posicion4);
         Cuartel cuartel = new Cuartel(posiciones);
         jugador.inactivar();
-        jugador.continuarConstruccionCuartel(aldeano, cuartel);
+        jugador.continuarConstruccionCuartel(mapa,aldeano, cuartel);
     }
 
     @Test (expected = TurnoDelOponenteException.class)
@@ -751,7 +751,7 @@ public class JugadorTest {
         posiciones.add(posicion4);
         PlazaCentral plaza = new PlazaCentral(posiciones);
         jugador.inactivar();
-        jugador.continuarConstruccionPlazaCentral(aldeano, plaza);
+        jugador.continuarConstruccionPlazaCentral(mapa,aldeano, plaza);
     }
 
     @Test (expected = TurnoDelOponenteException.class)

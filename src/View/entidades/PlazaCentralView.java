@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class PlazaCentralView extends PiezaView {
 
+    private int turnos_faltantes;
+
     public PlazaCentralView(PlazaCentral plazaModelo){
 
         super(plazaModelo);
@@ -25,7 +27,7 @@ public class PlazaCentralView extends PiezaView {
         Posicion unaPosicion = posiciones.get(0);
         setPosicion(unaPosicion);
 
-        Image plaza = new Image("View/img/University2.png");
+        Image plaza = new Image("View/img/rubble2.png");
         ImageView imagenPlaza = new ImageView(plaza);
 
         agregarImagen(imagenPlaza, imagenPlaza);
@@ -41,4 +43,15 @@ public class PlazaCentralView extends PiezaView {
 
         return menu;
     }
+
+    public void construir(){
+        this.turnos_faltantes -=1;
+        System.out.println(turnos_faltantes);
+        if(turnos_faltantes == 0){
+            this.setImagenPlazaConstruida();
+            System.out.println("Cambie imagen");
+        }
+    }
+
+
 }

@@ -5,6 +5,7 @@ import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Constantes;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
@@ -64,8 +65,17 @@ public abstract class PiezaView extends StackPane {
         getChildren().add(imagenPieza);
     }
 
-    public void setImagenConstruido(ImageView imagen){
-        this.imagenPieza = imagen;
+    public void setImagenPlazaConstruida(){
+        removerImagen();
+        this.imagenPieza = new ImageView((new Image("View/img/University2.png")));
+        this.imagenPieza.setFitHeight(this.alto*Constantes.TAMANIO_CASILLERO);
+        this.imagenPieza.setFitWidth(this.ancho*Constantes.TAMANIO_CASILLERO);
+        getChildren().add(imagenPieza);
+    }
+
+    public void setImagenCuartelConstruido(){
+        removerImagen();
+        this.imagenPieza = new ImageView(new Image("View/img/Cuartel.png"));
         this.imagenPieza.setFitHeight(this.alto*Constantes.TAMANIO_CASILLERO);
         this.imagenPieza.setFitWidth(this.ancho*Constantes.TAMANIO_CASILLERO);
         getChildren().add(imagenPieza);

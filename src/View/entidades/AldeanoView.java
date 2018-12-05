@@ -35,10 +35,10 @@ public class AldeanoView extends PiezaView {
     public ContextMenu crearMenu(){
         ContextMenu menu = new ContextMenu();
         MenuItem construirPlazaCentral = new MenuItem("Construir Plaza Central");
-        construirPlazaCentral.setOnAction(new ConstruirPlazaCentralHandler((Aldeano) this.entidadModelo, getThis()));
+        construirPlazaCentral.setOnAction(new ConstruirPlazaCentralHandler((Aldeano) this.entidadModelo));
 
         MenuItem construirCuartel = new MenuItem("Construir Cuartel");
-        construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo, getThis()));
+        construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo));
 
         MenuItem continuarConstruccionCuartel = new MenuItem("Continuar construccion cuartel");
         continuarConstruccionCuartel.setOnAction(new ContinuarConstruccionHandler((Aldeano) this.entidadModelo, getThis()));

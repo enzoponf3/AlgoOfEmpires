@@ -11,28 +11,42 @@ import View.contenedores.ActualizarView;
 import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
 public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
 
-    private AldeanoView aldeanoView;
     private Aldeano aldeanoModelo;
 
-    public ConstruirPlazaCentralHandler(Aldeano aldeanoModelo, AldeanoView aldeanoView){
+    public ConstruirPlazaCentralHandler(Aldeano aldeanoModelo){
         this.aldeanoModelo = aldeanoModelo;
-        this.aldeanoView = aldeanoView;
     }
 
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(ActionEvent event){
         MapaView mapaView = MapaView.getInstancia();
+        mapaView.settearBorde();
+
+        mapaView.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event){
+                construir(mapaView);
+                mapaView.setOnMouseClicked(null);
+            }
+        });
+    }
+
+    public void construir(MapaView mapaView) {
         Posicion posicion = mapaView.getDestino();
         Mapa mapaModelo = Mapa.getInstancia();
+
+        ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
+
+        ActualizarView actualizarView = ActualizarView.getInstancia();
+        JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
+
         try {
-            ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
-            ActualizarView actualizarView = ActualizarView.getInstancia();
-            JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
             jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
         }catch (OroInsuficienteException e) {
             new Alerta().oroInsuficiente();
@@ -47,5 +61,6 @@ public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
         } catch (UnidadNoPuedeConstruirException e) {
             new Alerta().unidadOcupada();
         }
+        mapaView.quitarBorde();
     }
 }

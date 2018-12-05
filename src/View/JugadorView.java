@@ -65,6 +65,8 @@ public class JugadorView {
         Group piezas = new Group();
         this.castilloView = new CastilloView(this.jugadorModelo.getCastillo());
         PlazaCentralView plazaCentralView = new PlazaCentralView((PlazaCentral) this.jugadorModelo.getEdificios().get(0));
+        plazaCentralView.setImagenPlazaConstruida();
+
         piezas.getChildren().addAll(castilloView,plazaCentralView);
         for(Aldeano aldeanoModelo : jugadorModelo.getAldeanos()){
             AldeanoView aldeanoView = new AldeanoView(aldeanoModelo);

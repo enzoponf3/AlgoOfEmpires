@@ -20,19 +20,15 @@ import java.util.ArrayList;
 
 public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
 
-    private AldeanoView aldeanoView;
     private Aldeano aldeanoModelo;
 
-    public ConstruirCuartelHandler(Aldeano aldeanoModelo, AldeanoView aldeanoView){
-
+    public ConstruirCuartelHandler(Aldeano aldeanoModelo){
         this.aldeanoModelo = aldeanoModelo;
-        this.aldeanoView = aldeanoView;
     }
 
     @Override
     public void handle(ActionEvent event){
         MapaView mapaView = MapaView.getInstancia();
-
         mapaView.settearBorde();
 
         mapaView.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -46,15 +42,9 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
 
     public void construir(MapaView mapaView){
         Posicion posicion = mapaView.getDestino();
+        Mapa mapaModelo = Mapa.getInstancia();
 
-        ArrayList<Posicion> posiciones = new ArrayList<>();
-        Posicion posicion1 = new Posicion(posicion.getHorizontal(), posicion.getVertical()+1);
-        Posicion posicion2 = new Posicion(posicion.getHorizontal()+1, posicion.getVertical());
-        Posicion posicion3 = new Posicion(posicion.getHorizontal()+1, posicion.getVertical()+1);
-        posiciones.add(posicion);
-        posiciones.add(posicion1);
-        posiciones.add(posicion2);
-        posiciones.add(posicion3);
+        ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
 
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
@@ -74,9 +64,6 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
         } catch (UnidadNoPuedeConstruirException e) {
             new Alerta().unidadOcupada();
         }
-
         mapaView.quitarBorde();
-
     }
-
 }

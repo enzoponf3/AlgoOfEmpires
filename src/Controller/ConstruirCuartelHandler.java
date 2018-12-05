@@ -79,36 +79,4 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
 
     }
 
-    /*
-    @Override
-    public void handle(ActionEvent event) {
-
-        MapaView mapaView = MapaView.getInstancia();
-        Posicion posicion = mapaView.getDestino();
-        Mapa mapaModelo = Mapa.getInstancia();
-
-        try {
-
-            ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
-            ActualizarView actualizarView = ActualizarView.getInstancia();
-            JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
-
-            jugadorViewActual.construirCuartel(aldeanoModelo, posiciones);
-
-        }catch (OroInsuficienteException e) {
-            new Alerta().oroInsuficiente();
-        } catch (PosicionInvalidaException e) {
-            new Alerta().posicionNoAledania();
-        } catch (PosicionFueraDelMapaException e) {
-            new Alerta().posicionFueraDelMapa();
-        } catch (AldeanoNoExisteException e) {
-            new Alerta().unidadEnemiga();
-        } catch (PosicionOcupadaException e) {
-            new Alerta().posicionOcupada();
-        } catch (UnidadNoPuedeConstruirException e) {
-            new Alerta().unidadOcupada();
-        }
-    }
-    */
-
 }

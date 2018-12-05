@@ -1,6 +1,7 @@
 package Controller;
 
 import Modelo.Edificios.Cuartel;
+import Modelo.Exceptions.EdificioNoConstruidoException;
 import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Exceptions.OroInsuficienteException;
 import View.JugadorView;
@@ -32,6 +33,8 @@ public class CrearArqueroHandler implements EventHandler<ActionEvent> {
             new Alerta().unidadEnemiga();
         }catch (OroInsuficienteException e) {
             new Alerta().oroInsuficiente();
+        }catch (EdificioNoConstruidoException e){
+            new Alerta().edificioNoConstruido();
         }
     }
 }

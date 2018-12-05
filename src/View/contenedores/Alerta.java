@@ -100,4 +100,16 @@ public class Alerta {
         alerta.setContentText("El edificio que intentas atacar es tuyo");
         alerta.show();
     }
+
+    public void edificioNoConstruido(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El edificio no esta construido");
+        alerta.show();
+    }
+
+    public void edifcioEnConstNoSeleccionado(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("No has seleccionado un edificio en construccion");
+        alerta.show();
+    }
 }

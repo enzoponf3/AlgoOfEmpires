@@ -29,14 +29,6 @@ public class PlazaCentralView extends PiezaView {
         ImageView imagenPlaza = new ImageView(plaza);
 
         agregarImagen(imagenPlaza, imagenPlaza);
-        ContextMenu menu = this.crearMenu();
-
-        this.setOnMouseClicked(new  EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                menu.show(imagenPlaza, event.getScreenX(), event.getScreenY());
-            }
-        });
     }
 
 

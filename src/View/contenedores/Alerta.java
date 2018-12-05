@@ -94,4 +94,10 @@ public class Alerta {
         alerta.setContentText("La unidad que intentas atacar es tuya");
         alerta.show();
     }
+
+    public void edificioPropio(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El edificio que intentas atacar es tuyo");
+        alerta.show();
+    }
 }

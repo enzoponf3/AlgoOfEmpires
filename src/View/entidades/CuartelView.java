@@ -1,5 +1,7 @@
 package View.entidades;
 
+import Controller.CrearArqueroHandler;
+import Controller.CrearEspadachinHandler;
 import Modelo.Edificios.Cuartel;
 import Modelo.Posicion;
 import Modelo.Constantes;
@@ -41,8 +43,10 @@ public class CuartelView extends PiezaView {
         ContextMenu menu = new ContextMenu();
 
         MenuItem crearEspadachin = new MenuItem("Crear Espadachin");
+        crearEspadachin.setOnAction(new CrearEspadachinHandler(this));
 
         MenuItem crearArquero = new MenuItem("Crear Arquero");
+        crearArquero.setOnAction(new CrearArqueroHandler(this));
 
         menu.getItems().addAll(crearArquero, crearEspadachin);
 

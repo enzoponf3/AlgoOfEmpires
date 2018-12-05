@@ -12,11 +12,11 @@ public interface IEstadoJugador {
 
     void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador);
 
-    void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador);
+    Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador);
 
-    void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador);
+    Arquero crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador);
 
-    void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador);
+    Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador);
 
     ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo, Jugador jugador);
 

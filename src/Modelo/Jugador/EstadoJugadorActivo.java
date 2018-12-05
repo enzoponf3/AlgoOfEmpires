@@ -30,30 +30,33 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     //CREAR UNIDADES
 
     @Override
-    public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         verificacionesCreacion(jugador, plazaCentral);
         jugador.verificarOroSuficiente(Constantes.COSTO_ALDEANO);
         Aldeano aldeano = plazaCentral.crearAldeano(mapa);
         jugador.agregarAldeano(aldeano, mapa);
         jugador.reducirOro(Constantes.COSTO_ALDEANO);
+        return aldeano;
     }
 
     @Override
-    public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
+    public Arquero crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         jugador.verificarOroSuficiente(Constantes.COSTO_ARQUERO);
         Arquero arquero = cuartel.crearArquero(mapa);
         jugador.agregarAEjercito(arquero,mapa);
         jugador.reducirOro(Constantes.COSTO_ARQUERO);
+        return  arquero;
     }
 
     @Override
-    public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
+    public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         verificacionesCreacion(jugador, cuartel);
         jugador.verificarOroSuficiente(Constantes.COSTO_ESPADACHIN);
         Espadachin espadachin = cuartel.crearEspadachin(mapa);
         jugador.agregarAEjercito(espadachin, mapa);
         jugador.reducirOro(Constantes.COSTO_ESPADACHIN);
+        return espadachin;
     }
 
     @Override

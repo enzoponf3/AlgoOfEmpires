@@ -1,6 +1,7 @@
 package Controller;
 
 import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
+import Modelo.Exceptions.EdificioPropioException;
 import Modelo.Exceptions.UnidadPropiaException;
 import Modelo.IEntidad;
 import Modelo.Unidades.ArmaDeAsedio;
@@ -17,7 +18,6 @@ import javafx.scene.input.MouseEvent;
 
 public class AtacarHandler implements EventHandler<ActionEvent> {
     private PiezaView atacanteView;
-    private IEntidad atacante;
 
     public AtacarHandler(PiezaView pieza) {
         this.atacanteView = pieza;
@@ -52,6 +52,8 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
             new Alerta().armaNoAtacaUnidades();
         }catch(UnidadPropiaException e3){
             new Alerta().unidadPropia();
+        }catch(EdificioPropioException e4){
+            new Alerta().edificioPropio();
         }
     }
 }

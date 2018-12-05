@@ -140,16 +140,16 @@ public class Jugador {
 
     // Creacion Unidades
 
-    public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral){
-        this.estado.crearAldeano(mapa, plazaCentral, this);
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral){
+        return this.estado.crearAldeano(mapa, plazaCentral, this);
     }
 
-    public void crearArquero(Mapa mapa, Cuartel cuartel){
-        this.estado.crearArquero(mapa, cuartel, this);
+    public Arquero crearArquero(Mapa mapa, Cuartel cuartel){
+        return this.estado.crearArquero(mapa, cuartel, this);
     }
 
-    public void crearEspadachin(Mapa mapa, Cuartel cuartel){
-        this.estado.crearEspadachin(mapa, cuartel, this);
+    public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel){
+        return this.estado.crearEspadachin(mapa, cuartel, this);
     }
 
     public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo){

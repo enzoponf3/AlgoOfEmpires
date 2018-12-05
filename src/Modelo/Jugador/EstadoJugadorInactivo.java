@@ -17,17 +17,17 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
-    public void crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
+    public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
+    public Arquero crearArquero(Mapa mapa, Cuartel cuartel, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 
     @Override
-    public void crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
+    public Espadachin crearEspadachin(Mapa mapa, Cuartel cuartel, Jugador jugador){
         throw new TurnoDelOponenteException();
     }
 

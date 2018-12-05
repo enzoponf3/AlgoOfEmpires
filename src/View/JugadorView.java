@@ -150,6 +150,17 @@ public class JugadorView {
     }
 
 
+    public void crearEspadachin(Cuartel cuartelMod) {
+        Espadachin espadachin = jugadorModelo.crearEspadachin(mapaModelo,cuartelMod);
+        EspadachinView espadachinView = new EspadachinView(espadachin);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(espadachinView);
+    }
 
-
+    public void crearArquero(Cuartel cuartelMod) {
+        Arquero arquero = jugadorModelo.crearArquero(mapaModelo,cuartelMod);
+        ArqueroView arqueroView = new ArqueroView(arquero);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(arqueroView);
+    }
 }

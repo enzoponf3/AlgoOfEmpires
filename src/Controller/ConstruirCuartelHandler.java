@@ -42,14 +42,12 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
 
     public void construir(MapaView mapaView){
         Posicion posicion = mapaView.getDestino();
-        Mapa mapaModelo = Mapa.getInstancia();
-
-        ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
-
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
 
         try {
+            Mapa mapaModelo = Mapa.getInstancia();
+            ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
             jugadorViewActual.construirCuartel(aldeanoModelo, posiciones);
         }catch (OroInsuficienteException e) {
             new Alerta().oroInsuficiente();

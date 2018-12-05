@@ -112,4 +112,16 @@ public class Alerta {
         alerta.setContentText("No has seleccionado un edificio en construccion");
         alerta.show();
     }
+
+    public void edificioYaConstruido(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El edificio ya esta construido");
+        alerta.show();
+    }
+
+    public void objetivoIncorrecto(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El objetivo seleccionado no es el esperado");
+        alerta.show();
+    }
 }

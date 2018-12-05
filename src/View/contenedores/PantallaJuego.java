@@ -106,7 +106,7 @@ public class PantallaJuego extends Pane {
 
     private void dibujarMapa(){
 
-        MapaView mapaView = new MapaView(this.mapaModelo,anchoMapa, altoMapa,jugadorView1,jugadorView2);
+        MapaView mapaView = new MapaView(this.mapaModelo,anchoMapa, altoMapa,jugadorView1,jugadorView2,log);
         ScrollPane layout = new ScrollPane(mapaView);
         layout.setLayoutX(0);
         layout.setLayoutY(((altoPantalla)/24));

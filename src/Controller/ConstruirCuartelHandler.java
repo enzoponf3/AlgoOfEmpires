@@ -23,20 +23,26 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
     private Aldeano aldeanoModelo;
 
     public ConstruirCuartelHandler(Aldeano aldeanoModelo, AldeanoView aldeanoView){
+
         this.aldeanoModelo = aldeanoModelo;
         this.aldeanoView = aldeanoView;
     }
 
     @Override
     public void handle(ActionEvent event) {
+
         MapaView mapaView = MapaView.getInstancia();
         Posicion posicion = mapaView.getDestino();
         Mapa mapaModelo = Mapa.getInstancia();
+
         try {
+
             ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
             ActualizarView actualizarView = ActualizarView.getInstancia();
             JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
+
             jugadorViewActual.construirCuartel(aldeanoModelo, posiciones);
+
         }catch (OroInsuficienteException e) {
             new Alerta().oroInsuficiente();
         } catch (PosicionInvalidaException e) {

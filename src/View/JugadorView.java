@@ -17,6 +17,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 
@@ -133,8 +134,6 @@ public class JugadorView {
         try{
             jugadorModelo.atacar(atacante,(Edificio) objetivo);
         }catch(ClassCastException e2){}
-
-
     }
 
     public Jugador getJugadorModeloParaTest(){              //Metodo solo para test

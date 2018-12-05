@@ -5,6 +5,7 @@ import Modelo.Exceptions.UnidadEstaOcupadoException;
 import Modelo.Exceptions.UnidadMovibleNoExisteException;
 import Modelo.IEntidad;
 import Modelo.Unidades.ArmaDeAsedio;
+import View.MapaView;
 import View.PiezaView;
 import View.contenedores.Alerta;
 import View.JugadorView;
@@ -27,11 +28,13 @@ public class DesmontarHandler implements EventHandler<ActionEvent> {
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try{
+            MapaView mapa = MapaView.getInstancia();
             jugadorViewActual.desmontarArma((ArmaDeAsedio) arma.getEntidad());
             arma.removerImagen();
             ImageView imagenArmaFrente = new ImageView(new Image("View/img/Trebuchetmove039.png"));
             ImageView imagenArmaEspalda = new ImageView(new Image("View/img/Trebuchetmove012.png"));
             arma.agregarImagen(imagenArmaFrente,imagenArmaEspalda);
+            mapa.enviarMensaje("Arma de asedio desmontada.");
         }catch (UnidadEstaOcupadoException e){
             new Alerta().unidadOcupada();
         }catch (UnidadDesarmadaException e1){

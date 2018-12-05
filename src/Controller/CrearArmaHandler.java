@@ -25,11 +25,13 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        MapaView mapa = MapaView.getInstancia();
         Castillo castilloMod = (Castillo) castillo.getEntidad();
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try {
             jugadorViewActual.crearArmaDeAsedio(castilloMod);
+            mapa.enviarMensaje("Arma de asedio creada exitosamente.");
         }catch (EdificioNoExisteException e){
             new Alerta().unidadEnemiga();
         }catch (OroInsuficienteException e) {

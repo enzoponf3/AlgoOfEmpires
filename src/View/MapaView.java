@@ -1,19 +1,27 @@
 package View;
 
 import Modelo.*;
+import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.CasilleroNoSeleccionadoException;
+import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
+import View.contenedores.Log;
+import View.entidades.ArmaDeAsedioView;
 import View.entidades.ArqueroView;
 import View.entidades.EspadachinView;
+import View.entidades.PlazaCentralView;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+
+import java.util.ArrayList;
 
 
 public class MapaView extends Pane {
 
     private static MapaView INSTANCIA;
+    private Log log;
 
     private Group casilleros;
     private Group piezas;
@@ -25,11 +33,12 @@ public class MapaView extends Pane {
     private PiezaView piezaSeleccionada;
 
 
-    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2){
+    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2, Log log){
         this.casilleros = new Group();
         this.mapaModelo = mapa;
         this.jugadorView1 = jugadorView1;
         this.jugadorView2 = jugadorView2;
+        this.log = log;
 
         this.setPrefSize(anchoMapa* Constantes.TAMANIO_CASILLERO, altoMapa*Constantes.TAMANIO_CASILLERO);
 
@@ -92,19 +101,25 @@ public class MapaView extends Pane {
 
     public Mapa getMapa (){ return this.mapaModelo;}
 
-    public void agregarAtacantesParaTest() {                          //Metodo para test
-        Posicion pos1 = new Posicion(14,20);
-        Posicion pos2 = new Posicion(13,20);
+    public void agregarAtacantesParaTest() {                          //Metodo para test, tiene un error con el mover, pero es de este metodo, no del mover
+        Posicion pos1 = new Posicion(11,20);
+        Posicion pos2 = new Posicion(14,20);
 
-        Espadachin atacante1 = new Espadachin(pos1);
-        jugadorView2.getJugadorModeloParaTest().agregarAEjercito(atacante1,mapaModelo);
-        EspadachinView atacante1View = new EspadachinView(atacante1);
+        ArmaDeAsedio atacante1 = new ArmaDeAsedio(pos1);
+        jugadorView1.getJugadorModeloParaTest().agregarAEjercito(atacante1,mapaModelo);
+        ArmaDeAsedioView atacante1View = new ArmaDeAsedioView(atacante1);
         this.agregarPieza(atacante1View);
 
-        Arquero atacante2 = new Arquero(pos2);
-        jugadorView1.getJugadorModeloParaTest().agregarAEjercito(atacante2,mapaModelo);
-        ArqueroView atacante2View = new ArqueroView(atacante2);
-        this.agregarPieza(atacante2View);
+        ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(pos2);
+        PlazaCentral plaza = new PlazaCentral(posiciones);
+        plaza.finalizarConstruccion();
+        System.out.println("Vida plaza antes de ataque:" + plaza.getVida());
+        jugadorView2.getJugadorModeloParaTest().agregarEdificio(plaza,mapaModelo);
+        PlazaCentralView plazaView = new PlazaCentralView(plaza);
+        this.agregarPieza(plazaView);
     }
 
+    public void enviarMensaje(String msj){
+        log.enviarMensaje(msj);
+    }
 }

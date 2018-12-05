@@ -51,7 +51,7 @@ public class Alerta {
     }
 
     public void armaDesmontada() {
-        alerta.setContentText("Este arma ya esta desmontada");
+        alerta.setContentText("Este arma esta desmontada");
         alerta.show();
     }
 
@@ -61,7 +61,7 @@ public class Alerta {
     }
 
     public void armaMontada() {
-        alerta.setContentText("Esta arma ya esta montada");
+        alerta.setContentText("Esta arma esta montada");
         alerta.show();
     }
 
@@ -77,4 +77,21 @@ public class Alerta {
         alerta.show();
     }
 
+    public void faltaObjetivo(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("Falta seleccionar un objetivo");
+        alerta.show();
+    }
+
+    public void armaNoAtacaUnidades(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El arma de asedio no ataca unidades");
+        alerta.show();
+    }
+
+    public void unidadPropia(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("La unidad que intentas atacar es tuya");
+        alerta.show();
+    }
 }

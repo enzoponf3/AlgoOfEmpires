@@ -22,11 +22,10 @@ public class PiezaHandler implements EventHandler<MouseEvent> {
             System.out.println("seleccionado pieza");
             mapaView.seleccionarPieza(this.piezaView);
 
-            mostrarMenu(event);
-            System.out.println("Mostrando menu");
         }
         if(event.getButton() == MouseButton.SECONDARY ) {
-
+            mostrarMenu(event);
+            System.out.println("Mostrando menu");
         }
     }
 

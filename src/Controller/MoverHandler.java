@@ -50,6 +50,7 @@ public class MoverHandler implements EventHandler<ActionEvent>{
             unidadView.relocate(destinoX * Constantes.TAMANIO_CASILLERO, destinoY * Constantes.TAMANIO_CASILLERO);
             System.out.println(destinoX);
             System.out.println(destinoY);
+            mapaView.enviarMensaje("Unidad movida exitosamente.");
         }catch (UnidadEstaOcupadoException e){
             new Alerta().unidadOcupada();
         }catch (UnidadMovibleNoExisteException e1){

@@ -142,12 +142,26 @@ public class JugadorView {
     }
 
     public void atacar(IEntidad objetivo, IAtacante atacante) {         // Agregar msj a log
+        MapaView mapa = MapaView.getInstancia();
         try{
             jugadorModelo.atacar(atacante,(Unidad) objetivo);
-        }catch(ClassCastException e){}
+            if(((Unidad) objetivo).estaMuerto()){
+                System.out.println("ESTO NO DEBERIA APARECER NUNCA!");
+                mapa.removerPiezaSeleccionada();
+            }
+        }catch(ClassCastException e){
+            System.out.println("ENTRE AL EXCEPTION DEL UNIDAD");
+        }
 
         try{
+            System.out.println("ANTES DE ATACAR EDIF, la vida es :" + ((Edificio) objetivo).getVida());
             jugadorModelo.atacar(atacante,(Edificio) objetivo);
+            System.out.println("DSP DE ATACAR");
+            System.out.println("Vida edif: " + ((Edificio) objetivo).getVida());
+            if(((Edificio) objetivo).estaDestruido()){
+                mapa.removerPiezaSeleccionada();
+                System.out.println("HOLA!");
+            }
         }catch(ClassCastException e2){}
     }
 

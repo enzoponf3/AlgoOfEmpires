@@ -23,8 +23,8 @@ public class EstadoJugadorActivo implements IEstadoJugador {
     @Override
     public void mover(Unidad unidad, Posicion destino, Mapa mapa, Jugador jugador) {
         Posicion origen = unidad.getPosicion();
-        mapa.mover(origen,destino);
         unidad.mover(destino);
+        mapa.mover(origen,destino);
     }
 
     //CREAR UNIDADES

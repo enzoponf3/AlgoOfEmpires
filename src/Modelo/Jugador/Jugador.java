@@ -285,19 +285,44 @@ public class Jugador {
 
     public void atacar(IAtacante atacante, Unidad unidadAAtacar){
         this.estado.atacar(this, atacante, unidadAAtacar);
+        verificarUnidadMuerta(unidadAAtacar);
     }
 
     public void atacar(IAtacante atacante, Edificio edificioAAtacar){
         this.estado.atacar(this, atacante, edificioAAtacar);
+        System.out.println("Ataqué, vida edif:" + edificioAAtacar.getVida());
+        verificarEdificioDestruido(edificioAAtacar);
     }
 
     public void castilloAtacar(ArrayList<Aldeano> aldeanos,ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito){
+        Mapa mapa = Mapa.getInstancia();
         this.castillo.atacarEdificios(edificios);
         this.castillo.atacarUnidades(aldeanos,ejercito);
+        this.limpiarEntidadesMuertas(mapa);
     }
 
 
+
+
     // Borrar entidades sin vida
+
+    public void verificarUnidadMuerta(Unidad unidad){
+        if(unidad.estaMuerto()){
+            aldeanos.remove(unidad);
+            ejercito.remove(unidad);
+            Mapa.getInstancia().desocuparCasillero(unidad.getPosicion());
+        }
+    }
+
+    public void verificarEdificioDestruido(Edificio edificio){
+        System.out.println("Estoy en verificar");
+        if(edificio.estaDestruido()) {
+            edificios.remove(edificio);
+            System.out.println("Estoy ene l if");
+            Mapa.getInstancia().desocuparCasilleros(edificio.getPosiciones());
+            System.out.println("Estoy post desocupar");
+        }
+    }
 
     public void limpiarEntidadesMuertas(Mapa mapa) {
         Iterator aldeanoIter = this.aldeanos.iterator();

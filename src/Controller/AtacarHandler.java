@@ -1,8 +1,6 @@
 package Controller;
 
-import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
-import Modelo.Exceptions.EdificioPropioException;
-import Modelo.Exceptions.UnidadPropiaException;
+import Modelo.Exceptions.*;
 import Modelo.IEntidad;
 import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.IAtacante;
@@ -34,7 +32,6 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
                 mapaView.setOnMouseClicked(null);
             }
         });
-
     }
 
     private void atacar(MapaView mapaView) {
@@ -53,6 +50,12 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
             new Alerta().unidadPropia();
         }catch(EdificioPropioException e4){
             new Alerta().edificioPropio();
+        }catch(UnidadDesarmadaException e){
+            new Alerta().armaDesmontada();
+        }catch(UnidadEstaOcupadoException e){
+            new Alerta().unidadOcupada();
+        }catch(CasilleroDesocupadoException e){
+            new Alerta().faltaObjetivo();
         }
     }
 }

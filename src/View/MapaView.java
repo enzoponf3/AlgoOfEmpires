@@ -133,6 +133,7 @@ public class MapaView extends Pane {
         plaza.finalizarConstruccion();
         jugadorView2.getJugadorModeloParaTest().agregarEdificio(plaza,mapaModelo);
         PlazaCentralView plazaView = new PlazaCentralView(plaza);
+        plazaView.setImagenPlazaConstruida();
         this.agregarPieza(plazaView);
     }
 
@@ -165,4 +166,8 @@ public class MapaView extends Pane {
         return this.piezaSeleccionada;
     }
 
+    public void removerPiezaSeleccionada() {
+        this.piezaSeleccionada.removerImagen();
+        this.getChildren().remove(this.piezaSeleccionada);
+    }
 }

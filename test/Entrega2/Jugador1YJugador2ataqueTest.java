@@ -867,4 +867,18 @@ public class Jugador1YJugador2ataqueTest {
         Assert.assertEquals(jugador2.getEdificios().size(),1);
     }
 
+    @Test
+    public void verificarJugadorDerrotado() {
+        Mapa mapa = new Mapa(50, 50);
+        Jugador jugador1 = new Jugador(mapa, 5, 14);
+        jugador1.activar();
+        Jugador jugador2 = new Jugador(mapa, 41, 35);
+        jugador2.inactivar();
+
+        jugador1.setOponente(jugador2);
+        jugador2.setOponente(jugador1);
+
+        jugador2.getCastillo().reducirVida(2000);
+        Assert.assertTrue(jugador2.derrotado());
+    }
 }

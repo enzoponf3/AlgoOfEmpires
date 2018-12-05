@@ -88,5 +88,6 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     public void cambiarTurno(Jugador jugador) {
         jugador.activar();
         jugador.desocuparUnidades();
+        jugador.desocuparEdificios();
     }
 }

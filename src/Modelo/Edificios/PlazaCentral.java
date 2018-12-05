@@ -65,6 +65,7 @@ public class PlazaCentral extends Edificio {
         this.estado = new EstadoPlazaCentralConstruida();
     }
 
+    @Override
     public void volverAEstadoOriginal() {
         this.estado.volverAEstadoOriginal(this);
     }

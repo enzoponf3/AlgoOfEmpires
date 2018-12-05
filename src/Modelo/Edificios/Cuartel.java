@@ -78,6 +78,7 @@ public class Cuartel extends Edificio {
         this.estado = new EstadoCuartelEnReparacion();
     }
 
+    @Override
     public void volverAEstadoOriginal() {
         this.estado.volverAEstadoOriginal(this);
     }

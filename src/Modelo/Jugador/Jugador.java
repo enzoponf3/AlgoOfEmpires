@@ -349,6 +349,12 @@ public class Jugador {
         }
     }
 
+    public void desocuparEdificios(){
+        for(Edificio edificio : this.edificios){
+            edificio.volverAEstadoOriginal();
+        }
+    }
+
     void verificarOroSuficiente(int costo) {
         if (this.cantidadOro < costo)
             throw new OroInsuficienteException();

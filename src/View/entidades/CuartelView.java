@@ -31,7 +31,7 @@ public class CuartelView extends PiezaView {
 
         agregarImagen(imagenNoConstruido);
 
-        this.turnos_faltantes = cuartelModelo.getVelocidadReparacion();
+        this.turnos_faltantes = 3;
 
     }
 
@@ -50,10 +50,13 @@ public class CuartelView extends PiezaView {
     }
 
     public void construir(){
+        this.turnos_faltantes -=1;
+        System.out.println(turnos_faltantes);
         if(turnos_faltantes == 0){
             Image cuartelConstruido = new Image("View/img/Cuartel.png");
             ImageView imagenCuartel = new ImageView(cuartelConstruido);
             setImagenConstruido(imagenCuartel);
+            System.out.println("Cambie imagen");
         }
     }
 

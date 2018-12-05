@@ -50,6 +50,7 @@ public class Castillo extends Edificio {
         this.estado = new EstadoCastilloEnReparacion();
     }
 
+    @Override
     public void volverAEstadoOriginal() {
         this.estado.volverAEstadoOriginal(this);
     }

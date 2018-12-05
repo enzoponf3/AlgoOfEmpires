@@ -41,7 +41,7 @@ public class AldeanoView extends PiezaView {
         construirCuartel.setOnAction(new ConstruirCuartelHandler((Aldeano) this.entidadModelo));
 
         MenuItem continuarConstruccionCuartel = new MenuItem("Continuar Construcción Cuartel");
-        continuarConstruccionCuartel.setOnAction(new ContinuarConstruccionHandler((Aldeano) this.entidadModelo, getThis()));
+        continuarConstruccionCuartel.setOnAction(new ContinuarConstruccionCuartelHandler((Aldeano) this.entidadModelo));
 
         MenuItem reparar = new MenuItem("Reparar");
         reparar.setOnAction(new RepararHandler((Aldeano) this.entidadModelo,getThis()));
@@ -49,7 +49,11 @@ public class AldeanoView extends PiezaView {
         MenuItem mover = new MenuItem("Mover");
         mover.setOnAction(new MoverHandler(this.entidadModelo, getThis()));
 
-        menu.getItems().addAll(construirPlazaCentral, construirCuartel, continuarConstruccionCuartel, reparar, mover);
+        MenuItem continuarConstruccionPlaza = new MenuItem("Continuar Construccion Plaza Central");
+        continuarConstruccionPlaza.setOnAction(new ContinuarConstruccionPlazaHandler((Aldeano) this.entidadModelo));
+
+
+        menu.getItems().addAll(construirPlazaCentral, construirCuartel, continuarConstruccionCuartel, continuarConstruccionPlaza, reparar, mover);
         return menu;
     }
 

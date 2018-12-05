@@ -110,6 +110,7 @@ public class JugadorView {
         Mapa mapaModelo = Mapa.getInstancia();
         PlazaCentral plazaCentral = jugadorModelo.construirPlazaCentral(mapaModelo, aldeanoModelo, posiciones);
         PlazaCentralView plazaCentralView = new PlazaCentralView(plazaCentral);
+        plazaCentralView.setTurnosFaltantes();
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(plazaCentralView);
     }

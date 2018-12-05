@@ -53,5 +53,9 @@ public class PlazaCentralView extends PiezaView {
         }
     }
 
+    public void setTurnosFaltantes(){
+        this.turnos_faltantes = 3;
+    }
+
 
 }

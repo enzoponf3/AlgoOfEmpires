@@ -131,7 +131,6 @@ public class MapaView extends Pane {
         ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(pos2);
         PlazaCentral plaza = new PlazaCentral(posiciones);
         plaza.finalizarConstruccion();
-        System.out.println("Vida plaza antes de ataque:" + plaza.getVida());
         jugadorView2.getJugadorModeloParaTest().agregarEdificio(plaza,mapaModelo);
         PlazaCentralView plazaView = new PlazaCentralView(plaza);
         this.agregarPieza(plazaView);

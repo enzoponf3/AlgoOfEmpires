@@ -37,28 +37,33 @@ public class MoverHandler implements EventHandler<ActionEvent>{
     }
 
     public void mover(MapaView mapaView){
-        Posicion destino = mapaView.getDestino();
+        try {
+            Posicion destino = mapaView.getDestino();
 
-        double destinoX = destino.getHorizontal();
-        double destinoY = destino.getVertical();
 
-        ActualizarView actualizarView = ActualizarView.getInstancia();
-        JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
+            double destinoX = destino.getHorizontal();
+            double destinoY = destino.getVertical();
 
-        try{
-            jugadorViewActual.mover(unidadModelo, destino);
-            unidadView.relocate(destinoX * Constantes.TAMANIO_CASILLERO, destinoY * Constantes.TAMANIO_CASILLERO);
-            System.out.println(destinoX);
-            System.out.println(destinoY);
-            mapaView.enviarMensaje("Unidad movida exitosamente.");
-        }catch (UnidadEstaOcupadoException e){
-            new Alerta().unidadOcupada();
-        }catch (UnidadMovibleNoExisteException e1){
-            new Alerta().unidadEnemiga();
-        }catch (PosicionInvalidaException e2){
-            new Alerta().posicionNoAledania();
-        }catch(UnidadEstaMontadaException e3){
-            new Alerta().armaMontada();
+            ActualizarView actualizarView = ActualizarView.getInstancia();
+            JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
+
+            try {
+                jugadorViewActual.mover(unidadModelo, destino);
+                unidadView.relocate(destinoX * Constantes.TAMANIO_CASILLERO, destinoY * Constantes.TAMANIO_CASILLERO);
+                System.out.println(destinoX);
+                System.out.println(destinoY);
+                mapaView.enviarMensaje("Unidad movida exitosamente.");
+            } catch (UnidadEstaOcupadoException e) {
+                new Alerta().unidadOcupada();
+            } catch (UnidadMovibleNoExisteException e1) {
+                new Alerta().unidadEnemiga();
+            } catch (PosicionInvalidaException e2) {
+                new Alerta().posicionNoAledania();
+            } catch (UnidadEstaMontadaException e3) {
+                new Alerta().armaMontada();
+            }
+        }catch(CasilleroNoSeleccionadoException e4){
+            new Alerta().objetivoIncorrecto();
         }
 
     }

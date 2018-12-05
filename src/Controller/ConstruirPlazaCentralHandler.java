@@ -38,26 +38,32 @@ public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
     }
 
     public void construir(MapaView mapaView) {
-        Posicion posicion = mapaView.getDestino();
-        ActualizarView actualizarView = ActualizarView.getInstancia();
-        JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
-
         try {
-            Mapa mapaModelo = Mapa.getInstancia();
-            ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
-            jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
-        }catch (OroInsuficienteException e) {
-            new Alerta().oroInsuficiente();
-        } catch (PosicionInvalidaException e) {
-            new Alerta().posicionNoAledania();
-        } catch (PosicionFueraDelMapaException e) {
-            new Alerta().posicionFueraDelMapa();
-        } catch (AldeanoNoExisteException e) {
-            new Alerta().unidadEnemiga();
-        } catch (PosicionOcupadaException e) {
-            new Alerta().posicionOcupada();
-        } catch (UnidadNoPuedeConstruirException e) {
-            new Alerta().unidadOcupada();
+            Posicion posicion = mapaView.getDestino();
+
+            ActualizarView actualizarView = ActualizarView.getInstancia();
+            JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
+
+            try {
+                Mapa mapaModelo = Mapa.getInstancia();
+                ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
+                jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
+            } catch (OroInsuficienteException e) {
+                new Alerta().oroInsuficiente();
+            } catch (PosicionInvalidaException e) {
+                new Alerta().posicionNoAledania();
+            } catch (PosicionFueraDelMapaException e) {
+                new Alerta().posicionFueraDelMapa();
+            } catch (AldeanoNoExisteException e) {
+                new Alerta().unidadEnemiga();
+            } catch (PosicionOcupadaException e) {
+                new Alerta().posicionOcupada();
+            } catch (UnidadNoPuedeConstruirException e) {
+                new Alerta().unidadOcupada();
+            }
+
+        }catch(CasilleroNoSeleccionadoException e){
+            new Alerta().objetivoIncorrecto();
         }
         mapaView.quitarBorde();
     }

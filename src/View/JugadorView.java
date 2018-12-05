@@ -5,12 +5,11 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.IEntidad;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
-import Modelo.Unidades.Aldeano;
-import Modelo.Unidades.ArmaDeAsedio;
-import Modelo.Unidades.Unidad;
+import Modelo.Unidades.*;
 import View.contenedores.PantallaGanador;
 import View.entidades.*;
 import javafx.beans.property.IntegerProperty;
@@ -125,4 +124,22 @@ public class JugadorView {
     public void desmontarArma(ArmaDeAsedio arma) {
         jugadorModelo.desmontarArmaDeAsedio(arma);
     }
+
+    public void atacar(IEntidad objetivo, IAtacante atacante) {         // Agregar msj a log
+        try{
+            jugadorModelo.atacar(atacante,(Unidad) objetivo);
+        }catch(ClassCastException e){}
+
+        try{
+            jugadorModelo.atacar(atacante,(Edificio) objetivo);
+        }catch(ClassCastException e2){}
+
+
+    }
+
+    public Jugador getJugadorModeloParaTest(){              //Metodo solo para test
+        return jugadorModelo;
+    }
+
+
 }

@@ -1,10 +1,7 @@
 package Controller;
 
 import Modelo.Constantes;
-import Modelo.Exceptions.CasilleroNoSeleccionadoException;
-import Modelo.Exceptions.PosicionInvalidaException;
-import Modelo.Exceptions.UnidadEstaOcupadoException;
-import Modelo.Exceptions.UnidadMovibleNoExisteException;
+import Modelo.Exceptions.*;
 import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Unidades.Unidad;
@@ -59,6 +56,8 @@ public class MoverHandler implements EventHandler<ActionEvent>{
             new Alerta().unidadEnemiga();
         }catch (PosicionInvalidaException e2){
             new Alerta().posicionNoAledania();
+        }catch(UnidadEstaMontadaException e3){
+            new Alerta().armaMontada();
         }
 
     }

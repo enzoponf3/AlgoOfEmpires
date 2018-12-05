@@ -7,13 +7,17 @@ import Modelo.Unidades.ArmaDeAsedio;
 import View.contenedores.Alerta;
 import View.JugadorView;
 import View.contenedores.ActualizarView;
+import View.entidades.ArmaDeAsedioView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 
 public class MontarHandler implements EventHandler<ActionEvent> {
-    private  ArmaDeAsedio arma;
+    private  ArmaDeAsedioView arma;
 
-    public MontarHandler(ArmaDeAsedio arma) {
+    public MontarHandler(ArmaDeAsedioView arma) {
         this.arma = arma;
     }
 
@@ -22,7 +26,11 @@ public class MontarHandler implements EventHandler<ActionEvent> {
         ActualizarView actualizarView = ActualizarView.getInstancia();
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try{
-            jugadorViewActual.montarArma(arma);
+            jugadorViewActual.montarArma((ArmaDeAsedio) arma.getEntidad());
+            arma.removerImagen();
+            ImageView imagenArmaFrente = new ImageView(new Image("View/img/Trebuchetstand004.png"));
+            ImageView imagenArmaEspalda = new ImageView(new Image("View/img/Trebuchetstand002.png"));
+            arma.agregarImagen(imagenArmaFrente,imagenArmaEspalda);
         }catch (UnidadEstaOcupadoException e){
             new Alerta().unidadOcupada();
         }catch (UnidadEstaMontadaException e1){

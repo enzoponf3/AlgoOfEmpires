@@ -24,10 +24,10 @@ public class CuartelView extends PiezaView {
         Posicion unaPosicion = posiciones.get(0);
         setPosicion(unaPosicion);
 
-        Image plaza = new Image("View/img/University2.png");
-        ImageView imagenPlaza = new ImageView(plaza);
+        Image plaza = new Image("View/img/Cuartel.png");
+        ImageView imagenCuartel = new ImageView(plaza);
 
-        agregarImagen(imagenPlaza, imagenPlaza);
+        agregarImagen(imagenCuartel, imagenCuartel);
 
     }
 

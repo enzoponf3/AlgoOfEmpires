@@ -75,4 +75,7 @@ public abstract class PiezaView extends StackPane {
         return this.entidadModelo;
     }
 
+    public  void removerImagen(){
+        getChildren().remove(imagenPieza);
+    }
 }

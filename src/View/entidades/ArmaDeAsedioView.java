@@ -13,7 +13,6 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class ArmaDeAsedioView extends PiezaView {
 
@@ -41,10 +40,13 @@ public class ArmaDeAsedioView extends PiezaView {
         ContextMenu menu = new ContextMenu();
 
         MenuItem montar = new MenuItem("Montar");
+        montar.setOnAction(new MontarHandler(this));
 
         MenuItem atacar = new MenuItem("Atacar");
+        atacar.setOnAction(new AtacarHandler(this));       //No hace falta el view no ?o si, si se destruye o muere ?
 
         MenuItem desmontar = new MenuItem("Desmontar");
+        desmontar.setOnAction(new DesmontarHandler(entidadModelo,this));
 
         MenuItem mover = new MenuItem("Mover");
         mover.setOnAction(new MoverHandler(entidadModelo, getThis()));

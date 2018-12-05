@@ -52,7 +52,7 @@ public class EstadoAldeanoLibre implements IEstadoAldeano {
 
     @Override
     public void mover(Posicion destino){
-        aldeano.cambiarPosicion(destino);
-        aldeano.movio();
+            aldeano.cambiarPosicion(destino);
+            aldeano.movio();
     }
 }

@@ -1,5 +1,6 @@
 package View.entidades;
 
+import Controller.AtacarHandler;
 import Controller.MoverHandler;
 import Modelo.Constantes;
 import Modelo.Posicion;
@@ -21,10 +22,10 @@ public class ArqueroView extends PiezaView {
         Posicion unaPosicion = arqueroModelo.getPosicion();
         setPosicion(unaPosicion);
 
-        Image arqueroFrente = new Image("View/img/Archerwalk001.png");
+        Image arqueroFrente = new Image("View/img/Archerwalk027.png");
         ImageView imagenArqueroFrente = new ImageView(arqueroFrente);
 
-        Image arqueroEspalda = new Image("View/img/Archerwalk027");
+        Image arqueroEspalda = new Image("View/img/Archerwalk001.png");
         ImageView imagenArqueroEspalda = new ImageView(arqueroEspalda);
 
         agregarImagen(imagenArqueroFrente, imagenArqueroEspalda);
@@ -43,6 +44,7 @@ public class ArqueroView extends PiezaView {
         mover.setOnAction(new MoverHandler(this.entidadModelo, getThis()));
 
         MenuItem atacar = new MenuItem("Atacar");
+        atacar.setOnAction(new AtacarHandler(this));
 
         menu.getItems().addAll(atacar, mover);
 

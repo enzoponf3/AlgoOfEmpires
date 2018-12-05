@@ -9,6 +9,7 @@ import Modelo.Unidades.ArmaDeAsedio;
 import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;
+import View.contenedores.Alerta;
 import View.entidades.CastilloView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -30,15 +31,9 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
         try {
             jugadorViewActual.crearArmaDeAsedio(castilloMod);
         }catch (EdificioNoExisteException e){
-            Alert alerta = new Alert(Alert.AlertType.WARNING);
-            alerta.setHeaderText(null);
-            alerta.setContentText("ESTE EDIFICIO NO ES TUYO BOBO");
-            alerta.show();
+            new Alerta().unidadEnemiga();
         }catch (OroInsuficienteException e) {
-            Alert alerta = new Alert(Alert.AlertType.WARNING);
-            alerta.setHeaderText(null);
-            alerta.setContentText("Oro insuficiente");
-            alerta.show();
+            new Alerta().oroInsuficiente();
         }
     }
 }

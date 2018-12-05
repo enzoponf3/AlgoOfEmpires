@@ -1,5 +1,6 @@
 package View.entidades;
 
+import Controller.AtacarHandler;
 import Controller.MoverHandler;
 import Modelo.Constantes;
 import Modelo.Posicion;
@@ -21,10 +22,10 @@ public class EspadachinView extends PiezaView {
         Posicion unaPosicion = espadachinModelo.getPosicion();
         setPosicion(unaPosicion);
 
-        Image espadachinFrente = new Image("View/img/Longswordwalk001");
+        Image espadachinFrente = new Image("View/img/Longswordwalk027.png");
         ImageView imagenEspadachinFrente = new ImageView(espadachinFrente);
 
-        Image espadachinEspalda = new Image("View/img/Longswordwalk027");
+        Image espadachinEspalda = new Image("View/img/Longswordwalk001.png");
         ImageView imagenEspadachinEspalda = new ImageView(espadachinEspalda);
 
         agregarImagen(imagenEspadachinFrente, imagenEspadachinEspalda);
@@ -42,9 +43,10 @@ public class EspadachinView extends PiezaView {
         mover.setOnAction(new MoverHandler(this.entidadModelo, getThis()));
 
         MenuItem atacar = new MenuItem("Atacar");
+        atacar.setOnAction(new AtacarHandler(this));
 
         menu.getItems().addAll(atacar, mover);
 
-        return null;
+        return menu;
     }
 }

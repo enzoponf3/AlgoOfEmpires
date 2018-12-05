@@ -77,8 +77,4 @@ public class Alerta {
         alerta.show();
     }
 
-    public void seleccionarCasilleroDestino() {
-        alerta.setContentText("Primero se debe seleccionar el casillero destino");
-        alerta.show();
-    }
 }

@@ -26,7 +26,9 @@ public class Juego {
 
     public void cambiarDeTurno() {
         jugador1.cambiarTurno();
+        jugador1.recolectarOro();
         jugador2.cambiarTurno();
+        jugador2.recolectarOro();
 
     }
 

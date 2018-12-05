@@ -19,8 +19,6 @@ public abstract class PiezaView extends StackPane {
     private int x;
     private int y;
 
-    private ContextMenu menu;
-
     public PiezaView(IEntidad entidadModelo){
 
         this.entidadModelo = entidadModelo;
@@ -66,16 +64,15 @@ public abstract class PiezaView extends StackPane {
         return this.y*Constantes.TAMANIO_CASILLERO;
     }
 
-    // Seba
-    public IEntidad getEntidad() {
-        return this.entidadModelo;
-    }
-
-    //Tati
-
     public abstract ContextMenu crearMenu();
 
     public ImageView getImagen(){
         return this.imagenPieza;
     }
+
+    // Seba
+    public IEntidad getEntidad() {
+        return this.entidadModelo;
+    }
+
 }

@@ -25,40 +25,11 @@ public class ArmaDeAsedioView extends PiezaView {
         Posicion unaPosicion = arma.getPosicion();
         setPosicion(unaPosicion);
 
-
         ImageView imagenArmaFrente = new ImageView(new Image("View/img/Trebuchetmove039.png"));
         ImageView imagenArmaEspalda = new ImageView(new Image("View/img/Trebuchetmove012.png"));
 
         agregarImagen(imagenArmaFrente, imagenArmaEspalda);
 
-            this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent event) {
-                ContextMenu menu = this.crearMenu();
-                menu.show(imagenArmaFrente, event.getScreenX(), event.getScreenY());
-            }
-
-            private ContextMenu crearMenu(){
-
-                ContextMenu menu = new ContextMenu();
-                MenuItem montar = new MenuItem("Montar");
-                montar.setOnAction(new MontarHandler(arma));
-
-                MenuItem desmontar = new MenuItem("Desmontar");
-                desmontar.setOnAction(new DesmontarHandler(arma));
-
-                MenuItem atacar = new MenuItem("Atacar");
-                atacar.setOnAction(new AtacarHandler(arma,getThis()));
-
-                MenuItem mover = new MenuItem("Mover");
-                mover.setOnAction(new MoverHandler(arma, getThis()));
-
-                menu.getItems().addAll(montar, desmontar, atacar, mover);
-                return menu;
-            }
-
-        });
     }
 
     private ArmaDeAsedioView getThis(){
@@ -76,6 +47,7 @@ public class ArmaDeAsedioView extends PiezaView {
         MenuItem desmontar = new MenuItem("Desmontar");
 
         MenuItem mover = new MenuItem("Mover");
+        mover.setOnAction(new MoverHandler(entidadModelo, getThis()));
 
         menu.getItems().addAll(montar, atacar, desmontar, mover);
 

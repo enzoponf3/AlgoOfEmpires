@@ -11,8 +11,6 @@ import Modelo.Unidades.Unidad;
 import View.*;
 import View.contenedores.ActualizarView;
 import View.contenedores.Alerta;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +33,7 @@ public class MoverHandler implements EventHandler<ActionEvent>{
             @Override
             public void handle(MouseEvent event){
                 mover(mapaView);
+                mapaView.setOnMouseClicked(null);
             }
         });
 

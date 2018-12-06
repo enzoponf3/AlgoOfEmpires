@@ -83,11 +83,7 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
     @Override
     public int recolectarOro(Jugador jugador){
-        int oroExtra = 0;
-        for( Aldeano aldeano : jugador.getAldeanos()){
-            oroExtra += aldeano.generaOro();
-        }
-        return oroExtra;
+        return 0;
     }
 
     @Override

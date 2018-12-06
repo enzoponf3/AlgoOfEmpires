@@ -44,4 +44,9 @@ public class EstadoCuartelEnConstruccion implements IEstadoCuartel {
         else
             cuartel.noConstruido(this.turnos);
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

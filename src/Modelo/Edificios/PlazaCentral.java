@@ -77,4 +77,9 @@ public class PlazaCentral extends Edificio {
     void enConstruccion(int turnosRestantes) {
         this.estado = new EstadoPlazaCentralEnConstruccion(turnosRestantes);
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return this.estado.estaDestruido();
+    }
 }

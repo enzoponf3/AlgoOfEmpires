@@ -10,4 +10,6 @@ public interface IEstadoCastillo {
     void volverAEstadoOriginal(Castillo castillo);
 
     ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo);
+
+    boolean estaDestruido();
 }

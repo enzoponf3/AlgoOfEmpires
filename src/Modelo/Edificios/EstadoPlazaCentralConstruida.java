@@ -29,4 +29,9 @@ public class EstadoPlazaCentralConstruida implements IEstadoPlazaCentral {
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
         // Mantiene estado construida
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

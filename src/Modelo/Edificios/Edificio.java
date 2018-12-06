@@ -56,9 +56,7 @@ public abstract class Edificio implements IEntidad {
         return false;
     }
 
-    public boolean estaDestruido() {
-        return this.vida <= 0;
-    }
+    public abstract boolean estaDestruido();
 
     public abstract void volverAEstadoOriginal();
 }

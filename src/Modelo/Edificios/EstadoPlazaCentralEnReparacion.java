@@ -11,8 +11,7 @@ public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
     @Override
     public Aldeano crearAldeano(Mapa mapa, PlazaCentral plazaCentral) {
         Posicion posicionAldeano = mapa.devolverPosicionAledaniaLibre(plazaCentral);
-        Aldeano aldeano = new Aldeano(posicionAldeano);
-        return aldeano;
+        return new Aldeano(posicionAldeano);
     }
 
     @Override
@@ -28,5 +27,10 @@ public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
     @Override
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
         plazaCentral.construida();
+    }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
     }
 }

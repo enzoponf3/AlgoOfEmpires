@@ -12,4 +12,6 @@ public interface IEstadoPlazaCentral {
     void construir(PlazaCentral plaza);
 
     void volverAEstadoOriginal(PlazaCentral plazaCentral);
+
+    boolean estaDestruido();
 }

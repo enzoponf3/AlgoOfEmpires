@@ -37,4 +37,9 @@ public class EstadoCuartelEnReparacion implements IEstadoCuartel {
     public void volverAEstadoOriginal(Cuartel cuartel) {
         cuartel.construido();
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

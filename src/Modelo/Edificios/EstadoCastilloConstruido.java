@@ -22,4 +22,9 @@ public class EstadoCastilloConstruido implements IEstadoCastillo {
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(posicionArmaAsedio);
         return armaDeAsedio;
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

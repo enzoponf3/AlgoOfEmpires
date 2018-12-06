@@ -15,4 +15,6 @@ public interface IEstadoCuartel {
     void construir(Cuartel cuartel);
 
     void volverAEstadoOriginal(Cuartel cuartel);
+
+    boolean estaDestruido();
 }

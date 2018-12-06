@@ -26,4 +26,9 @@ public class EstadoPlazaCentralDestruida implements IEstadoPlazaCentral {
     public void volverAEstadoOriginal(PlazaCentral plazaCentral) {
         throw new EdificioDestruidoException();
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return true;
+    }
 }

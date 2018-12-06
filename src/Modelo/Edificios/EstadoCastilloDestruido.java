@@ -21,4 +21,9 @@ public class EstadoCastilloDestruido implements IEstadoCastillo {
     public ArmaDeAsedio crearArmaDeAsedio(Mapa mapa, Castillo castillo) {
         throw new EdificioDestruidoException();
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return true;
+    }
 }

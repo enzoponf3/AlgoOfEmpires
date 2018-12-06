@@ -12,9 +12,6 @@ import java.util.ArrayList;
 
 public class Castillo extends Edificio {
 
-
-
-
     private int danio;
     private IEstadoCastillo estado;
 
@@ -97,4 +94,8 @@ public class Castillo extends Edificio {
         }
     }
 
+    @Override
+    public boolean estaDestruido() {
+        return this.estado.estaDestruido();
+    }
 }

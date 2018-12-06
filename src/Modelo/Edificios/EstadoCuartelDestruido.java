@@ -33,4 +33,9 @@ public class EstadoCuartelDestruido implements IEstadoCuartel {
         throw new EdificioDestruidoException();
     }
 
+    @Override
+    public boolean estaDestruido() {
+        return true;
+    }
+
 }

@@ -36,4 +36,9 @@ public class EstadoPlazaCentralEnConstruccion implements IEstadoPlazaCentral {
         else
             plazaCentral.noConstruida(this.turnos);
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

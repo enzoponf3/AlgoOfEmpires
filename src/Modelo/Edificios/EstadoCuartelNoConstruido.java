@@ -38,4 +38,9 @@ public class EstadoCuartelNoConstruido implements IEstadoCuartel {
     public void volverAEstadoOriginal(Cuartel cuartel) {
 //        Matiene estado no construido
     }
+
+    @Override
+    public boolean estaDestruido() {
+        return false;
+    }
 }

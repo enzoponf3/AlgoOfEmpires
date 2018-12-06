@@ -16,7 +16,7 @@ public class Cuartel extends Edificio {
 
     public Cuartel(ArrayList<Posicion> posiciones) {
         this.vidaMax = Constantes.VIDA_CUARTEL;
-        this.vida = 1;
+        this.vida = 0;
         this.costo = Constantes.COSTO_CUARTEL;
         this.velocidadReparacion = Constantes.VELOCIDAD_REPARACION_CUARTEL;
         this.estado = new EstadoCuartelNoConstruido(Constantes.TURNOS_CONSTRUCCION_CUARTEL);
@@ -81,6 +81,12 @@ public class Cuartel extends Edificio {
     @Override
     public void volverAEstadoOriginal() {
         this.estado.volverAEstadoOriginal(this);
+    }
+
+
+    @Override
+    public boolean estaDestruido() {
+        return this.estado.estaDestruido();
     }
 
 }

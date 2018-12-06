@@ -292,8 +292,7 @@ public class Jugador {
     }
 
     public void castilloAtacar(ArrayList<Aldeano> aldeanos,ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito){
-        this.castillo.atacarEdificios(edificios);
-        this.castillo.atacarUnidades(aldeanos,ejercito);
+        this.estado.castilloAtacar(this.castillo,aldeanos,edificios,ejercito);
     }
 
     public void rendirse(){

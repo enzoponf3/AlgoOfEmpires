@@ -26,9 +26,15 @@ public class Juego {
 
 
     public void cambiarDeTurno() {
+        if (esGanador(jugador1))
+            finalizarJuego(jugador1);
+        if(esGanador(jugador2))
+            finalizarJuego(jugador2);
         jugador1.cambiarTurno();
+        jugador1.castilloAtacar(jugador2.getAldeanos(),jugador2.getEdificios(),jugador2.getEjercito());
         jugador1.recolectarOro();
         jugador2.cambiarTurno();
+        jugador2.castilloAtacar(jugador1.getAldeanos(),jugador1.getEdificios(),jugador1.getEjercito());
         jugador2.recolectarOro();
 
     }

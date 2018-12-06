@@ -23,8 +23,11 @@ public class PasarTurnoButtonHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event){
         MapaView.getInstancia().ControlarMusica().parar();
-        this.actualizarUI.AlternarJugador();
         this.juego.cambiarDeTurno();
+        if(juego.getGanador() != null)
+            actualizarUI.getJugadorViewActual().mostrarQueGane();
+        this.actualizarUI.AlternarJugador();
+        MapaView.getInstancia().enviarMensaje("El castillo atacó.");
         MapaView.getInstancia().removerPiezasDestruidas();
     }
 }

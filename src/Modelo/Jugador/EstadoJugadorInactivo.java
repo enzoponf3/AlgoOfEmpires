@@ -57,6 +57,11 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
     }
 
     @Override
+    public void castilloAtacar(Castillo castillo, ArrayList<Aldeano> aldeanos, ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito) {
+
+    }
+
+    @Override
     public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){
         throw new TurnoDelOponenteException();
     }

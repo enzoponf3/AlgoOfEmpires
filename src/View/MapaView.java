@@ -125,7 +125,7 @@ public class MapaView extends Pane {
     public Mapa getMapa (){ return this.mapaModelo;}
 
     public void agregarAtacantesParaTest() {                          //Metodo para test, tiene un error con el mover, pero es de este metodo, no del mover
-        Posicion pos1 = new Posicion(35,20);
+        Posicion pos1 = new Posicion(45,18);
         Posicion pos2 = new Posicion(14,20);
 
         Aldeano aldeano = new Aldeano(pos1);

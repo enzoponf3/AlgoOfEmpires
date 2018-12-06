@@ -28,6 +28,8 @@ public interface IEstadoJugador {
 
     void atacar(Jugador jugador, IAtacante atacante, Edificio edificioAAtacar);
 
+    void castilloAtacar(Castillo castillo, ArrayList<Aldeano> aldeanos, ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito);
+
     Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel);
 
     void continuarConstruccionCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, Cuartel cuartel);

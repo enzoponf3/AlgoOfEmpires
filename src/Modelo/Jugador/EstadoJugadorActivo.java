@@ -100,6 +100,12 @@ public class EstadoJugadorActivo implements IEstadoJugador {
         atacante.atacar(edificioAAtacar);
     }
 
+    @Override
+    public void castilloAtacar(Castillo castillo, ArrayList<Aldeano> aldeanos, ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito) {
+        castillo.atacarEdificios(edificios);
+        castillo.atacarUnidades(aldeanos,ejercito);
+    }
+
     //CONSTRUIR
     @Override
     public Cuartel construirCuartel(Jugador jugador, Mapa mapa, Aldeano aldeano, ArrayList<Posicion> posicionesCuartel){

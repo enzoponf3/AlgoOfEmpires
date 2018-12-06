@@ -2,6 +2,7 @@ package Modelo.Unidades;
 
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.EntidadFueraDeRangoException;
+import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Posicion;
 
 public abstract class EstadoAtacante implements IEstadoAtacante{
@@ -29,8 +30,12 @@ public abstract class EstadoAtacante implements IEstadoAtacante{
         atacante.ocupar();
     }
 
+
+
+
     @Override
     public void mover(Posicion destino){
+        atacante.verificarPosicionAledania(destino);
         atacante.cambiarPosicion(destino);
         atacante.ocupar();
     }

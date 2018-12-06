@@ -1,5 +1,6 @@
 package Modelo.Unidades;
 import Modelo.Constantes;
+import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Posicion;
 import Modelo.Edificios.Edificio;
 
@@ -30,6 +31,12 @@ public class Espadachin extends Unidad implements IAtacante{
     @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
+    }
+
+    @Override
+    public void verificarPosicionAledania(Posicion destino){
+        if ( !this.posicion.aledaniaA(destino) )
+            throw new PosicionInvalidaException();
     }
 
     @Override

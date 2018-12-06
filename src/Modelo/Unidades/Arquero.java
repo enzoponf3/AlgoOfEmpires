@@ -1,6 +1,7 @@
 package Modelo.Unidades;
 import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
+import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Posicion;
 import java.util.ArrayList;
 
@@ -16,6 +17,12 @@ public class Arquero extends Unidad implements IAtacante {
         this.rango = Constantes.RANGO_ARQUERO;
         this.estado = new EstadoArqueroLibre(this);
         this.posicion = posicion;
+    }
+
+    @Override
+    public void verificarPosicionAledania(Posicion destino){
+        if ( !this.posicion.aledaniaA(destino) )
+            throw new PosicionInvalidaException();
     }
 
     @Override

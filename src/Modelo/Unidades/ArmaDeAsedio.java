@@ -2,6 +2,7 @@ package Modelo.Unidades;
 import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.ArmaDeAsedioNoAtacaUnidadException;
+import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Posicion;
 
 import java.util.ArrayList;
@@ -33,6 +34,12 @@ public class ArmaDeAsedio extends Unidad implements IAtacante {
     @Override
     public void cambiarPosicion(Posicion destino){
         this.posicion = destino;
+    }
+
+    @Override
+    public void verificarPosicionAledania(Posicion destino){
+        if ( !this.posicion.aledaniaA(destino) )
+            throw new PosicionInvalidaException();
     }
 
     public void atacar(Unidad unidad){ throw new ArmaDeAsedioNoAtacaUnidadException();}

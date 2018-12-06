@@ -3,6 +3,7 @@ import Modelo.Constantes;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Edificios.*;
+import Modelo.Exceptions.PosicionInvalidaException;
 import Modelo.Posicion;
 
 import java.util.ArrayList;
@@ -53,8 +54,16 @@ public class Aldeano extends Unidad {
     }
 
     void movio(){this.estado = new EstadoAldeanoMovio(this);}
+
+    @Override
+    public void verificarPosicionAledania(Posicion destino){
+        if ( !this.posicion.aledaniaA(destino) )
+            throw new PosicionInvalidaException();
+    }
+
     @Override
     public void mover(Posicion destino){
+        verificarPosicionAledania(destino);
         this.estado.mover(destino);
     }
 

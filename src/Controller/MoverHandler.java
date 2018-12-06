@@ -40,7 +40,6 @@ public class MoverHandler implements EventHandler<ActionEvent>{
         try {
             Posicion destino = mapaView.getDestino();
 
-
             double destinoX = destino.getHorizontal();
             double destinoY = destino.getVertical();
 
@@ -61,7 +60,7 @@ public class MoverHandler implements EventHandler<ActionEvent>{
                 new Alerta().posicionNoAledania();
             } catch (UnidadEstaMontadaException e3) {
                 new Alerta().armaMontada();
-            }
+            } catch (PosicionOcupadaException e){}
         }catch(CasilleroNoSeleccionadoException e4){
             new Alerta().objetivoIncorrecto();
         }

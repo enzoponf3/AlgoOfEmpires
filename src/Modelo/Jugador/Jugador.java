@@ -296,7 +296,9 @@ public class Jugador {
         this.castillo.atacarUnidades(aldeanos,ejercito);
     }
 
-
+    public void rendirse(){
+        this.castillo.autodestruir();
+    }
 
 
     // Borrar entidades sin vida

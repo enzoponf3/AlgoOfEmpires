@@ -30,6 +30,7 @@ public class MapaView extends Pane {
     private JugadorView jugadorView1;
     private JugadorView jugadorView2;
     private Mapa mapaModelo;
+    private ArrayList<PiezaView> piezasDestruidas;
 
     private CasilleroView casilleroSeleccionada;
     private PiezaView piezaSeleccionada;
@@ -74,6 +75,7 @@ public class MapaView extends Pane {
         bordeConstruir.setMouseTransparent(true);
         //
 
+        this.piezasDestruidas = new ArrayList<>();
         INSTANCIA = this;
     }
 
@@ -121,21 +123,14 @@ public class MapaView extends Pane {
         Posicion pos1 = new Posicion(35,20);
         Posicion pos2 = new Posicion(14,20);
 
-        /*ArmaDeAsedio atacante1 = new ArmaDeAsedio(pos1);
-        jugadorView1.getJugadorModeloParaTest().agregarAEjercito(atacante1,mapaModelo);
-        ArmaDeAsedioView atacante1View = new ArmaDeAsedioView(atacante1);
-        this.agregarPieza(atacante1View);
-
-        ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(pos2);
-        PlazaCentral plaza = new PlazaCentral(posiciones);
-        plaza.finalizarConstruccion();
-        jugadorView2.getJugadorModeloParaTest().agregarEdificio(plaza,mapaModelo);
-        PlazaCentralView plazaView = new PlazaCentralView(plaza);
-        plazaView.setImagenPlazaConstruida();
-        this.agregarPieza(plazaView);*/
         Aldeano aldeano = new Aldeano(pos1);
         jugadorView1.getJugadorModeloParaTest().agregarAldeano(aldeano,mapaModelo);
         AldeanoView aldeanoView = new AldeanoView(aldeano);
+
+        ArmaDeAsedio atacante1 = new ArmaDeAsedio(pos2);
+        jugadorView1.getJugadorModeloParaTest().agregarAEjercito(atacante1,mapaModelo);
+        ArmaDeAsedioView atacante1View = new ArmaDeAsedioView(atacante1);
+        this.agregarPieza(atacante1View);
 
         this.agregarPieza(aldeanoView);
     }
@@ -172,5 +167,14 @@ public class MapaView extends Pane {
     public void colocarImgRestos() {
         this.piezaSeleccionada.removerImagen();
         this.piezaSeleccionada.colocarImgRestos();
+    }
+
+    public void agregarAPiezasDestruidas() {
+        piezasDestruidas.add(this.piezaSeleccionada);
+    }
+
+    public void removerPiezasDestruidas() {
+        for(PiezaView pieza : piezasDestruidas)
+            pieza.removerImagen();
     }
 }

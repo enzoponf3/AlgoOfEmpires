@@ -37,13 +37,6 @@ public class CastilloView extends PiezaView {
         agregarImagen(imagenCastilloADerecha, imagenCastilloAIzquierda);
 
         ContextMenu menu = this.crearMenu();
-
-        this.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                menu.show(imagenCastilloADerecha, event.getScreenX(), event.getScreenY());
-            }
-        });
     }
 
 

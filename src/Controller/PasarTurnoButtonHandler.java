@@ -1,6 +1,7 @@
 package Controller;
 
 import Modelo.Juego;
+import View.MapaView;
 import View.contenedores.ActualizarView;
 import View.contenedores.PantallaJuego;
 import javafx.event.ActionEvent;
@@ -23,5 +24,6 @@ public class PasarTurnoButtonHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event){
         this.actualizarUI.AlternarJugador();
         this.juego.cambiarDeTurno();
+        MapaView.getInstancia().removerPiezasDestruidas();
     }
 }

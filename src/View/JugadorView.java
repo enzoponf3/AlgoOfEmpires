@@ -6,6 +6,7 @@ import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.IEntidad;
+import Modelo.Juego;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -147,6 +148,7 @@ public class JugadorView {
             jugadorModelo.atacar(atacante,(Unidad) objetivo);
             if(((Unidad) objetivo).estaMuerto()){
                 mapa.colocarImgRestos();
+                mapa.agregarAPiezasDestruidas();
             }
         }catch(ClassCastException e){}
 
@@ -154,6 +156,7 @@ public class JugadorView {
             jugadorModelo.atacar(atacante,(Edificio) objetivo);
             if(((Edificio) objetivo).estaDestruido()){
                 mapa.colocarImgRestos();
+                mapa.agregarAPiezasDestruidas();
             }
         }catch(ClassCastException e2){}
     }
@@ -175,5 +178,21 @@ public class JugadorView {
         ArqueroView arqueroView = new ArqueroView(arquero);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(arqueroView);
+    }
+
+    public void crearAldeano(PlazaCentral plazaMod) {
+        Aldeano aldeano = jugadorModelo.crearAldeano(mapaModelo,plazaMod);
+        AldeanoView aldeanoView = new AldeanoView(aldeano);
+        MapaView mapaView = MapaView.getInstancia();
+        mapaView.agregarPieza(aldeanoView);
+    }
+
+    public void finalizar(Juego juego) {
+        if(juego.esGanador(jugadorModelo))
+            juego.finalizarJuego(jugadorModelo);
+    }
+
+    public void rendirse() {
+        jugadorModelo.rendirse();
     }
 }

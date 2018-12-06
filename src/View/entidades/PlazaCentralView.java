@@ -1,5 +1,6 @@
 package View.entidades;
 
+import Controller.CrearAldeanoHandler;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import Modelo.Constantes;
@@ -39,6 +40,7 @@ public class PlazaCentralView extends PiezaView {
         ContextMenu menu = new ContextMenu();
 
         MenuItem crearAldeano = new MenuItem("Crear aldeano");
+        crearAldeano.setOnAction(new CrearAldeanoHandler(this));
         menu.getItems().addAll(crearAldeano);
 
         return menu;

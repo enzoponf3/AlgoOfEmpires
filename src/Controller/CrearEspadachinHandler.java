@@ -2,6 +2,7 @@ package Controller;
 
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
+import Modelo.Exceptions.EdificioEnConstruccionException;
 import Modelo.Exceptions.EdificioNoConstruidoException;
 import Modelo.Exceptions.EdificioNoExisteException;
 import Modelo.Exceptions.OroInsuficienteException;
@@ -34,6 +35,8 @@ public class CrearEspadachinHandler implements EventHandler<ActionEvent> {
             new Alerta().oroInsuficiente();
         }catch (EdificioNoConstruidoException e){
             new Alerta().edificioNoConstruido();
+        }catch(EdificioEnConstruccionException e){
+            new Alerta().edificioAunEnConst();
         }
     }
 }

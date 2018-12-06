@@ -130,4 +130,10 @@ public class Alerta {
         alerta.setContentText("El edificio esta destruido");
         alerta.show();
     }
+
+    public void edificioAunEnConst(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("Debes pasar el turno para poder crear unidades");
+        alerta.show();
+    }
 }

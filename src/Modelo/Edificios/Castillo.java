@@ -98,4 +98,8 @@ public class Castillo extends Edificio {
     public boolean estaDestruido() {
         return this.estado.estaDestruido();
     }
+
+    public void autodestruir() {
+        this.vida = 0;
+    }
 }

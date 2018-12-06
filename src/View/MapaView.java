@@ -169,8 +169,6 @@ public class MapaView extends Pane {
         return this.piezaSeleccionada;
     }
 
-
-
     public void colocarImgRestos() {
         this.piezaSeleccionada.removerImagen();
         this.piezaSeleccionada.colocarImgRestos();

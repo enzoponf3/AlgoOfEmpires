@@ -49,4 +49,10 @@ public class EspadachinView extends PiezaView {
 
         return menu;
     }
+
+    @Override
+    public void colocarImgRestos(){
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/Longsworddie020.png"));
+        agregarImagen(imagenAldeanoFrente);
+    }
 }

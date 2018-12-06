@@ -56,6 +56,8 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
             new Alerta().unidadOcupada();
         }catch(CasilleroDesocupadoException e){
             new Alerta().faltaObjetivo();
+        }catch(EdificioDestruidoException e){
+            new Alerta().edificioDestruido();           //Falta la de unidad muerta
         }
     }
 }

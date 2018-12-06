@@ -798,10 +798,9 @@ public class Jugador1YJugador2ataqueTest {
         jugador2.agregarAldeano(aldeano, mapa);
 
         jugador1.atacar(espadachin,aldeano);
-
         jugador2.limpiarEntidadesMuertas(mapa);
 
-        Assert.assertEquals(jugador2.getAldeanos().size(),3);
+        Assert.assertEquals(3,jugador2.getAldeanos().size());
     }
 
     @Test
@@ -827,7 +826,7 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.atacar(arquero,espadachin);
 
         jugador2.limpiarEntidadesMuertas(mapa);
-        Assert.assertEquals(jugador2.getEjercito().size(),0);
+        Assert.assertEquals(0,jugador2.getEjercito().size());
     }
 
 
@@ -864,7 +863,7 @@ public class Jugador1YJugador2ataqueTest {
         jugador1.atacar(espadachin,plaza);
         jugador2.limpiarEntidadesMuertas(mapa);
 
-        Assert.assertEquals(jugador2.getEdificios().size(),1);
+        Assert.assertEquals(1,jugador2.getEdificios().size());
     }
 
     @Test

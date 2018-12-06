@@ -56,4 +56,10 @@ public class ArmaDeAsedioView extends PiezaView {
         return menu;
     }
 
+    @Override
+    public void colocarImgRestos(){
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/Trebuchetdie022.png"));
+        agregarImagen(imagenAldeanoFrente);
+    }
+
 }

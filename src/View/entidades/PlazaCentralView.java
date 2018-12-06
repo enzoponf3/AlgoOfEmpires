@@ -57,5 +57,10 @@ public class PlazaCentralView extends PiezaView {
         this.turnos_faltantes = 3;
     }
 
+    @Override
+    public void colocarImgRestos(){
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/destruido.png"));
+        agregarImagen(imagenAldeanoFrente);
+    }
 
 }

@@ -86,7 +86,9 @@ public class EstadoJugadorInactivo implements IEstadoJugador {
 
     @Override
     public void cambiarTurno(Jugador jugador) {
+        Mapa mapa = Mapa.getInstancia();
         jugador.activar();
+        jugador.limpiarEntidadesMuertas(mapa);
         jugador.desocuparUnidades();
         jugador.desocuparEdificios();
     }

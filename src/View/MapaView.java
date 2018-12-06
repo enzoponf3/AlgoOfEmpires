@@ -3,14 +3,12 @@ package View;
 import Modelo.*;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.CasilleroNoSeleccionadoException;
+import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
 import View.contenedores.Log;
-import View.entidades.ArmaDeAsedioView;
-import View.entidades.ArqueroView;
-import View.entidades.EspadachinView;
-import View.entidades.PlazaCentralView;
+import View.entidades.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -120,10 +118,10 @@ public class MapaView extends Pane {
     public Mapa getMapa (){ return this.mapaModelo;}
 
     public void agregarAtacantesParaTest() {                          //Metodo para test, tiene un error con el mover, pero es de este metodo, no del mover
-        Posicion pos1 = new Posicion(11,20);
+        Posicion pos1 = new Posicion(35,20);
         Posicion pos2 = new Posicion(14,20);
 
-        ArmaDeAsedio atacante1 = new ArmaDeAsedio(pos1);
+        /*ArmaDeAsedio atacante1 = new ArmaDeAsedio(pos1);
         jugadorView1.getJugadorModeloParaTest().agregarAEjercito(atacante1,mapaModelo);
         ArmaDeAsedioView atacante1View = new ArmaDeAsedioView(atacante1);
         this.agregarPieza(atacante1View);
@@ -134,7 +132,12 @@ public class MapaView extends Pane {
         jugadorView2.getJugadorModeloParaTest().agregarEdificio(plaza,mapaModelo);
         PlazaCentralView plazaView = new PlazaCentralView(plaza);
         plazaView.setImagenPlazaConstruida();
-        this.agregarPieza(plazaView);
+        this.agregarPieza(plazaView);*/
+        Aldeano aldeano = new Aldeano(pos1);
+        jugadorView1.getJugadorModeloParaTest().agregarAldeano(aldeano,mapaModelo);
+        AldeanoView aldeanoView = new AldeanoView(aldeano);
+
+        this.agregarPieza(aldeanoView);
     }
 
     public void enviarMensaje(String msj){
@@ -166,8 +169,10 @@ public class MapaView extends Pane {
         return this.piezaSeleccionada;
     }
 
-    public void removerPiezaSeleccionada() {
+
+
+    public void colocarImgRestos() {
         this.piezaSeleccionada.removerImagen();
-        this.getChildren().remove(this.piezaSeleccionada);
+        this.piezaSeleccionada.colocarImgRestos();
     }
 }

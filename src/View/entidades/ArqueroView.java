@@ -50,4 +50,10 @@ public class ArqueroView extends PiezaView {
 
         return menu;
     }
+
+    @Override
+    public void colocarImgRestos(){
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/Archerdie017.png"));
+        agregarImagen(imagenAldeanoFrente);
+    }
 }

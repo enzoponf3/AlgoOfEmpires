@@ -103,4 +103,7 @@ public abstract class PiezaView extends StackPane {
     public  void removerImagen(){
         getChildren().remove(imagenPieza);
     }
+
+    public void colocarImgRestos() {
+    }
 }

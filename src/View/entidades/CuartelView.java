@@ -62,4 +62,10 @@ public class CuartelView extends PiezaView {
         }
     }
 
+    @Override
+    public void colocarImgRestos(){
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/destruido.png"));
+        agregarImagen(imagenAldeanoFrente);
+    }
+
 }

@@ -124,4 +124,10 @@ public class Alerta {
         alerta.setContentText("El objetivo seleccionado no es el esperado");
         alerta.show();
     }
+
+    public void edificioDestruido(){
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El edificio esta destruido");
+        alerta.show();
+    }
 }

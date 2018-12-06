@@ -93,7 +93,7 @@ public class RepararTest {
         cuartel.volverAEstadoOriginal();
         cuartel.reducirVida(60);
         aldeano.repararEdificio(cuartel);
-        Posicion destino = new Posicion(2,3);
+        Posicion destino = new Posicion(2,7);
         aldeano.mover(destino);
     }
 

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControladorMusicaFx;
 import Modelo.*;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.CasilleroNoSeleccionadoException;
@@ -31,18 +32,22 @@ public class MapaView extends Pane {
     private JugadorView jugadorView2;
     private Mapa mapaModelo;
     private ArrayList<PiezaView> piezasDestruidas;
+    private ControladorMusicaFx efectos = new ControladorMusicaFx();
+    private ControladorMusicaFx musica;
+
 
     private CasilleroView casilleroSeleccionada;
     private PiezaView piezaSeleccionada;
 
     Rectangle bordeConstruir = new Rectangle();
 
-    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2, Log log){
+    public MapaView(Mapa mapa, int anchoMapa, int altoMapa, JugadorView jugadorView1, JugadorView jugadorView2, Log log,ControladorMusicaFx musica){
         this.casilleros = new Group();
         this.mapaModelo = mapa;
         this.jugadorView1 = jugadorView1;
         this.jugadorView2 = jugadorView2;
         this.log = log;
+        this.musica = musica;
 
         this.setPrefSize(anchoMapa* Constantes.TAMANIO_CASILLERO, altoMapa*Constantes.TAMANIO_CASILLERO);
 
@@ -177,4 +182,11 @@ public class MapaView extends Pane {
         for(PiezaView pieza : piezasDestruidas)
             pieza.removerImagen();
     }
+
+    public ControladorMusicaFx reproducirEfecto(){
+        return efectos;
+    }
+
+    public ControladorMusicaFx ControlarMusica () { return musica; }
+
 }

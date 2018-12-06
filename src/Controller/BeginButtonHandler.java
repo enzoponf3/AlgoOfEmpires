@@ -17,17 +17,20 @@ public class BeginButtonHandler implements EventHandler<ActionEvent> {
     private JugadorView jugador1;
     private JugadorView jugador2;
     private Stage stage;
-    public BeginButtonHandler(Stage stage, JugadorView jugador1, JugadorView jugador2) {
+    private ControladorMusicaFx musica;
+    public BeginButtonHandler(Stage stage, JugadorView jugador1, JugadorView jugador2,ControladorMusicaFx musica) {
         this.stage = stage;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
+        this.musica = musica;
     }
 
     public void handle(ActionEvent event){
         if(this.jugador1.getNombre() == "" || this.jugador2.getNombre() == "" || jugador1.getFigura() == null || jugador2.getFigura() == null){
             new Alerta().faltanDatos();
         }else{
-            Scene scene = new Scene(new PantallaJuego(this.stage,this.jugador1,this.jugador2));
+            ControladorMusicaFx.getINSTANCIA().parar();
+            Scene scene = new Scene(new PantallaJuego(this.stage,this.jugador1,this.jugador2,musica));
 
             Rectangle2D limitesPantalla = Screen.getPrimary().getVisualBounds();
             this.stage.setHeight(limitesPantalla.getHeight());

@@ -13,15 +13,17 @@ public class PlayButtonHandler implements EventHandler<ActionEvent> {
     Stage stage;
     JugadorView jugador1;
     JugadorView jugador2;
+    ControladorMusicaFx musica;
 
-    public PlayButtonHandler(Stage stage){
+    public PlayButtonHandler(Stage stage,ControladorMusicaFx musica){
         this.stage = stage;
         this.jugador1 = new JugadorView();
         this.jugador2 = new JugadorView();
+        this.musica = musica;
     }
     public void handle(ActionEvent event){
 
-        Scene pantallaSeleccion = new Scene(new PantallaConfigJugador(stage,jugador1,jugador2));
+        Scene pantallaSeleccion = new Scene(new PantallaConfigJugador(stage,jugador1,jugador2, musica));
         stage.setScene(pantallaSeleccion);
         stage.setResizable(false);
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();

@@ -1,11 +1,9 @@
 package View.contenedores;
 
-import Controller.SelectCharButtonHandler;
+import Controller.*;
 import View.Boton;
 import View.BotonRadio;
 import View.JugadorView;
-import Controller.BeginButtonHandler;
-import Controller.ReadyButtonHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -20,7 +18,7 @@ public class PantallaConfigJugador extends Pane {
 
     Stage stage;
 
-    public PantallaConfigJugador(Stage stage, JugadorView jugador1, JugadorView jugador2){
+    public PantallaConfigJugador(Stage stage, JugadorView jugador1, JugadorView jugador2, ControladorMusicaFx musica){
         this.stage = stage;
         this.setPrefSize(1080,680);
         this.setStyle("-fx-background-color: black");
@@ -33,7 +31,7 @@ public class PantallaConfigJugador extends Pane {
         Pane panel1 = setPersonaje(jugador1,"JUGADOR 1");
         Pane panel2 = setPersonaje(jugador2, "JUGADOR 2");
 
-        Boton empezar = new Boton ("EMPEZAR!", new BeginButtonHandler(stage, jugador1,jugador2));
+        Boton empezar = new Boton ("EMPEZAR!", new BeginButtonHandler(stage, jugador1,jugador2, musica));
         empezar.getStyleClass().add("menu-button");
 
         panel1.relocate(0,0);

@@ -41,6 +41,7 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
             ActualizarView actualizarView = ActualizarView.getInstancia();
             JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
             jugadorViewActual.atacar(objetivo, (IAtacante) atacanteView.getEntidad());
+            mapaView.reproducirEfecto().ataque();
             mapaView.enviarMensaje("Se ha atacado exitosamente.");
         }catch(NullPointerException e1){
             new Alerta().faltaObjetivo();

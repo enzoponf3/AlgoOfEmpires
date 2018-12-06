@@ -51,6 +51,7 @@ public class ConstruirCuartelHandler implements EventHandler<ActionEvent> {
                 Mapa mapaModelo = Mapa.getInstancia();
                 ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
                 jugadorViewActual.construirCuartel(aldeanoModelo, posiciones);
+                mapaView.reproducirEfecto().construirEdificio();
             } catch (OroInsuficienteException e) {
                 new Alerta().oroInsuficiente();
             } catch (PosicionInvalidaException e) {

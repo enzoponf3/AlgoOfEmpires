@@ -29,6 +29,7 @@ public class CrearArqueroHandler implements EventHandler<ActionEvent> {
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try {
             jugadorViewActual.crearArquero(cuartelMod);
+            mapa.reproducirEfecto().construirUnidad();
             mapa.enviarMensaje("Arquero creado exitosamente.");
         }catch (EdificioNoExisteException e){
             new Alerta().unidadEnemiga();

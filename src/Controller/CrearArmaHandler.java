@@ -31,6 +31,7 @@ public class CrearArmaHandler implements EventHandler <ActionEvent> {
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try {
             jugadorViewActual.crearArmaDeAsedio(castilloMod);
+            mapa.reproducirEfecto().construirUnidad();
             mapa.enviarMensaje("Arma de asedio creada exitosamente.");
         }catch (EdificioNoExisteException e){
             new Alerta().unidadEnemiga();

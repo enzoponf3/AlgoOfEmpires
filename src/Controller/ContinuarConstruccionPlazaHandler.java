@@ -50,6 +50,7 @@ public class ContinuarConstruccionPlazaHandler implements EventHandler<ActionEve
                 try {
                     jugadorViewActual.continuarConstruccionPlazaCentral(aldeano, edificioModelo);
                     edificioView.construir();
+                    mapaView.reproducirEfecto().continuarEdificio();
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {

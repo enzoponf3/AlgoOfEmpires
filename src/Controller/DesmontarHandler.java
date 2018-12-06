@@ -34,6 +34,7 @@ public class DesmontarHandler implements EventHandler<ActionEvent> {
             ImageView imagenArmaFrente = new ImageView(new Image("View/img/Trebuchetmove039.png"));
             ImageView imagenArmaEspalda = new ImageView(new Image("View/img/Trebuchetmove012.png"));
             arma.agregarImagen(imagenArmaFrente,imagenArmaEspalda);
+            mapa.reproducirEfecto().desmontarADA();
             mapa.enviarMensaje("Arma de asedio desmontada.");
         }catch (UnidadEstaOcupadoException e){
             new Alerta().unidadOcupada();

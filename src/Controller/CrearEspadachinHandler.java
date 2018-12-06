@@ -28,6 +28,7 @@ public class CrearEspadachinHandler implements EventHandler<ActionEvent> {
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try {
             jugadorViewActual.crearEspadachin(cuartelMod);
+            mapa.reproducirEfecto().construirUnidad();
             mapa.enviarMensaje("Espadachin creado exitosamente.");
         }catch (EdificioNoExisteException e){
             new Alerta().unidadEnemiga();

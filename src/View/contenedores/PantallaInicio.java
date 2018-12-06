@@ -1,5 +1,6 @@
 package View.contenedores;
 
+import Controller.ControladorMusicaFx;
 import View.Boton;
 import Controller.HelpButtonHandler;
 import Controller.PlayButtonHandler;
@@ -15,7 +16,8 @@ public class PantallaInicio extends Pane {
     Stage stage;
 
     public PantallaInicio(Stage stage) {
-
+        ControladorMusicaFx musica = new ControladorMusicaFx();
+        musica.inicio();
         this.stage = stage;
         this.setPrefSize(720,480);
 
@@ -37,7 +39,7 @@ public class PantallaInicio extends Pane {
         Image espada = new Image("View/img/espadita.png", 30, 30, false, false);
         ImageView im3 = new ImageView(espada);
 
-        Boton jugar = new Boton("JUGAR", new PlayButtonHandler(this.stage));
+        Boton jugar = new Boton("JUGAR", new PlayButtonHandler(this.stage, musica));
         jugar.setGraphic(im3);
         jugar.getStyleClass().add("menu-button");
         jugar.relocate(224, 356);

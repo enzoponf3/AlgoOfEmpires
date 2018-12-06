@@ -1,6 +1,7 @@
 package View.contenedores;
 
 
+import Controller.ControladorMusicaFx;
 import Modelo.Juego;
 import Modelo.Jugador.Jugador;
 import Modelo.Mapa;
@@ -37,17 +38,18 @@ public class PantallaJuego extends Pane {
     private ActualizarView iconoActualizar;
     private DisplayBotoneraOpciones botonera;
     private Juego juego;
+    private ControladorMusicaFx musica = ControladorMusicaFx.getINSTANCIA();
 
     private int anchoMapa = 50;
     private int altoMapa = 25;
     private View.MapaView mapa;
     private ScrollPane layout;
 
-    public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2){
-
+    public  PantallaJuego( Stage stage,JugadorView j1, JugadorView j2, ControladorMusicaFx musica){
+        musica.inGame();
         this.mapaModelo = new Mapa(anchoMapa, altoMapa);
         this.juego = new Juego();
-
+        this.musica = musica;
         this.jugadorModelo1 = juego.getJugador1();
         this.jugadorModelo2 = juego.getJugador2();
 
@@ -106,7 +108,7 @@ public class PantallaJuego extends Pane {
 
     private void dibujarMapa(){
 
-        MapaView mapaView = new MapaView(this.mapaModelo,anchoMapa, altoMapa,jugadorView1,jugadorView2,log);
+        MapaView mapaView = new MapaView(this.mapaModelo,anchoMapa, altoMapa,jugadorView1,jugadorView2,log,musica);
         ScrollPane layout = new ScrollPane(mapaView);
         layout.setLayoutX(0);
         layout.setLayoutY(((altoPantalla)/24));

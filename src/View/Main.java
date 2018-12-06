@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ControladorMusicaFx;
 import View.contenedores.PantallaInicio;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -16,7 +17,7 @@ public class Main extends Application {
     public void start (Stage stageAplication){
         stageAplication.setTitle("Algo Of Empires");
         stageAplication.getIcons().add(new Image("View/img/icon.png"));
-
+        ControladorMusicaFx musica = new ControladorMusicaFx();
         Scene scene = new Scene(new PantallaInicio(stageAplication));
 
         stageAplication.setScene(scene);

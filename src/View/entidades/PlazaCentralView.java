@@ -4,6 +4,7 @@ import Controller.CrearAldeanoHandler;
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Posicion;
 import Modelo.Constantes;
+import View.MapaView;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
@@ -52,6 +53,7 @@ public class PlazaCentralView extends PiezaView {
         if(turnos_faltantes == 0){
             this.setImagenPlazaConstruida();
             System.out.println("Cambie imagen");
+            MapaView.getInstancia().reproducirEfecto().terminarEdificio();
         }
     }
 
@@ -63,6 +65,7 @@ public class PlazaCentralView extends PiezaView {
     public void colocarImgRestos(){
         ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/destruido.png"));
         agregarImagen(imagenAldeanoFrente);
+        MapaView.getInstancia().reproducirEfecto().destruirEdifio();
     }
 
 }

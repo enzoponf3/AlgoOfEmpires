@@ -34,6 +34,7 @@ public class MontarHandler implements EventHandler<ActionEvent> {
             ImageView imagenArmaFrente = new ImageView(new Image("View/img/Trebuchetstand004.png"));
             ImageView imagenArmaEspalda = new ImageView(new Image("View/img/Trebuchetstand002.png"));
             arma.agregarImagen(imagenArmaFrente,imagenArmaEspalda);
+            mapa.reproducirEfecto().montarADA();
             mapa.enviarMensaje("Arma de asedio montada.");
         }catch (UnidadEstaOcupadoException e){
             new Alerta().unidadOcupada();

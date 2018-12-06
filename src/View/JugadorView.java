@@ -1,6 +1,7 @@
 package View;
 
 
+import Controller.ControladorMusicaFx;
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
@@ -49,9 +50,11 @@ public class JugadorView {
     }
 
     public void mostrarQueGane(){
-        Scene ayuda = new Scene(new PantallaGanador(this));        //Display de pantalla ganador
+        MapaView.getInstancia().ControlarMusica().parar();
+        MapaView.getInstancia().reproducirEfecto().victoria();
+        Scene pantallaGanador = new Scene(new PantallaGanador(this));        //Display de pantalla ganador
         Stage stage = new Stage();
-        stage.setScene(ayuda);
+        stage.setScene(pantallaGanador);
         stage.setResizable(false);
         stage.show();
 

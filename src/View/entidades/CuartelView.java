@@ -5,6 +5,7 @@ import Controller.CrearEspadachinHandler;
 import Modelo.Edificios.Cuartel;
 import Modelo.Posicion;
 import Modelo.Constantes;
+import View.MapaView;
 import View.PiezaView;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -59,6 +60,7 @@ public class CuartelView extends PiezaView {
         if(turnos_faltantes == 0){
             this.setImagenCuartelConstruido();
             System.out.println("Cambie imagen");
+            MapaView.getInstancia().reproducirEfecto().terminarEdificio();
         }
     }
 
@@ -66,6 +68,7 @@ public class CuartelView extends PiezaView {
     public void colocarImgRestos(){
         ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/destruido.png"));
         agregarImagen(imagenAldeanoFrente);
+        MapaView.getInstancia().reproducirEfecto().destruirEdifio();
     }
 
 }

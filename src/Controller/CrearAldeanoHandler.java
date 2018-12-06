@@ -30,6 +30,7 @@ public class CrearAldeanoHandler implements EventHandler<ActionEvent> {
         JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
         try {
             jugadorViewActual.crearAldeano(plazaMod);
+            mapa.reproducirEfecto().construirUnidad();
             mapa.enviarMensaje("Aldeano creado exitosamente.");
         }catch (EdificioNoExisteException e){
             new Alerta().unidadEnemiga();

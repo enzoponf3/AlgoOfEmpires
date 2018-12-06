@@ -53,6 +53,7 @@ public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionE
                 try {
                     jugadorViewActual.continuarConstruccionCuartel(aldeanoModelo, edificioModelo);
                     edificioView.construir();
+                    mapaView.reproducirEfecto().continuarEdificio();
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {

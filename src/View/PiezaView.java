@@ -111,10 +111,4 @@ public abstract class PiezaView extends StackPane {
         return entidadModelo.estaMuerto();
     }
 
-    public void imagenMuerto(){
-        if( estaMuerta() ){
-            colocarImgRestos();
-        }
-    }
-
 }

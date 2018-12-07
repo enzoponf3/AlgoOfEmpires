@@ -4,6 +4,7 @@ import Controller.CrearArmaHandler;
 import Modelo.Edificios.Castillo;
 import Modelo.Posicion;
 import Modelo.Constantes;
+import View.MapaView;
 import View.PiezaView;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
@@ -59,5 +60,8 @@ public class CastilloView extends PiezaView {
 
     @Override
     public void colocarImgRestos() {
+        ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/destruido.png"));
+        agregarImagen(imagenAldeanoFrente);
+        MapaView.getInstancia().reproducirEfecto().destruirEdifio();
     }
 }

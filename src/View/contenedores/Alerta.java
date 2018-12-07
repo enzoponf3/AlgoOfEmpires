@@ -163,4 +163,18 @@ public class Alerta {
     private void sonidoError(){
         MapaView.getInstancia().reproducirEfecto().error();
     }
+
+    public void  atacanteEnemig(){
+        sonidoError();
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El atacante es enemigo");
+        alerta.show();
+    }
+
+    public void  objetivoFueraRango(){
+        sonidoError();
+        alerta.setAlertType(Alert.AlertType.ERROR);
+        alerta.setContentText("El objetivo esta fuera de rango");
+        alerta.show();
+    }
 }

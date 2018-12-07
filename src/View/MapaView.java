@@ -179,13 +179,13 @@ public class MapaView extends Pane {
     }
 
     public void removerPiezasDestruidas() {
+        System.out.println("ASDASDAS");
         for(PiezaView pieza : piezasDestruidas) {
             if( pieza.estaMuerta() ){
                 ActualizarView actualizarView = ActualizarView.getInstancia();
                 JugadorView jugadorActual = actualizarView.getJugadorViewActual();
-
                 jugadorActual.getPiezas().getChildren().remove(pieza);
-
+                pieza.removerImagen();
                 jugadorActual.removerPiezasMuertas();
             }
         }

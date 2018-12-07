@@ -212,15 +212,11 @@ public class JugadorView {
             for (Node pieza : this.piezas.getChildren()) {
                 PiezaView piezaView = (PiezaView) pieza;
                 if (piezaView.estaMuerta()) {
+                    System.out.println("Holi");
                     this.piezas.getChildren().remove(piezaView);
                 }
             }
         } catch (ConcurrentModificationException e) {}
     }
 
-    public void imagenPiezaMuerta(){
-        for(Node pieza : this.piezas.getChildren() ){
-
-        }
-    }
 }

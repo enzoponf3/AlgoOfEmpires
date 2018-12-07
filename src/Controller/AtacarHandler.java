@@ -59,7 +59,11 @@ public class AtacarHandler implements EventHandler<ActionEvent> {
         }catch(CasilleroDesocupadoException e){
             new Alerta().faltaObjetivo();
         }catch(EdificioDestruidoException e){
-            new Alerta().edificioDestruido();           //Falta la de unidad muerta
+            new Alerta().edificioDestruido();
+        }catch(AtacanteNoExisteException e){
+            new Alerta().atacanteEnemig();
+        }catch (EntidadFueraDeRangoException e){
+            new Alerta().objetivoFueraRango();
         }
     }
 }

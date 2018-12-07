@@ -67,6 +67,8 @@ public class ContinuarConstruccionPlazaHandler implements EventHandler<ActionEve
                     new Alerta().edifcioEnConstNoSeleccionado();
                 } catch (EdificioYaConstruidoException e) {
                     new Alerta().edificioYaConstruido();
+                } catch(EdificioEnConstruccionException e){
+                    new Alerta().edificioAunEnConst();
                 }
 
 

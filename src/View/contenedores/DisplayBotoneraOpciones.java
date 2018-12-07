@@ -26,7 +26,7 @@ public class DisplayBotoneraOpciones extends VBox {
         this.setPrefSize(limitesPantalla.getWidth()/6,limitesPantalla.getHeight()/5);
         HBox hbox = new HBox();
 
-        Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarUI));
+        Boton pasarTurno = new Boton("Pasar turno",new PasarTurnoButtonHandler(this.juego,actualizarUI,stage));
         pasarTurno.getStyleClass().add("menu-button");
         Boton salir = new Boton("Salir",new CerrarJuegoButtonHandler(this.stage));
         salir.getStyleClass().add("menu-button");

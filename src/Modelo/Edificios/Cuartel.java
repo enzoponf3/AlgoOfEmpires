@@ -19,7 +19,7 @@ public class Cuartel extends Edificio {
         this.vida = 0;
         this.costo = Constantes.COSTO_CUARTEL;
         this.velocidadReparacion = Constantes.VELOCIDAD_REPARACION_CUARTEL;
-        this.estado = new EstadoCuartelNoConstruido(Constantes.TURNOS_CONSTRUCCION_CUARTEL);
+        this.estado = new EstadoCuartelEnConstruccion(Constantes.TURNOS_CONSTRUCCION_CUARTEL);
 
         this.posiciones = posiciones;
     }

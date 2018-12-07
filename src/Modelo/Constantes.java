@@ -9,8 +9,8 @@ public class Constantes {
     public static final int ANCHO_MAPA = 50;
     public static int SEED_CASTILLO_J1 = 2;
     public static int SEED_PLAZA_CENTRAL_J1 = 7;
-    public static int SEED_CASTILLO_J2 = 43;
-    public static int SEED_PLAZA_CENTRAL_J2 = 40;
+    public static int SEED_CASTILLO_J2 = 18;//43;
+    public static int SEED_PLAZA_CENTRAL_J2 = 15;//40;
 
 //    Tamanio Unidad en view
     public static double ALTURA_UNIDAD = 1;

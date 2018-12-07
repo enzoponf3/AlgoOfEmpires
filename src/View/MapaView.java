@@ -8,6 +8,7 @@ import Modelo.Unidades.Aldeano;
 import Modelo.Unidades.ArmaDeAsedio;
 import Modelo.Unidades.Arquero;
 import Modelo.Unidades.Espadachin;
+import View.contenedores.ActualizarView;
 import View.contenedores.Log;
 import View.entidades.*;
 import javafx.event.EventHandler;
@@ -63,7 +64,6 @@ public class MapaView extends Pane {
 
         colocarPiezasIniciales(jugadorView1, jugadorView2);
         getChildren().addAll(casilleros, piezas);
-        agregarAtacantesParaTest();                     //Metodo para test
 
         this.casilleroSeleccionada = null;
 
@@ -179,8 +179,16 @@ public class MapaView extends Pane {
     }
 
     public void removerPiezasDestruidas() {
-        for(PiezaView pieza : piezasDestruidas)
-            pieza.removerImagen();
+        for(PiezaView pieza : piezasDestruidas) {
+            if( pieza.estaMuerta() ){
+                ActualizarView actualizarView = ActualizarView.getInstancia();
+                JugadorView jugadorActual = actualizarView.getJugadorViewActual();
+
+                jugadorActual.getPiezas().getChildren().remove(pieza);
+
+                jugadorActual.removerPiezasMuertas();
+            }
+        }
     }
 
     public ControladorMusicaFx reproducirEfecto(){

@@ -16,12 +16,14 @@ import View.contenedores.PantallaGanador;
 import View.entidades.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Map;
 
 
@@ -32,6 +34,12 @@ public class JugadorView {
     private Jugador jugadorModelo;
     private CastilloView castilloView;
     private Mapa mapaModelo;
+
+    private Group piezas;
+
+    public Group getPiezas(){
+        return this.piezas;
+    }
 
     public void setPersonaje(ImageView figura){
         this.personaje = figura;
@@ -67,7 +75,7 @@ public class JugadorView {
     }
 
     public Group inicializarPiezas(){
-        Group piezas = new Group();
+        this.piezas = new Group();
         this.castilloView = new CastilloView(this.jugadorModelo.getCastillo());
         PlazaCentralView plazaCentralView = new PlazaCentralView((PlazaCentral) this.jugadorModelo.getEdificios().get(0));
         plazaCentralView.setImagenPlazaConstruida();
@@ -197,5 +205,22 @@ public class JugadorView {
 
     public void rendirse() {
         jugadorModelo.rendirse();
+    }
+
+    public void removerPiezasMuertas(){
+        try {
+            for (Node pieza : this.piezas.getChildren()) {
+                PiezaView piezaView = (PiezaView) pieza;
+                if (piezaView.estaMuerta()) {
+                    this.piezas.getChildren().remove(piezaView);
+                }
+            }
+        } catch (ConcurrentModificationException e) {}
+    }
+
+    public void imagenPiezaMuerta(){
+        for(Node pieza : this.piezas.getChildren() ){
+
+        }
     }
 }

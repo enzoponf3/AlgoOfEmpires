@@ -58,5 +58,10 @@ public abstract class Edificio implements IEntidad {
 
     public abstract boolean estaDestruido();
 
+    @Override
+    public boolean estaMuerto(){
+        return estaDestruido();
+    }
+
     public abstract void volverAEstadoOriginal();
 }

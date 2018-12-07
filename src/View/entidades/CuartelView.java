@@ -29,7 +29,7 @@ public class CuartelView extends PiezaView {
         Posicion unaPosicion = posiciones.get(0);
         setPosicion(unaPosicion);
 
-        Image cuartelNoConstruido = new Image("View/img/rubble2.png");
+        Image cuartelNoConstruido = new Image("View/img/EnConstruccion.png");
         ImageView imagenNoConstruido = new ImageView(cuartelNoConstruido);
 
         agregarImagen(imagenNoConstruido);

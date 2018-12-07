@@ -36,8 +36,8 @@ public abstract class Unidad implements IUnidadMovible, IEntidad {
         return this.posicion.igualA(posicion);
     }
 
-
-    public boolean estaMuerto() {
+    @Override
+    public boolean estaMuerto(){
         return this.vida <= 0;
     }
 }

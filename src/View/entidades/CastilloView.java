@@ -56,4 +56,8 @@ public class CastilloView extends PiezaView {
 
         return menu;
     }
+
+    @Override
+    public void colocarImgRestos() {
+    }
 }

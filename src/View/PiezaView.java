@@ -4,6 +4,7 @@ import Controller.PiezaHandler;
 import Modelo.IEntidad;
 import Modelo.Posicion;
 import Modelo.Constantes;
+import Modelo.Unidades.Unidad;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -104,6 +105,16 @@ public abstract class PiezaView extends StackPane {
         getChildren().remove(imagenPieza);
     }
 
-    public void colocarImgRestos() {
+    public abstract void colocarImgRestos();
+
+    public boolean estaMuerta(){
+        return entidadModelo.estaMuerto();
     }
+
+    public void imagenMuerto(){
+        if( estaMuerta() ){
+            colocarImgRestos();
+        }
+    }
+
 }

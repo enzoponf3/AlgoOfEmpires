@@ -66,4 +66,5 @@ public class AldeanoView extends PiezaView {
         ImageView imagenAldeanoFrente = new ImageView( new Image("View/img/Villagerdie011.png"));
         agregarImagen(imagenAldeanoFrente);
     }
+
 }

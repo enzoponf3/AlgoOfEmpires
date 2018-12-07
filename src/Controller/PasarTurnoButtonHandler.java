@@ -1,6 +1,8 @@
 package Controller;
 
 import Modelo.Juego;
+import Modelo.Jugador.Jugador;
+import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;
 import View.contenedores.PantallaJuego;
@@ -27,7 +29,13 @@ public class PasarTurnoButtonHandler implements EventHandler<ActionEvent> {
         if(juego.getGanador() != null)
             actualizarUI.getJugadorViewActual().mostrarQueGane();
         this.actualizarUI.AlternarJugador();
+
+        JugadorView jugadorView = this.actualizarUI.getJugadorViewInactivo();
+        jugadorView.removerPiezasMuertas();
+
         MapaView.getInstancia().enviarMensaje("El castillo atacó.");
         MapaView.getInstancia().removerPiezasDestruidas();
+
+
     }
 }

@@ -1,4 +1,5 @@
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Exceptions.TurnoDelOponenteException;
 import Modelo.Juego;
 import Modelo.Jugador.Jugador;
@@ -28,11 +29,18 @@ public class JuegoTest {
 
     @Test (expected = TurnoDelOponenteException.class)
     public void cambiarCorrectamenteDeTurno() {
-        juego.cambiarDeTurno();
+        try {
+            juego.cambiarDeTurno();
+        } catch (CastilloSinObjetivosEnRangoException ignroed){}
         Jugador jugador = juego.getJugador1();
         Posicion posicion = new Posicion(0,0);
         ArmaDeAsedio armaAsedio = new ArmaDeAsedio(posicion);
         jugador.montarArmaDeAsedio(armaAsedio);
+    }
+
+    @Test (expected = CastilloSinObjetivosEnRangoException.class)
+    public void castilloNoRealizaAtaqueAlFinalizarTurno() {
+        juego.cambiarDeTurno();
     }
 
     @Test

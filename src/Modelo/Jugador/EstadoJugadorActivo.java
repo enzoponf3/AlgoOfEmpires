@@ -1,6 +1,7 @@
 package Modelo.Jugador;
 
 import Modelo.Edificios.*;
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
@@ -102,8 +103,19 @@ public class EstadoJugadorActivo implements IEstadoJugador {
 
     @Override
     public void castilloAtacar(Castillo castillo, ArrayList<Aldeano> aldeanos, ArrayList<Edificio> edificios, ArrayList<IAtacante> ejercito) {
-        castillo.atacarEdificios(edificios);
-        castillo.atacarUnidades(aldeanos,ejercito);
+        boolean atacoUnidades = false;
+        try {
+            castillo.atacarEdificios(edificios);
+        } catch (CastilloSinObjetivosEnRangoException e) {
+//          Si tampoco ataca unidades se lanzara la excepcion
+            castillo.atacarUnidades(aldeanos,ejercito);
+            atacoUnidades = true;
+        }
+//      Ataco a edifcios, verifico si tambien ataco a unidades
+        if (!atacoUnidades)
+            try {
+                castillo.atacarUnidades(aldeanos,ejercito);
+            } catch (CastilloSinObjetivosEnRangoException ignored) {}
     }
 
     //CONSTRUIR

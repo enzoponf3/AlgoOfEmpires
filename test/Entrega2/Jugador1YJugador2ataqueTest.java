@@ -771,7 +771,9 @@ public class Jugador1YJugador2ataqueTest {
         ArrayList <Aldeano> aldeanosJug2 = jugador2.getAldeanos();
         ArrayList <IAtacante> ejercitoJug2 = jugador2.getEjercito();
         ArrayList <Edificio> edificiosJug2 = jugador2.getEdificios();
-        jugador1.castilloAtacar(aldeanosJug2,edificiosJug2,ejercitoJug2);
+        try {
+            jugador1.castilloAtacar(aldeanosJug2,edificiosJug2,ejercitoJug2);
+        } catch (CastilloSinObjetivosEnRangoException ignored) {}
 
         Assert.assertEquals(50, aldeano.getVida());
         Assert.assertEquals(450, plaza.getVida());

@@ -4,6 +4,7 @@ import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
 import Modelo.Edificios.PlazaCentral;
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -102,7 +103,7 @@ public class CastilloUnidadesYAtaqueTest {
         Assert.assertEquals(aldeano.getVida(),30);
     }
 
-    @Test
+    @Test (expected = CastilloSinObjetivosEnRangoException.class)
     public void atacarAldeanoFueraDeRango() {
         ArrayList<Aldeano> aldeanos = new ArrayList<>();
         ArrayList<IAtacante> atacantes = new ArrayList<>();
@@ -110,6 +111,20 @@ public class CastilloUnidadesYAtaqueTest {
         Aldeano aldeano = new Aldeano(posicion);
         aldeanos.add(aldeano);
         castillo.atacarUnidades(aldeanos,atacantes);
+        Assert.assertEquals(aldeano.getVida(),50);
+    }
+
+    @Test
+    public void atacarAldeanoFueraDeRangoNoAfectaSuVida() {
+        ArrayList<Aldeano> aldeanos = new ArrayList<>();
+        ArrayList<IAtacante> atacantes = new ArrayList<>();
+        Posicion posicion = new Posicion(8,8);
+        Aldeano aldeano = new Aldeano(posicion);
+        aldeanos.add(aldeano);
+        try {
+            castillo.atacarUnidades(aldeanos,atacantes);
+        }
+        catch (CastilloSinObjetivosEnRangoException ignored) {}
         Assert.assertEquals(aldeano.getVida(),50);
     }
 
@@ -191,7 +206,7 @@ public class CastilloUnidadesYAtaqueTest {
         Assert.assertEquals(cuartel.getVida(),230);
     }
 
-    @Test
+    @Test (expected = CastilloSinObjetivosEnRangoException.class)
     public void atacarEdificioFueraDeRango() {
         ArrayList<Edificio> edificios = new ArrayList<>();
         Posicion posicionCuartel1 = new Posicion(10,10);
@@ -209,7 +224,6 @@ public class CastilloUnidadesYAtaqueTest {
         cuartel.setPosiciones(posicionesCuartel);
         edificios.add(cuartel);
         castillo.atacarEdificios(edificios);
-        Assert.assertEquals(cuartel.getVida(),250);
     }
 
     @Test

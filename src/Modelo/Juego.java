@@ -1,5 +1,6 @@
 package Modelo;
 
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Jugador.Jugador;
 
 public class Juego {
@@ -30,13 +31,19 @@ public class Juego {
             finalizarJuego(jugador1);
         if(esGanador(jugador2))
             finalizarJuego(jugador2);
+        boolean seRealizoAtaque = true;
+        try {
+            jugador1.castilloAtacar(jugador2.getAldeanos(),jugador2.getEdificios(),jugador2.getEjercito());
+            jugador2.castilloAtacar(jugador1.getAldeanos(),jugador1.getEdificios(),jugador1.getEjercito());
+        } catch (CastilloSinObjetivosEnRangoException e) {
+            seRealizoAtaque = false;
+        }
         jugador1.cambiarTurno();
-        jugador1.castilloAtacar(jugador2.getAldeanos(),jugador2.getEdificios(),jugador2.getEjercito());
         jugador1.recolectarOro();
         jugador2.cambiarTurno();
-        jugador2.castilloAtacar(jugador1.getAldeanos(),jugador1.getEdificios(),jugador1.getEjercito());
         jugador2.recolectarOro();
-
+        if (!seRealizoAtaque)
+            throw new CastilloSinObjetivosEnRangoException();
     }
 
 

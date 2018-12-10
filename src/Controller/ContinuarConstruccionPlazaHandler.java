@@ -51,6 +51,7 @@ public class ContinuarConstruccionPlazaHandler implements EventHandler<ActionEve
                     jugadorViewActual.continuarConstruccionPlazaCentral(aldeano, edificioModelo);
                     edificioView.construir();
                     mapaView.reproducirEfecto().continuarEdificio();
+                    MapaView.getInstancia().enviarMensaje("Se continuo la construcción de la plaza central.");
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {
@@ -69,6 +70,8 @@ public class ContinuarConstruccionPlazaHandler implements EventHandler<ActionEve
                     new Alerta().edificioYaConstruido();
                 } catch(EdificioEnConstruccionException e){
                     new Alerta().edificioAunEnConst();
+                } catch (EdificioNoExisteException e) {
+                    new Alerta().edificioAjeno();
                 }
 
 

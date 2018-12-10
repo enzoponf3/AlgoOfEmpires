@@ -49,6 +49,7 @@ public class ConstruirPlazaCentralHandler implements EventHandler<ActionEvent> {
                 ArrayList<Posicion> posiciones = mapaModelo.getBloque2x2(posicion);
                 jugadorViewActual.construirPlazaCentral(aldeanoModelo, posiciones);
                 mapaView.reproducirEfecto().construirEdificio();
+                MapaView.getInstancia().enviarMensaje("Plaza central en construcción.");
             } catch (OroInsuficienteException e) {
                 new Alerta().oroInsuficiente();
             } catch (PosicionInvalidaException e) {

@@ -1,5 +1,6 @@
 package Controller;
 
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Juego;
 import Modelo.Jugador.Jugador;
 import View.JugadorView;
@@ -28,19 +29,16 @@ public class PasarTurnoButtonHandler implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event){
         MapaView.getInstancia().ControlarMusica().parar();
-        this.juego.cambiarDeTurno();
+        try {
+            this.juego.cambiarDeTurno();
+            MapaView.getInstancia().enviarMensaje("El castillo atacó.");
+        } catch (CastilloSinObjetivosEnRangoException ignored){}
         if(juego.getGanador() != null){
             actualizarUI.getJugadorViewActual().mostrarQueGane();
             stage.close();
         }
+        JugadorView jugadorPosiblementeAtacado = this.actualizarUI.getJugadorViewInactivo();
+        jugadorPosiblementeAtacado.removerPiezasMuertas();
         this.actualizarUI.AlternarJugador();
-
-        JugadorView jugadorView = this.actualizarUI.getJugadorViewInactivo();
-        jugadorView.removerPiezasMuertas();
-
-        MapaView.getInstancia().enviarMensaje("El castillo atacó.");
-        MapaView.getInstancia().removerPiezasDestruidas();
-
-
     }
 }

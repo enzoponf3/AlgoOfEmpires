@@ -174,27 +174,13 @@ public class MapaView extends Pane {
         this.piezaSeleccionada.colocarImgRestos();
     }
 
-    public void agregarAPiezasDestruidas() {
-        piezasDestruidas.add(this.piezaSeleccionada);
-    }
-
-    public void removerPiezasDestruidas() {
-        System.out.println("ASDASDAS");
-        for(PiezaView pieza : piezasDestruidas) {
-            if( pieza.estaMuerta() ){
-                ActualizarView actualizarView = ActualizarView.getInstancia();
-                JugadorView jugadorActual = actualizarView.getJugadorViewActual();
-                jugadorActual.getPiezas().getChildren().remove(pieza);
-                pieza.removerImagen();
-                jugadorActual.removerPiezasMuertas();
-            }
-        }
-    }
-
     public ControladorMusicaFx reproducirEfecto(){
         return efectos;
     }
 
     public ControladorMusicaFx ControlarMusica () { return musica; }
 
+    public void removerPieza(PiezaView piezaViewe) {
+        this.piezas.getChildren().remove(piezaViewe);
+    }
 }

@@ -177,4 +177,10 @@ public class Alerta {
         alerta.setContentText("El objetivo esta fuera de rango");
         alerta.show();
     }
+
+    public void edificioAjeno() {
+        sonidoError();
+        alerta.setContentText("El edificio que se quiere construir no es suyo.");
+        alerta.show();
+    }
 }

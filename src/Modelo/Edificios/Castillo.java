@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Exceptions.CastilloSinObjetivosEnRangoException;
 import Modelo.Exceptions.EdificioDestruidoException;
 import Modelo.Mapa;
 import Modelo.Posicion;
@@ -77,21 +78,33 @@ public class Castillo extends Edificio {
     }
 
     public void atacarEdificios(ArrayList<Edificio> edificios) {
+        boolean realizoAtaque = false;
         for (Edificio edificio : edificios) {
-            if (this.estaEnRango(edificio))
-               edificio.reducirVida(this.danio);
+            if (this.estaEnRango(edificio)) {
+                edificio.reducirVida(this.danio);
+                realizoAtaque = true;
+            }
         }
+        if (!realizoAtaque)
+            throw new CastilloSinObjetivosEnRangoException();
     }
 
     public void atacarUnidades(ArrayList<Aldeano> aldeanos, ArrayList<IAtacante> atacantes) {
+        boolean realizoAtaque = false;
         for (Aldeano aldeano : aldeanos) {
-            if (this.estaEnRango(aldeano))
+            if (this.estaEnRango(aldeano)) {
                 aldeano.reducirVida(this.danio);
+                realizoAtaque = true;
+            }
         }
         for(IAtacante atacante : atacantes){
-            if(this.estaEnRango((Unidad) atacante))
+            if(this.estaEnRango((Unidad) atacante)) {
                 atacante.reducirVida(this.danio);
+                realizoAtaque = true;
+            }
         }
+        if (!realizoAtaque)
+            throw new CastilloSinObjetivosEnRangoException();
     }
 
     @Override

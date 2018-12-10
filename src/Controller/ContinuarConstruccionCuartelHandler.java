@@ -54,6 +54,7 @@ public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionE
                     jugadorViewActual.continuarConstruccionCuartel(aldeanoModelo, edificioModelo);
                     edificioView.construir();
                     mapaView.reproducirEfecto().continuarEdificio();
+                    MapaView.getInstancia().enviarMensaje("Se continuo la construcción del cuartel.");
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {
@@ -68,6 +69,8 @@ public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionE
                     new Alerta().unidadOcupada();
                 } catch (ClassCastException e) {
                     new Alerta().edifcioEnConstNoSeleccionado();
+                } catch (EdificioNoExisteException e) {
+                    new Alerta().edificioAjeno();
                 }
 
             } catch (java.lang.NullPointerException e) {

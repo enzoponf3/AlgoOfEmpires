@@ -1,7 +1,6 @@
 package View;
 
 
-import Controller.ControladorMusicaFx;
 import Modelo.Edificios.Castillo;
 import Modelo.Edificios.Cuartel;
 import Modelo.Edificios.Edificio;
@@ -20,11 +19,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sun.rmi.runtime.Log;
-
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
-import java.util.Map;
+import java.util.Iterator;
 
 
 public class JugadorView {
@@ -34,12 +30,8 @@ public class JugadorView {
     private Jugador jugadorModelo;
     private CastilloView castilloView;
     private Mapa mapaModelo;
-
     private Group piezas;
 
-    public Group getPiezas(){
-        return this.piezas;
-    }
 
     public void setPersonaje(ImageView figura){
         this.personaje = figura;
@@ -74,7 +66,7 @@ public class JugadorView {
 
     }
 
-    public Group inicializarPiezas(){
+    Group inicializarPiezas(){
         this.piezas = new Group();
         this.castilloView = new CastilloView(this.jugadorModelo.getCastillo());
         PlazaCentralView plazaCentralView = new PlazaCentralView((PlazaCentral) this.jugadorModelo.getEdificios().get(0));
@@ -111,6 +103,7 @@ public class JugadorView {
         CuartelView cuartelView = new CuartelView(cuartelModelo);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(cuartelView);
+        this.piezas.getChildren().add(cuartelView);
     }
 
     public void continuarConstruccionCuartel(Aldeano aldeanoModelo, Cuartel cuartelAConstruir){
@@ -125,6 +118,7 @@ public class JugadorView {
         plazaCentralView.setTurnosFaltantes();
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(plazaCentralView);
+        this.piezas.getChildren().add(plazaCentralView);
     }
 
     public void continuarConstruccionPlazaCentral(Aldeano aldeanoModelo, PlazaCentral plazaCentralAConstruir){
@@ -143,6 +137,7 @@ public class JugadorView {
         ArmaDeAsedioView armaView = new ArmaDeAsedioView(arma);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(armaView);
+        this.piezas.getChildren().add(armaView);
     }
 
     public void montarArma(ArmaDeAsedio arma) {
@@ -157,19 +152,17 @@ public class JugadorView {
         MapaView mapa = MapaView.getInstancia();
         try{
             jugadorModelo.atacar(atacante,(Unidad) objetivo);
-            if(((Unidad) objetivo).estaMuerto()){
+            if(objetivo.estaMuerto()){
                 mapa.colocarImgRestos();
-                mapa.agregarAPiezasDestruidas();
             }
-        }catch(ClassCastException e){}
+        }catch(ClassCastException ignored){}
 
         try{
             jugadorModelo.atacar(atacante,(Edificio) objetivo);
             if(((Edificio) objetivo).estaDestruido()){
                 mapa.colocarImgRestos();
-                mapa.agregarAPiezasDestruidas();
             }
-        }catch(ClassCastException e2){}
+        }catch(ClassCastException ignored){}
     }
 
     public Jugador getJugadorModeloParaTest(){              //Metodo solo para test
@@ -182,6 +175,7 @@ public class JugadorView {
         EspadachinView espadachinView = new EspadachinView(espadachin);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(espadachinView);
+        this.piezas.getChildren().add(espadachinView);
     }
 
     public void crearArquero(Cuartel cuartelMod) {
@@ -189,6 +183,7 @@ public class JugadorView {
         ArqueroView arqueroView = new ArqueroView(arquero);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(arqueroView);
+        this.piezas.getChildren().add(arqueroView);
     }
 
     public void crearAldeano(PlazaCentral plazaMod) {
@@ -196,6 +191,7 @@ public class JugadorView {
         AldeanoView aldeanoView = new AldeanoView(aldeano);
         MapaView mapaView = MapaView.getInstancia();
         mapaView.agregarPieza(aldeanoView);
+        this.piezas.getChildren().add(aldeanoView);
     }
 
     public void finalizar(Juego juego) {
@@ -208,15 +204,16 @@ public class JugadorView {
     }
 
     public void removerPiezasMuertas(){
-        try {
-            for (Node pieza : this.piezas.getChildren()) {
-                PiezaView piezaView = (PiezaView) pieza;
-                if (piezaView.estaMuerta()) {
-                    System.out.println("Holi");
-                    this.piezas.getChildren().remove(piezaView);
-                }
+        Iterator<Node> piezas = this.piezas.getChildren().iterator();
+        MapaView mapaView = MapaView.getInstancia();
+        while (piezas.hasNext()) {
+            PiezaView piezaView = (PiezaView) piezas.next();
+            if (piezaView.estaMuerta()) {
+                System.out.println("Elimina pieza");
+                piezas.remove();
+                mapaView.removerPieza(piezaView);
             }
-        } catch (ConcurrentModificationException e) {}
+        }
     }
 
 }

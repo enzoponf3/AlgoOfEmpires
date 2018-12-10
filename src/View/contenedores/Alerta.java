@@ -183,4 +183,10 @@ public class Alerta {
         alerta.setContentText("El edificio que se quiere construir no es suyo.");
         alerta.show();
     }
+
+    public void edificioConVidaMax() {
+        sonidoError();
+        alerta.setContentText("El edificio que se quiere reparar tiene la vida al máximo.");
+        alerta.show();
+    }
 }

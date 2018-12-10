@@ -53,8 +53,8 @@ public class RepararHandler implements EventHandler<ActionEvent> {
                 JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
                 try{
                     jugadorViewActual.reparar(aldeanoModelo,edificio);
-                    System.out.println("Reparo edificio");
-                    System.out.println(edificio.getVida());
+                    mapaView.reproducirEfecto().continuarEdificio();
+                    MapaView.getInstancia().enviarMensaje("Edificio reparado.");
                 } catch (PosicionInvalidaException e) {
                     new Alerta().posicionNoAledania();
                 } catch (PosicionFueraDelMapaException e) {
@@ -63,6 +63,8 @@ public class RepararHandler implements EventHandler<ActionEvent> {
                     new Alerta().unidadEnemiga();
                 } catch (ClassCastException e) {
                     new Alerta().edifcioEnConstNoSeleccionado();
+                } catch (EdificioConVidaAlMaximoException e) {
+                    new Alerta().edificioConVidaMax();
                 }
 
             } catch (java.lang.NullPointerException e) {

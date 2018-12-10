@@ -189,4 +189,10 @@ public class Alerta {
         alerta.setContentText("El edificio que se quiere reparar tiene la vida al máximo.");
         alerta.show();
     }
+
+    public void edificioEnReparacion(){
+        sonidoError();
+        alerta.setContentText("El edificio ya esta siendo reparado.");
+        alerta.show();
+    }
 }

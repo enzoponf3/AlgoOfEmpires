@@ -1,5 +1,6 @@
 package Controller;
 
+import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
 import Modelo.Posicion;
@@ -54,6 +55,7 @@ public class RepararHandler implements EventHandler<ActionEvent> {
                 try{
                     jugadorViewActual.reparar(aldeanoModelo,edificio);
                     mapaView.reproducirEfecto().continuarEdificio();
+
                     MapaView.getInstancia().enviarMensaje("Edificio reparado.");
                 } catch (PosicionInvalidaException e) {
                     new Alerta().posicionNoAledania();
@@ -65,6 +67,8 @@ public class RepararHandler implements EventHandler<ActionEvent> {
                     new Alerta().edifcioEnConstNoSeleccionado();
                 } catch (EdificioConVidaAlMaximoException e) {
                     new Alerta().edificioConVidaMax();
+                } catch (EdificioEnReparacionException e){
+                    new Alerta().edificioEnReparacion();
                 }
 
             } catch (java.lang.NullPointerException e) {

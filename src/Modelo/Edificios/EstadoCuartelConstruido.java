@@ -1,5 +1,6 @@
 package Modelo.Edificios;
 
+import Modelo.Constantes;
 import Modelo.Exceptions.EdificioConVidaAlMaximoException;
 import Modelo.Exceptions.EdificioYaConstruidoException;
 import Modelo.Mapa;

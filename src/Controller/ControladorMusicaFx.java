@@ -100,7 +100,7 @@ public class ControladorMusicaFx {
 
     public void pasarTurno(){
         MediaPlayer inGame =new MediaPlayer(new Media(getClass().getResource("/View/sounds/attackwarning2.wav").toExternalForm()));
-        this.play(inGame,0.2,false);
+        this.play(inGame,1.0,false);
         this.sonido = inGame;
     }
 

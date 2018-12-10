@@ -5,6 +5,7 @@ import Modelo.Exceptions.*;
 import Modelo.Mapa;
 import Modelo.Posicion;
 import Modelo.Unidades.*;
+import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLFault;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import Modelo.Constantes;
@@ -378,5 +379,13 @@ public class Jugador {
 
     public boolean derrotado() {
         return this.getVida() <= 0;
+    }
+
+    public boolean vidaAlMaximo(Edificio edificio) {
+        return edificio.vidaAlMaximo();
+    }
+
+    public boolean construccionFinalizada(Edificio edificio) {
+        return edificio.construccionFinalizada();
     }
 }

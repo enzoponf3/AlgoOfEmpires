@@ -64,4 +64,10 @@ public abstract class Edificio implements IEntidad {
     }
 
     public abstract void volverAEstadoOriginal();
+
+    public boolean vidaAlMaximo() {
+        return this.vida == vidaMax;
+    }
+
+    public abstract boolean construccionFinalizada();
 }

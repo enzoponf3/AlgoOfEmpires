@@ -38,4 +38,9 @@ public class EstadoPlazaCentralNoConstruida implements IEstadoPlazaCentral {
     public boolean estaDestruido() {
         return false;
     }
+
+    @Override
+    public int turnosRestantes() {
+        return this.turnos;
+    }
 }

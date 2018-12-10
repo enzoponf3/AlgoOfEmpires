@@ -156,7 +156,7 @@ public class Alerta {
     public void edificioAunEnConst(){
         sonidoError();
         alerta.setAlertType(Alert.AlertType.ERROR);
-        alerta.setContentText("Debes pasar el turno para poder crear unidades");
+        alerta.setContentText("El edificio esta en construcción");
         alerta.show();
     }
 
@@ -193,6 +193,12 @@ public class Alerta {
     public void edificioEnReparacion(){
         sonidoError();
         alerta.setContentText("El edificio ya esta siendo reparado.");
+        alerta.show();
+    }
+
+    public void edificioNoPuedeCrearUnidades() {
+        sonidoError();
+        alerta.setContentText("No se pueden construir unidades hasta el siguiente turno.");
         alerta.show();
     }
 }

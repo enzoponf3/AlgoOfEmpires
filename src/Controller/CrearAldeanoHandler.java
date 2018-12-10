@@ -39,7 +39,11 @@ public class CrearAldeanoHandler implements EventHandler<ActionEvent> {
         }catch (EdificioNoConstruidoException e){
             new Alerta().edificioNoConstruido();
         }catch(EdificioEnConstruccionException e){
-            new Alerta().edificioAunEnConst();
+            if (jugadorViewActual.construccionFinalizada(plazaMod)) {
+                new Alerta().edificioNoPuedeCrearUnidades();
+            } else {
+                new Alerta().edificioAunEnConst();
+            }
         }
     }
 }

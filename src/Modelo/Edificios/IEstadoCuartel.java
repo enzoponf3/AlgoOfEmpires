@@ -17,4 +17,6 @@ public interface IEstadoCuartel {
     void volverAEstadoOriginal(Cuartel cuartel);
 
     boolean estaDestruido();
+
+    int turnosRestantes();
 }

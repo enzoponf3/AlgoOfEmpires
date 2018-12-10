@@ -43,4 +43,9 @@ public class EstadoCuartelConstruido implements IEstadoCuartel {
     public boolean estaDestruido() {
         return false;
     }
+
+    @Override
+    public int turnosRestantes() {
+        return 0;
+    }
 }

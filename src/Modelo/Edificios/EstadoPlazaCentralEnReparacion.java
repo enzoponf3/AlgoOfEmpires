@@ -33,4 +33,9 @@ public class EstadoPlazaCentralEnReparacion implements IEstadoPlazaCentral {
     public boolean estaDestruido() {
         return false;
     }
+
+    @Override
+    public int turnosRestantes() {
+        return 0;
+    }
 }

@@ -42,4 +42,9 @@ public class EstadoCuartelEnReparacion implements IEstadoCuartel {
     public boolean estaDestruido() {
         return false;
     }
+
+    @Override
+    public int turnosRestantes() {
+        return 0;
+    }
 }

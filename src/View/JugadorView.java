@@ -216,4 +216,11 @@ public class JugadorView {
         }
     }
 
+    public boolean vidaAlMaximo(Edificio edificio) {
+        return jugadorModelo.vidaAlMaximo(edificio);
+    }
+
+    public boolean construccionFinalizada(Edificio edificio) {
+        return jugadorModelo.construccionFinalizada(edificio);
+    }
 }

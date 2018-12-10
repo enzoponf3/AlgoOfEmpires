@@ -14,4 +14,6 @@ public interface IEstadoPlazaCentral {
     void volverAEstadoOriginal(PlazaCentral plazaCentral);
 
     boolean estaDestruido();
+
+    int turnosRestantes();
 }

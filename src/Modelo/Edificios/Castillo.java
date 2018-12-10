@@ -53,6 +53,11 @@ public class Castillo extends Edificio {
         this.estado.volverAEstadoOriginal(this);
     }
 
+    @Override
+    public boolean construccionFinalizada() {
+        return true;
+    }
+
     void construido() {
         this.estado = new EstadoCastilloConstruido();
     }

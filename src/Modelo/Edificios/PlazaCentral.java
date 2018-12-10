@@ -70,6 +70,11 @@ public class PlazaCentral extends Edificio {
         this.estado.volverAEstadoOriginal(this);
     }
 
+    @Override
+    public boolean construccionFinalizada() {
+        return (this.estado.turnosRestantes()==0);
+    }
+
     void noConstruida(int turnosRestantes) {
         this.estado = new EstadoPlazaCentralNoConstruida(turnosRestantes);
     }

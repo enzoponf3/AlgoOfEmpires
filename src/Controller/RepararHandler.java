@@ -1,9 +1,7 @@
 package Controller;
 
-import Modelo.Constantes;
 import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
-import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.JugadorView;
 import View.MapaView;
@@ -14,8 +12,6 @@ import View.entidades.AldeanoView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
-import java.util.ArrayList;
 
 public class RepararHandler implements EventHandler<ActionEvent> {
 
@@ -48,15 +44,16 @@ public class RepararHandler implements EventHandler<ActionEvent> {
             PiezaView edificioView = mapaView.getPiezaSeleccionada();
             try{
                 Edificio edificio = (Edificio) edificioView.getEntidad();
-
-                System.out.println("A reparar");
                 ActualizarView actualizarView = ActualizarView.getInstancia();
                 JugadorView jugadorViewActual = actualizarView.getJugadorViewActual();
                 try{
                     jugadorViewActual.reparar(aldeanoModelo,edificio);
                     mapaView.reproducirEfecto().continuarEdificio();
-
-                    MapaView.getInstancia().enviarMensaje("Edificio reparado.");
+                    if (jugadorViewActual.vidaAlMaximo(edificio)) {
+                        MapaView.getInstancia().enviarMensaje("Edificio reparado, vida al máximo.");
+                    } else {
+                        MapaView.getInstancia().enviarMensaje("Edificio reparado.");
+                    }
                 } catch (PosicionInvalidaException e) {
                     new Alerta().posicionNoAledania();
                 } catch (PosicionFueraDelMapaException e) {

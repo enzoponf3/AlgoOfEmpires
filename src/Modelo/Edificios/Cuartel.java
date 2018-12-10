@@ -83,6 +83,11 @@ public class Cuartel extends Edificio {
         this.estado.volverAEstadoOriginal(this);
     }
 
+    @Override
+    public boolean construccionFinalizada() {
+        return (this.estado.turnosRestantes()==0);
+    }
+
 
     @Override
     public boolean estaDestruido() {

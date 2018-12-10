@@ -1,22 +1,16 @@
 package Controller;
 
 import Modelo.Edificios.Cuartel;
-import Modelo.Edificios.Edificio;
 import Modelo.Exceptions.*;
-import Modelo.Posicion;
 import Modelo.Unidades.Aldeano;
 import View.JugadorView;
 import View.MapaView;
-import View.PiezaView;
 import View.contenedores.ActualizarView;
 import View.contenedores.Alerta;
-import View.entidades.AldeanoView;
 import View.entidades.CuartelView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-
-import java.util.ArrayList;
 
 public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionEvent> {
 
@@ -54,7 +48,11 @@ public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionE
                     jugadorViewActual.continuarConstruccionCuartel(aldeanoModelo, edificioModelo);
                     edificioView.construir();
                     mapaView.reproducirEfecto().continuarEdificio();
-                    MapaView.getInstancia().enviarMensaje("Se continuo la construcción del cuartel.");
+                    if (jugadorViewActual.construccionFinalizada(edificioModelo)) {
+                        MapaView.getInstancia().enviarMensaje("Construcción del cuartel finalizada.");
+                    } else {
+                        MapaView.getInstancia().enviarMensaje("Construcción del cuartel continuada.");
+                    }
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {
@@ -71,6 +69,10 @@ public class ContinuarConstruccionCuartelHandler implements EventHandler<ActionE
                     new Alerta().edifcioEnConstNoSeleccionado();
                 } catch (EdificioNoExisteException e) {
                     new Alerta().edificioAjeno();
+                } catch (EdificioYaConstruidoException e) {
+                    new Alerta().edificioYaConstruido();
+                } catch (EdificioEnConstruccionException e) {
+                    new Alerta().edificioAunEnConst();
                 }
 
             } catch (java.lang.NullPointerException e) {

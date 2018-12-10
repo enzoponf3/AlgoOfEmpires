@@ -38,4 +38,9 @@ public class EstadoCuartelDestruido implements IEstadoCuartel {
         return true;
     }
 
+    @Override
+    public int turnosRestantes() {
+        return 0;
+    }
+
 }

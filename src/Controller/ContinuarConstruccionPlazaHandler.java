@@ -2,13 +2,11 @@ package Controller;
 
 import Modelo.Edificios.PlazaCentral;
 import Modelo.Exceptions.*;
-import Modelo.IEntidad;
 import Modelo.Unidades.Aldeano;
 import View.JugadorView;
 import View.MapaView;
 import View.contenedores.ActualizarView;
 import View.contenedores.Alerta;
-import View.entidades.CuartelView;
 import View.entidades.PlazaCentralView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -51,7 +49,11 @@ public class ContinuarConstruccionPlazaHandler implements EventHandler<ActionEve
                     jugadorViewActual.continuarConstruccionPlazaCentral(aldeano, edificioModelo);
                     edificioView.construir();
                     mapaView.reproducirEfecto().continuarEdificio();
-                    MapaView.getInstancia().enviarMensaje("Se continuo la construcción de la plaza central.");
+                    if (jugadorViewActual.construccionFinalizada(edificioModelo)) {
+                        MapaView.getInstancia().enviarMensaje("Construcción de la plaza central finalizada.");
+                    } else {
+                        MapaView.getInstancia().enviarMensaje("Construcción de la plaza central continuada.");
+                    }
                 } catch (OroInsuficienteException e) {
                     new Alerta().oroInsuficiente();
                 } catch (PosicionInvalidaException e) {
